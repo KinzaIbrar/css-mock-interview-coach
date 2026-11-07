@@ -10,9 +10,10 @@ class Settings(BaseSettings):
 
     app_env: str = "development"
     database_url: str = f"sqlite:///{(BACKEND_DIR / 'app.db').as_posix()}"
-    jwt_secret: str = "dev-only-insecure-secret"
+    jwt_secret: str = "dev-only-insecure-secret-change-me-0123456789"
     jwt_algorithm: str = "HS256"
     access_token_expire_minutes: int = 720
+    bcrypt_rounds: int = 12
     cors_origins: str = "http://localhost:5173"
     gemini_api_key: str = ""
     gemini_model: str = "gemini-2.5-flash"
