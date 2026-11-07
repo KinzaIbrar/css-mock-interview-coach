@@ -1,0 +1,168 @@
+{
+  "meta": {
+    "subject": "International Relations",
+    "status": "SAMPLE / UNVERIFIED study aid. Contested political topics are summarised neutrally; consult authoritative sources and primary documents."
+  },
+  "questions": [
+    {
+      "id": "ir-001", "subject": "International Relations", "topic": "International Organisations", "difficulty": "easy",
+      "question": "What is the role of the United Nations Security Council?",
+      "expected_answer": "The Security Council bears primary responsibility for maintaining international peace and security. It has 15 members: five permanent members with veto power (the United States, United Kingdom, France, Russia and China) and ten non-permanent members elected for two-year terms. Under Chapter VII of the UN Charter it can adopt binding decisions, impose sanctions and authorise peacekeeping or the use of force.",
+      "important_concepts": ["security council", "peace and security", "permanent members", "veto", "chapter vii", "sanctions", "peacekeeping", "15 members"],
+      "evaluation_criteria": ["Explains its primary responsibility", "Describes composition and veto", "Mentions binding powers under Chapter VII"],
+      "tags": ["united-nations", "security-council", "organisations"],
+      "explanation": "A core institutional question; accuracy on composition and powers is expected.",
+      "is_sample": true
+    },
+    {
+      "id": "ir-002", "subject": "International Relations", "topic": "IR Theory", "difficulty": "medium",
+      "question": "Explain the theory of realism in international relations.",
+      "expected_answer": "Realism holds that states are the main actors in an anarchic international system with no central authority, that they pursue power and national interest, and that security is achieved through self-help and balance of power. Classical realists such as Morgenthau ground this in human nature; structural realists (neorealists) such as Waltz stress the structure of the system. Related ideas include the security dilemma. Critics argue it underestimates cooperation, institutions and non-state actors.",
+      "important_concepts": ["realism", "anarchy", "power", "national interest", "self-help", "balance of power", "morgenthau", "waltz", "security dilemma", "neorealism"],
+      "evaluation_criteria": ["States realism's core assumptions", "Distinguishes classical and structural realism", "Offers at least one critique"],
+      "tags": ["realism", "ir-theory", "theory"],
+      "explanation": "Theory questions reward clear assumptions, named scholars and a critique.",
+      "is_sample": true
+    },
+    {
+      "id": "ir-003", "subject": "International Relations", "topic": "Pakistan Foreign Policy", "difficulty": "hard",
+      "question": "Analyse the main challenges facing Pakistan's foreign policy in a multipolar world.",
+      "expected_answer": "Key challenges include balancing relations among major powers such as China and the United States, managing a difficult relationship with India (including Kashmir and water issues) and security and border concerns with Afghanistan, maintaining ties with Gulf states and Iran, and shifting from a security-centred to an economy-centred foreign policy through trade, investment and regional connectivity. A strong answer links external alignment to domestic economic stability and political consensus.",
+      "important_concepts": ["multipolar", "china", "united states", "india", "kashmir", "afghanistan", "economic diplomacy", "balancing", "connectivity", "gulf"],
+      "evaluation_criteria": ["Identifies several distinct external challenges", "Links foreign policy to domestic economic strength", "Proposes strategic priorities or options"],
+      "tags": ["pakistan-foreign-policy", "multipolarity", "strategy"],
+      "explanation": "Strategic analysis question: organise by regions or by relationships and end with priorities.",
+      "is_sample": true
+    },
+    {
+      "id": "ir-004", "subject": "International Relations", "topic": "Diplomacy", "difficulty": "easy",
+      "question": "What is diplomacy, and what functions does an embassy perform under the Vienna Convention?",
+      "expected_answer": "Diplomacy is the conduct of relations between states through negotiation and representation. Under the Vienna Convention on Diplomatic Relations (1961), the functions of a diplomatic mission include representing the sending state, protecting its interests and nationals, negotiating with the host government, reporting on conditions and developments in the host state, and promoting friendly, economic, cultural and scientific relations. Diplomats enjoy privileges and immunities so that they can work freely.",
+      "important_concepts": ["diplomacy", "vienna convention", "1961", "diplomatic mission", "representation", "negotiation", "immunity", "protection of nationals"],
+      "evaluation_criteria": ["Defines diplomacy", "Lists the main functions of a mission", "Mentions diplomatic privileges and immunities"],
+      "tags": ["diplomacy", "vienna-convention", "foreign-service"],
+      "explanation": "Relevant for aspirants to the Foreign Service; the 1961 convention is the key reference.",
+      "is_sample": true
+    },
+    {
+      "id": "ir-005", "subject": "International Relations", "topic": "International Law", "difficulty": "easy",
+      "question": "What are the main sources of international law?",
+      "expected_answer": "According to Article 38 of the Statute of the International Court of Justice, the main sources are international conventions (treaties), international custom as evidence of a general practice accepted as law, and the general principles of law recognised by civilised nations. Judicial decisions and the teachings of highly qualified publicists are subsidiary means for determining rules of law.",
+      "important_concepts": ["treaties", "custom", "general principles of law", "article 38", "icj statute", "judicial decisions", "publicists"],
+      "evaluation_criteria": ["Names treaties, custom and general principles", "Refers to Article 38 of the ICJ Statute", "Identifies subsidiary sources"],
+      "tags": ["international-law", "sources", "icj"],
+      "explanation": "A textbook list question; naming Article 38 and the subsidiary sources adds depth.",
+      "is_sample": true
+    },
+    {
+      "id": "ir-006", "subject": "International Relations", "topic": "International Organisations", "difficulty": "easy",
+      "question": "What is the Organisation of Islamic Cooperation (OIC) and what is its role?",
+      "expected_answer": "The OIC, founded in 1969 (originally as the Organisation of the Islamic Conference), is an intergovernmental organisation of 57 member states with its headquarters in Jeddah, Saudi Arabia. It aims to promote solidarity among Muslim states, protect their common interests and coordinate positions on issues such as Palestine and Kashmir, and cooperate in economic, cultural and social fields. Its effectiveness is limited by differing national interests and the lack of enforcement powers.",
+      "important_concepts": ["oic", "1969", "jeddah", "57 members", "muslim solidarity", "palestine", "cooperation", "limitations"],
+      "evaluation_criteria": ["Gives founding, membership and headquarters", "Explains objectives", "Assesses effectiveness"],
+      "tags": ["oic", "organisations", "muslim-world"],
+      "explanation": "Combine facts with a brief assessment of why the organisation's impact is constrained.",
+      "is_sample": true
+    },
+    {
+      "id": "ir-007", "subject": "International Relations", "topic": "Regional Politics", "difficulty": "easy",
+      "question": "What is ASEAN and what lessons does it offer for regional cooperation?",
+      "expected_answer": "The Association of Southeast Asian Nations was founded in Bangkok in 1967 by Indonesia, Malaysia, the Philippines, Singapore and Thailand, and has since expanded. It promotes economic growth, regional stability and cooperation through consensus-based decision-making and non-interference, the so-called ASEAN way. Lessons include the value of gradual institution-building, economic interdependence and confidence-building even among states with differences, though its consensus rule can slow decisions.",
+      "important_concepts": ["asean", "1967", "bangkok declaration", "consensus", "non-interference", "economic interdependence", "regional stability", "institution-building"],
+      "evaluation_criteria": ["Gives founding facts", "Explains the ASEAN way", "Draws lessons applicable to other regions"],
+      "tags": ["asean", "regionalism", "cooperation"],
+      "explanation": "Comparing ASEAN with SAARC is a common examiner follow-up.",
+      "is_sample": true
+    },
+    {
+      "id": "ir-008", "subject": "International Relations", "topic": "IR Theory", "difficulty": "medium",
+      "question": "Explain liberalism (liberal institutionalism) in international relations and how it differs from realism.",
+      "expected_answer": "Liberalism holds that cooperation among states is possible and beneficial through international institutions, economic interdependence, international law and democratic norms. Thinkers include Immanuel Kant (democratic peace) and later Keohane and Nye (complex interdependence). Unlike realism, which stresses anarchy, power and conflict, liberalism emphasises absolute gains, the role of non-state actors and institutions, and the potential for progress; critics argue it overstates the ability of institutions to constrain powerful states.",
+      "important_concepts": ["liberalism", "institutions", "interdependence", "democratic peace", "kant", "keohane", "cooperation", "absolute gains"],
+      "evaluation_criteria": ["States the core liberal assumptions", "Names key thinkers or concepts", "Contrasts liberalism with realism", "Includes a critique"],
+      "tags": ["liberalism", "ir-theory", "cooperation"],
+      "explanation": "Comparative theory question: the contrast with realism should be explicit.",
+      "is_sample": true
+    },
+    {
+      "id": "ir-009", "subject": "International Relations", "topic": "IR Theory", "difficulty": "medium",
+      "question": "Explain constructivism in international relations.",
+      "expected_answer": "Constructivism argues that international politics is shaped by ideas, norms, identities and shared understandings, not only by material power. Alexander Wendt's claim that 'anarchy is what states make of it' illustrates the idea that the structure of the international system is socially constructed and can change as interactions and identities change. It helps explain issues such as the spread of human-rights norms, but critics say it is better at explaining change after the fact than predicting it.",
+      "important_concepts": ["constructivism", "wendt", "norms", "identity", "ideas", "social construction", "anarchy is what states make of it", "intersubjective"],
+      "evaluation_criteria": ["Explains the role of ideas and identity", "Cites Wendt's argument", "Contrasts with material theories", "Notes limitations"],
+      "tags": ["constructivism", "ir-theory", "norms"],
+      "explanation": "A theory question where the key phrase and the contrast with material approaches carry the answer.",
+      "is_sample": true
+    },
+    {
+      "id": "ir-010", "subject": "International Relations", "topic": "Conflict and Security", "difficulty": "medium",
+      "question": "What is the security dilemma, and how does it apply to South Asia?",
+      "expected_answer": "The security dilemma, described by John Herz, arises when one state's efforts to increase its own security, such as building up arms, make other states feel less secure and respond similarly, which can lead to an arms race and tension even if no side wants conflict. In South Asia, India-Pakistan mistrust, conventional military competition and the nuclear tests of 1998 illustrate this dynamic; confidence-building measures, communication channels and dialogue are possible ways to reduce it.",
+      "important_concepts": ["security dilemma", "john herz", "arms race", "mistrust", "nuclear tests 1998", "confidence-building measures", "south asia", "defensive measures"],
+      "evaluation_criteria": ["Defines the security dilemma accurately", "Applies it to India and Pakistan with specifics", "Suggests ways to mitigate it"],
+      "tags": ["security-dilemma", "south-asia", "arms-race"],
+      "explanation": "A concept-plus-application question; the application must be specific, not generic.",
+      "is_sample": true
+    },
+    {
+      "id": "ir-011", "subject": "International Relations", "topic": "Conflict and Security", "difficulty": "medium",
+      "question": "Explain nuclear deterrence and its role in the India-Pakistan strategic relationship.",
+      "expected_answer": "Deterrence is the prevention of an attack by threatening unacceptable retaliation. After the 1998 nuclear tests, both India and Pakistan rely on nuclear deterrence, which supporters say has made full-scale war less likely. Critics point to the stability-instability paradox: nuclear weapons may reduce the likelihood of total war but allow lower-level conflicts, as in Kargil in 1999, and bring risks of miscalculation and accident. Arms control talks, crisis communication and confidence-building measures can reduce those risks.",
+      "important_concepts": ["deterrence", "1998", "retaliation", "stability-instability paradox", "kargil 1999", "miscalculation", "confidence-building measures", "arms control"],
+      "evaluation_criteria": ["Defines deterrence", "Presents arguments for and against its stabilising effect", "Refers to relevant events", "Suggests risk-reduction steps"],
+      "tags": ["nuclear-deterrence", "strategic-stability", "south-asia"],
+      "explanation": "Requires balanced argument and awareness of the stability-instability paradox.",
+      "is_sample": true
+    },
+    {
+      "id": "ir-012", "subject": "International Relations", "topic": "Pakistan Foreign Policy", "difficulty": "medium",
+      "question": "Describe Pakistan's Cold War alliances (SEATO and the Baghdad Pact/CENTO) and the evolution of its relationship with the United States.",
+      "expected_answer": "Pakistan joined the Southeast Asia Treaty Organization (SEATO) in 1954 and the Baghdad Pact in 1955, which became CENTO in 1959, seeking security assistance and economic aid against perceived threats. The relationship with the US has swung between close cooperation, as in the Afghan war of the 1980s and the post-2001 period, and strain, as after the 1965 war arms restrictions and over sanctions in the 1990s. This pattern led Pakistan to diversify its relationships, notably with China.",
+      "important_concepts": ["seato", "baghdad pact", "cento", "1954", "1955", "us aid", "afghan war", "sanctions", "alliance", "china"],
+      "evaluation_criteria": ["Names and dates the alliances", "Explains Pakistan's reasons for joining", "Traces the cycles in US relations", "Notes diversification"],
+      "tags": ["cold-war", "seato", "us-relations"],
+      "explanation": "A chronological foreign-policy question; connecting motives to outcomes is the core.",
+      "is_sample": true
+    },
+    {
+      "id": "ir-013", "subject": "International Relations", "topic": "Regional Politics", "difficulty": "hard",
+      "question": "Assess the Shanghai Cooperation Organisation (SCO) and its significance for Pakistan.",
+      "expected_answer": "The SCO was founded in 2001 in Shanghai, growing out of the earlier 'Shanghai Five' of China, Russia and Central Asian states. It focuses on regional security, counter-terrorism, economic and cultural cooperation. Pakistan and India became full members in 2017. For Pakistan, membership offers a forum for engagement with China, Russia and Central Asia, connectivity and energy cooperation, and diplomatic balance, though it is constrained by bilateral tensions inside the organisation and limited institutional capacity.",
+      "important_concepts": ["sco", "2001", "shanghai five", "2017 membership", "central asia", "counter-terrorism", "connectivity", "diplomatic balance"],
+      "evaluation_criteria": ["Gives the origin and mandate of the SCO", "Explains Pakistan's interests", "Assesses limits and challenges"],
+      "tags": ["sco", "central-asia", "regionalism"],
+      "explanation": "Assessment questions need both advantages and constraints to be convincing.",
+      "is_sample": true
+    },
+    {
+      "id": "ir-014", "subject": "International Relations", "topic": "IR Theory", "difficulty": "hard",
+      "question": "Analyse the concept of balance of power and its relevance in the contemporary international system.",
+      "expected_answer": "Balance of power refers to the distribution of capabilities among states such that no single state can dominate; states may balance by building up their own power (internal balancing) or forming alliances (external balancing). Historical examples include nineteenth-century Europe and the Cold War. Today, debates concern whether the system is unipolar, bipolar or multipolar, and how rising powers, economic interdependence, nuclear weapons and institutions change balancing behaviour; some argue states often 'hedge' rather than strictly balance.",
+      "important_concepts": ["balance of power", "internal balancing", "external balancing", "alliances", "multipolarity", "hegemony", "rising powers", "hedging"],
+      "evaluation_criteria": ["Defines the concept and types of balancing", "Uses historical and contemporary examples", "Evaluates its continuing relevance"],
+      "tags": ["balance-of-power", "ir-theory", "global-order"],
+      "explanation": "An evaluative theory question: include modern examples to show relevance.",
+      "is_sample": true
+    },
+    {
+      "id": "ir-015", "subject": "International Relations", "topic": "International Law", "difficulty": "hard",
+      "question": "Examine the powers and limitations of the International Court of Justice.",
+      "expected_answer": "The ICJ, seated in The Hague, is the principal judicial organ of the United Nations, with 15 judges. It decides legal disputes between consenting states (contentious jurisdiction) and gives advisory opinions to UN organs and agencies. Its limitations are that its jurisdiction depends on state consent, states may attach reservations or not accept compulsory jurisdiction, and enforcement of judgments depends on the Security Council, where veto power can block action. Despite this, its rulings carry legal and moral authority.",
+      "important_concepts": ["icj", "the hague", "contentious jurisdiction", "advisory opinion", "consent", "enforcement", "security council veto", "15 judges"],
+      "evaluation_criteria": ["Explains both functions of the court", "Identifies consent and enforcement as limits", "Evaluates its overall influence"],
+      "tags": ["icj", "international-law", "judiciary"],
+      "explanation": "Strong answers separate jurisdictional limits from enforcement limits.",
+      "is_sample": true
+    },
+    {
+      "id": "ir-016", "subject": "International Relations", "topic": "Conflict and Security", "difficulty": "hard",
+      "question": "Discuss the Kashmir dispute in the context of international law and bilateral agreements between India and Pakistan.",
+      "expected_answer": "The status of Jammu and Kashmir has been addressed in UN Security Council resolutions calling for a plebiscite and in bilateral agreements. The Tashkent Declaration (1966) and the Simla Agreement (1972), which converted the ceasefire line into the Line of Control and committed the parties to settle differences bilaterally, and the Lahore Declaration (1999) are key texts. Pakistan stresses the UN resolutions and the right of self-determination; India stresses bilateralism and treats Kashmir as an internal matter, a position sharpened by its August 2019 revocation of Article 370. An analysis should present both positions neutrally and consider paths such as dialogue and confidence-building.",
+      "important_concepts": ["security council resolutions", "plebiscite", "self-determination", "simla agreement", "line of control", "tashkent", "lahore declaration", "article 370", "bilateralism"],
+      "evaluation_criteria": ["Covers the UN dimension and the bilateral agreements", "Presents both countries' positions accurately", "Maintains neutrality and analytical tone", "Considers the way forward"],
+      "tags": ["kashmir", "international-law", "south-asia"],
+      "explanation": "A sensitive question: structure by legal frameworks, then positions, then possible paths forward.",
+      "is_sample": true
+    }
+  ]
+}

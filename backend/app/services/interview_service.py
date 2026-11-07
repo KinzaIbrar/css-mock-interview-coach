@@ -1,5 +1,3 @@
-import random
-
 from fastapi import HTTPException, status
 from sqlalchemy import select
 from sqlalchemy.exc import IntegrityError
@@ -19,6 +17,7 @@ from app.schemas.interview import (
     StartInterviewRequest,
     StartInterviewResponse,
 )
+from app.rag import RetrievalQuery, get_retriever, select_questions
 from app.schemas.question import QuestionPublic
 from app.schemas.report import ReportOut
 from app.services import dev_evaluator, progress_service, report_service
@@ -29,18 +28,46 @@ def _question(db: Session, interview: Interview, index: int) -> Question:
     return db.get(Question, interview.question_ids[index])
 
 
+RECENT_INTERVIEWS_FOR_DEDUP = 5
+
+
+def _recently_seen_question_ids(db: Session, user: User) -> list[int]:
+    """Question ids from the user's latest interviews, most recent first (used to avoid repeats)."""
+    rows = db.scalars(
+        select(Interview.question_ids)
+        .where(Interview.user_id == user.id)
+        .order_by(Interview.started_at.desc(), Interview.id.desc())
+        .limit(RECENT_INTERVIEWS_FOR_DEDUP)
+    )
+    return [qid for ids in rows for qid in ids]
+
+
 def start_interview(db: Session, user: User, req: StartInterviewRequest) -> StartInterviewResponse:
-    stmt = select(Question.id).where(Question.subject == req.subject)
-    if req.difficulty != "mixed":
-        stmt = stmt.where(Question.difficulty == req.difficulty)
-    pool = list(db.scalars(stmt))
+    mixed = req.difficulty == "mixed"
+    pool = get_retriever(db).search(
+        RetrievalQuery(
+            subject=req.subject,
+            topic=req.topic,
+            difficulty=None if mixed else req.difficulty,
+            limit=None,
+        )
+    ).items
     if len(pool) < req.num_questions:
+        where = f"{req.subject}" + (f" / {req.topic}" if req.topic else "")
         raise HTTPException(
             status.HTTP_400_BAD_REQUEST,
-            f"Only {len(pool)} question(s) available for {req.subject} ({req.difficulty}); "
+            f"Only {len(pool)} question(s) available for {where} ({req.difficulty}); "
             f"requested {req.num_questions}. Reduce the number of questions or change the difficulty.",
         )
-    chosen = random.sample(pool, req.num_questions)
+    chosen = [
+        q.id
+        for q in select_questions(
+            [sq.question for sq in pool],
+            req.num_questions,
+            recently_seen_ids=_recently_seen_question_ids(db, user),
+            mixed_difficulty=mixed,
+        )
+    ]
     interview = Interview(
         user_id=user.id,
         subject=req.subject,

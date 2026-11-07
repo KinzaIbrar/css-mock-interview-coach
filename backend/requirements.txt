@@ -9,4 +9,6 @@ email-validator
 # dev/test
 pytest
 httpx
-# added in later phases: alembic, google-genai, langgraph
+alembic
+google-genai>=3.0,<4
+# added in later phases: langgraph

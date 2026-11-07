@@ -1,0 +1,594 @@
+{
+ "meta": {
+  "note": "Frozen copy of the original 21-question Phase 3 sample set, used by the legacy tests."
+ },
+ "questions": [
+  {
+   "id": "pa-001",
+   "question": "What was the Lahore Resolution of 1940 and why is it significant?",
+   "subject": "Pakistan Affairs",
+   "topic": "Freedom Movement",
+   "difficulty": "easy",
+   "expected_answer": "The Lahore Resolution was adopted at the All-India Muslim League session in Lahore in March 1940 (Jinnah presiding; moved by A. K. Fazlul Huq). It demanded that the areas where Muslims were numerically in a majority, in the north-western and eastern zones of India, be grouped to constitute independent states. It is widely regarded as the formal political basis of the demand for Pakistan.",
+   "important_concepts": [
+    "lahore resolution",
+    "1940",
+    "muslim league",
+    "fazlul huq",
+    "independent states",
+    "majority",
+    "jinnah"
+   ],
+   "evaluation_criteria": [
+    "Covers the important concepts",
+    "Explains with accurate supporting detail"
+   ],
+   "tags": [
+    "pakistan-affairs"
+   ],
+   "explanation": "Legacy fixture entry kept for regression tests.",
+   "is_sample": true
+  },
+  {
+   "id": "pa-002",
+   "question": "Describe the main features of the Objectives Resolution of 1949 and its role in Pakistan's constitutional development.",
+   "subject": "Pakistan Affairs",
+   "topic": "Constitutional History",
+   "difficulty": "medium",
+   "expected_answer": "Passed by the first Constituent Assembly in March 1949 (moved by Liaquat Ali Khan), it declared that sovereignty over the universe belongs to Allah and that authority is exercised by the people as a sacred trust through their chosen representatives. It promised democracy, freedom, equality, tolerance and social justice as enunciated by Islam, protection of minorities, fundamental rights and an independent judiciary. It served as a preamble to later constitutions and was made a substantive part of the Constitution as Article 2A in 1985.",
+   "important_concepts": [
+    "objectives resolution",
+    "1949",
+    "liaquat ali khan",
+    "sovereignty",
+    "allah",
+    "constituent assembly",
+    "minorities",
+    "article 2a",
+    "fundamental rights"
+   ],
+   "evaluation_criteria": [
+    "Covers the important concepts",
+    "Explains with accurate supporting detail"
+   ],
+   "tags": [
+    "pakistan-affairs"
+   ],
+   "explanation": "Legacy fixture entry kept for regression tests.",
+   "is_sample": true
+  },
+  {
+   "id": "pa-003",
+   "question": "Critically analyse the causes that led to the separation of East Pakistan in 1971.",
+   "subject": "Pakistan Affairs",
+   "topic": "Political History",
+   "difficulty": "hard",
+   "expected_answer": "Historians point to several interacting causes: perceived economic disparity and exploitation of the eastern wing; the language question (1948 and 1952) and wider cultural grievances; political marginalisation and long delays in constitution-making; dominance of the civil-military establishment; geographic separation of the two wings; the failure to transfer power after the 1970 elections in which the Awami League won a majority; the military action of March 1971; and Indian military intervention in December 1971. The Hamoodur Rahman Commission examined the events. A strong answer weighs these factors rather than listing them.",
+   "important_concepts": [
+    "east pakistan",
+    "1971",
+    "language",
+    "economic disparity",
+    "awami league",
+    "1970 elections",
+    "military action",
+    "hamoodur rahman",
+    "autonomy",
+    "six points"
+   ],
+   "evaluation_criteria": [
+    "Covers the important concepts",
+    "Explains with accurate supporting detail"
+   ],
+   "tags": [
+    "pakistan-affairs"
+   ],
+   "explanation": "Legacy fixture entry kept for regression tests.",
+   "is_sample": true
+  },
+  {
+   "id": "ca-001",
+   "question": "What is climate change and why is Pakistan considered vulnerable to it?",
+   "subject": "Current Affairs",
+   "topic": "Environment and Climate",
+   "difficulty": "easy",
+   "expected_answer": "Climate change is the long-term shift in temperature and weather patterns, driven largely by greenhouse gas emissions from human activity. Pakistan contributes a small share of global emissions but is highly exposed: glaciers in the Himalaya-Karakoram-Hindu Kush are melting, monsoon patterns are becoming more erratic with severe floods, heatwaves and droughts are intensifying, and agriculture depends heavily on the Indus water system. Limited financial and institutional capacity to adapt increases the vulnerability.",
+   "important_concepts": [
+    "greenhouse gas",
+    "glaciers",
+    "floods",
+    "monsoon",
+    "heatwave",
+    "agriculture",
+    "indus",
+    "adaptation",
+    "emissions"
+   ],
+   "evaluation_criteria": [
+    "Covers the important concepts",
+    "Explains with accurate supporting detail"
+   ],
+   "tags": [
+    "current-affairs"
+   ],
+   "explanation": "Legacy fixture entry kept for regression tests.",
+   "is_sample": true
+  },
+  {
+   "id": "ca-002",
+   "question": "Discuss the role of the IMF in Pakistan's economic management and the debates surrounding it.",
+   "subject": "Current Affairs",
+   "topic": "Economy",
+   "difficulty": "medium",
+   "expected_answer": "Pakistan has repeatedly entered IMF programmes to address balance-of-payments pressures. Programmes usually carry conditionality such as fiscal consolidation, higher tax revenue, energy-subsidy reform and a more flexible exchange rate. Supporters argue they restore macroeconomic stability and confidence; critics point to inflation, social costs, limits on policy autonomy and the recurring need for new programmes, which reflects structural weaknesses such as a low tax-to-GDP ratio, weak exports and energy-sector circular debt.",
+   "important_concepts": [
+    "imf",
+    "balance of payments",
+    "conditionality",
+    "fiscal",
+    "tax",
+    "subsidies",
+    "exchange rate",
+    "inflation",
+    "structural reforms",
+    "circular debt"
+   ],
+   "evaluation_criteria": [
+    "Covers the important concepts",
+    "Explains with accurate supporting detail"
+   ],
+   "tags": [
+    "current-affairs"
+   ],
+   "explanation": "Legacy fixture entry kept for regression tests.",
+   "is_sample": true
+  },
+  {
+   "id": "ca-003",
+   "question": "Evaluate the implications of artificial intelligence for governance and employment in developing countries such as Pakistan.",
+   "subject": "Current Affairs",
+   "topic": "Technology and Society",
+   "difficulty": "hard",
+   "expected_answer": "Opportunities include better public-service delivery, e-governance, fraud detection, targeted welfare and productivity gains. Risks include job displacement in routine work, a widening digital divide, data-privacy and algorithmic-bias concerns, and weak regulatory and technical capacity. A balanced answer discusses policy responses: a national AI and data-protection framework, investment in digital infrastructure and skills, ethical guidelines, and international cooperation.",
+   "important_concepts": [
+    "artificial intelligence",
+    "governance",
+    "employment",
+    "digital divide",
+    "privacy",
+    "bias",
+    "regulation",
+    "skills",
+    "e-governance",
+    "automation"
+   ],
+   "evaluation_criteria": [
+    "Covers the important concepts",
+    "Explains with accurate supporting detail"
+   ],
+   "tags": [
+    "current-affairs"
+   ],
+   "explanation": "Legacy fixture entry kept for regression tests.",
+   "is_sample": true
+  },
+  {
+   "id": "is-001",
+   "question": "What are the five pillars of Islam?",
+   "subject": "Islamic Studies",
+   "topic": "Fundamentals of Islam",
+   "difficulty": "easy",
+   "expected_answer": "The five pillars are: Shahada (declaration of faith), Salah (the five daily prayers), Zakat (obligatory almsgiving), Sawm (fasting in Ramadan) and Hajj (pilgrimage to Makkah for those who are able).",
+   "important_concepts": [
+    "shahada",
+    "salah",
+    "zakat",
+    "sawm",
+    "fasting",
+    "hajj",
+    "pilgrimage",
+    "prayer"
+   ],
+   "evaluation_criteria": [
+    "Covers the important concepts",
+    "Explains with accurate supporting detail"
+   ],
+   "tags": [
+    "islamic-studies"
+   ],
+   "explanation": "Legacy fixture entry kept for regression tests.",
+   "is_sample": true
+  },
+  {
+   "id": "is-002",
+   "question": "Explain the sources of Islamic law (Shariah).",
+   "subject": "Islamic Studies",
+   "topic": "Islamic Jurisprudence",
+   "difficulty": "medium",
+   "expected_answer": "The primary sources are the Quran and the Sunnah (the sayings, actions and approvals of the Prophet, peace be upon him). The secondary or derived sources commonly accepted are Ijma (consensus of qualified scholars) and Qiyas (analogical reasoning). Other principles such as Istihsan, Maslaha and Urf are used with varying acceptance among schools of jurisprudence, and Ijtihad is the process of reasoning that applies them to new questions.",
+   "important_concepts": [
+    "quran",
+    "sunnah",
+    "ijma",
+    "qiyas",
+    "ijtihad",
+    "primary sources",
+    "consensus",
+    "analogy",
+    "maslaha"
+   ],
+   "evaluation_criteria": [
+    "Covers the important concepts",
+    "Explains with accurate supporting detail"
+   ],
+   "tags": [
+    "islamic-studies"
+   ],
+   "explanation": "Legacy fixture entry kept for regression tests.",
+   "is_sample": true
+  },
+  {
+   "id": "is-003",
+   "question": "Discuss the concept of Ijtihad and its relevance in addressing contemporary challenges.",
+   "subject": "Islamic Studies",
+   "topic": "Islamic Thought",
+   "difficulty": "hard",
+   "expected_answer": "Ijtihad is independent reasoning by a qualified jurist (mujtahid) to derive rulings where the sources give no explicit text. It was central in the formative period of jurisprudence; there is debate over whether its 'gate' was ever closed. Allama Iqbal described ijtihad as the principle of movement in Islam and proposed that it be exercised collectively through a legislative assembly. Contemporary areas include banking and finance, biomedical ethics, technology and the rights and duties of citizens in modern states. A good answer notes the required qualifications and limits of ijtihad.",
+   "important_concepts": [
+    "ijtihad",
+    "mujtahid",
+    "iqbal",
+    "collective",
+    "legislature",
+    "reconstruction",
+    "contemporary",
+    "fiqh",
+    "qualified",
+    "taqlid"
+   ],
+   "evaluation_criteria": [
+    "Covers the important concepts",
+    "Explains with accurate supporting detail"
+   ],
+   "tags": [
+    "islamic-studies"
+   ],
+   "explanation": "Legacy fixture entry kept for regression tests.",
+   "is_sample": true
+  },
+  {
+   "id": "gk-001",
+   "question": "Which is the longest river in Pakistan and why is it important?",
+   "subject": "General Knowledge",
+   "topic": "Geography of Pakistan",
+   "difficulty": "easy",
+   "expected_answer": "The Indus is Pakistan's longest river (roughly 3,000 km in total), rising in Tibet and flowing through Ladakh and Gilgit-Baltistan, then Punjab and Sindh into the Arabian Sea. With its tributaries (Jhelum, Chenab, Ravi, Sutlej and the Kabul River) it feeds the Indus Basin Irrigation System, the backbone of agriculture and hydropower.",
+   "important_concepts": [
+    "indus",
+    "irrigation",
+    "tributaries",
+    "jhelum",
+    "chenab",
+    "arabian sea",
+    "agriculture",
+    "hydropower"
+   ],
+   "evaluation_criteria": [
+    "Covers the important concepts",
+    "Explains with accurate supporting detail"
+   ],
+   "tags": [
+    "general-knowledge"
+   ],
+   "explanation": "Legacy fixture entry kept for regression tests.",
+   "is_sample": true
+  },
+  {
+   "id": "gk-002",
+   "question": "What are the Sustainable Development Goals (SDGs) and why do they matter?",
+   "subject": "General Knowledge",
+   "topic": "Global Development",
+   "difficulty": "medium",
+   "expected_answer": "The SDGs are 17 global goals adopted by United Nations member states in 2015 as part of the 2030 Agenda. They cover poverty, hunger, health, education, gender equality, clean water, energy, decent work, inequality, climate action, peace and institutions, and partnerships. They provide a common framework for national planning and for measuring progress, and Pakistan has integrated them into national and provincial development frameworks.",
+   "important_concepts": [
+    "17 goals",
+    "2030 agenda",
+    "united nations",
+    "poverty",
+    "education",
+    "gender equality",
+    "climate action",
+    "2015",
+    "sustainable development"
+   ],
+   "evaluation_criteria": [
+    "Covers the important concepts",
+    "Explains with accurate supporting detail"
+   ],
+   "tags": [
+    "general-knowledge"
+   ],
+   "explanation": "Legacy fixture entry kept for regression tests.",
+   "is_sample": true
+  },
+  {
+   "id": "gk-003",
+   "question": "Explain the water scarcity challenge in Pakistan and the debate over dams and water management.",
+   "subject": "General Knowledge",
+   "topic": "Water Resources",
+   "difficulty": "hard",
+   "expected_answer": "Per-capita water availability has declined sharply with population growth, and Pakistan's storage capacity is small relative to river flows. Tarbela and Mangla are the major reservoirs. Debates include new storage such as Diamer-Bhasha, the long-contested Kalabagh project and inter-provincial water sharing concerns, inefficient irrigation, groundwater depletion and climate-driven variability. Solutions discussed include additional storage, efficient irrigation and pricing, aquifer recharge, and cooperation under the Indus Waters Treaty framework.",
+   "important_concepts": [
+    "water scarcity",
+    "storage",
+    "tarbela",
+    "mangla",
+    "diamer-bhasha",
+    "kalabagh",
+    "irrigation",
+    "groundwater",
+    "indus waters treaty",
+    "provinces"
+   ],
+   "evaluation_criteria": [
+    "Covers the important concepts",
+    "Explains with accurate supporting detail"
+   ],
+   "tags": [
+    "general-knowledge"
+   ],
+   "explanation": "Legacy fixture entry kept for regression tests.",
+   "is_sample": true
+  },
+  {
+   "id": "en-001",
+   "question": "What is the difference between a simile and a metaphor? Give an example of each.",
+   "subject": "English",
+   "topic": "Figures of Speech",
+   "difficulty": "easy",
+   "expected_answer": "A simile compares two unlike things explicitly using 'like' or 'as' (for example, 'as brave as a lion'). A metaphor states that one thing is another without using 'like' or 'as' (for example, 'He is a lion in battle'), implying the comparison directly.",
+   "important_concepts": [
+    "simile",
+    "metaphor",
+    "like",
+    "as",
+    "comparison",
+    "figure of speech",
+    "example"
+   ],
+   "evaluation_criteria": [
+    "Covers the important concepts",
+    "Explains with accurate supporting detail"
+   ],
+   "tags": [
+    "english"
+   ],
+   "explanation": "Legacy fixture entry kept for regression tests.",
+   "is_sample": true
+  },
+  {
+   "id": "en-002",
+   "question": "Explain the essential qualities of a good precis.",
+   "subject": "English",
+   "topic": "Precis Writing",
+   "difficulty": "medium",
+   "expected_answer": "A good precis reduces the passage to roughly one-third of its length while keeping the main idea and essential points. It is written in the candidate's own words, in the third person and in indirect speech, avoids quotations, examples and personal opinion, is coherent and continuous in a single paragraph, and carries a suitable title.",
+   "important_concepts": [
+    "one-third",
+    "main idea",
+    "own words",
+    "third person",
+    "indirect speech",
+    "title",
+    "concise",
+    "coherent"
+   ],
+   "evaluation_criteria": [
+    "Covers the important concepts",
+    "Explains with accurate supporting detail"
+   ],
+   "tags": [
+    "english"
+   ],
+   "explanation": "Legacy fixture entry kept for regression tests.",
+   "is_sample": true
+  },
+  {
+   "id": "en-003",
+   "question": "How would you structure a persuasive essay on a complex national issue?",
+   "subject": "English",
+   "topic": "Essay Writing",
+   "difficulty": "hard",
+   "expected_answer": "Begin with an outline. The introduction should hook the reader and state a clear thesis. The body should develop several dimensions of the issue (for example political, economic, social and international), support each with evidence, and address counter-arguments fairly. Close with practical recommendations or a way forward, and a conclusion that restates the thesis without simply repeating the introduction. Coherence, balance, precise language and logical transitions matter throughout.",
+   "important_concepts": [
+    "outline",
+    "thesis",
+    "introduction",
+    "counter-argument",
+    "evidence",
+    "recommendations",
+    "conclusion",
+    "coherence",
+    "balance"
+   ],
+   "evaluation_criteria": [
+    "Covers the important concepts",
+    "Explains with accurate supporting detail"
+   ],
+   "tags": [
+    "english"
+   ],
+   "explanation": "Legacy fixture entry kept for regression tests.",
+   "is_sample": true
+  },
+  {
+   "id": "ir-001",
+   "question": "What is the role of the United Nations Security Council?",
+   "subject": "International Relations",
+   "topic": "International Organisations",
+   "difficulty": "easy",
+   "expected_answer": "The Security Council bears primary responsibility for maintaining international peace and security. It has 15 members: five permanent members with veto power (the United States, United Kingdom, France, Russia and China) and ten non-permanent members elected for two-year terms. Under Chapter VII of the UN Charter it can adopt binding decisions, impose sanctions and authorise peacekeeping or the use of force.",
+   "important_concepts": [
+    "security council",
+    "peace and security",
+    "permanent members",
+    "veto",
+    "chapter vii",
+    "sanctions",
+    "peacekeeping",
+    "15 members"
+   ],
+   "evaluation_criteria": [
+    "Covers the important concepts",
+    "Explains with accurate supporting detail"
+   ],
+   "tags": [
+    "international-relations"
+   ],
+   "explanation": "Legacy fixture entry kept for regression tests.",
+   "is_sample": true
+  },
+  {
+   "id": "ir-002",
+   "question": "Explain the theory of realism in international relations.",
+   "subject": "International Relations",
+   "topic": "IR Theory",
+   "difficulty": "medium",
+   "expected_answer": "Realism holds that states are the main actors in an anarchic international system with no central authority, that they pursue power and national interest, and that security is achieved through self-help and balance of power. Classical realists such as Morgenthau ground this in human nature; structural realists (neorealists) such as Waltz stress the structure of the system. Related ideas include the security dilemma. Critics argue it underestimates cooperation, institutions and non-state actors.",
+   "important_concepts": [
+    "realism",
+    "anarchy",
+    "power",
+    "national interest",
+    "self-help",
+    "balance of power",
+    "morgenthau",
+    "waltz",
+    "security dilemma",
+    "neorealism"
+   ],
+   "evaluation_criteria": [
+    "Covers the important concepts",
+    "Explains with accurate supporting detail"
+   ],
+   "tags": [
+    "international-relations"
+   ],
+   "explanation": "Legacy fixture entry kept for regression tests.",
+   "is_sample": true
+  },
+  {
+   "id": "ir-003",
+   "question": "Analyse the main challenges facing Pakistan's foreign policy in a multipolar world.",
+   "subject": "International Relations",
+   "topic": "Pakistan Foreign Policy",
+   "difficulty": "hard",
+   "expected_answer": "Key challenges include balancing relations among major powers such as China and the United States, managing a difficult relationship with India (including Kashmir and water issues) and security and border concerns with Afghanistan, maintaining ties with Gulf states and Iran, and shifting from a security-centred to an economy-centred foreign policy through trade, investment and regional connectivity. A strong answer links external alignment to domestic economic stability and political consensus.",
+   "important_concepts": [
+    "multipolar",
+    "china",
+    "united states",
+    "india",
+    "kashmir",
+    "afghanistan",
+    "economic diplomacy",
+    "balancing",
+    "connectivity",
+    "gulf"
+   ],
+   "evaluation_criteria": [
+    "Covers the important concepts",
+    "Explains with accurate supporting detail"
+   ],
+   "tags": [
+    "international-relations"
+   ],
+   "explanation": "Legacy fixture entry kept for regression tests.",
+   "is_sample": true
+  },
+  {
+   "id": "gc-001",
+   "question": "What is the separation of powers and how is it reflected in Pakistan's Constitution?",
+   "subject": "Governance and Constitutional Studies",
+   "topic": "Constitutional Structure",
+   "difficulty": "easy",
+   "expected_answer": "Separation of powers divides state authority among the legislature, the executive and the judiciary so that each acts as a check on the others. In Pakistan's 1973 Constitution the legislature is Parliament (the National Assembly and the Senate), the executive is the President, the Prime Minister and the Cabinet in a parliamentary system, and the judiciary is headed by the Supreme Court. In practice the boundaries and balance have been contested over time.",
+   "important_concepts": [
+    "separation of powers",
+    "legislature",
+    "executive",
+    "judiciary",
+    "parliament",
+    "national assembly",
+    "senate",
+    "checks and balances",
+    "1973"
+   ],
+   "evaluation_criteria": [
+    "Covers the important concepts",
+    "Explains with accurate supporting detail"
+   ],
+   "tags": [
+    "governance-and-constitutional-studies"
+   ],
+   "explanation": "Legacy fixture entry kept for regression tests.",
+   "is_sample": true
+  },
+  {
+   "id": "gc-002",
+   "question": "Describe the main features of the Eighteenth Amendment to the Constitution of Pakistan.",
+   "subject": "Governance and Constitutional Studies",
+   "topic": "Constitutional Amendments",
+   "difficulty": "medium",
+   "expected_answer": "Passed in April 2010, it removed the President's power to dissolve the National Assembly, abolished the Concurrent Legislative List and devolved subjects to the provinces, renamed the North-West Frontier Province as Khyber Pakhtunkhwa, strengthened the Council of Common Interests, and inserted rights such as the right to education (Article 25A) and the right to information (Article 19A). It also changed the procedure for judicial appointments through a Judicial Commission and a parliamentary committee.",
+   "important_concepts": [
+    "eighteenth amendment",
+    "2010",
+    "provincial autonomy",
+    "concurrent list",
+    "khyber pakhtunkhwa",
+    "article 25a",
+    "article 19a",
+    "council of common interests",
+    "judicial commission"
+   ],
+   "evaluation_criteria": [
+    "Covers the important concepts",
+    "Explains with accurate supporting detail"
+   ],
+   "tags": [
+    "governance-and-constitutional-studies"
+   ],
+   "explanation": "Legacy fixture entry kept for regression tests.",
+   "is_sample": true
+  },
+  {
+   "id": "gc-003",
+   "question": "Evaluate the challenges of local government in Pakistan and its constitutional position.",
+   "subject": "Governance and Constitutional Studies",
+   "topic": "Local Government",
+   "difficulty": "hard",
+   "expected_answer": "Article 140A, inserted by the Eighteenth Amendment, requires each province to establish a local government system and devolve political, administrative and financial responsibility to elected local bodies. In practice, local government has been strongest under military governments (Basic Democracies, the 2001 devolution plan), which raised questions of legitimacy, while elected governments have been reluctant to devolve. Challenges include irregular local elections, limited fiscal autonomy, overlap with provincial departments and weak capacity.",
+   "important_concepts": [
+    "article 140a",
+    "local government",
+    "devolution",
+    "eighteenth amendment",
+    "basic democracies",
+    "fiscal autonomy",
+    "provinces",
+    "elections",
+    "2001"
+   ],
+   "evaluation_criteria": [
+    "Covers the important concepts",
+    "Explains with accurate supporting detail"
+   ],
+   "tags": [
+    "governance-and-constitutional-studies"
+   ],
+   "explanation": "Legacy fixture entry kept for regression tests.",
+   "is_sample": true
+  }
+ ]
+}

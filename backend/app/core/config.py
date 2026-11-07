@@ -16,8 +16,10 @@ class Settings(BaseSettings):
     bcrypt_rounds: int = 12
     cors_origins: str = "http://localhost:5173"
     gemini_api_key: str = ""
-    gemini_model: str = "gemini-2.5-flash"
-    questions_path: Path = ROOT_DIR / "data" / "css_questions.json"
+    gemini_model: str = "gemini-3.8-flash"
+    # A single JSON file, or a directory of *.json files (default: one file per subject).
+    questions_path: Path = ROOT_DIR / "data" / "questions"
+    retrieval_backend: str = "keyword"  # only 'keyword' exists today; a vector backend can be added later
 
     @property
     def cors_origin_list(self) -> list[str]:

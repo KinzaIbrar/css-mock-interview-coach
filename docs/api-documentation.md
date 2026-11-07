@@ -36,17 +36,22 @@ Register body: `{"email", "password", "full_name"}` · Login body: `{"email", "p
 Tokens are HS256 JWTs (`sub` = user id) and expire after `ACCESS_TOKEN_EXPIRE_MINUTES` (default 720).
 
 ## Questions (question bank)
+The bank is a curated **sample, unverified** set (112 questions, see `docs/dataset.md`).
+
 | Method | Path | Description |
 |---|---|---|
-| GET | `/questions` | Query: `subject`, `difficulty`, `search` (matches question text and topic), `limit` (1-100, default 20), `offset`. Returns `{items, total, limit, offset, notice}`. |
-| GET | `/questions/{id}` | One question including `reference_answer` and `keywords`; 404 if unknown. |
+| GET | `/questions` | Filters (all optional, combinable): `subject`, `topic` (exact, case-insensitive), `difficulty` (`easy\|medium\|hard`), `tag`, `search`, plus `limit` (1-100, default 20) and `offset`. Returns `{items, total, limit, offset, notice}`. With `search`, items are **ranked by relevance** (best first), only matching questions are returned and each item carries a `score`; without `search`, `score` is `null` and order is by subject then id. `total` is the match count before pagination. Behaviour change since Phase 3: search matches whole words (with light plural stemming) and word prefixes of 4+ characters, no longer arbitrary substrings (`constitu` matches, `stitution` does not); `search` may now be up to 200 characters. |
+| GET | `/questions/meta` | What the bank contains, for building filters: `{total, subjects: [{subject, count, difficulties: {easy, medium, hard}, topics: [{topic, count}]}], tags, notice}`. |
+| GET | `/questions/{id}` | One question; 404 if unknown. |
+
+Question fields: `id, subject, topic, difficulty, text, reference_answer` (the dataset's *expected answer*), `keywords` (*important concepts*), `evaluation_criteria`, `tags`, `explanation`, `is_sample`, `score`.
 
 ## Interviews
 Flow: `start` → (`answer` → `next`) × N → `complete` → `reports/{id}`.
 
 | Method | Path | Body | Notes |
 |---|---|---|---|
-| POST | `/interviews/start` | `{subject, difficulty="mixed", num_questions=5 (1-20), duration_minutes=30 (5-120), mode="mock"}` | 201. Picks distinct random questions. Returns `{interview, question, question_number, total_questions, notice}`. 400 if the bank has fewer matching questions than requested. The question never includes the reference answer. |
+| POST | `/interviews/start` | `{subject, difficulty="mixed", num_questions=5 (1-20), duration_minutes=30 (5-120), mode="mock", topic?}` | 201. Picks distinct questions, avoiding those from the user's last 5 interviews where possible and spreading topics; `mixed` covers all levels and runs easy to hard; optional `topic` restricts to one topic. Returns `{interview, question, question_number, total_questions, notice}`. 400 if the bank has fewer matching questions than requested (message names the subject/topic and how many exist). The question never includes the reference answer. |
 | POST | `/interviews/answer` | `{interview_id, answer_text (1-8000 chars), time_taken_seconds?}` | Saves the answer and its evaluation. Returns only an acknowledgement `{answered_index, answered_count, has_next, evaluation_saved, evaluation_source}`; **feedback is not revealed during the interview**. 409 if the current question is already answered or the interview is completed. |
 | POST | `/interviews/next` | `{interview_id}` | Advances to the next question: `{finished, question_number, total_questions, question}`. `finished: true` with `question: null` after the last one. 409 if the current question is unanswered. |
 | POST | `/interviews/complete` | `{interview_id}` | Computes the overall score, stores feedback, updates progress, and returns the full report. Idempotent (returns the same report if already completed). 409 if nothing has been answered. |

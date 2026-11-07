@@ -1,0 +1,168 @@
+{
+  "meta": {
+    "subject": "Islamic Studies",
+    "status": "SAMPLE / UNVERIFIED study aid. Presents mainstream positions in general terms; consult authoritative scholarly sources for detailed rulings and differences between schools."
+  },
+  "questions": [
+    {
+      "id": "is-001", "subject": "Islamic Studies", "topic": "Fundamentals of Islam", "difficulty": "easy",
+      "question": "What are the five pillars of Islam?",
+      "expected_answer": "The five pillars are: Shahada (declaration of faith), Salah (the five daily prayers), Zakat (obligatory almsgiving), Sawm (fasting in Ramadan) and Hajj (pilgrimage to Makkah for those who are able).",
+      "important_concepts": ["shahada", "salah", "zakat", "sawm", "fasting", "hajj", "pilgrimage", "prayer"],
+      "evaluation_criteria": ["Names all five pillars correctly", "Briefly explains what each requires", "Shows how they shape individual and communal life"],
+      "tags": ["pillars-of-islam", "worship", "basics"],
+      "explanation": "A foundational recall question; completeness and short explanations of each pillar distinguish a strong answer.",
+      "is_sample": true
+    },
+    {
+      "id": "is-002", "subject": "Islamic Studies", "topic": "Islamic Jurisprudence", "difficulty": "medium",
+      "question": "Explain the sources of Islamic law (Shariah).",
+      "expected_answer": "The primary sources are the Quran and the Sunnah (the sayings, actions and approvals of the Prophet, peace be upon him). The secondary or derived sources commonly accepted are Ijma (consensus of qualified scholars) and Qiyas (analogical reasoning). Other principles such as Istihsan, Maslaha and Urf are used with varying acceptance among schools of jurisprudence, and Ijtihad is the process of reasoning that applies them to new questions.",
+      "important_concepts": ["quran", "sunnah", "ijma", "qiyas", "ijtihad", "primary sources", "consensus", "analogy", "maslaha"],
+      "evaluation_criteria": ["Distinguishes primary from secondary sources", "Explains Ijma and Qiyas", "Mentions Ijtihad and differences among schools"],
+      "tags": ["fiqh", "sources-of-law", "shariah"],
+      "explanation": "Tests understanding of the hierarchy of sources and how new rulings are derived.",
+      "is_sample": true
+    },
+    {
+      "id": "is-003", "subject": "Islamic Studies", "topic": "Islamic Thought", "difficulty": "hard",
+      "question": "Discuss the concept of Ijtihad and its relevance in addressing contemporary challenges.",
+      "expected_answer": "Ijtihad is independent reasoning by a qualified jurist (mujtahid) to derive rulings where the sources give no explicit text. It was central in the formative period of jurisprudence; there is debate over whether its 'gate' was ever closed. Allama Iqbal described ijtihad as the principle of movement in Islam and proposed that it be exercised collectively through a legislative assembly. Contemporary areas include banking and finance, biomedical ethics, technology and the rights and duties of citizens in modern states. A good answer notes the required qualifications and limits of ijtihad.",
+      "important_concepts": ["ijtihad", "mujtahid", "iqbal", "collective ijtihad", "legislature", "reconstruction of religious thought", "contemporary issues", "taqlid", "qualifications"],
+      "evaluation_criteria": ["Defines ijtihad and who may exercise it", "Discusses the 'closing of the gate' debate", "Cites Iqbal's view and examples of modern issues", "Notes limits and safeguards"],
+      "tags": ["ijtihad", "iqbal", "contemporary-issues"],
+      "explanation": "A discussion question connecting classical jurisprudence with modern thought and institutions.",
+      "is_sample": true
+    },
+    {
+      "id": "is-004", "subject": "Islamic Studies", "topic": "Quran and Hadith", "difficulty": "easy",
+      "question": "How was the Quran revealed, and how was it compiled and preserved?",
+      "expected_answer": "The Quran was revealed to the Prophet Muhammad (peace be upon him) over about twenty-three years, beginning in 610 CE with the first verses of Surah Al-Alaq in the cave of Hira. It was memorised and written down during his lifetime. After the Battle of Yamama, the first caliph Abu Bakr had it compiled in one collection under Zaid ibn Thabit, and the third caliph Uthman produced standard copies that were sent to major cities, preserving a single recitation text.",
+      "important_concepts": ["revelation", "610 ce", "cave of hira", "surah al-alaq", "abu bakr", "zaid ibn thabit", "uthman", "mushaf", "memorisation"],
+      "evaluation_criteria": ["Describes the start and duration of revelation", "Explains compilation under Abu Bakr and standardisation under Uthman", "Mentions memorisation and written preservation"],
+      "tags": ["quran", "compilation", "revelation"],
+      "explanation": "A standard question; sequence and the roles of the early caliphs are the key elements.",
+      "is_sample": true
+    },
+    {
+      "id": "is-005", "subject": "Islamic Studies", "topic": "Seerah", "difficulty": "easy",
+      "question": "Outline the significance of the Hijrah and the Charter of Madinah.",
+      "expected_answer": "The Hijrah, the migration of the Prophet (peace be upon him) and his companions from Makkah to Madinah in 622 CE, marks the beginning of the Islamic Hijri calendar and the establishment of the first Muslim community-state. The Charter of Madinah organised relations among Muslims, Jews and other groups in the city, guaranteeing religious freedom, mutual defence and justice, and is often cited as an early example of a constitutional agreement.",
+      "important_concepts": ["hijrah", "622 ce", "madinah", "hijri calendar", "charter of madinah", "religious freedom", "mutual defence", "community"],
+      "evaluation_criteria": ["States what and when the Hijrah was", "Explains its importance", "Describes the main provisions of the Charter of Madinah"],
+      "tags": ["seerah", "hijrah", "madinah"],
+      "explanation": "Tests basic Seerah knowledge and the political-social significance of the Madinan period.",
+      "is_sample": true
+    },
+    {
+      "id": "is-006", "subject": "Islamic Studies", "topic": "Quran and Hadith", "difficulty": "easy",
+      "question": "What is Hadith, and how are Hadith collections and grades classified?",
+      "expected_answer": "Hadith are reports of the sayings, actions and tacit approvals of the Prophet (peace be upon him). Each report has a chain of narrators (isnad) and a text (matn). The six major Sunni collections (Sihah Sitta) are those of Bukhari, Muslim, Abu Dawud, Tirmidhi, Nasai and Ibn Majah. Scholars grade reports mainly as sahih (sound), hasan (good) and daif (weak) according to the reliability of narrators and continuity of the chain.",
+      "important_concepts": ["hadith", "isnad", "matn", "sihah sitta", "bukhari", "muslim", "sahih", "hasan", "daif"],
+      "evaluation_criteria": ["Defines Hadith and its two parts", "Names the major collections", "Explains the grading categories"],
+      "tags": ["hadith", "sunnah", "classification"],
+      "explanation": "Checks both definition and the critical method by which Hadith were authenticated.",
+      "is_sample": true
+    },
+    {
+      "id": "is-007", "subject": "Islamic Studies", "topic": "Islamic Economics", "difficulty": "medium",
+      "question": "Explain the prohibition of riba and the main principles and instruments of Islamic banking.",
+      "expected_answer": "Riba (interest or usury) is prohibited in the Quran because it is considered exploitative and unjust. Islamic finance seeks to replace interest with risk-sharing and asset-backed transactions: mudarabah (profit-sharing partnership), musharakah (joint venture), murabaha (cost-plus sale), ijarah (leasing) and sukuk (asset-backed certificates). Gharar (excessive uncertainty) and gambling (maysir) are also avoided. In Pakistan Islamic banking operates alongside conventional banking under State Bank regulation, with continuing debate about the transition away from interest.",
+      "important_concepts": ["riba", "interest", "mudarabah", "musharakah", "murabaha", "ijarah", "sukuk", "gharar", "risk sharing"],
+      "evaluation_criteria": ["Explains why riba is prohibited", "Describes at least three Islamic finance instruments", "Notes the Pakistani context and debates"],
+      "tags": ["riba", "islamic-banking", "economics"],
+      "explanation": "Expects both the ethical rationale and the practical financial instruments.",
+      "is_sample": true
+    },
+    {
+      "id": "is-008", "subject": "Islamic Studies", "topic": "Seerah", "difficulty": "medium",
+      "question": "Discuss the Farewell Sermon of the Prophet (peace be upon him) and its message on human rights.",
+      "expected_answer": "Delivered at Arafat during the Farewell Hajj in 10 AH (632 CE), the sermon declared the sanctity of life, property and honour, abolished pre-Islamic blood feuds and interest, affirmed the equality of all people (no superiority of Arab over non-Arab or white over black except by piety), gave instructions on the fair treatment of women, and urged adherence to the Quran and Sunnah. It is widely cited as a charter of human dignity and equality.",
+      "important_concepts": ["farewell sermon", "arafat", "632 ce", "equality", "sanctity of life", "rights of women", "abolition of riba", "taqwa", "human rights"],
+      "evaluation_criteria": ["Gives the occasion and setting", "Lists several main principles", "Connects them to human rights and equality"],
+      "tags": ["seerah", "human-rights", "farewell-sermon"],
+      "explanation": "Strong answers organise the sermon's teachings thematically and link them to modern notions of rights.",
+      "is_sample": true
+    },
+    {
+      "id": "is-009", "subject": "Islamic Studies", "topic": "Islamic Jurisprudence", "difficulty": "medium",
+      "question": "Describe the major schools of Islamic jurisprudence (fiqh) and the reasons for differences among them.",
+      "expected_answer": "The four major Sunni schools are the Hanafi (Imam Abu Hanifa, Kufa), Maliki (Imam Malik, Madinah), Shafii (Imam al-Shafii) and Hanbali (Imam Ahmad ibn Hanbal); the Jafari school, named after Imam Jafar al-Sadiq, is followed by most Twelver Shia. Differences arise mainly from differing methodologies in using sources such as hadith, Qiyas, Ijma and local custom, and from regional contexts; they agree on the fundamentals of belief and worship.",
+      "important_concepts": ["hanafi", "maliki", "shafii", "hanbali", "jafari", "abu hanifa", "methodology", "usul al-fiqh", "diversity"],
+      "evaluation_criteria": ["Names the schools with their founders", "Explains the causes of differences", "Stresses agreement on fundamentals"],
+      "tags": ["fiqh", "schools-of-thought", "jurisprudence"],
+      "explanation": "Tests accuracy of names and a respectful, analytical explanation of juristic diversity.",
+      "is_sample": true
+    },
+    {
+      "id": "is-010", "subject": "Islamic Studies", "topic": "Society and Ethics", "difficulty": "medium",
+      "question": "What rights does Islam grant to women in property, marriage and education? How have they been implemented in Pakistan?",
+      "expected_answer": "Islam recognises women's independent right to own and manage property, to inherit a defined share, to receive mahr in marriage, to give consent to marriage, and to seek knowledge, which is described as a duty for every Muslim. In Pakistan, the Muslim Family Laws Ordinance 1961 regulates matters such as marriage registration and divorce procedure, and legislation and courts have addressed inheritance and protection issues, though gaps between legal rights and social practice persist.",
+      "important_concepts": ["property rights", "inheritance", "mahr", "consent", "education", "muslim family laws ordinance", "equality before law", "implementation gap"],
+      "evaluation_criteria": ["Covers at least three categories of rights", "Supports points with Islamic principles", "Discusses implementation in Pakistan and gaps"],
+      "tags": ["women-rights", "family-law", "society"],
+      "explanation": "Strong answers distinguish between normative rights and social practice.",
+      "is_sample": true
+    },
+    {
+      "id": "is-011", "subject": "Islamic Studies", "topic": "Islamic Thought", "difficulty": "hard",
+      "question": "Compare the contributions of Shah Waliullah and Allama Iqbal to Islamic thought in the subcontinent.",
+      "expected_answer": "Shah Waliullah of Delhi (1703-1762) worked in a period of Mughal decline: he translated the Quran into Persian, wrote Hujjat Allah al-Baligha, sought to reconcile differences among the schools of law, and analysed social and economic injustice. Iqbal (1877-1938) was a poet-philosopher whose Reconstruction of Religious Thought in Islam called for rethinking Islamic thought in light of modern knowledge, emphasised khudi (selfhood) and dynamic ijtihad, and in his Allahabad Address (1930) articulated a political vision for Muslims. Both sought revival, Waliullah through reform of religious scholarship and Iqbal through philosophical and political renewal.",
+      "important_concepts": ["shah waliullah", "hujjat allah al-baligha", "reconciliation of fiqh", "iqbal", "khudi", "reconstruction", "ijtihad", "allahabad address", "reform"],
+      "evaluation_criteria": ["Accurately describes each thinker's major works and ideas", "Makes explicit comparisons", "Places both in their historical context"],
+      "tags": ["shah-waliullah", "iqbal", "reform"],
+      "explanation": "A comparison question that needs accurate attribution of ideas to each thinker and a clear comparative frame.",
+      "is_sample": true
+    },
+    {
+      "id": "is-012", "subject": "Islamic Studies", "topic": "Islamic Law in Pakistan", "difficulty": "hard",
+      "question": "Examine the role of Islamic provisions in Pakistan's Constitution and the function of the Federal Shariat Court and the Council of Islamic Ideology.",
+      "expected_answer": "The 1973 Constitution declares Islam the state religion (Article 2), makes the Objectives Resolution a substantive part (Article 2A), and directs that laws be brought in conformity with the Injunctions of Islam (Articles 227-230). The Council of Islamic Ideology advises Parliament and the government on the Islamic aspects of laws, while the Federal Shariat Court, established in 1980, can examine whether a law is repugnant to the Injunctions of Islam, with appeals to the Shariat Appellate Bench of the Supreme Court. Debates concern their scope, binding force and interaction with fundamental rights.",
+      "important_concepts": ["article 2", "article 2a", "injunctions of islam", "council of islamic ideology", "federal shariat court", "1980", "repugnancy", "appellate bench", "islamisation"],
+      "evaluation_criteria": ["Cites the relevant constitutional provisions", "Explains the roles of both institutions", "Discusses limits and debates"],
+      "tags": ["constitution", "federal-shariat-court", "islamisation"],
+      "explanation": "Requires knowledge of constitutional articles and institutions that bridge Islamic law and legislation.",
+      "is_sample": true
+    },
+    {
+      "id": "is-013", "subject": "Islamic Studies", "topic": "Society and Ethics", "difficulty": "hard",
+      "question": "Discuss the Islamic concept of social justice and the role of zakat, sadaqah and waqf in social welfare.",
+      "expected_answer": "Islam stresses justice, the dignity of every person and the circulation of wealth so that it does not remain among the rich only. Zakat is an obligatory annual levy, generally 2.5 percent on qualifying wealth above the nisab, to be spent on defined categories including the poor and needy; sadaqah is voluntary charity; waqf is a perpetual endowment, historically supporting education, health and public works. Together they form a welfare mechanism, whose effectiveness depends on transparent collection and distribution.",
+      "important_concepts": ["social justice", "zakat", "nisab", "2.5 percent", "sadaqah", "waqf", "circulation of wealth", "welfare", "poverty alleviation"],
+      "evaluation_criteria": ["Explains the principle of social justice", "Distinguishes zakat, sadaqah and waqf", "Assesses their role in modern welfare and governance"],
+      "tags": ["zakat", "waqf", "social-justice"],
+      "explanation": "Tests the link between ethical principles and institutional mechanisms for welfare.",
+      "is_sample": true
+    },
+    {
+      "id": "is-014", "subject": "Islamic Studies", "topic": "Islamic History", "difficulty": "easy",
+      "question": "Who were the Khulafa-e-Rashideen, and what were their main contributions?",
+      "expected_answer": "The Rightly Guided Caliphs were Abu Bakr, Umar, Uthman and Ali (may Allah be pleased with them). Abu Bakr preserved the unity of the community, including through the Ridda wars, and began the collection of the Quran. Umar expanded the state, organised administration, the army register (diwan) and the justice system, and introduced the Hijri calendar. Uthman standardised the written text of the Quran and expanded the state's reach. Ali sought to maintain justice and unity during a period of internal strife.",
+      "important_concepts": ["khulafa-e-rashideen", "abu bakr", "umar", "uthman", "ali", "ridda wars", "diwan", "hijri calendar", "standardised quran"],
+      "evaluation_criteria": ["Names the four caliphs in order", "Gives at least one accurate contribution of each", "Presents them in a structured way"],
+      "tags": ["caliphate", "islamic-history", "khulafa"],
+      "explanation": "Tests knowledge of the early caliphate and the characteristic achievement of each period.",
+      "is_sample": true
+    },
+    {
+      "id": "is-015", "subject": "Islamic Studies", "topic": "Fundamentals of Islam", "difficulty": "medium",
+      "question": "Explain the concept of Tawhid and its social implications.",
+      "expected_answer": "Tawhid is the belief in the absolute oneness of God as Creator, Sustainer and the sole object of worship, and the rejection of shirk (associating partners with God). Its social implications include human equality before the one Creator, freedom from submission to worldly powers or superstitions, a unified moral framework, accountability before God, and the unity of the Muslim community.",
+      "important_concepts": ["tawhid", "oneness of god", "shirk", "equality", "accountability", "rububiyyah", "uluhiyyah", "unity of ummah"],
+      "evaluation_criteria": ["Defines tawhid and shirk correctly", "Links belief to social and moral outcomes", "Uses clear structure and examples"],
+      "tags": ["tawhid", "aqidah", "belief"],
+      "explanation": "Strong answers move from the doctrinal definition to its ethical and social consequences.",
+      "is_sample": true
+    },
+    {
+      "id": "is-016", "subject": "Islamic Studies", "topic": "Society and Ethics", "difficulty": "hard",
+      "question": "Evaluate the concept of jihad in Islam and distinguish it from terrorism.",
+      "expected_answer": "Jihad literally means striving or struggle and covers moral and spiritual self-discipline, the pursuit of knowledge and justice, and, under strict conditions, armed defence. Classical rules require legitimate authority, a just cause and restraint: non-combatants, women, children and places of worship must not be harmed, and the Quran stresses that taking one innocent life is like killing all humanity. Terrorism, which targets civilians to spread fear for political ends, violates these principles; in Pakistan a national narrative document of religious scholars, Paigham-e-Pakistan (2018), rejected such violence in the name of religion.",
+      "important_concepts": ["jihad", "struggle", "legitimate authority", "non-combatants", "sanctity of life", "terrorism", "rules of war", "paigham-e-pakistan", "extremism"],
+      "evaluation_criteria": ["Explains the broad meaning of jihad", "States the conditions and limits of armed jihad", "Clearly distinguishes terrorism and extremism", "Maintains a balanced and informed tone"],
+      "tags": ["jihad", "terrorism", "ethics"],
+      "explanation": "A sensitive topic; the best answers rely on classical definitions and rules of conduct rather than slogans.",
+      "is_sample": true
+    }
+  ]
+}

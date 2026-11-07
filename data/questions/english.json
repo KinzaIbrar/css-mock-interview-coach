@@ -1,0 +1,168 @@
+{
+  "meta": {
+    "subject": "English",
+    "status": "SAMPLE / UNVERIFIED study aid for English language and composition practice. Not official CSS material."
+  },
+  "questions": [
+    {
+      "id": "en-001", "subject": "English", "topic": "Figures of Speech", "difficulty": "easy",
+      "question": "What is the difference between a simile and a metaphor? Give an example of each.",
+      "expected_answer": "A simile compares two unlike things explicitly using 'like' or 'as' (for example, 'as brave as a lion'). A metaphor states that one thing is another without using 'like' or 'as' (for example, 'He is a lion in battle'), implying the comparison directly.",
+      "important_concepts": ["simile", "metaphor", "like", "as", "comparison", "figure of speech", "example"],
+      "evaluation_criteria": ["Defines both terms correctly", "Gives a correct example of each", "Explains the key difference (explicit vs implied comparison)"],
+      "tags": ["figures-of-speech", "literary-terms", "basics"],
+      "explanation": "A simple definition question; correct examples are essential.",
+      "is_sample": true
+    },
+    {
+      "id": "en-002", "subject": "English", "topic": "Precis Writing", "difficulty": "medium",
+      "question": "Explain the essential qualities of a good precis.",
+      "expected_answer": "A good precis reduces the passage to roughly one-third of its length while keeping the main idea and essential points. It is written in the candidate's own words, in the third person and in indirect speech, avoids quotations, examples and personal opinion, is coherent and continuous in a single paragraph, and carries a suitable title.",
+      "important_concepts": ["one-third", "main idea", "own words", "third person", "indirect speech", "title", "concise", "coherent"],
+      "evaluation_criteria": ["States the length requirement", "Lists style requirements (own words, third person, indirect speech)", "Mentions what to exclude and the need for a title"],
+      "tags": ["precis", "composition", "exam-skills"],
+      "explanation": "Practical exam-technique question: precision about length and style rules matters.",
+      "is_sample": true
+    },
+    {
+      "id": "en-003", "subject": "English", "topic": "Essay Writing", "difficulty": "hard",
+      "question": "How would you structure a persuasive essay on a complex national issue?",
+      "expected_answer": "Begin with an outline. The introduction should hook the reader and state a clear thesis. The body should develop several dimensions of the issue (for example political, economic, social and international), support each with evidence, and address counter-arguments fairly. Close with practical recommendations or a way forward, and a conclusion that restates the thesis without simply repeating the introduction. Coherence, balance, precise language and logical transitions matter throughout.",
+      "important_concepts": ["outline", "thesis", "introduction", "counter-argument", "evidence", "recommendations", "conclusion", "coherence", "balance"],
+      "evaluation_criteria": ["Describes a clear structure from introduction to conclusion", "Includes thesis, evidence and counter-arguments", "Mentions recommendations and coherence"],
+      "tags": ["essay", "composition", "argument"],
+      "explanation": "Tests planning and argumentation skills central to the CSS essay paper.",
+      "is_sample": true
+    },
+    {
+      "id": "en-004", "subject": "English", "topic": "Grammar", "difficulty": "easy",
+      "question": "What is the difference between active and passive voice? Give examples and say when each is appropriate.",
+      "expected_answer": "In the active voice the subject performs the action ('The committee approved the plan'); in the passive voice the subject receives the action ('The plan was approved by the committee'). The active voice is usually clearer and more direct. The passive is useful when the doer is unknown or unimportant, or when the action or the receiver should be emphasised, as in formal and scientific writing.",
+      "important_concepts": ["active voice", "passive voice", "subject", "object", "doer", "agent", "past participle", "emphasis"],
+      "evaluation_criteria": ["Defines both voices correctly", "Gives correct examples", "Explains appropriate uses of each"],
+      "tags": ["grammar", "voice", "sentence-structure"],
+      "explanation": "Grammar basics: the examples should show the transformation clearly.",
+      "is_sample": true
+    },
+    {
+      "id": "en-005", "subject": "English", "topic": "Grammar", "difficulty": "easy",
+      "question": "Explain the difference between 'affect' and 'effect' with examples.",
+      "expected_answer": "'Affect' is usually a verb meaning to influence ('Floods affect crops'), while 'effect' is usually a noun meaning a result ('The effect of the floods was severe'). Less commonly, 'effect' is a verb meaning to bring about ('to effect change'), and 'affect' is a noun in psychology meaning an observable emotional expression.",
+      "important_concepts": ["affect", "effect", "verb", "noun", "influence", "result", "commonly confused words"],
+      "evaluation_criteria": ["Gives the main verb/noun distinction", "Provides correct example sentences", "Notes the less common usages"],
+      "tags": ["grammar", "vocabulary", "commonly-confused"],
+      "explanation": "A classic confusable pair; accuracy of examples is what counts.",
+      "is_sample": true
+    },
+    {
+      "id": "en-006", "subject": "English", "topic": "Grammar", "difficulty": "easy",
+      "question": "What are the parts of speech in English? Give one example of each.",
+      "expected_answer": "Traditional grammar describes eight parts of speech: noun (Lahore), pronoun (she), verb (write), adjective (brilliant), adverb (quickly), preposition (under), conjunction (but) and interjection (alas). Modern grammars also recognise determiners such as articles ('the', 'a') as a separate class.",
+      "important_concepts": ["noun", "pronoun", "verb", "adjective", "adverb", "preposition", "conjunction", "interjection", "determiner"],
+      "evaluation_criteria": ["Lists all eight parts of speech", "Gives correct examples", "Mentions the role of articles/determiners"],
+      "tags": ["grammar", "parts-of-speech", "basics"],
+      "explanation": "A recall question that should also demonstrate understanding through accurate examples.",
+      "is_sample": true
+    },
+    {
+      "id": "en-007", "subject": "English", "topic": "Grammar", "difficulty": "medium",
+      "question": "Explain direct and indirect speech and the changes needed when converting between them.",
+      "expected_answer": "Direct speech reports the exact words in quotation marks; indirect (reported) speech reports the meaning without quoting. When the reporting verb is in the past tense, verb tenses usually shift back (present to past), pronouns change to fit the reporter's viewpoint, and time and place words change (now to then, here to there, today to that day). Questions become statements introduced by 'if' or 'whether', and commands become infinitives.",
+      "important_concepts": ["direct speech", "indirect speech", "reporting verb", "tense change", "pronouns", "time expressions", "if or whether", "quotation marks"],
+      "evaluation_criteria": ["Defines both forms", "Explains tense, pronoun and adverb changes", "Covers questions and commands"],
+      "tags": ["grammar", "reported-speech", "composition"],
+      "explanation": "Relevant to precis writing; examples of each change strengthen the answer.",
+      "is_sample": true
+    },
+    {
+      "id": "en-008", "subject": "English", "topic": "Composition", "difficulty": "medium",
+      "question": "What are the elements of an effective paragraph?",
+      "expected_answer": "An effective paragraph has a clear topic sentence stating the main idea, supporting sentences with evidence, explanation or examples, unity (every sentence relates to the main idea), coherence achieved through logical order and transitions, and a concluding or linking sentence. Length and style should suit the purpose and audience.",
+      "important_concepts": ["topic sentence", "supporting details", "unity", "coherence", "transitions", "concluding sentence", "examples"],
+      "evaluation_criteria": ["Names the main elements", "Explains unity and coherence", "Shows how the elements work together"],
+      "tags": ["composition", "paragraph", "writing"],
+      "explanation": "The paragraph is the building block of essays; unity and coherence are the key terms.",
+      "is_sample": true
+    },
+    {
+      "id": "en-009", "subject": "English", "topic": "Vocabulary and Usage", "difficulty": "medium",
+      "question": "What are idioms and phrasal verbs? Why should they be used carefully in formal writing?",
+      "expected_answer": "An idiom is a fixed expression whose meaning cannot be deduced from its individual words ('a blessing in disguise'). A phrasal verb combines a verb with a particle to create a new meaning ('call off' means cancel). They enrich language but are often informal, ambiguous or culturally specific, so in formal writing they should be used sparingly and accurately, with a more precise single word chosen where appropriate.",
+      "important_concepts": ["idiom", "phrasal verb", "particle", "figurative meaning", "formal register", "informal", "ambiguity"],
+      "evaluation_criteria": ["Defines both with correct examples", "Explains the formality issue", "Suggests how to use them appropriately"],
+      "tags": ["vocabulary", "idioms", "phrasal-verbs"],
+      "explanation": "Tests understanding of register as well as definitions.",
+      "is_sample": true
+    },
+    {
+      "id": "en-010", "subject": "English", "topic": "Comprehension", "difficulty": "medium",
+      "question": "How should a candidate approach a comprehension passage in an examination?",
+      "expected_answer": "Read the passage carefully once to grasp the main idea, then read the questions and re-read the relevant parts. Answer in your own words rather than copying, support answers with evidence from the text, distinguish literal from inferential questions, keep answers concise and grammatically correct, and manage time so that every question is attempted.",
+      "important_concepts": ["main idea", "own words", "inference", "evidence from text", "time management", "literal vs inferential", "concise"],
+      "evaluation_criteria": ["Describes a clear step-by-step approach", "Distinguishes literal and inferential questions", "Mentions language accuracy and time management"],
+      "tags": ["comprehension", "exam-skills", "reading"],
+      "explanation": "A practical strategy question; clarity and sequence of steps matter.",
+      "is_sample": true
+    },
+    {
+      "id": "en-011", "subject": "English", "topic": "Composition", "difficulty": "medium",
+      "question": "Distinguish formal from informal writing and give guidance for writing official correspondence.",
+      "expected_answer": "Formal writing uses precise vocabulary, complete sentences, an impersonal tone and conventional structure, and avoids contractions and slang; informal writing is conversational and personal. Official correspondence should have a proper heading and reference, a clear subject line, a courteous opening, concise and logically ordered paragraphs, a specific request or action, and a polite closing with accurate formal sign-off.",
+      "important_concepts": ["formal", "informal", "tone", "register", "subject line", "official correspondence", "courteous", "concise"],
+      "evaluation_criteria": ["Contrasts the two styles with features", "Lists the elements of an official letter", "Emphasises tone and clarity"],
+      "tags": ["composition", "formal-writing", "letters"],
+      "explanation": "Practical writing skill: structure plus tone.",
+      "is_sample": true
+    },
+    {
+      "id": "en-012", "subject": "English", "topic": "Language and Style", "difficulty": "hard",
+      "question": "Explain denotation and connotation and why they matter in persuasive writing.",
+      "expected_answer": "Denotation is the literal dictionary meaning of a word; connotation is the emotional or cultural association it carries. 'Thrifty' and 'stingy' share a denotation but differ in connotation. In persuasive writing, careful diction shapes tone and influences the reader, so writers choose words whose connotations support their argument while avoiding loaded language that undermines credibility.",
+      "important_concepts": ["denotation", "connotation", "diction", "tone", "loaded language", "persuasion", "credibility"],
+      "evaluation_criteria": ["Defines both terms precisely with contrasting examples", "Explains impact on tone and persuasion", "Notes the risk of loaded language"],
+      "tags": ["style", "diction", "persuasion"],
+      "explanation": "Rewards examples that show the same literal meaning with different emotional effect.",
+      "is_sample": true
+    },
+    {
+      "id": "en-013", "subject": "English", "topic": "Grammar", "difficulty": "hard",
+      "question": "Explain how to identify and correct dangling modifiers, subject-verb disagreement and faulty parallelism.",
+      "expected_answer": "A dangling modifier has no clear word to modify ('Walking to the office, the rain started' should be 'As I was walking to the office, it started to rain'). Subject-verb disagreement occurs when the verb does not match its true subject in number ('The list of items are long' should be 'is'). Faulty parallelism uses unequal grammatical forms in a series ('She likes swimming, to run and cycling' should be 'swimming, running and cycling'). Correct them by finding the true subject, matching forms and rewriting so each modifier clearly attaches to its target.",
+      "important_concepts": ["dangling modifier", "subject-verb agreement", "parallelism", "true subject", "grammatical form", "rewriting", "series"],
+      "evaluation_criteria": ["Explains each error with a correct example", "Shows the corrected version", "States a method for detecting each error"],
+      "tags": ["grammar", "error-correction", "style"],
+      "explanation": "Needs a flawed example and its correction for each error type.",
+      "is_sample": true
+    },
+    {
+      "id": "en-014", "subject": "English", "topic": "Language and Style", "difficulty": "hard",
+      "question": "Explain ethos, pathos and logos and how they are used in argument.",
+      "expected_answer": "Rhetorical appeals described by Aristotle are ethos (credibility and character of the speaker), pathos (appeal to the audience's emotions) and logos (appeal to logic, evidence and reasoning). Effective argument usually combines them: logos provides sound evidence and structure, ethos builds trust through expertise and fairness, and pathos engages the audience, with the caution that emotional appeals should not replace evidence.",
+      "important_concepts": ["ethos", "pathos", "logos", "aristotle", "credibility", "emotion", "logic", "audience"],
+      "evaluation_criteria": ["Defines the three appeals", "Illustrates each with an example", "Discusses how to balance them"],
+      "tags": ["rhetoric", "argument", "persuasion"],
+      "explanation": "Useful for the essay and debate: stress balance and ethical persuasion.",
+      "is_sample": true
+    },
+    {
+      "id": "en-015", "subject": "English", "topic": "Composition", "difficulty": "medium",
+      "question": "Why are clarity and conciseness important in official writing? Give examples of wordiness to avoid.",
+      "expected_answer": "Official writing is read by busy readers who must act on it, so it should be clear, accurate and brief. Wordiness hides the message: 'due to the fact that' can be 'because', 'at this point in time' can be 'now', and 'in the event that' can be 'if'. Use active verbs, remove redundant phrases and jargon, keep sentences focused, and organise points logically.",
+      "important_concepts": ["clarity", "conciseness", "wordiness", "redundancy", "active verbs", "jargon", "plain language"],
+      "evaluation_criteria": ["Explains why clarity matters in official contexts", "Gives accurate examples of wordy phrases and replacements", "Provides practical guidelines"],
+      "tags": ["composition", "plain-language", "official-writing"],
+      "explanation": "Strong answers include concrete before-and-after examples.",
+      "is_sample": true
+    },
+    {
+      "id": "en-016", "subject": "English", "topic": "Vocabulary and Usage", "difficulty": "easy",
+      "question": "What are synonyms, antonyms and homophones? Give examples.",
+      "expected_answer": "Synonyms are words with similar meanings (big and large), antonyms are words with opposite meanings (hot and cold), and homophones sound alike but differ in spelling and meaning (their and there, to and too). Knowing them improves vocabulary and precision, though synonyms are rarely identical in nuance or context.",
+      "important_concepts": ["synonym", "antonym", "homophone", "meaning", "spelling", "nuance", "context"],
+      "evaluation_criteria": ["Defines all three terms", "Gives correct examples", "Notes that usage depends on context"],
+      "tags": ["vocabulary", "word-relationships", "basics"],
+      "explanation": "Basic vocabulary concepts; accuracy of examples matters.",
+      "is_sample": true
+    }
+  ]
+}

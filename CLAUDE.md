@@ -5,7 +5,7 @@ Agentic AI mock-interview platform for CSS (Pakistan) aspirants. 48-hour MVP, so
 ## Stack
 - Frontend: React + Vite + TypeScript, Tailwind v4, shadcn/ui, React Router, Axios, TanStack Query, Recharts, Lucide, React Hook Form + Zod. Tests: Vitest + React Testing Library.
 - Backend: Python 3.11 (uv venv at `backend/.venv`), FastAPI, SQLAlchemy, Pydantic, JWT (pyjwt) + bcrypt. Tests: pytest + httpx.
-- DB: SQLite (`backend/app.db`, gitignored). AI: Gemini API behind an `LLMProvider` interface; LangGraph orchestration. RAG: JSON dataset + keyword retrieval (`data/css_questions.json`).
+- DB: SQLite (`backend/app.db`, gitignored). AI: Gemini API behind an `LLMProvider` interface; LangGraph orchestration. RAG: curated JSON dataset in `data/questions/` (one file per subject, strictly validated) + keyword retrieval behind a `QuestionRetriever` protocol (`backend/app/rag/`). Schema changes go through Alembic migrations (`backend/alembic/`), applied automatically at startup; never require deleting `app.db`.
 - Voice: browser Web Speech / Speech Synthesis only.
 
 ## Hardware rules (strict)
@@ -30,6 +30,8 @@ FastAPI routes → services → SQLAlchemy models. LangGraph graph (shared `Inte
 ## Commands (Windows)
 - Backend: `cd backend; .venv\Scripts\python -m uvicorn app.main:app --reload --port 8000` (docs at /docs)
 - Backend tests: `cd backend; .venv\Scripts\python -m pytest`
+- Validate dataset: `cd backend; .venv\Scripts\python -m app.rag.validate`
+- New migration: edit models, then `.venv\Scripts\python -m alembic revision -m "msg"` (write it by hand; `tests/test_migrations.py` fails on drift)
 - Frontend: `cd frontend; npm run dev` (port 5173, proxies /api → 8000)
 - Frontend tests/build: `npm test`, `npm run build`
 - Notes: TypeScript 7 is used (no `baseUrl`; use `paths` with `./`).

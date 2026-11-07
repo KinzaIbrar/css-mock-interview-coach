@@ -1,0 +1,168 @@
+{
+  "meta": {
+    "subject": "Current Affairs",
+    "status": "SAMPLE / UNVERIFIED study aid. Questions are deliberately framed around durable issues; verify any recent figures or events from current sources."
+  },
+  "questions": [
+    {
+      "id": "ca-001", "subject": "Current Affairs", "topic": "Environment and Climate", "difficulty": "easy",
+      "question": "What is climate change and why is Pakistan considered vulnerable to it?",
+      "expected_answer": "Climate change is the long-term shift in temperature and weather patterns, driven largely by greenhouse gas emissions from human activity. Pakistan contributes a small share of global emissions but is highly exposed: glaciers in the Himalaya-Karakoram-Hindu Kush are melting, monsoon patterns are becoming more erratic with severe floods, heatwaves and droughts are intensifying, and agriculture depends heavily on the Indus water system. Limited financial and institutional capacity to adapt increases the vulnerability.",
+      "important_concepts": ["greenhouse gas", "glaciers", "floods", "monsoon", "heatwave", "agriculture", "indus", "adaptation", "emissions"],
+      "evaluation_criteria": ["Defines climate change correctly", "Explains at least three specific vulnerabilities of Pakistan", "Notes the low contribution to global emissions versus high exposure"],
+      "tags": ["climate-change", "environment", "vulnerability"],
+      "explanation": "Combines a definition with country-specific application; the contrast between low emissions and high vulnerability is the key insight.",
+      "is_sample": true
+    },
+    {
+      "id": "ca-002", "subject": "Current Affairs", "topic": "Economy", "difficulty": "medium",
+      "question": "Discuss the role of the IMF in Pakistan's economic management and the debates surrounding it.",
+      "expected_answer": "Pakistan has repeatedly entered IMF programmes to address balance-of-payments pressures. Programmes usually carry conditionality such as fiscal consolidation, higher tax revenue, energy-subsidy reform and a more flexible exchange rate. Supporters argue they restore macroeconomic stability and confidence; critics point to inflation, social costs, limits on policy autonomy and the recurring need for new programmes, which reflects structural weaknesses such as a low tax-to-GDP ratio, weak exports and energy-sector circular debt.",
+      "important_concepts": ["imf", "balance of payments", "conditionality", "fiscal consolidation", "tax revenue", "subsidies", "exchange rate", "structural reforms", "circular debt"],
+      "evaluation_criteria": ["Explains why Pakistan turns to the IMF", "Describes typical conditions", "Presents both supportive and critical views", "Identifies underlying structural causes"],
+      "tags": ["imf", "economy", "fiscal-policy"],
+      "explanation": "A balanced-debate question: describe the mechanism, then weigh arguments for and against.",
+      "is_sample": true
+    },
+    {
+      "id": "ca-003", "subject": "Current Affairs", "topic": "Technology and Society", "difficulty": "hard",
+      "question": "Evaluate the implications of artificial intelligence for governance and employment in developing countries such as Pakistan.",
+      "expected_answer": "Opportunities include better public-service delivery, e-governance, fraud detection, targeted welfare and productivity gains. Risks include job displacement in routine work, a widening digital divide, data-privacy and algorithmic-bias concerns, and weak regulatory and technical capacity. A balanced answer discusses policy responses: a national AI and data-protection framework, investment in digital infrastructure and skills, ethical guidelines, and international cooperation.",
+      "important_concepts": ["artificial intelligence", "governance", "employment", "digital divide", "privacy", "algorithmic bias", "regulation", "skills", "automation"],
+      "evaluation_criteria": ["Covers both opportunities and risks", "Addresses governance and employment separately", "Proposes concrete policy responses", "Applies the discussion to a developing-country context"],
+      "tags": ["artificial-intelligence", "technology", "governance"],
+      "explanation": "An evaluative question: structure the answer as opportunities, risks, then policy recommendations.",
+      "is_sample": true
+    },
+    {
+      "id": "ca-004", "subject": "Current Affairs", "topic": "Global Issues", "difficulty": "easy",
+      "question": "What is the World Trade Organization (WTO) and why does it matter for developing countries?",
+      "expected_answer": "The WTO, established in 1995 as the successor to the GATT, sets rules for international trade, provides a forum for trade negotiations and operates a dispute-settlement system. Pakistan has been a member since its creation in 1995. For developing countries it offers rules-based market access and protection against arbitrary trade measures, but critics argue that its rules and negotiating power favour wealthier economies and that agriculture and intellectual property rules can disadvantage poorer states.",
+      "important_concepts": ["wto", "1995", "gatt", "dispute settlement", "market access", "trade negotiations", "developing countries", "tariffs"],
+      "evaluation_criteria": ["States the WTO's purpose and its link to the GATT", "Explains benefits for developing countries", "Notes at least one criticism"],
+      "tags": ["wto", "trade", "international-economy"],
+      "explanation": "Tests knowledge of a key global economic institution and the ability to present benefits and limits.",
+      "is_sample": true
+    },
+    {
+      "id": "ca-005", "subject": "Current Affairs", "topic": "Regional Affairs", "difficulty": "easy",
+      "question": "What is SAARC and why has it struggled to achieve its goals?",
+      "expected_answer": "The South Asian Association for Regional Cooperation was founded in Dhaka in December 1985 by Bangladesh, Bhutan, India, the Maldives, Nepal, Pakistan and Sri Lanka, with Afghanistan joining in 2007; its secretariat is in Kathmandu. It aims at economic, social and cultural cooperation. Its progress has been limited by India-Pakistan tensions, the consensus rule and bilateral issues excluded from its agenda, which have delayed summits and kept intra-regional trade low.",
+      "important_concepts": ["saarc", "1985", "dhaka", "kathmandu", "india-pakistan tensions", "consensus", "intra-regional trade", "summit", "regional cooperation"],
+      "evaluation_criteria": ["Gives founding details and membership accurately", "Identifies the purpose of SAARC", "Explains at least two reasons for limited effectiveness"],
+      "tags": ["saarc", "south-asia", "regional-cooperation"],
+      "explanation": "Combines factual recall with a short analysis of why regional integration is difficult.",
+      "is_sample": true
+    },
+    {
+      "id": "ca-006", "subject": "Current Affairs", "topic": "Economy", "difficulty": "easy",
+      "question": "What is inflation? Explain its main causes and its effects on ordinary citizens.",
+      "expected_answer": "Inflation is a sustained rise in the general price level, which reduces the purchasing power of money. Causes include excess demand (demand-pull), higher production or import costs (cost-push), rapid money supply growth, currency depreciation and supply shocks such as floods or fuel price increases. It hurts people on fixed incomes and savers and raises the cost of living; central banks respond with monetary tightening, and governments with supply-side and targeted support measures.",
+      "important_concepts": ["inflation", "purchasing power", "demand-pull", "cost-push", "money supply", "exchange rate", "fixed incomes", "monetary policy"],
+      "evaluation_criteria": ["Defines inflation accurately", "Explains at least two distinct causes", "Describes effects on households", "Mentions policy responses"],
+      "tags": ["inflation", "economy", "monetary-policy"],
+      "explanation": "A core economics concept; strong answers separate demand-side and supply-side causes.",
+      "is_sample": true
+    },
+    {
+      "id": "ca-007", "subject": "Current Affairs", "topic": "Regional Affairs", "difficulty": "medium",
+      "question": "Discuss the significance and the challenges of the China-Pakistan Economic Corridor (CPEC).",
+      "expected_answer": "CPEC, launched formally in 2015 as part of China's Belt and Road Initiative, covers road, rail and energy infrastructure, the Gwadar port and special economic zones linking western China with the Arabian Sea. It has helped ease Pakistan's power shortages and improve connectivity. Challenges include debt and repayment concerns, the security of projects and personnel, transparency, the pace of special economic zones, and ensuring benefits reach local communities and all provinces.",
+      "important_concepts": ["cpec", "belt and road", "gwadar", "energy projects", "connectivity", "special economic zones", "debt sustainability", "security", "transparency"],
+      "evaluation_criteria": ["Describes CPEC's components and strategic purpose", "Identifies benefits and challenges", "Offers a balanced assessment"],
+      "tags": ["cpec", "china", "infrastructure"],
+      "explanation": "Requires balanced treatment: strategic and economic upside versus financial and security risks.",
+      "is_sample": true
+    },
+    {
+      "id": "ca-008", "subject": "Current Affairs", "topic": "Global Issues", "difficulty": "medium",
+      "question": "What are the main challenges of countering terrorism and extremism in Pakistan, and what policy frameworks have been adopted?",
+      "expected_answer": "Challenges include armed militant groups, sectarian and ideological extremism, cross-border sanctuaries and porous borders, terror financing, weak prosecution capacity and the need to counter radicalisation. After the December 2014 attack on the Army Public School in Peshawar, Pakistan adopted the National Action Plan; military operations such as Zarb-e-Azb (2014) and Radd-ul-Fasaad (2017) were also launched. Long-term solutions stress reform of education and justice systems, community engagement, and regional cooperation, not only force.",
+      "important_concepts": ["extremism", "national action plan", "zarb-e-azb", "radd-ul-fasaad", "terror financing", "radicalisation", "border management", "counter-narrative"],
+      "evaluation_criteria": ["Identifies several distinct challenges", "Names specific policy frameworks or operations", "Recognises that a comprehensive approach goes beyond military force"],
+      "tags": ["terrorism", "security", "national-action-plan"],
+      "explanation": "A policy question that should be answered analytically and without sensationalism.",
+      "is_sample": true
+    },
+    {
+      "id": "ca-009", "subject": "Current Affairs", "topic": "Economy", "difficulty": "medium",
+      "question": "What is the circular debt in Pakistan's power sector and how can it be addressed?",
+      "expected_answer": "Circular debt is the accumulation of unpaid bills along the energy supply chain: consumers and distribution companies do not pay fully, so power producers and fuel suppliers go unpaid, and the government often covers the gap through subsidies and borrowing. Causes include transmission and distribution losses, electricity theft, under-recovery of tariffs, high capacity payments and delayed subsidy payments. Solutions include tariff rationalisation, reducing losses and theft, better governance and privatisation or restructuring of distribution companies, renegotiating costly contracts and expanding cheaper generation.",
+      "important_concepts": ["circular debt", "power sector", "line losses", "electricity theft", "tariff", "capacity payments", "subsidies", "distribution companies", "reform"],
+      "evaluation_criteria": ["Explains the mechanism of circular debt", "Identifies several causes", "Proposes concrete reforms"],
+      "tags": ["energy", "circular-debt", "economy"],
+      "explanation": "Tests the ability to explain a complex structural problem clearly and then link causes to solutions.",
+      "is_sample": true
+    },
+    {
+      "id": "ca-010", "subject": "Current Affairs", "topic": "Environment and Climate", "difficulty": "medium",
+      "question": "What causes smog in Punjab, and what policy responses are available?",
+      "expected_answer": "Winter smog results from a mix of crop-residue burning, vehicle and industrial emissions, brick kilns, dust and waste burning, combined with cold, still air and temperature inversion that traps pollutants; transboundary flows also contribute. Effects include respiratory illness, reduced visibility, disrupted transport and economic losses. Responses include cleaner fuels and vehicle standards, zig-zag brick kiln technology, crop-residue management alternatives to burning, air-quality monitoring and public alerts, and regional cooperation.",
+      "important_concepts": ["smog", "crop residue burning", "vehicle emissions", "brick kilns", "temperature inversion", "air quality index", "public health", "regional cooperation"],
+      "evaluation_criteria": ["Identifies multiple causes and the role of weather", "Explains health and economic effects", "Proposes practical policy responses"],
+      "tags": ["smog", "air-pollution", "environment"],
+      "explanation": "A typical environmental policy question that rewards structuring by causes, effects and solutions.",
+      "is_sample": true
+    },
+    {
+      "id": "ca-011", "subject": "Current Affairs", "topic": "Global Issues", "difficulty": "hard",
+      "question": "Evaluate the debate between globalisation and economic nationalism.",
+      "expected_answer": "Globalisation promotes trade, investment, specialisation and technology transfer, lifting growth and lowering prices, but also creates inequality, job losses in exposed industries, dependence on global supply chains and loss of policy autonomy. Economic nationalism and protectionism seek to protect domestic industry, jobs and security through tariffs, subsidies and local-content rules, but risk higher prices, retaliation and reduced efficiency. A balanced view favours managed openness: trade with domestic capacity-building, social protection and strategic resilience.",
+      "important_concepts": ["globalisation", "protectionism", "tariffs", "supply chains", "inequality", "comparative advantage", "economic nationalism", "resilience"],
+      "evaluation_criteria": ["Presents arguments on both sides with reasons", "Uses concepts such as comparative advantage and supply-chain risk", "Reaches a reasoned, balanced conclusion"],
+      "tags": ["globalisation", "trade", "protectionism"],
+      "explanation": "A debate-style question: the conclusion should follow logically from the arguments presented.",
+      "is_sample": true
+    },
+    {
+      "id": "ca-012", "subject": "Current Affairs", "topic": "Economy", "difficulty": "hard",
+      "question": "Why is Pakistan's tax-to-GDP ratio low, and what reforms are needed?",
+      "expected_answer": "Reasons include a narrow tax base, widespread exemptions and concessions, a large informal and undocumented economy, light taxation of agriculture, real estate and retail, heavy reliance on indirect taxes, weak enforcement and administrative capacity, and a weak culture of compliance. Reforms include broadening the base, phasing out exemptions, documenting the economy through digital systems, simplifying procedures, improving the tax administration, and better coordination between federal and provincial taxation.",
+      "important_concepts": ["tax-to-gdp", "narrow tax base", "exemptions", "informal economy", "indirect taxes", "documentation", "tax administration", "compliance"],
+      "evaluation_criteria": ["Explains several structural reasons", "Proposes specific and realistic reforms", "Shows awareness of federal-provincial dimensions"],
+      "tags": ["taxation", "fiscal-policy", "economy"],
+      "explanation": "Strong answers go beyond 'people do not pay taxes' to the structure of the base, exemptions and administration.",
+      "is_sample": true
+    },
+    {
+      "id": "ca-013", "subject": "Current Affairs", "topic": "Environment and Climate", "difficulty": "hard",
+      "question": "Assess the Paris Agreement and the idea of climate justice for developing countries.",
+      "expected_answer": "The Paris Agreement (2015) aims to hold global warming well below 2 degrees Celsius and pursue 1.5 degrees, with countries submitting nationally determined contributions. Climate justice argues that countries that contributed least to emissions suffer most and need finance, technology and adaptation support under the principle of common but differentiated responsibilities. Agreement on a loss-and-damage fund at COP27 (2022) was a step in this direction, but gaps in climate finance and ambition remain, which matters for highly exposed states like Pakistan.",
+      "important_concepts": ["paris agreement", "2015", "1.5 degrees", "nationally determined contributions", "climate finance", "loss and damage", "common but differentiated responsibilities", "climate justice"],
+      "evaluation_criteria": ["Explains the main goals and mechanisms of the Paris Agreement", "Explains climate justice and differentiated responsibility", "Applies the issue to developing countries such as Pakistan", "Evaluates progress and gaps"],
+      "tags": ["paris-agreement", "climate-justice", "climate-finance"],
+      "explanation": "Combines treaty knowledge with an ethical-political argument about responsibility and support.",
+      "is_sample": true
+    },
+    {
+      "id": "ca-014", "subject": "Current Affairs", "topic": "Technology and Society", "difficulty": "medium",
+      "question": "What are the benefits and risks of digital transformation and e-governance?",
+      "expected_answer": "Digital transformation improves speed, transparency and access to public services, reduces corruption opportunities and paperwork, and supports data-driven policy. Risks include the digital divide, exclusion of those without access or skills, cybersecurity and privacy threats, over-reliance on technology and weak legal safeguards. Successful programmes combine digital identity, secure infrastructure, user-friendly services, capacity building and strong data protection rules.",
+      "important_concepts": ["e-governance", "digital transformation", "transparency", "digital divide", "cybersecurity", "privacy", "digital identity", "service delivery"],
+      "evaluation_criteria": ["Explains benefits with examples of service delivery", "Identifies risks and inequalities", "Suggests conditions for success"],
+      "tags": ["e-governance", "digital", "technology"],
+      "explanation": "Asks for a balanced evaluation of technology in public administration.",
+      "is_sample": true
+    },
+    {
+      "id": "ca-015", "subject": "Current Affairs", "topic": "Technology and Society", "difficulty": "easy",
+      "question": "What is cybersecurity and why does it matter for a state and its citizens?",
+      "expected_answer": "Cybersecurity is the protection of computers, networks, data and critical systems from attack, damage or unauthorised access. It matters because banking, energy, health, communications and government services depend on digital systems; threats include hacking, ransomware, data theft and online disinformation. States respond with laws such as Pakistan's Prevention of Electronic Crimes Act (2016), national response teams, awareness and international cooperation, while citizens need good digital hygiene.",
+      "important_concepts": ["cybersecurity", "critical infrastructure", "ransomware", "data protection", "hacking", "prevention of electronic crimes act", "disinformation", "digital hygiene"],
+      "evaluation_criteria": ["Defines cybersecurity and gives examples of threats", "Explains why it matters to both state and citizens", "Mentions legal or institutional responses"],
+      "tags": ["cybersecurity", "technology", "law"],
+      "explanation": "An introductory question on a growing national-security and governance concern.",
+      "is_sample": true
+    },
+    {
+      "id": "ca-016", "subject": "Current Affairs", "topic": "Regional Affairs", "difficulty": "hard",
+      "question": "Why is regional economic integration in South Asia limited, and what would improve it?",
+      "expected_answer": "Intra-regional trade in South Asia is among the lowest of any region. Reasons include political mistrust and unresolved disputes, particularly between India and Pakistan, high tariff and non-tariff barriers, poor transport and transit links, similar export structures, and weak institutions. Improvement would require confidence-building, trade facilitation and transit agreements, better connectivity, energy and water cooperation, and gradual sectoral integration that benefits all members.",
+      "important_concepts": ["regional integration", "intra-regional trade", "non-tariff barriers", "connectivity", "transit", "confidence-building", "saarc", "south asia"],
+      "evaluation_criteria": ["Explains both political and economic barriers", "Uses comparisons or examples with other regions", "Proposes realistic steps toward integration"],
+      "tags": ["south-asia", "integration", "trade"],
+      "explanation": "Strong answers separate political obstacles from economic ones and suggest sequenced reforms.",
+      "is_sample": true
+    }
+  ]
+}

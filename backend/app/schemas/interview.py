@@ -13,6 +13,7 @@ class StartInterviewRequest(BaseModel):
     num_questions: int = Field(default=5, ge=1, le=20)
     duration_minutes: int = Field(default=30, ge=5, le=120)
     mode: str = "mock"
+    topic: str | None = Field(default=None, max_length=128)  # optional: restrict to one topic
 
     @field_validator("subject")
     @classmethod

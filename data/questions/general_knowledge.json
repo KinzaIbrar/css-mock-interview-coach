@@ -1,0 +1,168 @@
+{
+  "meta": {
+    "subject": "General Knowledge",
+    "status": "SAMPLE / UNVERIFIED study aid. Figures are approximate; verify statistics from current official sources."
+  },
+  "questions": [
+    {
+      "id": "gk-001", "subject": "General Knowledge", "topic": "Geography of Pakistan", "difficulty": "easy",
+      "question": "Which is the longest river in Pakistan and why is it important?",
+      "expected_answer": "The Indus is Pakistan's longest river (roughly 3,000 km in total), rising in Tibet and flowing through Ladakh and Gilgit-Baltistan, then Punjab and Sindh into the Arabian Sea. With its tributaries (Jhelum, Chenab, Ravi, Sutlej and the Kabul River) it feeds the Indus Basin Irrigation System, the backbone of agriculture and hydropower.",
+      "important_concepts": ["indus", "irrigation", "tributaries", "jhelum", "chenab", "arabian sea", "agriculture", "hydropower"],
+      "evaluation_criteria": ["Names the Indus and describes its course", "Names major tributaries", "Explains its economic importance"],
+      "tags": ["rivers", "geography", "indus"],
+      "explanation": "A basic geography question; add the economic dimension to move from recall to explanation.",
+      "is_sample": true
+    },
+    {
+      "id": "gk-002", "subject": "General Knowledge", "topic": "Global Development", "difficulty": "medium",
+      "question": "What are the Sustainable Development Goals (SDGs) and why do they matter?",
+      "expected_answer": "The SDGs are 17 global goals adopted by United Nations member states in 2015 as part of the 2030 Agenda. They cover poverty, hunger, health, education, gender equality, clean water, energy, decent work, inequality, climate action, peace and institutions, and partnerships. They provide a common framework for national planning and for measuring progress, and Pakistan has integrated them into national and provincial development frameworks.",
+      "important_concepts": ["17 goals", "2030 agenda", "united nations", "poverty", "education", "gender equality", "climate action", "2015", "sustainable development"],
+      "evaluation_criteria": ["States the number of goals, the year and the 2030 target", "Gives a representative range of goals", "Explains their use as a planning and monitoring framework"],
+      "tags": ["sdgs", "united-nations", "development"],
+      "explanation": "Shows awareness of a global framework and its relevance to national policy.",
+      "is_sample": true
+    },
+    {
+      "id": "gk-003", "subject": "General Knowledge", "topic": "Water Resources", "difficulty": "hard",
+      "question": "Explain the water scarcity challenge in Pakistan and the debate over dams and water management.",
+      "expected_answer": "Per-capita water availability has declined sharply with population growth, and Pakistan's storage capacity is small relative to river flows. Tarbela and Mangla are the major reservoirs. Debates include new storage such as Diamer-Bhasha, the long-contested Kalabagh project and inter-provincial water sharing concerns, inefficient irrigation, groundwater depletion and climate-driven variability. Solutions discussed include additional storage, efficient irrigation and pricing, aquifer recharge, and cooperation under the Indus Waters Treaty framework.",
+      "important_concepts": ["water scarcity", "storage", "tarbela", "mangla", "diamer-bhasha", "kalabagh", "irrigation", "groundwater", "indus waters treaty", "provinces"],
+      "evaluation_criteria": ["Explains causes of scarcity", "Names major dams and the debates around new ones", "Proposes both supply-side and demand-side solutions"],
+      "tags": ["water", "dams", "indus-waters-treaty"],
+      "explanation": "Combines facts with policy debate; strong answers include management as well as new infrastructure.",
+      "is_sample": true
+    },
+    {
+      "id": "gk-004", "subject": "General Knowledge", "topic": "World Geography", "difficulty": "easy",
+      "question": "Name the world's oceans and identify the largest and the deepest.",
+      "expected_answer": "The world's five oceans are the Pacific, Atlantic, Indian, Southern (Antarctic) and Arctic. The Pacific is the largest and the deepest, containing the Mariana Trench, whose deepest point is about 11,000 metres below sea level.",
+      "important_concepts": ["pacific", "atlantic", "indian", "southern ocean", "arctic", "mariana trench", "largest ocean", "deepest"],
+      "evaluation_criteria": ["Lists all five oceans", "Identifies the Pacific as both largest and deepest", "Mentions the Mariana Trench"],
+      "tags": ["oceans", "world-geography", "basics"],
+      "explanation": "A recall question; note that the Southern Ocean is now widely listed as the fifth ocean.",
+      "is_sample": true
+    },
+    {
+      "id": "gk-005", "subject": "General Knowledge", "topic": "Geography of Pakistan", "difficulty": "easy",
+      "question": "Name the major mountain ranges of Pakistan and identify K2.",
+      "expected_answer": "Pakistan's northern mountains include the Karakoram, the Himalaya and the Hindu Kush, which meet in Gilgit-Baltistan. K2 (about 8,611 metres), in the Karakoram on the Pakistan-China border, is the second-highest mountain in the world. Other major peaks include Nanga Parbat, Gasherbrum I and II, and Broad Peak, giving Pakistan five of the world's fourteen eight-thousanders.",
+      "important_concepts": ["karakoram", "himalaya", "hindu kush", "k2", "8,611", "nanga parbat", "gasherbrum", "broad peak", "eight-thousanders"],
+      "evaluation_criteria": ["Names the three ranges", "Describes K2's height, location and rank", "Mentions other major peaks"],
+      "tags": ["mountains", "k2", "geography"],
+      "explanation": "Straightforward recall; precision about K2's rank and range is expected.",
+      "is_sample": true
+    },
+    {
+      "id": "gk-006", "subject": "General Knowledge", "topic": "International Organisations", "difficulty": "easy",
+      "question": "What is the United Nations and what are its principal organs?",
+      "expected_answer": "The United Nations was founded in 1945 to maintain international peace and security, develop friendly relations among nations, and promote cooperation on economic, social and humanitarian issues. Its principal organs are the General Assembly, the Security Council, the Economic and Social Council, the Trusteeship Council, the International Court of Justice and the Secretariat. Its headquarters are in New York, and Pakistan became a member in September 1947.",
+      "important_concepts": ["united nations", "1945", "general assembly", "security council", "ecosoc", "trusteeship council", "international court of justice", "secretariat", "new york"],
+      "evaluation_criteria": ["States the purpose and founding year", "Lists the six principal organs", "Mentions headquarters or Pakistan's membership"],
+      "tags": ["united-nations", "organisations", "basics"],
+      "explanation": "A foundational question on the global organisation; accuracy of the list of organs is key.",
+      "is_sample": true
+    },
+    {
+      "id": "gk-007", "subject": "General Knowledge", "topic": "Science and Environment", "difficulty": "easy",
+      "question": "What is the greenhouse effect, and how does it relate to global warming?",
+      "expected_answer": "The greenhouse effect is the natural process by which gases such as water vapour, carbon dioxide and methane trap some of the Earth's outgoing heat, keeping the planet warm enough for life. Human activities such as burning fossil fuels and deforestation increase the concentration of these gases, enhancing the effect and causing global warming and climate change.",
+      "important_concepts": ["greenhouse effect", "carbon dioxide", "methane", "fossil fuels", "deforestation", "global warming", "heat trapping"],
+      "evaluation_criteria": ["Explains the natural process correctly", "Distinguishes natural from human-enhanced effect", "Links it to global warming"],
+      "tags": ["climate", "science", "environment"],
+      "explanation": "A common misconception is that the greenhouse effect itself is harmful; the problem is its enhancement.",
+      "is_sample": true
+    },
+    {
+      "id": "gk-008", "subject": "General Knowledge", "topic": "Geography of Pakistan", "difficulty": "medium",
+      "question": "Describe Pakistan's climatic regions and the role of the monsoon.",
+      "expected_answer": "Pakistan has a diverse climate: the northern mountains are cold with snow and glaciers, the Indus plains have hot summers and mild winters, Balochistan and large parts of Sindh are arid, and the coast is moderated by the sea. The southwest monsoon brings most rain between about July and September, essential for agriculture but also a cause of floods, while winter precipitation in the north comes from western disturbances.",
+      "important_concepts": ["monsoon", "western disturbances", "arid", "plains", "mountains", "climatic regions", "glaciers", "rainfall"],
+      "evaluation_criteria": ["Describes at least three regions", "Explains the monsoon and western disturbances", "Links climate to agriculture or floods"],
+      "tags": ["climate", "monsoon", "geography"],
+      "explanation": "Regional description with causes rather than a list of temperatures.",
+      "is_sample": true
+    },
+    {
+      "id": "gk-009", "subject": "General Knowledge", "topic": "Science and Environment", "difficulty": "medium",
+      "question": "What is renewable energy, and what is its potential in Pakistan?",
+      "expected_answer": "Renewable energy comes from sources that are naturally replenished, such as solar, wind, hydropower and biomass. Pakistan has high solar radiation, a notable wind corridor in southern Sindh, and large hydropower potential in its northern rivers. Challenges include grid integration and storage, financing, policy consistency and transmission capacity; expanding renewables can reduce import dependence and emissions.",
+      "important_concepts": ["renewable energy", "solar", "wind corridor", "hydropower", "grid integration", "energy storage", "import dependence", "emissions"],
+      "evaluation_criteria": ["Defines renewable energy with examples", "Identifies Pakistan's specific potential", "Discusses challenges and benefits"],
+      "tags": ["energy", "renewables", "environment"],
+      "explanation": "Strong answers pair a country-specific potential with realistic obstacles.",
+      "is_sample": true
+    },
+    {
+      "id": "gk-010", "subject": "General Knowledge", "topic": "International Organisations", "difficulty": "medium",
+      "question": "Differentiate between the IMF and the World Bank.",
+      "expected_answer": "Both were created at the 1944 Bretton Woods conference. The International Monetary Fund promotes international monetary cooperation and financial stability and provides short- to medium-term financing to countries with balance-of-payments problems, usually with policy conditions. The World Bank group provides long-term loans, grants and technical assistance for development projects and poverty reduction, such as infrastructure, health and education.",
+      "important_concepts": ["imf", "world bank", "bretton woods", "1944", "balance of payments", "development lending", "poverty reduction", "conditionality"],
+      "evaluation_criteria": ["States common origin", "Distinguishes the mandate of each institution", "Gives examples of their activities"],
+      "tags": ["imf", "world-bank", "bretton-woods"],
+      "explanation": "Often confused institutions; clarity about 'stability vs development' is the key distinction.",
+      "is_sample": true
+    },
+    {
+      "id": "gk-011", "subject": "General Knowledge", "topic": "World History", "difficulty": "medium",
+      "question": "Explain the significance of the Industrial Revolution.",
+      "expected_answer": "Beginning in Britain in the eighteenth century, the Industrial Revolution replaced hand production with machines, powered by steam and later other energy sources, and moved production to factories. It raised productivity and living standards in the long run, caused rapid urbanisation, changed class structures, expanded capitalism and global trade, and increased demand for raw materials and colonial markets, while also bringing pollution and harsh working conditions.",
+      "important_concepts": ["industrial revolution", "britain", "steam engine", "factories", "urbanisation", "capitalism", "colonialism", "working conditions"],
+      "evaluation_criteria": ["Explains where and when it began", "Describes economic and social effects", "Connects it to colonialism or global trade"],
+      "tags": ["industrial-revolution", "history", "economy"],
+      "explanation": "Strong answers include both benefits and costs and its global consequences.",
+      "is_sample": true
+    },
+    {
+      "id": "gk-012", "subject": "General Knowledge", "topic": "Culture and Heritage", "difficulty": "medium",
+      "question": "Name some UNESCO World Heritage Sites in Pakistan and explain why heritage conservation matters.",
+      "expected_answer": "UNESCO sites in Pakistan include the archaeological ruins at Mohenjo-daro, the Buddhist ruins of Takht-i-Bahi, the ruins of Taxila, Lahore Fort and the Shalimar Gardens, Rohtas Fort and the monuments at Makli, Thatta. Conserving heritage preserves national identity and history, supports education and tourism-based livelihoods, and fulfils obligations under international conventions, though funding, urbanisation and climate threats challenge conservation.",
+      "important_concepts": ["unesco", "mohenjo-daro", "taxila", "takht-i-bahi", "lahore fort", "shalimar gardens", "rohtas fort", "makli", "conservation"],
+      "evaluation_criteria": ["Names at least four sites correctly", "Explains the value of heritage", "Mentions conservation challenges"],
+      "tags": ["heritage", "unesco", "culture"],
+      "explanation": "Recall combined with an explanation of why heritage matters.",
+      "is_sample": true
+    },
+    {
+      "id": "gk-013", "subject": "General Knowledge", "topic": "Global Economy", "difficulty": "hard",
+      "question": "Discuss the causes and consequences of the 2008 global financial crisis.",
+      "expected_answer": "The crisis originated in the United States housing market, where lax lending and subprime mortgages were bundled into complex securities that spread risk across the financial system. When house prices fell and borrowers defaulted, institutions suffered heavy losses, and the collapse of Lehman Brothers in September 2008 froze credit markets. The result was a global recession, bank bailouts, unemployment and falling trade; developing countries felt the effects through reduced exports, remittances and investment, and regulation was subsequently tightened.",
+      "important_concepts": ["subprime mortgages", "securitisation", "lehman brothers", "credit freeze", "recession", "bailouts", "regulation", "contagion", "2008"],
+      "evaluation_criteria": ["Explains the chain of causes clearly", "Describes global consequences", "Mentions impacts on developing countries and policy responses"],
+      "tags": ["financial-crisis", "global-economy", "2008"],
+      "explanation": "A cause-effect chain question; clarity about how a housing problem became a global crisis is the core.",
+      "is_sample": true
+    },
+    {
+      "id": "gk-014", "subject": "General Knowledge", "topic": "Science and Environment", "difficulty": "hard",
+      "question": "Explain the roles of the IAEA and the Non-Proliferation Treaty, and outline Pakistan's civilian nuclear programme.",
+      "expected_answer": "The International Atomic Energy Agency (1957) promotes peaceful nuclear technology and applies safeguards to verify that nuclear material is not diverted to weapons. The Non-Proliferation Treaty (1968, in force 1970) aims to prevent the spread of nuclear weapons, promote disarmament and share peaceful nuclear technology; Pakistan, India and Israel are not parties. Pakistan's civilian programme began with the Karachi Nuclear Power Plant (KANUPP, operating from 1972) and expanded with the Chashma plants, alongside applications in agriculture and medicine.",
+      "important_concepts": ["iaea", "safeguards", "non-proliferation treaty", "1968", "kanupp", "chashma", "peaceful uses", "disarmament"],
+      "evaluation_criteria": ["Explains the IAEA and NPT correctly", "States Pakistan's position on the NPT", "Describes civilian nuclear energy use"],
+      "tags": ["nuclear", "iaea", "npt"],
+      "explanation": "Combines international regimes with the national programme; keep civilian and strategic dimensions distinct.",
+      "is_sample": true
+    },
+    {
+      "id": "gk-015", "subject": "General Knowledge", "topic": "Geography of Pakistan", "difficulty": "hard",
+      "question": "Discuss the strategic and economic significance of Gwadar and the Strait of Hormuz.",
+      "expected_answer": "Gwadar, a deep-sea port on Pakistan's Balochistan coast on the Arabian Sea, was acquired from Oman in 1958 and has been developed as a trade, transit and energy gateway, including under CPEC. It lies close to the Strait of Hormuz, the narrow waterway between Iran and Oman through which a substantial share of the world's seaborne oil passes. Together they illustrate how location shapes maritime trade, energy security and regional geopolitics, though Gwadar's potential depends on connectivity, security and local development.",
+      "important_concepts": ["gwadar", "deep-sea port", "arabian sea", "oman 1958", "strait of hormuz", "oil transit", "cpec", "maritime trade", "geopolitics"],
+      "evaluation_criteria": ["Locates both sites accurately", "Explains the strategic and economic value of each", "Identifies limitations or challenges"],
+      "tags": ["gwadar", "hormuz", "geopolitics"],
+      "explanation": "Rewards geographic precision and an understanding of why chokepoints and ports matter.",
+      "is_sample": true
+    },
+    {
+      "id": "gk-016", "subject": "General Knowledge", "topic": "Global Development", "difficulty": "medium",
+      "question": "What is the Human Development Index, and how does it differ from GDP as a measure of progress?",
+      "expected_answer": "The Human Development Index, published by the UNDP, combines life expectancy (health), education (years of schooling) and gross national income per capita (standard of living) into a single measure. GDP measures only the total value of goods and services produced, so it can hide inequality, poor health and low education; the HDI therefore gives a broader view of well-being, although it still omits aspects such as inequality, sustainability and freedom unless adjusted.",
+      "important_concepts": ["human development index", "undp", "life expectancy", "education", "income per capita", "gdp", "well-being", "inequality"],
+      "evaluation_criteria": ["Lists the three HDI dimensions", "Explains how GDP differs", "Mentions limitations of both measures"],
+      "tags": ["hdi", "gdp", "development"],
+      "explanation": "Shows whether the candidate understands why development is not just growth.",
+      "is_sample": true
+    }
+  ]
+}

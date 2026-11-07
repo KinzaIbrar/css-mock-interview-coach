@@ -1,0 +1,168 @@
+{
+  "meta": {
+    "subject": "Pakistan Affairs",
+    "status": "SAMPLE / UNVERIFIED study aid, not official CSS or FPSC material. Cross-check facts with standard textbooks and primary sources."
+  },
+  "questions": [
+    {
+      "id": "pa-001", "subject": "Pakistan Affairs", "topic": "Freedom Movement", "difficulty": "easy",
+      "question": "What was the Lahore Resolution of 1940 and why is it significant?",
+      "expected_answer": "The Lahore Resolution was adopted at the All-India Muslim League session in Lahore in March 1940 (Jinnah presiding; moved by A. K. Fazlul Huq). It demanded that the areas where Muslims were numerically in a majority, in the north-western and eastern zones of India, be grouped to constitute independent states. It is widely regarded as the formal political basis of the demand for Pakistan.",
+      "important_concepts": ["lahore resolution", "1940", "muslim league", "fazlul huq", "independent states", "majority areas", "jinnah"],
+      "evaluation_criteria": ["States the date, venue and party (March 1940, Lahore, All-India Muslim League)", "Explains the core demand (grouping of Muslim-majority zones into independent states)", "Links the resolution to the later Pakistan movement"],
+      "tags": ["freedom-movement", "muslim-league", "1940"],
+      "explanation": "A foundational question on the freedom movement: strong answers give the date, who moved it, what it demanded and why it became the political turning point.",
+      "is_sample": true
+    },
+    {
+      "id": "pa-002", "subject": "Pakistan Affairs", "topic": "Constitutional History", "difficulty": "medium",
+      "question": "Describe the main features of the Objectives Resolution of 1949 and its role in Pakistan's constitutional development.",
+      "expected_answer": "Passed by the first Constituent Assembly in March 1949 (moved by Liaquat Ali Khan), it declared that sovereignty over the universe belongs to Allah and that authority is exercised by the people as a sacred trust through their chosen representatives. It promised democracy, freedom, equality, tolerance and social justice as enunciated by Islam, protection of minorities, fundamental rights and an independent judiciary. It served as a preamble to later constitutions and was made a substantive part of the Constitution as Article 2A in 1985.",
+      "important_concepts": ["objectives resolution", "1949", "liaquat ali khan", "sovereignty", "allah", "constituent assembly", "minorities", "article 2a", "fundamental rights"],
+      "evaluation_criteria": ["Gives the date and mover of the resolution", "Lists its main principles (sovereignty of Allah, democracy, rights, minorities, judiciary)", "Explains its later constitutional status (preamble; Article 2A)"],
+      "tags": ["constitution", "objectives-resolution", "1949"],
+      "explanation": "Tests knowledge of the ideological foundation of Pakistan's constitutions and how its status changed over time.",
+      "is_sample": true
+    },
+    {
+      "id": "pa-003", "subject": "Pakistan Affairs", "topic": "Political History", "difficulty": "hard",
+      "question": "Critically analyse the causes that led to the separation of East Pakistan in 1971.",
+      "expected_answer": "Historians point to several interacting causes: perceived economic disparity and exploitation of the eastern wing; the language question (1948 and 1952) and wider cultural grievances; political marginalisation and long delays in constitution-making; dominance of the civil-military establishment; geographic separation of the two wings; the failure to transfer power after the 1970 elections in which the Awami League won a majority; the military action of March 1971; and Indian military intervention in December 1971. The Hamoodur Rahman Commission examined the events. A strong answer weighs these factors rather than listing them.",
+      "important_concepts": ["east pakistan", "1971", "language movement", "economic disparity", "awami league", "1970 elections", "military action", "hamoodur rahman commission", "autonomy", "six points"],
+      "evaluation_criteria": ["Identifies political, economic, cultural and military causes", "Weighs the relative importance of causes instead of only listing them", "Refers to specific events (1952, 1970 elections, March and December 1971)", "Maintains a balanced, evidence-based tone"],
+      "tags": ["east-pakistan", "1971", "political-history"],
+      "explanation": "A critical-analysis question: examiners look for multi-causal reasoning, chronology and balance, not blame.",
+      "is_sample": true
+    },
+    {
+      "id": "pa-004", "subject": "Pakistan Affairs", "topic": "Ideology of Pakistan", "difficulty": "easy",
+      "question": "What is meant by the Ideology of Pakistan, and who contributed to articulating it?",
+      "expected_answer": "The Ideology of Pakistan refers to the idea that the Muslims of the subcontinent are a distinct nation, with their own religion, culture, history and social system (the Two-Nation Theory), and that they should be able to live according to Islamic principles in a state of their own. Thinkers and leaders such as Sir Syed Ahmad Khan, Allama Iqbal (Allahabad Address, 1930) and Quaid-i-Azam Muhammad Ali Jinnah shaped and expressed it, and it became the basis of the demand for Pakistan.",
+      "important_concepts": ["two-nation theory", "distinct nation", "islamic way of life", "allahabad address", "iqbal", "sir syed", "jinnah"],
+      "evaluation_criteria": ["Defines the ideology in terms of the Two-Nation Theory", "Names at least two contributors and their roles", "Connects the ideology to the demand for a separate state"],
+      "tags": ["ideology", "two-nation-theory", "freedom-movement"],
+      "explanation": "Checks whether the candidate can define the ideology precisely and attribute ideas to the right people.",
+      "is_sample": true
+    },
+    {
+      "id": "pa-005", "subject": "Pakistan Affairs", "topic": "Freedom Movement", "difficulty": "easy",
+      "question": "What was the Allahabad Address of 1930?",
+      "expected_answer": "It was the presidential address delivered by Allama Muhammad Iqbal at the annual session of the All-India Muslim League at Allahabad in December 1930. Iqbal proposed that the Muslim-majority areas of north-western India (Punjab, the North-West Frontier Province, Sindh and Balochistan) be consolidated into a single state within the Indian federation, and argued that Islam and Muslim social organisation required such a political arrangement.",
+      "important_concepts": ["allahabad address", "1930", "iqbal", "muslim league", "north-west", "consolidated state", "presidential address"],
+      "evaluation_criteria": ["Gives the speaker, year and forum", "States the proposal (consolidated Muslim state in the north-west)", "Explains its importance for the Pakistan movement"],
+      "tags": ["iqbal", "freedom-movement", "1930"],
+      "explanation": "A factual question; the key is to state the proposal accurately without exaggerating it into a demand for full independence.",
+      "is_sample": true
+    },
+    {
+      "id": "pa-006", "subject": "Pakistan Affairs", "topic": "Constitutional History", "difficulty": "medium",
+      "question": "Compare the main features of the 1956, 1962 and 1973 Constitutions of Pakistan.",
+      "expected_answer": "The 1956 Constitution (in force from 23 March 1956) made Pakistan an Islamic Republic with a parliamentary system and a unicameral legislature with parity between the two wings; it was abrogated in October 1958. The 1962 Constitution, introduced under Ayub Khan, created a presidential system with indirect elections through Basic Democrats and was abrogated in 1969. The 1973 Constitution established a federal parliamentary system with a bicameral Parliament, a Prime Minister as chief executive, fundamental rights, an independent judiciary and Islamic provisions, and remains in force with amendments.",
+      "important_concepts": ["1956 constitution", "1962 constitution", "1973 constitution", "parliamentary", "presidential", "basic democrats", "bicameral", "parity", "abrogated"],
+      "evaluation_criteria": ["Correctly identifies the system of government under each constitution", "Gives the circumstances of each constitution's end or survival", "Makes an explicit comparison, not three separate summaries"],
+      "tags": ["constitution", "1956", "1962", "1973"],
+      "explanation": "Comparison questions reward a structured table-like answer along common dimensions such as system of government, legislature, executive and fate.",
+      "is_sample": true
+    },
+    {
+      "id": "pa-007", "subject": "Pakistan Affairs", "topic": "Political History", "difficulty": "medium",
+      "question": "What was the Basic Democracies system introduced by Ayub Khan, and what were its consequences?",
+      "expected_answer": "Introduced in 1959, the Basic Democracies system created a tiered structure of local councils with about 80,000 elected Basic Democrats (equally from East and West Pakistan). Under the 1962 Constitution they formed the electoral college that elected the President and the legislatures. Supporters saw it as grassroots development; critics argued it restricted the franchise, centralised control, enabled patronage and weakened direct democracy, contributing to political alienation.",
+      "important_concepts": ["basic democracies", "1959", "80,000", "electoral college", "local councils", "1962 constitution", "indirect election", "ayub khan"],
+      "evaluation_criteria": ["Describes the structure and the number of Basic Democrats", "Explains their role as an electoral college", "Evaluates both benefits and criticisms"],
+      "tags": ["ayub-khan", "local-government", "1959"],
+      "explanation": "Tests understanding of how the Ayub era combined local government with controlled, indirect national elections.",
+      "is_sample": true
+    },
+    {
+      "id": "pa-008", "subject": "Pakistan Affairs", "topic": "Freedom Movement", "difficulty": "medium",
+      "question": "Explain the Cabinet Mission Plan of 1946 and why it failed.",
+      "expected_answer": "The Cabinet Mission (1946) proposed a loose three-tier structure: a Union of India limited to defence, foreign affairs and communications, with provinces grouped into sections (A for Hindu-majority provinces, B and C for the Muslim-majority north-west and north-east) and a Constituent Assembly. The Muslim League initially accepted it, but after statements by Congress leaders suggesting the assembly would be free to alter the arrangement, the League withdrew its acceptance in July 1946 and called for Direct Action. The plan collapsed and the path to partition opened.",
+      "important_concepts": ["cabinet mission", "1946", "three-tier", "union", "groupings", "constituent assembly", "nehru statement", "direct action", "partition"],
+      "evaluation_criteria": ["Describes the proposed structure (union, groups, provinces)", "Explains the League's acceptance and later withdrawal", "Links the failure to partition"],
+      "tags": ["cabinet-mission", "1946", "partition"],
+      "explanation": "Shows whether the candidate understands the last serious attempt at a united India and the reasons it broke down.",
+      "is_sample": true
+    },
+    {
+      "id": "pa-009", "subject": "Pakistan Affairs", "topic": "Economy", "difficulty": "medium",
+      "question": "Outline the main phases of Pakistan's economic policy since independence.",
+      "expected_answer": "Early policy in the 1950s emphasised import substitution and state-backed industrial development. The 1960s under Ayub Khan saw rapid industrial and agricultural growth, including the Green Revolution, but with concentrated wealth and regional disparity. The 1970s brought nationalisation under Z. A. Bhutto. From the 1980s deregulation, remittances and later liberalisation and privatisation became prominent. Throughout, recurring balance-of-payments crises, IMF programmes, a low tax-to-GDP ratio and energy shortages remain structural challenges.",
+      "important_concepts": ["import substitution", "green revolution", "nationalisation", "privatisation", "liberalisation", "imf programmes", "balance of payments", "tax-to-gdp", "remittances"],
+      "evaluation_criteria": ["Presents the phases in correct chronological order", "Identifies the policy approach of each phase", "Notes persistent structural problems"],
+      "tags": ["economy", "economic-policy", "development"],
+      "explanation": "Rewards a clear chronological structure and an ability to connect policy choices with outcomes.",
+      "is_sample": true
+    },
+    {
+      "id": "pa-010", "subject": "Pakistan Affairs", "topic": "Constitutional History", "difficulty": "hard",
+      "question": "Evaluate the role of the judiciary, including the doctrine of necessity, in Pakistan's political history.",
+      "expected_answer": "In Federation of Pakistan v. Maulvi Tamizuddin Khan (1955) the Federal Court validated the Governor-General's dissolution of the Constituent Assembly, and in State v. Dosso (1958) it used the doctrine of necessity and Kelsen's idea of a 'grundnorm' to validate the first martial law. Asma Jilani v. Government of the Punjab (1972) overruled Dosso, but Begum Nusrat Bhutto v. Chief of Army Staff (1977) again validated a coup on grounds of necessity, as did the Zafar Ali Shah case (2000). Critics say these rulings weakened constitutionalism; supporters note later assertions of judicial independence.",
+      "important_concepts": ["doctrine of necessity", "tamizuddin khan", "dosso", "kelsen", "grundnorm", "asma jilani", "nusrat bhutto", "martial law", "judicial independence"],
+      "evaluation_criteria": ["Names and explains at least three landmark cases", "Explains the doctrine of necessity", "Evaluates the long-term effect on constitutionalism", "Notes both validation and corrective judgments"],
+      "tags": ["judiciary", "doctrine-of-necessity", "martial-law"],
+      "explanation": "A high-level question that expects case knowledge plus evaluation of the judiciary's institutional role.",
+      "is_sample": true
+    },
+    {
+      "id": "pa-011", "subject": "Pakistan Affairs", "topic": "Political History", "difficulty": "hard",
+      "question": "Analyse the causes and effects of military intervention in Pakistan's politics.",
+      "expected_answer": "Causes commonly cited include weak political institutions and parties, early loss of leadership (the deaths of Jinnah and Liaquat Ali Khan), a strong bureaucratic-military establishment, security concerns and Cold War alliances that strengthened the army, political instability, and judicial validation of interventions. Effects include repeated constitutional breakdown, delayed democratic consolidation, the 1971 crisis, and an enlarged role of the military in policy. A strong answer also discusses transitions to civilian rule and the debate over civil-military balance.",
+      "important_concepts": ["martial law", "1958", "weak institutions", "civil-military relations", "cold war", "bureaucracy", "democratic transition", "political instability"],
+      "evaluation_criteria": ["Separates causes from effects", "Includes both domestic and external factors", "Refers to specific episodes", "Considers solutions or the path to civilian supremacy"],
+      "tags": ["military", "civil-military-relations", "democracy"],
+      "explanation": "A cause-and-effect analysis; examiners value a balanced treatment of institutions, individuals and external context.",
+      "is_sample": true
+    },
+    {
+      "id": "pa-012", "subject": "Pakistan Affairs", "topic": "Freedom Movement", "difficulty": "hard",
+      "question": "Assess the role of Quaid-i-Azam Muhammad Ali Jinnah in the creation of Pakistan.",
+      "expected_answer": "Jinnah moved from being an advocate of Hindu-Muslim unity (the 1916 Lucknow Pact) to leading the Muslim League. He presented the Fourteen Points (1929), reorganised the League after returning to India in the 1930s, led it through the 1937 and 1945-46 elections, articulated the Two-Nation Theory, secured the Lahore Resolution (1940), and negotiated constitutionally with the British and Congress, culminating in the 3 June 1947 Plan. He became the first Governor-General and, in his 11 August 1947 speech, outlined a vision of equal citizenship.",
+      "important_concepts": ["lucknow pact", "fourteen points", "1937 elections", "lahore resolution", "two-nation theory", "3 june plan", "governor-general", "11 august 1947", "constitutional struggle"],
+      "evaluation_criteria": ["Shows the progression of his political role over time", "Cites specific actions and dates", "Provides an assessment, not just a narrative", "Notes his constitutional and negotiating approach"],
+      "tags": ["jinnah", "leadership", "freedom-movement"],
+      "explanation": "Biographical questions expect analysis of impact and method, supported by key events.",
+      "is_sample": true
+    },
+    {
+      "id": "pa-013", "subject": "Pakistan Affairs", "topic": "Geography and Administration", "difficulty": "easy",
+      "question": "Name the provinces and federal territory of Pakistan with their capitals, and mention the status of Gilgit-Baltistan and Azad Jammu and Kashmir.",
+      "expected_answer": "Pakistan has four provinces: Punjab (capital Lahore), Sindh (Karachi), Khyber Pakhtunkhwa (Peshawar) and Balochistan (Quetta), and the Islamabad Capital Territory. The former FATA was merged into Khyber Pakhtunkhwa through the 25th Amendment in 2018. Gilgit-Baltistan and Azad Jammu and Kashmir are not constitutional provinces; they have their own administrative arrangements.",
+      "important_concepts": ["punjab", "sindh", "khyber pakhtunkhwa", "balochistan", "islamabad capital territory", "fata merger", "25th amendment", "gilgit-baltistan", "azad jammu and kashmir"],
+      "evaluation_criteria": ["Lists all four provinces and their capitals correctly", "Mentions the Islamabad Capital Territory", "States the special status of GB and AJK and the FATA merger"],
+      "tags": ["geography", "administration", "provinces"],
+      "explanation": "Basic recall question; accuracy of the list and awareness of the 2018 FATA merger are what distinguish a strong answer.",
+      "is_sample": true
+    },
+    {
+      "id": "pa-014", "subject": "Pakistan Affairs", "topic": "Political History", "difficulty": "easy",
+      "question": "Who were Pakistan's first Governor-General and first Prime Minister, and what major challenges did the new state face in 1947-48?",
+      "expected_answer": "Muhammad Ali Jinnah was the first Governor-General and Liaquat Ali Khan the first Prime Minister. The new state faced the resettlement of millions of refugees, an unfair division of financial and military assets, the lack of an established administrative machinery and capital, the Kashmir conflict, the canal waters dispute and the need to frame a constitution.",
+      "important_concepts": ["jinnah", "liaquat ali khan", "refugees", "division of assets", "kashmir", "canal water dispute", "administrative machinery", "constitution-making"],
+      "evaluation_criteria": ["Names both office-holders correctly", "Lists at least four distinct challenges", "Briefly explains why each was serious"],
+      "tags": ["1947", "partition", "early-years"],
+      "explanation": "Checks basic facts and awareness of the difficult conditions of the early state.",
+      "is_sample": true
+    },
+    {
+      "id": "pa-015", "subject": "Pakistan Affairs", "topic": "Foreign Relations", "difficulty": "medium",
+      "question": "Explain the origins of the Kashmir dispute and the role of the United Nations in it.",
+      "expected_answer": "After partition in 1947 the princely state of Jammu and Kashmir, with a Muslim majority and a Hindu ruler, became disputed after tribal incursions and the Maharaja's accession to India, leading to the 1947-48 war. India took the matter to the UN Security Council in January 1948; resolutions, including those of the UN Commission for India and Pakistan (1948-49), called for a ceasefire and a plebiscite to determine the state's future. A ceasefire took effect in January 1949, the plebiscite was not held, and the Line of Control was later established after the 1972 Simla Agreement.",
+      "important_concepts": ["jammu and kashmir", "1947-48 war", "accession", "security council", "plebiscite", "unCIP", "ceasefire", "line of control", "simla agreement"],
+      "evaluation_criteria": ["Describes the origin of the dispute and the 1947-48 war", "Explains UN resolutions and the plebiscite commitment", "Mentions later bilateral arrangements such as Simla", "Uses neutral, factual language"],
+      "tags": ["kashmir", "united-nations", "foreign-policy"],
+      "explanation": "Requires a balanced chronological account of the dispute and the international and bilateral frameworks around it.",
+      "is_sample": true
+    },
+    {
+      "id": "pa-016", "subject": "Pakistan Affairs", "topic": "Economy", "difficulty": "hard",
+      "question": "Discuss the challenges facing Pakistan's agricultural sector and the case for reform.",
+      "expected_answer": "Agriculture contributes significantly to employment, exports and food security but faces water scarcity and inefficient irrigation, low yields, climate shocks such as floods and heatwaves, unequal landholding and small farm sizes, weak extension services and market access, input costs, and limited taxation and investment in the sector. Reforms discussed include efficient water use and storage, better seeds and mechanisation, credit and insurance for small farmers, improved markets and value chains, and climate-resilient practices.",
+      "important_concepts": ["water scarcity", "yields", "climate change", "landholding", "small farmers", "mechanisation", "credit", "value chains", "food security"],
+      "evaluation_criteria": ["Identifies several distinct structural problems", "Links problems to specific policy responses", "Considers equity (small farmers) as well as productivity"],
+      "tags": ["agriculture", "economy", "reform"],
+      "explanation": "Policy-analysis question: strong answers pair each challenge with a feasible reform.",
+      "is_sample": true
+    }
+  ]
+}

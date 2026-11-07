@@ -15,5 +15,9 @@ class Question(Base, TimestampMixin):
     difficulty: Mapped[str] = mapped_column(String(16), index=True)  # easy | medium | hard
     text: Mapped[str] = mapped_column(Text)
     reference_answer: Mapped[str] = mapped_column(Text, default="")
-    keywords: Mapped[list] = mapped_column(JSON, default=list)
+    keywords: Mapped[list] = mapped_column(JSON, default=list)  # dataset field: important_concepts
     is_sample: Mapped[bool] = mapped_column(Boolean, default=True)
+    # Added in migration 0002 (Phase 5)
+    evaluation_criteria: Mapped[list] = mapped_column(JSON, default=list, server_default="[]")
+    tags: Mapped[list] = mapped_column(JSON, default=list, server_default="[]")
+    explanation: Mapped[str] = mapped_column(Text, default="", server_default="")

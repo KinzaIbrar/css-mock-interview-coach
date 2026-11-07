@@ -1,0 +1,168 @@
+{
+  "meta": {
+    "subject": "Governance and Constitutional Studies",
+    "status": "SAMPLE / UNVERIFIED study aid. Constitutional articles and figures can change through amendment; verify against the current text of the Constitution."
+  },
+  "questions": [
+    {
+      "id": "gc-001", "subject": "Governance and Constitutional Studies", "topic": "Constitutional Structure", "difficulty": "easy",
+      "question": "What is the separation of powers and how is it reflected in Pakistan's Constitution?",
+      "expected_answer": "Separation of powers divides state authority among the legislature, the executive and the judiciary so that each acts as a check on the others. In Pakistan's 1973 Constitution the legislature is Parliament (the National Assembly and the Senate), the executive is the President, the Prime Minister and the Cabinet in a parliamentary system, and the judiciary is headed by the Supreme Court. In practice the boundaries and balance have been contested over time.",
+      "important_concepts": ["separation of powers", "legislature", "executive", "judiciary", "parliament", "national assembly", "senate", "checks and balances", "1973"],
+      "evaluation_criteria": ["Defines separation of powers and checks and balances", "Maps the three organs to Pakistan's institutions", "Acknowledges practical tensions"],
+      "tags": ["constitution", "separation-of-powers", "institutions"],
+      "explanation": "A foundational concept; strong answers go beyond definition to institutional mapping.",
+      "is_sample": true
+    },
+    {
+      "id": "gc-002", "subject": "Governance and Constitutional Studies", "topic": "Constitutional Amendments", "difficulty": "medium",
+      "question": "Describe the main features of the Eighteenth Amendment to the Constitution of Pakistan.",
+      "expected_answer": "Passed in April 2010, it removed the President's power to dissolve the National Assembly, abolished the Concurrent Legislative List and devolved subjects to the provinces, renamed the North-West Frontier Province as Khyber Pakhtunkhwa, strengthened the Council of Common Interests, and inserted rights such as the right to education (Article 25A) and the right to information (Article 19A). It also changed the procedure for judicial appointments through a Judicial Commission and a parliamentary committee.",
+      "important_concepts": ["eighteenth amendment", "2010", "provincial autonomy", "concurrent list", "khyber pakhtunkhwa", "article 25a", "article 19a", "council of common interests", "judicial commission"],
+      "evaluation_criteria": ["Gives the year and main purpose", "Lists at least four specific changes", "Explains the effect on federalism"],
+      "tags": ["18th-amendment", "federalism", "constitution"],
+      "explanation": "An important constitutional change; list specific provisions and the federal impact.",
+      "is_sample": true
+    },
+    {
+      "id": "gc-003", "subject": "Governance and Constitutional Studies", "topic": "Local Government", "difficulty": "hard",
+      "question": "Evaluate the challenges of local government in Pakistan and its constitutional position.",
+      "expected_answer": "Article 140A, inserted by the Eighteenth Amendment, requires each province to establish a local government system and devolve political, administrative and financial responsibility to elected local bodies. In practice, local government has been strongest under military governments (Basic Democracies, the 2001 devolution plan), which raised questions of legitimacy, while elected governments have been reluctant to devolve. Challenges include irregular local elections, limited fiscal autonomy, overlap with provincial departments and weak capacity.",
+      "important_concepts": ["article 140a", "local government", "devolution", "eighteenth amendment", "basic democracies", "fiscal autonomy", "provinces", "local elections", "2001"],
+      "evaluation_criteria": ["Cites the constitutional requirement", "Gives historical context", "Identifies several challenges", "Proposes improvements"],
+      "tags": ["local-government", "devolution", "article-140a"],
+      "explanation": "Evaluation requires both constitutional obligations and the gap in practice.",
+      "is_sample": true
+    },
+    {
+      "id": "gc-004", "subject": "Governance and Constitutional Studies", "topic": "Fundamental Rights", "difficulty": "easy",
+      "question": "What are Fundamental Rights under the 1973 Constitution? Name and explain at least five.",
+      "expected_answer": "Fundamental Rights are in Part II, Chapter 1 of the Constitution (Articles 8-28), and laws inconsistent with them are void (Article 8). They include security of person (Article 9), safeguards on arrest and detention (Article 10), the right to a fair trial (Article 10A), inviolability of dignity (Article 14), freedom of movement (Article 15), freedom of association (Article 17), freedom of speech (Article 19), the right to information (Article 19A), freedom of religion (Article 20), the right to property (Article 23), equality of citizens (Article 25) and the right to education (Article 25A).",
+      "important_concepts": ["fundamental rights", "part ii", "article 8", "article 9", "article 10a", "article 19", "article 25", "article 25a", "enforceable"],
+      "evaluation_criteria": ["Locates fundamental rights in the Constitution", "Names at least five with article numbers", "Notes that laws inconsistent with them are void"],
+      "tags": ["fundamental-rights", "constitution", "rights"],
+      "explanation": "Recall plus accurate article numbers; the Article 8 principle shows deeper understanding.",
+      "is_sample": true
+    },
+    {
+      "id": "gc-005", "subject": "Governance and Constitutional Studies", "topic": "Public Administration", "difficulty": "easy",
+      "question": "What is the role of the civil service in governance, and how is the federal civil service recruited and organised?",
+      "expected_answer": "The civil service implements government policy, delivers public services and provides continuity and technical expertise across changes of government. At the federal level recruitment is mainly through the Federal Public Service Commission (established under the Constitution, Article 242) via the Central Superior Services competitive examination; officers serve in occupational groups and are placed in basic pay scales (BPS 1 to 22). Principles include merit, neutrality and accountability.",
+      "important_concepts": ["civil service", "fpsc", "css examination", "merit", "neutrality", "basic pay scale", "occupational groups", "continuity"],
+      "evaluation_criteria": ["Explains the role of the civil service", "Describes recruitment through FPSC and CSS", "Mentions principles such as merit and neutrality"],
+      "tags": ["civil-service", "public-administration", "fpsc"],
+      "explanation": "Directly relevant to the examination: show awareness of the institution's role and recruitment.",
+      "is_sample": true
+    },
+    {
+      "id": "gc-006", "subject": "Governance and Constitutional Studies", "topic": "Constitutional Structure", "difficulty": "easy",
+      "question": "How does the Senate differ from the National Assembly in Pakistan's Parliament?",
+      "expected_answer": "The National Assembly is the lower house, directly elected on the basis of population, and the Prime Minister must command its confidence; money bills originate there. The Senate is the upper house in which the federating units have equal representation, giving smaller provinces a voice in federal legislation. Senators are elected indirectly for six-year terms, and the Senate is a permanent house that is not dissolved, with half of its members retiring every three years.",
+      "important_concepts": ["national assembly", "senate", "bicameral", "equal provincial representation", "money bill", "six-year term", "permanent house", "indirect election"],
+      "evaluation_criteria": ["Explains the representation basis of each house", "Describes differing powers (confidence, money bills)", "Mentions the term and permanence of the Senate"],
+      "tags": ["parliament", "senate", "national-assembly"],
+      "explanation": "Compare along representation, election method, term and powers.",
+      "is_sample": true
+    },
+    {
+      "id": "gc-007", "subject": "Governance and Constitutional Studies", "topic": "Judiciary", "difficulty": "easy",
+      "question": "Describe the structure of the judicial system of Pakistan and the original jurisdiction of the Supreme Court and High Courts.",
+      "expected_answer": "The superior judiciary consists of the Supreme Court, the Federal Shariat Court and the High Courts (including the Islamabad High Court); below them are district and sessions courts and other subordinate and special courts. The Supreme Court has original jurisdiction in disputes between governments (Article 184(1)) and in matters of public importance involving fundamental rights (Article 184(3)), while High Courts issue writs for enforcement of rights under Article 199.",
+      "important_concepts": ["supreme court", "federal shariat court", "high courts", "district courts", "article 184", "article 199", "writ", "original jurisdiction"],
+      "evaluation_criteria": ["Describes the hierarchy correctly", "Cites Articles 184 and 199", "Explains the nature of writs"],
+      "tags": ["judiciary", "courts", "jurisdiction"],
+      "explanation": "Hierarchy plus article references is the pattern for judicial-structure answers.",
+      "is_sample": true
+    },
+    {
+      "id": "gc-008", "subject": "Governance and Constitutional Studies", "topic": "Federalism", "difficulty": "medium",
+      "question": "Explain the National Finance Commission (NFC) Award and the debates around the distribution of resources between the federation and the provinces.",
+      "expected_answer": "Under Article 160, the NFC is constituted periodically to recommend how the divisible pool of federal taxes is distributed between the federation and the provinces and among the provinces. The 7th NFC Award (2010) moved from a population-only formula to multiple criteria (population, poverty, revenue generation and inverse population density) and raised the provinces' share of the divisible pool to 57.5 percent. Debates concern the federal government's reduced fiscal space, provincial capacity to spend and raise revenue, and whether the formula should change.",
+      "important_concepts": ["nfc award", "article 160", "divisible pool", "7th nfc", "2010", "population", "multiple criteria", "provincial share", "fiscal space"],
+      "evaluation_criteria": ["Explains the NFC and divisible pool", "Describes the 7th Award's changes", "Presents federal and provincial perspectives"],
+      "tags": ["nfc", "fiscal-federalism", "resources"],
+      "explanation": "Fiscal federalism: explain the mechanism and the tension between federal and provincial needs.",
+      "is_sample": true
+    },
+    {
+      "id": "gc-009", "subject": "Governance and Constitutional Studies", "topic": "Constitutional Amendments", "difficulty": "medium",
+      "question": "Describe the procedure for amending the Constitution of Pakistan and explain the debate about limits on Parliament's amending power.",
+      "expected_answer": "Under Article 239, a constitutional amendment bill must be passed by at least a two-thirds majority of the total membership of each house; amendments affecting the limits of a province also need that province's assembly approval and the President's assent. The debate concerns whether Parliament can alter the Constitution's salient features such as federalism, parliamentary democracy and judicial independence; courts have considered the question in cases like the 2015 judgment on the 18th and 21st Amendments, with differing opinions.",
+      "important_concepts": ["article 239", "two-thirds majority", "amendment procedure", "salient features", "basic structure", "parliamentary sovereignty", "judicial review", "provincial assembly"],
+      "evaluation_criteria": ["States the amendment procedure accurately", "Explains the basic structure/salient features debate", "Refers to judicial treatment of the issue"],
+      "tags": ["amendment", "article-239", "basic-structure"],
+      "explanation": "Procedure plus a conceptual debate; keep the court position described with care.",
+      "is_sample": true
+    },
+    {
+      "id": "gc-010", "subject": "Governance and Constitutional Studies", "topic": "Judiciary", "difficulty": "medium",
+      "question": "What are judicial review and suo motu jurisdiction? Discuss their strengths and criticisms.",
+      "expected_answer": "Judicial review is the power of courts to examine whether legislation or executive action conforms to the Constitution and to strike down what does not. Suo motu jurisdiction allows the Supreme Court to take notice of matters of public importance involving fundamental rights on its own motion under Article 184(3). Supporters say these powers protect rights and check abuses; critics argue that overuse leads to judicial overreach, undermines separation of powers and creates inconsistency. Parliament enacted the Supreme Court (Practice and Procedure) Act 2023 to regulate the use of suo motu powers.",
+      "important_concepts": ["judicial review", "suo motu", "article 184(3)", "public importance", "judicial activism", "judicial restraint", "separation of powers", "practice and procedure act 2023"],
+      "evaluation_criteria": ["Defines both concepts", "Presents arguments for and against", "Mentions recent regulatory efforts"],
+      "tags": ["judicial-review", "suo-motu", "judiciary"],
+      "explanation": "Balanced evaluation question; avoid taking sides without reasons.",
+      "is_sample": true
+    },
+    {
+      "id": "gc-011", "subject": "Governance and Constitutional Studies", "topic": "Public Administration", "difficulty": "medium",
+      "question": "What is good governance? Explain its key principles.",
+      "expected_answer": "Good governance is the process of making and implementing decisions in a way that is accountable, transparent and responsive to citizens. Commonly cited principles are participation, rule of law, transparency, responsiveness, consensus orientation, equity and inclusiveness, effectiveness and efficiency, and accountability. It is associated with better public services, reduced corruption and sustainable development.",
+      "important_concepts": ["good governance", "accountability", "transparency", "rule of law", "participation", "responsiveness", "equity", "effectiveness"],
+      "evaluation_criteria": ["Defines good governance", "Explains at least five principles", "Relates them to development outcomes"],
+      "tags": ["good-governance", "public-administration", "accountability"],
+      "explanation": "Stronger answers apply each principle to Pakistan with a brief example.",
+      "is_sample": true
+    },
+    {
+      "id": "gc-012", "subject": "Governance and Constitutional Studies", "topic": "Federalism", "difficulty": "medium",
+      "question": "Explain the Council of Common Interests and its role in Pakistan's federal system.",
+      "expected_answer": "The Council of Common Interests (Articles 153-154) is a constitutional body chaired by the Prime Minister with the provincial Chief Ministers and federal members as its members. It formulates and regulates policies in relation to matters in Part II of the Federal Legislative List and oversees related institutions, and it settles inter-provincial and federal-provincial disputes on subjects such as water and power. The Eighteenth Amendment strengthened it by requiring it to meet at least once every ninety days.",
+      "important_concepts": ["council of common interests", "article 153", "federal legislative list", "provincial chief ministers", "inter-provincial disputes", "eighteenth amendment", "cooperative federalism"],
+      "evaluation_criteria": ["Describes composition and legal basis", "Explains its functions", "Shows the effect of the Eighteenth Amendment"],
+      "tags": ["cci", "federalism", "provinces"],
+      "explanation": "Shows understanding of the institutional mechanism for cooperative federalism.",
+      "is_sample": true
+    },
+    {
+      "id": "gc-013", "subject": "Governance and Constitutional Studies", "topic": "Accountability", "difficulty": "hard",
+      "question": "Evaluate the accountability institutions in Pakistan such as the National Accountability Bureau, the Auditor-General and the Ombudsman.",
+      "expected_answer": "The Auditor-General of Pakistan (Articles 168-171) audits federal and provincial accounts and reports to the legislature, supporting parliamentary oversight. The Wafaqi Mohtasib (Federal Ombudsman, established 1983) investigates complaints of maladministration by federal agencies. The National Accountability Bureau, created by the 1999 ordinance, investigates and prosecutes corruption. Strengths include a legal mandate and public access; weaknesses include allegations of political bias, weak follow-up on audit findings, overlapping institutions and limited prosecutorial success. Reforms focus on independence, transparency and parliamentary follow-up.",
+      "important_concepts": ["nab", "auditor-general", "wafaqi mohtasib", "maladministration", "corruption", "public accounts committee", "independence", "accountability", "oversight"],
+      "evaluation_criteria": ["Describes the role of each institution accurately", "Evaluates strengths and weaknesses", "Proposes reforms"],
+      "tags": ["accountability", "nab", "ombudsman"],
+      "explanation": "An evaluation across several bodies: structure by function, then assess effectiveness.",
+      "is_sample": true
+    },
+    {
+      "id": "gc-014", "subject": "Governance and Constitutional Studies", "topic": "Fundamental Rights", "difficulty": "hard",
+      "question": "Discuss the constitutional protection of religious minorities in Pakistan and the challenges in implementing it.",
+      "expected_answer": "The Constitution guarantees freedom of religion (Article 20), safeguards against discrimination (Articles 22 and 27), equality of citizens (Article 25), and directs the state to protect the legitimate rights and interests of minorities (Article 36); seats are reserved for non-Muslims in the legislatures. Challenges include discriminatory practices, misuse of blasphemy accusations, forced conversion complaints, discrimination in education and employment, and inadequate enforcement. In 2014 the Supreme Court directed the government to establish a task force and measures to protect minority rights. Solutions include education reform, legal safeguards against misuse, and stronger enforcement.",
+      "important_concepts": ["article 20", "article 25", "article 36", "minorities", "reserved seats", "equality", "blasphemy law misuse", "forced conversion", "supreme court 2014"],
+      "evaluation_criteria": ["Cites constitutional provisions", "Identifies implementation challenges", "Proposes balanced reforms", "Maintains a neutral, evidence-based tone"],
+      "tags": ["minorities", "fundamental-rights", "article-36"],
+      "explanation": "A rights-based question: contrast legal guarantees with the practical situation.",
+      "is_sample": true
+    },
+    {
+      "id": "gc-015", "subject": "Governance and Constitutional Studies", "topic": "Public Administration", "difficulty": "hard",
+      "question": "How can e-governance and digital public services improve service delivery in Pakistan, and what obstacles exist?",
+      "expected_answer": "E-governance can reduce corruption and delays through online services, digital identity and payments, open data and transparent records. Examples include national identity registration and online tax filing and complaint systems. Obstacles include limited internet access and digital literacy, fragmented systems and weak data protection, resistance from officials who benefit from discretion, inadequate funding and cybersecurity risks. Success depends on leadership, interoperable systems, citizen-centred design and legal safeguards.",
+      "important_concepts": ["e-governance", "digital identity", "nadra", "transparency", "digital literacy", "data protection", "interoperability", "cybersecurity"],
+      "evaluation_criteria": ["Explains benefits with examples", "Identifies institutional and technical obstacles", "Suggests conditions for success"],
+      "tags": ["e-governance", "service-delivery", "reform"],
+      "explanation": "Policy question: tie each obstacle to a corresponding reform.",
+      "is_sample": true
+    },
+    {
+      "id": "gc-016", "subject": "Governance and Constitutional Studies", "topic": "Constitutional Structure", "difficulty": "hard",
+      "question": "Analyse the relationship between the executive and Parliament in a parliamentary system, with reference to Pakistan.",
+      "expected_answer": "In a parliamentary system the executive is drawn from and accountable to the legislature. In Pakistan the Prime Minister, who must command the confidence of the National Assembly, is the chief executive (Article 90), the Cabinet is collectively responsible to Parliament (Article 91), and the President acts on the advice of the Prime Minister (Article 48). Parliament can remove the government through a vote of no confidence (Article 95) and oversees it through committees, questions and budgets. Weaknesses in practice include weak committee systems, dominance of the executive, and the effect of defection rules (Article 63A) on legislators' independence.",
+      "important_concepts": ["parliamentary system", "article 90", "article 91", "article 48", "no-confidence", "collective responsibility", "committees", "article 63a", "oversight"],
+      "evaluation_criteria": ["Explains accountability of the executive to Parliament", "Cites relevant articles", "Evaluates practical strengths and weaknesses"],
+      "tags": ["parliament", "executive", "accountability"],
+      "explanation": "Combine constitutional theory with an honest view of how oversight works in practice.",
+      "is_sample": true
+    }
+  ]
+}
