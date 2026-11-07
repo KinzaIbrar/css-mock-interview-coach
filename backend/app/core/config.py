@@ -1,5 +1,6 @@
 from pathlib import Path
 from pydantic import field_validator
+from sqlalchemy.engine import make_url
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 BACKEND_DIR = Path(__file__).resolve().parents[2]
@@ -54,6 +55,29 @@ class Settings(BaseSettings):
     @property
     def ai_configured(self) -> bool:
         return bool(self.gemini_api_key)
+
+
+def check_production_database(s: "Settings") -> None:
+    """Fail fast if production would use a missing, malformed or non-PostgreSQL database.
+
+    Production hosts (e.g. Render free) have an ephemeral disk, so a silent SQLite fallback would lose all data on
+    every restart. Messages never include the URL (it contains the password). No-op outside production.
+    """
+    if not s.is_production:
+        return
+    if "database_url" not in s.model_fields_set:
+        raise RuntimeError("DATABASE_URL is not set. In production it must be a PostgreSQL URL (e.g. the Supabase Session Pooler URI).")
+    url = s.database_url.strip()
+    if not url:
+        raise RuntimeError("DATABASE_URL is empty. In production it must be a PostgreSQL URL.")
+    if not url.startswith("postgresql"):
+        raise RuntimeError("DATABASE_URL must be a PostgreSQL URL in production; SQLite is not allowed (its disk is not persistent).")
+    try:
+        parsed = make_url(url)
+    except Exception:  # noqa: BLE001 - never echo the malformed value
+        raise RuntimeError("DATABASE_URL is malformed. Expected postgresql://USER:PASSWORD@HOST:5432/DBNAME?sslmode=require") from None
+    if not parsed.host or not parsed.database:
+        raise RuntimeError("DATABASE_URL is incomplete (host or database name missing). Expected postgresql://USER:PASSWORD@HOST:5432/DBNAME?sslmode=require")
 
 
 settings = Settings()

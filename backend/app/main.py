@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 import app.models  # noqa: F401  (registers all tables on Base.metadata)
 from app.api.routes import agents, auth, dashboard, health, interviews, progress, questions, reports
-from app.core.config import settings
+from app.core.config import check_production_database, settings
 from app.core.errors import register_error_handlers
 from app.database.migrate import run_migrations
 from app.database.session import SessionLocal
@@ -24,6 +24,7 @@ def init_db() -> None:
 
 @asynccontextmanager
 async def lifespan(_: FastAPI):
+    check_production_database(settings)
     if settings.is_production and (settings.jwt_secret.startswith("dev-only") or len(settings.jwt_secret) < 32):
         # Refuse to serve tokens signed with a guessable secret.
         raise RuntimeError("JWT_SECRET must be set to a random string of at least 32 characters when APP_ENV=production")
