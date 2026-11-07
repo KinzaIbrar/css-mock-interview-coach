@@ -2,15 +2,13 @@ from fastapi import HTTPException, status
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from app.core.constants import CRITERIA
-from app.models.feedback import Feedback
+from app.agents.progress_agent import ProgressAgent
+from app.core.constants import AI_EVAL_NOTICE, CRITERIA, DEV_EVAL_NOTICE, MIXED_EVAL_NOTICE
 from app.models.interview import Interview
 from app.models.question import Question
 from app.models.user import User
 from app.schemas.report import QuestionResult, ReportOut
 from app.services.common import get_owned_interview, interview_out
-
-FEEDBACK_SOURCE = "dev_rules"
 
 TIPS = {
     "relevance": "Address the question directly in your first sentence before adding detail.",
@@ -33,7 +31,7 @@ def _dedupe(items: list[str], cap: int) -> list[str]:
     return out[:cap]
 
 
-def _question_results(db: Session, interview: Interview) -> list[QuestionResult]:
+def question_results(db: Session, interview: Interview) -> list[QuestionResult]:
     questions = {q.id: q for q in db.scalars(select(Question).where(Question.id.in_(interview.question_ids)))}
     by_index = {a.order_index: a for a in interview.answers}
     results: list[QuestionResult] = []
@@ -41,6 +39,7 @@ def _question_results(db: Session, interview: Interview) -> list[QuestionResult]
         q = questions[qid]
         a = by_index.get(idx)
         ev = a.evaluation if a else None
+        fu = a.follow_up if a else None
         results.append(
             QuestionResult(
                 order_index=idx,
@@ -53,22 +52,40 @@ def _question_results(db: Session, interview: Interview) -> list[QuestionResult]
                 scores={c: getattr(ev, c) for c in CRITERIA} if ev else None,
                 overall=ev.overall if ev else None,
                 strengths=list(ev.strengths) if ev else [],
-                weaknesses=list(ev.weaknesses) if ev else (["Question was skipped."]),
+                weaknesses=list(ev.weaknesses) if ev else ["Question was skipped."],
                 missing_info=list(ev.missing_info) if ev else [],
                 model_answer=q.reference_answer,
+                evaluation_source=ev.source if ev else None,
+                is_ai_generated=bool(ev.is_ai_generated) if ev else False,
+                follow_up_question=fu.question_text if fu else None,
+                follow_up_answer=fu.answer_text if fu else None,
             )
         )
     return results
 
 
-def generate_dev_feedback(db: Session, interview: Interview) -> Feedback:
-    """Rule-based feedback (NOT AI). Replaced by the Feedback Agent in Phase 4."""
-    results = _question_results(db, interview)
+def feedback_inputs(results: list[QuestionResult]) -> list[dict]:
+    """Plain dicts for the Feedback agent's prompt."""
+    return [
+        {
+            "n": r.order_index + 1,
+            "topic": r.topic,
+            "question": r.question,
+            "skipped": r.skipped,
+            "answer": r.answer_text or "",
+            "overall": r.overall,
+            "weaknesses": r.weaknesses,
+            "missing_info": r.missing_info,
+        }
+        for r in results
+    ]
+
+
+def dev_feedback_fields(results: list[QuestionResult], subject: str, overall_score: float) -> dict:
+    """Rule-based feedback (NOT AI): the labelled fallback for the Feedback agent."""
     total = len(results)
     answered = [r for r in results if not r.skipped]
-    criteria_avg = {
-        c: (sum(r.scores[c] for r in answered) / total if total else 0.0) for c in CRITERIA
-    }
+    criteria_avg = {c: (sum(r.scores[c] for r in answered) / total if total else 0.0) for c in CRITERIA}
     weakest = sorted(CRITERIA, key=lambda c: criteria_avg[c])[:2]
     improvements = [TIPS[c] for c in weakest]
     if len(answered) < total:
@@ -77,27 +94,26 @@ def generate_dev_feedback(db: Session, interview: Interview) -> Feedback:
         [r.topic for r in results if r.skipped or (r.overall is not None and r.overall < WEAK_Q_THRESHOLD)], 10
     )
     summary = (
-        f"You answered {len(answered)} of {total} questions in {interview.subject} "
-        f"with an overall score of {interview.overall_score}/100. "
+        f"You answered {len(answered)} of {total} questions in {subject} "
+        f"with an overall score of {overall_score}/100. "
         "This feedback was produced by simple rules in development mode, not by an AI model."
     )
-    return Feedback(
-        interview_id=interview.id,
-        summary=summary,
-        improvements=improvements,
-        model_answers=[
-            {"question_id": r.question_id, "question": r.question, "model_answer": r.model_answer} for r in results
-        ],
-        revision_topics=revision,
-        source=FEEDBACK_SOURCE,
-        is_ai_generated=False,
-    )
+    return {"summary": summary, "improvements": improvements, "revision_topics": revision}
+
+
+def _source_summary(results: list[QuestionResult]) -> tuple[str, bool, str | None]:
+    sources = {r.evaluation_source for r in results if not r.skipped}
+    if sources == {"gemini"}:
+        return "gemini", True, None
+    if "gemini" in sources:
+        return "mixed", False, None
+    return "dev_heuristic", False, None
 
 
 def build_report(db: Session, interview: Interview) -> ReportOut:
     if interview.status != "completed" or interview.feedback is None:
         raise HTTPException(status.HTTP_409_CONFLICT, "Interview is not completed yet")
-    results = _question_results(db, interview)
+    results = question_results(db, interview)
     total = len(results)
     answered = [r for r in results if not r.skipped]
     criteria_scores = {
@@ -109,6 +125,16 @@ def build_report(db: Session, interview: Interview) -> ReportOut:
         next_practice.append("Your score is solid; try the next difficulty level.")
     if not next_practice:
         next_practice.append(f"Take another {interview.subject} interview to keep building consistency.")
+
+    source, all_ai, _ = _source_summary(results)
+    models = sorted({a.evaluation.model for a in interview.answers if a.evaluation and a.evaluation.model})
+    model = models[0] if models else None
+    if source == "gemini":
+        notice = AI_EVAL_NOTICE.format(model=model or "Gemini")
+    elif source == "mixed":
+        notice = MIXED_EVAL_NOTICE.format(model=model or "Gemini")
+    else:
+        notice = DEV_EVAL_NOTICE
     return ReportOut(
         interview=interview_out(interview),
         overall_score=interview.overall_score or 0.0,
@@ -121,8 +147,13 @@ def build_report(db: Session, interview: Interview) -> ReportOut:
         revision_topics=list(fb.revision_topics),
         next_practice=next_practice,
         questions=results,
-        evaluation_source="dev_heuristic",
-        is_ai_generated=False,
+        evaluation_source=source,
+        is_ai_generated=all_ai,
+        evaluation_model=model,
+        notice=notice,
+        feedback_source=fb.source,
+        feedback_is_ai_generated=bool(fb.is_ai_generated),
+        progress_note=ProgressAgent(db).insight(interview),
     )
 
 

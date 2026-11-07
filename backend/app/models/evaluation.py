@@ -23,5 +23,6 @@ class Evaluation(Base, TimestampMixin):
     missing_info: Mapped[list] = mapped_column(JSON, default=list)
     source: Mapped[str] = mapped_column(String(32), default="dev_heuristic")
     is_ai_generated: Mapped[bool] = mapped_column(Boolean, default=False)
+    model: Mapped[str | None] = mapped_column(String(64), nullable=True)  # LLM id when AI-generated (migration 0003)
 
     answer = relationship("Answer", back_populates="evaluation")

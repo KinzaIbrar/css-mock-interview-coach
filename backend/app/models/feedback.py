@@ -16,5 +16,6 @@ class Feedback(Base, TimestampMixin):
     revision_topics: Mapped[list] = mapped_column(JSON, default=list)
     source: Mapped[str] = mapped_column(String(32), default="dev_rules")
     is_ai_generated: Mapped[bool] = mapped_column(Boolean, default=False)
+    model: Mapped[str | None] = mapped_column(String(64), nullable=True)  # LLM id when AI-generated (migration 0003)
 
     interview = relationship("Interview", back_populates="feedback")

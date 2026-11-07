@@ -17,6 +17,14 @@ class Settings(BaseSettings):
     cors_origins: str = "http://localhost:5173"
     gemini_api_key: str = ""
     gemini_model: str = "gemini-3.8-flash"
+    # Gemini call policy: per-attempt timeout, limited retries on transient errors, overall time budget,
+    # and a short cooldown after retries are exhausted so an outage does not stall every request.
+    gemini_timeout_seconds: float = 30.0
+    gemini_max_retries: int = 2
+    gemini_retry_delay_seconds: float = 2.0
+    gemini_budget_seconds: float = 65.0
+    gemini_cooldown_seconds: float = 30.0
+    max_follow_ups_per_interview: int = 3
     # A single JSON file, or a directory of *.json files (default: one file per subject).
     questions_path: Path = ROOT_DIR / "data" / "questions"
     retrieval_backend: str = "keyword"  # only 'keyword' exists today; a vector backend can be added later

@@ -19,3 +19,4 @@ class Answer(Base, TimestampMixin):
     interview = relationship("Interview", back_populates="answers")
     question = relationship("Question")
     evaluation = relationship("Evaluation", back_populates="answer", uselist=False, cascade="all, delete-orphan")
+    follow_up = relationship("FollowUp", back_populates="answer", uselist=False, cascade="all, delete-orphan")

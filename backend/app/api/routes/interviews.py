@@ -7,6 +7,7 @@ from app.models.user import User
 from app.schemas.interview import (
     AnswerAck,
     AnswerRequest,
+    FollowUpAck,
     InterviewDetail,
     InterviewOut,
     InterviewRef,
@@ -28,6 +29,12 @@ def start(req: StartInterviewRequest, db: Session = Depends(get_db), user: User 
 @router.post("/answer", response_model=AnswerAck)
 def answer(req: AnswerRequest, db: Session = Depends(get_db), user: User = Depends(get_current_user)):
     return interview_service.submit_answer(db, user, req)
+
+
+@router.post("/follow-up", response_model=FollowUpAck)
+def follow_up(req: AnswerRequest, db: Session = Depends(get_db), user: User = Depends(get_current_user)):
+    """Reply to a follow-up question returned by /answer (`follow_up_question`)."""
+    return interview_service.submit_follow_up(db, user, req)
 
 
 @router.post("/next", response_model=NextResponse)

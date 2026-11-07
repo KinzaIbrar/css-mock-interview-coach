@@ -1,5 +1,4 @@
 from datetime import datetime
-from typing import Literal
 
 from pydantic import BaseModel, Field, field_validator
 
@@ -74,14 +73,30 @@ class AnswerRequest(BaseModel):
 
 
 class AnswerAck(BaseModel):
-    """Acknowledgement only: evaluation is not revealed until the report."""
+    """Acknowledgement only: scores and feedback are not revealed until the report."""
 
     interview_id: int
     answered_index: int
     answered_count: int
     has_next: bool
     evaluation_saved: bool = True
-    evaluation_source: Literal["dev_heuristic"] = "dev_heuristic"
+    evaluation_source: str = "dev_heuristic"  # "gemini" | "dev_heuristic"
+    is_ai_generated: bool = False
+    # Set when the panel asks a follow-up: answer it via POST /interviews/follow-up before /next.
+    follow_up_question: str | None = None
+    # Present when the evaluation did NOT come from Gemini (not configured, or Gemini failed).
+    ai_notice: str | None = None
+    fallback_reason: str | None = None
+
+
+class FollowUpAck(BaseModel):
+    interview_id: int
+    answered_index: int
+    has_next: bool
+    evaluation_source: str = "dev_heuristic"
+    is_ai_generated: bool = False
+    ai_notice: str | None = None
+    fallback_reason: str | None = None
 
 
 class InterviewRef(BaseModel):
@@ -103,3 +118,4 @@ class InterviewDetail(BaseModel):
     total_questions: int
     answered_indexes: list[int]
     report_available: bool  # evaluation/feedback is only exposed via the report, after completion
+    pending_follow_up: str | None = None  # a follow-up question awaiting the candidate's reply

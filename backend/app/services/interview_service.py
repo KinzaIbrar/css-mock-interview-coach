@@ -3,30 +3,27 @@ from sqlalchemy import select
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
+from app.agents.conductor_agent import ConductorAgent
+from app.agents.graph import run_answer_step, run_completion_step
+from app.agents.question_agent import QuestionAgent
+from app.core.constants import DEV_EVAL_NOTICE
 from app.models.answer import Answer
-from app.models.evaluation import Evaluation
 from app.models.interview import Interview
 from app.models.question import Question
 from app.models.user import User
-from app.models.base import utcnow
 from app.schemas.interview import (
     AnswerAck,
     AnswerRequest,
+    FollowUpAck,
     InterviewDetail,
     NextResponse,
     StartInterviewRequest,
     StartInterviewResponse,
 )
-from app.rag import RetrievalQuery, get_retriever, select_questions
 from app.schemas.question import QuestionPublic
 from app.schemas.report import ReportOut
-from app.services import dev_evaluator, progress_service, report_service
+from app.services import report_service
 from app.services.common import get_owned_interview, interview_out
-
-
-def _question(db: Session, interview: Interview, index: int) -> Question:
-    return db.get(Question, interview.question_ids[index])
-
 
 RECENT_INTERVIEWS_FOR_DEDUP = 5
 
@@ -42,16 +39,46 @@ def _recently_seen_question_ids(db: Session, user: User) -> list[int]:
     return [qid for ids in rows for qid in ids]
 
 
+def _question(db: Session, interview: Interview, index: int) -> Question:
+    return db.get(Question, interview.question_ids[index])
+
+
+def _current_answer(interview: Interview) -> Answer | None:
+    return next((a for a in interview.answers if a.order_index == interview.current_index), None)
+
+
+def _pending_follow_up(interview: Interview) -> str | None:
+    answer = _current_answer(interview)
+    if answer and answer.follow_up and answer.follow_up.answer_text is None:
+        return answer.follow_up.question_text
+    return None
+
+
+def _previous_context(db: Session, interview: Interview) -> list[dict]:
+    """Topic + score of the questions already answered in this interview (the conversation context)."""
+    ctx = []
+    for a in interview.answers:
+        if a.order_index < interview.current_index and a.evaluation:
+            ctx.append({"topic": db.get(Question, a.question_id).topic, "overall": a.evaluation.overall})
+    return ctx
+
+
+def _ai_notice(outcome) -> str | None:
+    """Explain a non-AI evaluation. None when Gemini produced it."""
+    if outcome.fallback_reason is None:
+        return None
+    if outcome.fallback_reason == "not_configured":
+        return "Gemini is not configured: this answer was evaluated by the development heuristic. " + DEV_EVAL_NOTICE
+    return (
+        f"Gemini was unavailable ({outcome.fallback_reason}); this answer was evaluated by the development "
+        "heuristic instead. " + DEV_EVAL_NOTICE
+    )
+
+
 def start_interview(db: Session, user: User, req: StartInterviewRequest) -> StartInterviewResponse:
     mixed = req.difficulty == "mixed"
-    pool = get_retriever(db).search(
-        RetrievalQuery(
-            subject=req.subject,
-            topic=req.topic,
-            difficulty=None if mixed else req.difficulty,
-            limit=None,
-        )
-    ).items
+    agent = QuestionAgent(db)
+    pool = agent.candidates(req.subject, req.difficulty, req.topic)
     if len(pool) < req.num_questions:
         where = f"{req.subject}" + (f" / {req.topic}" if req.topic else "")
         raise HTTPException(
@@ -60,13 +87,7 @@ def start_interview(db: Session, user: User, req: StartInterviewRequest) -> Star
             f"requested {req.num_questions}. Reduce the number of questions or change the difficulty.",
         )
     chosen = [
-        q.id
-        for q in select_questions(
-            [sq.question for sq in pool],
-            req.num_questions,
-            recently_seen_ids=_recently_seen_question_ids(db, user),
-            mixed_difficulty=mixed,
-        )
+        q.id for q in agent.pick(pool, req.num_questions, _recently_seen_question_ids(db, user), mixed)
     ]
     interview = Interview(
         user_id=user.id,
@@ -95,30 +116,103 @@ def submit_answer(db: Session, user: User, req: AnswerRequest) -> AnswerAck:
     if interview.status != "in_progress":
         raise HTTPException(status.HTTP_409_CONFLICT, "Interview is already completed")
     idx = interview.current_index
-    if any(a.order_index == idx for a in interview.answers):
+    if _current_answer(interview) is not None:
         raise HTTPException(status.HTTP_409_CONFLICT, "Current question already answered; request the next question")
     question = _question(db, interview, idx)
-    answer = Answer(
-        interview_id=interview.id,
-        question_id=question.id,
-        order_index=idx,
-        answer_text=req.answer_text,
-        time_taken_seconds=req.time_taken_seconds,
-    )
-    db.add(answer)
+
+    # Nothing is written until the graph's final step: the Gemini call must not run inside a DB transaction.
+    conductor = ConductorAgent()
+    used = sum(1 for a in interview.answers if a.follow_up)
     try:
-        db.flush()
-        db.add(Evaluation(answer_id=answer.id, **dev_evaluator.evaluate(question, req.answer_text)))
-        db.commit()
-    except IntegrityError:
+        state = run_answer_step(
+            db,
+            {
+                "user_id": user.id,
+                "interview_id": interview.id,
+                "subject": interview.subject,
+                "difficulty": interview.difficulty,
+                "current_question": {"id": question.id, "topic": question.topic, "text": question.text},
+                "previous_questions": conductor.context(_previous_context(db, interview)),
+                "candidate_answers": [a.answer_text for a in interview.answers],
+                "follow_up_count": used,
+                "new_answer": {"question_id": question.id, "order_index": idx, "time_taken_seconds": req.time_taken_seconds},
+                "answer_text": req.answer_text,
+                "follow_up_qa": None,
+                "follow_up_allowed": conductor.follow_up_allowed(used, question_already_has_one=False),
+            },
+        )
+    except IntegrityError:  # a concurrent request answered this question first
         db.rollback()
         raise HTTPException(status.HTTP_409_CONFLICT, "Current question already answered; request the next question")
+    outcome = state["outcome"]
     db.refresh(interview)
     return AnswerAck(
         interview_id=interview.id,
         answered_index=idx,
         answered_count=len(interview.answers),
         has_next=idx + 1 < len(interview.question_ids),
+        evaluation_source=outcome.source,
+        is_ai_generated=outcome.is_ai_generated,
+        follow_up_question=state.get("follow_up_question") or None,
+        ai_notice=_ai_notice(outcome),
+        fallback_reason=outcome.fallback_reason,
+    )
+
+
+def submit_follow_up(db: Session, user: User, req: AnswerRequest) -> FollowUpAck:
+    """The candidate's reply to a follow-up question: stored, then the question is re-evaluated as a whole."""
+    interview = get_owned_interview(db, user, req.interview_id)
+    if interview.status != "in_progress":
+        raise HTTPException(status.HTTP_409_CONFLICT, "Interview is already completed")
+    answer = _current_answer(interview)
+    if answer is None or answer.follow_up is None:
+        raise HTTPException(status.HTTP_409_CONFLICT, "There is no follow-up question to answer")
+    if answer.follow_up.answer_text is not None:
+        raise HTTPException(status.HTTP_409_CONFLICT, "The follow-up question has already been answered")
+    question = _question(db, interview, interview.current_index)
+
+    conductor = ConductorAgent()
+    state = run_answer_step(
+        db,
+        {
+            "user_id": user.id,
+            "interview_id": interview.id,
+            "subject": interview.subject,
+            "difficulty": interview.difficulty,
+            "current_question": {"id": question.id, "topic": question.topic, "text": question.text},
+            "previous_questions": conductor.context(_previous_context(db, interview)),
+            "follow_up_count": sum(1 for a in interview.answers if a.follow_up),
+            "answer_id": answer.id,
+            "answer_text": answer.answer_text,
+            "follow_up_qa": [answer.follow_up.question_text, req.answer_text],
+            "follow_up_reply": {"text": req.answer_text, "time_taken_seconds": req.time_taken_seconds},
+            "follow_up_allowed": False,  # never chain follow-ups
+        },
+    )
+    outcome = state["outcome"]
+    if state.get("kept_original_evaluation"):
+        # Gemini could not re-evaluate: the reply is saved and the existing AI evaluation is kept, not replaced.
+        stored = answer.evaluation
+        return FollowUpAck(
+            interview_id=interview.id,
+            answered_index=interview.current_index,
+            has_next=interview.current_index + 1 < len(interview.question_ids),
+            evaluation_source=stored.source,
+            is_ai_generated=bool(stored.is_ai_generated),
+            ai_notice=(
+                f"Gemini was unavailable ({outcome.fallback_reason}) to re-evaluate your follow-up reply. "
+                "Your reply was saved and the original AI evaluation of your answer was kept."
+            ),
+            fallback_reason=outcome.fallback_reason,
+        )
+    return FollowUpAck(
+        interview_id=interview.id,
+        answered_index=interview.current_index,
+        has_next=interview.current_index + 1 < len(interview.question_ids),
+        evaluation_source=outcome.source,
+        is_ai_generated=outcome.is_ai_generated,
+        ai_notice=_ai_notice(outcome),
+        fallback_reason=outcome.fallback_reason,
     )
 
 
@@ -127,8 +221,10 @@ def next_question(db: Session, user: User, interview_id: int) -> NextResponse:
     if interview.status != "in_progress":
         raise HTTPException(status.HTTP_409_CONFLICT, "Interview is already completed")
     idx = interview.current_index
-    if not any(a.order_index == idx for a in interview.answers):
+    if _current_answer(interview) is None:
         raise HTTPException(status.HTTP_409_CONFLICT, "Answer the current question before continuing")
+    if _pending_follow_up(interview) is not None:
+        raise HTTPException(status.HTTP_409_CONFLICT, "Answer the follow-up question before continuing")
     total = len(interview.question_ids)
     if idx + 1 >= total:
         return NextResponse(interview_id=interview.id, finished=True, question_number=total, total_questions=total, question=None)
@@ -147,17 +243,27 @@ def complete_interview(db: Session, user: User, interview_id: int) -> ReportOut:
     interview = get_owned_interview(db, user, interview_id)
     if interview.status == "completed":
         return report_service.build_report(db, interview)  # idempotent
-    total = len(interview.question_ids)
     if not interview.answers:
         raise HTTPException(status.HTTP_409_CONFLICT, "Answer at least one question before completing the interview")
-    # Skipped (unanswered) questions count as 0.
-    interview.overall_score = round(sum(a.evaluation.overall for a in interview.answers) / total, 1)
-    interview.status = "completed"
-    interview.completed_at = utcnow()
-    db.flush()
-    db.add(report_service.generate_dev_feedback(db, interview))
-    progress_service.update_progress(db, user.id, interview.subject, interview.overall_score, interview.completed_at)
-    db.commit()
+    try:
+        run_completion_step(
+            db,
+            {
+                "user_id": user.id,
+                "interview_id": interview.id,
+                "subject": interview.subject,
+                "difficulty": interview.difficulty,
+                "interview_status": interview.status,
+            },
+        )
+    except IntegrityError:
+        # A concurrent request completed this interview first (unique feedback row): return its report.
+        db.rollback()
+        db.expire_all()
+        interview = get_owned_interview(db, user, interview_id)
+        if interview.status != "completed":
+            raise
+        return report_service.build_report(db, interview)
     db.refresh(interview)
     return report_service.build_report(db, interview)
 
@@ -186,4 +292,5 @@ def get_detail(db: Session, user: User, interview_id: int) -> InterviewDetail:
         total_questions=total,
         answered_indexes=[a.order_index for a in interview.answers],
         report_available=interview.status == "completed",
+        pending_follow_up=_pending_follow_up(interview) if interview.status == "in_progress" else None,
     )

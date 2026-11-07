@@ -11,4 +11,4 @@ pytest
 httpx
 alembic
 google-genai>=3.0,<4
-# added in later phases: langgraph
+langgraph>=1.0,<2

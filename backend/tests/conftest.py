@@ -16,6 +16,16 @@ from app.main import app  # noqa: E402
 from app.services.question_service import seed_questions  # noqa: E402
 
 
+@pytest.fixture(autouse=True)
+def no_real_llm(monkeypatch):
+    """Tests are hermetic: never call the real Gemini API (the developer's .env holds a live key).
+
+    Default is the labelled development fallback (no provider). AI tests install a fake provider."""
+    from app.agents import runtime
+
+    monkeypatch.setattr(runtime, "get_provider", lambda: None)
+
+
 LEGACY_DATASET = Path(__file__).parent / "fixtures" / "legacy_21.json"  # frozen Phase 3 question set
 
 

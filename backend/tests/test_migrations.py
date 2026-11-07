@@ -12,6 +12,9 @@ from app.database.session import Base
 from tests.test_dataset_validation import good
 
 
+HEAD = "0003"  # latest Alembic revision
+
+
 @pytest.fixture()
 def url(tmp_path):
     return f"sqlite:///{(tmp_path / 'migr.db').as_posix()}"
@@ -41,7 +44,7 @@ def test_fresh_database_migrates_to_head(url):
     engine.dispose()
     assert {"users", "questions", "interviews", "answers", "evaluations", "feedback", "progress"} <= tables
     assert {"evaluation_criteria", "tags", "explanation"} <= columns(url, "questions")
-    assert version(url) == "0002"
+    assert version(url) == HEAD
 
 
 def test_migrations_match_the_models_exactly(url):
@@ -57,7 +60,7 @@ def test_migrations_match_the_models_exactly(url):
 def test_run_migrations_is_idempotent(url):
     run_migrations(url)
     run_migrations(url)
-    assert version(url) == "0002"
+    assert version(url) == HEAD
 
 
 def test_legacy_phase3_database_is_upgraded_without_data_loss(url):
@@ -85,7 +88,7 @@ def test_legacy_phase3_database_is_upgraded_without_data_loss(url):
     run_migrations(url)
 
     assert {"evaluation_criteria", "tags", "explanation"} <= columns(url, "questions")
-    assert version(url) == "0002"
+    assert version(url) == HEAD
     engine = create_engine(url)
     with engine.connect() as conn:
         row = conn.execute(text("select text, tags, explanation from questions where source_id='old-001'")).one()
@@ -120,3 +123,52 @@ def test_downgrade_removes_the_new_columns(url):
     assert version(url) == "0001"
     run_migrations(url)  # and upgrading again works
     assert "tags" in columns(url, "questions")
+
+
+# ---- migration 0003 (Phase 4) -------------------------------------------------------------------
+def test_0003_adds_follow_ups_and_model_columns(url):
+    run_migrations(url)
+    engine = create_engine(url)
+    assert "follow_ups" in set(inspect(engine).get_table_names())
+    engine.dispose()
+    assert {"answer_id", "question_text", "answer_text", "time_taken_seconds"} <= columns(url, "follow_ups")
+    assert "model" in columns(url, "evaluations") and "model" in columns(url, "feedback")
+
+
+def test_0003_preserves_existing_evaluations_and_feedback(url):
+    """A Phase 5 database (head 0002) holding real answers/evaluations upgrades without losing anything."""
+    command.upgrade(_config(url), "0002")
+    ts = "'2024-01-01','2024-01-01'"
+    engine = create_engine(url)
+    with engine.begin() as c:
+        c.execute(text(f"insert into users (id,email,full_name,hashed_password,is_active,preferences,created_at,updated_at) values (1,'u@x.com','U','h',1,'{{}}',{ts})"))
+        c.execute(text(f"insert into questions (id,source_id,subject,topic,difficulty,text,reference_answer,keywords,is_sample,created_at,updated_at,evaluation_criteria,tags,explanation) values (1,'old-001','English','G','easy','Q?','A','[]',1,{ts},'[]','[]','')"))
+        c.execute(text(f"insert into interviews (id,user_id,subject,difficulty,num_questions,duration_minutes,mode,status,current_index,question_ids,started_at,overall_score,created_at,updated_at) values (1,1,'English','easy',1,10,'mock','completed',0,'[1]','2024-01-01',55.0,{ts})"))
+        c.execute(text(f"insert into answers (id,interview_id,question_id,order_index,answer_text,created_at,updated_at) values (1,1,1,0,'my answer',{ts})"))
+        c.execute(text(f"insert into evaluations (answer_id,relevance,subject_knowledge,accuracy,reasoning,structure,clarity,overall,strengths,weaknesses,missing_info,source,is_ai_generated,created_at,updated_at) values (1,5,5,5,5,5,5,50,'[]','[]','[]','dev_heuristic',0,{ts})"))
+        c.execute(text(f"insert into feedback (interview_id,summary,improvements,model_answers,revision_topics,source,is_ai_generated,created_at,updated_at) values (1,'s','[]','[]','[]','dev_rules',0,{ts})"))
+    engine.dispose()
+
+    run_migrations(url)
+
+    engine = create_engine(url)
+    with engine.connect() as c:
+        ev = c.execute(text("select overall, source, is_ai_generated, model from evaluations")).one()
+        fb = c.execute(text("select summary, source, model from feedback")).one()
+        assert tuple(ev) == (50, "dev_heuristic", 0, None) and tuple(fb) == ("s", "dev_rules", None)
+        assert c.execute(text("select answer_text from answers")).scalar() == "my answer"
+        assert c.execute(text("select count(*) from follow_ups")).scalar() == 0
+    engine.dispose()
+    assert version(url) == HEAD
+
+
+def test_0003_downgrade_removes_phase4_schema_and_upgrade_restores_it(url):
+    run_migrations(url)
+    command.downgrade(_config(url), "0002")
+    engine = create_engine(url)
+    assert "follow_ups" not in set(inspect(engine).get_table_names())
+    engine.dispose()
+    assert "model" not in columns(url, "evaluations") and "model" not in columns(url, "feedback")
+    assert version(url) == "0002"
+    run_migrations(url)
+    assert "model" in columns(url, "evaluations") and version(url) == HEAD

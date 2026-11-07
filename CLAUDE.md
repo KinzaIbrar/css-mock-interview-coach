@@ -25,11 +25,12 @@ No local models, no CUDA, no Docker, no large embedding models. ChromaDB/MediaPi
 11. Camera feature must not claim to measure confidence/personality.
 
 ## Architecture
-FastAPI routes → services → SQLAlchemy models. LangGraph graph (shared `InterviewState`) is run per step: start → retrieve question/conductor; answer → evaluate + follow-up decision (max follow-ups capped); complete → feedback → progress → save → report. Five logical agents: Question, Conductor, Evaluation, Feedback, Progress.
+FastAPI routes → services → SQLAlchemy models. Five agents in `backend/app/agents/` (Question, Conductor, Evaluation, Feedback, Progress) share one LangGraph `InterviewState` (`agents/graph.py`), run per step: answer → evaluate → [follow-up decision] → save; completion → score → feedback → finalise → progress; then the report is built. Gemini sits behind the `LLMProvider` protocol (`agents/gemini_provider.py`: timeout, limited retries on 5xx/429/timeouts, cooldown). **AI results are never fabricated**: if Gemini is unconfigured/failing/invalid, fall back to the labelled dev heuristic (`dev_heuristic` / `dev_rules`, `is_ai_generated=false`). Follow-ups: max 1 per question, 3 per interview, never chained. Never hold a DB write transaction across an LLM call (read -> call Gemini -> write once; SQLite has one writer). SQLite foreign keys are enforced (`enable_sqlite_foreign_keys`). Tests must never call the real API (`tests/conftest.py` forces fallback; use `tests/fakes.py`). See `docs/ai-agents.md`.
 
 ## Commands (Windows)
 - Backend: `cd backend; .venv\Scripts\python -m uvicorn app.main:app --reload --port 8000` (docs at /docs)
 - Backend tests: `cd backend; .venv\Scripts\python -m pytest`
+- Live Gemini check (2 real calls, prints no secrets): `cd backend; .venv\Scripts\python -m scripts.check_gemini`
 - Validate dataset: `cd backend; .venv\Scripts\python -m app.rag.validate`
 - New migration: edit models, then `.venv\Scripts\python -m alembic revision -m "msg"` (write it by hand; `tests/test_migrations.py` fails on drift)
 - Frontend: `cd frontend; npm run dev` (port 5173, proxies /api → 8000)
