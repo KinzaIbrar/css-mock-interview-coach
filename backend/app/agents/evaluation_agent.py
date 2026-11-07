@@ -82,9 +82,15 @@ class EvaluationAgent:
         follow_up: tuple[str, str] | None = None,
         context: list[dict] | None = None,
         follow_up_allowed: bool = False,
+        introduction: str | None = None,
+        reply_only: bool = False,
     ) -> EvaluationOutcome:
+        """Evaluate an answer; with `reply_only` evaluate just the follow-up reply (the original answer is context)."""
         provider = runtime.get_provider()
-        combined = answer_text if not follow_up else f"{answer_text}\n\n[Follow-up reply] {follow_up[1]}"
+        if follow_up and reply_only:
+            combined = follow_up[1]  # the heuristic fallback scores the reply itself
+        else:
+            combined = answer_text if not follow_up else f"{answer_text}\n\n[Follow-up reply] {follow_up[1]}"
         if provider is None:
             return self._fallback(question, combined, "not_configured")
         try:
@@ -102,6 +108,8 @@ class EvaluationAgent:
                     follow_up=follow_up,
                     context=context or [],
                     follow_up_allowed=follow_up_allowed,
+                    introduction=introduction,
+                    reply_only=reply_only,
                 ),
                 schema=EvaluationLLMOutput,
             )

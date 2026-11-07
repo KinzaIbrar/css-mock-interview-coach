@@ -34,10 +34,20 @@ The conditional edge after `evaluate` routes to `follow_up_decision` only when f
 ## Data saved
 Existing tables are reused: `answers` (candidate text), `evaluations` (six scores, overall, strengths/weaknesses/missing info, `source`, `is_ai_generated`, `model`), `feedback` (`source`, `is_ai_generated`, `model`), `progress`. Migration `0003` adds the `follow_ups` table (question, reply) and the `model` columns.
 
-## Configuration (`backend/.env`)
-Fallback reasons you may see: `not_configured`, `timeout`, `http_<status>`, `invalid_output`, `invalid_score`, `cooldown`, and `unexpected_error` (any other failure inside the AI layer is caught and falls back too, so an AI bug can never block an interview).
+## Rate limits and quota (HTTP 429)
+A 429 is **not** treated like a flaky network. Google says which limit was hit and how long to wait (`QuotaFailure.quotaId`, `RetryInfo.retryDelay`), and the provider reads that:
+- **Daily quota exhausted** (`quotaId` contains `PerDay`, e.g. the free tier's *20 requests per day per model*): **never retried** (one request, no sleeps). The provider stays quiet for Google's retry delay, capped by `GEMINI_QUOTA_COOLDOWN_CAP_SECONDS` (default 900 s), then probes again. During that window every call fails fast with the **real** reason `quota_exhausted` (not a generic "cooldown"), and nothing is sent to Google.
+- **Per-minute rate limit:** waits the delay Google asked for (not a blind 2 s) when it fits the request's time budget, otherwise fails fast with `rate_limited` and pauses for that delay.
+- A 429 without details is retried at most `GEMINI_MAX_RETRIES` times with the normal backoff, then reported as `rate_limited`.
+- 5xx / timeouts keep the generic short cooldown (`cooldown`); no request is made while it lasts, so it does not claim a new timeout.
+- Evaluation and feedback share the same per-model quota, so one cooldown correctly covers both; once it expires each operation tries Gemini again independently. A failed call never overwrites an existing AI evaluation.
+- `GET /api/health` returns `ai_availability` `{available, reason, retry_after_seconds}` so clients can show whether Gemini is usable **right now** (it makes no call to Google).
+- **Practical consequence:** on the free tier (20 requests/day/model) one 5-question interview uses about 6 requests (5 evaluations + 1 feedback; follow-ups add more), i.e. roughly 3 interviews per day. Use a billed key or a different model for more.
 
-`GEMINI_API_KEY`, `GEMINI_MODEL` (default `gemini-3.8-flash`), and optional `GEMINI_TIMEOUT_SECONDS` (30), `GEMINI_MAX_RETRIES` (2), `GEMINI_RETRY_DELAY_SECONDS` (2), `GEMINI_BUDGET_SECONDS` (65), `GEMINI_COOLDOWN_SECONDS` (30), `MAX_FOLLOW_UPS_PER_INTERVIEW` (3).
+## Configuration (`backend/.env`)
+Fallback reasons you may see: `not_configured`, `quota_exhausted`, `rate_limited`, `timeout`, `http_<status>`, `invalid_output`, `invalid_score`, `cooldown`, and `unexpected_error` (any other failure inside the AI layer is caught and falls back too, so an AI bug can never block an interview).
+
+`GEMINI_API_KEY`, `GEMINI_MODEL` (default `gemini-3.8-flash`), and optional `GEMINI_TIMEOUT_SECONDS` (30), `GEMINI_MAX_RETRIES` (2), `GEMINI_RETRY_DELAY_SECONDS` (2), `GEMINI_BUDGET_SECONDS` (65), `GEMINI_COOLDOWN_SECONDS` (30), `GEMINI_QUOTA_COOLDOWN_CAP_SECONDS` (900), `MAX_FOLLOW_UPS_PER_INTERVIEW` (3).
 
 ## Verifying the live connection
 ```

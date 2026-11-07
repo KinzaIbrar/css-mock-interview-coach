@@ -8,6 +8,8 @@ from app.schemas.interview import (
     AnswerAck,
     AnswerRequest,
     FollowUpAck,
+    IntroductionAck,
+    IntroductionRequest,
     InterviewDetail,
     InterviewOut,
     InterviewRef,
@@ -15,8 +17,9 @@ from app.schemas.interview import (
     StartInterviewRequest,
     StartInterviewResponse,
 )
+from app.schemas.observations import ObservationsIn, ObservationsSaved
 from app.schemas.report import ReportOut
-from app.services import interview_service
+from app.services import interview_service, observation_service
 
 router = APIRouter(prefix="/interviews", tags=["interviews"])
 
@@ -24,6 +27,18 @@ router = APIRouter(prefix="/interviews", tags=["interviews"])
 @router.post("/start", response_model=StartInterviewResponse, status_code=status.HTTP_201_CREATED)
 def start(req: StartInterviewRequest, db: Session = Depends(get_db), user: User = Depends(get_current_user)):
     return interview_service.start_interview(db, user, req)
+
+
+@router.post("/introduction", response_model=IntroductionAck)
+def introduction(req: IntroductionRequest, db: Session = Depends(get_db), user: User = Depends(get_current_user)):
+    """Answer 'Tell me about yourself' (only for interviews started with `with_introduction`). Context only; not scored."""
+    return interview_service.submit_introduction(db, user, req)
+
+
+@router.post("/observations", response_model=ObservationsSaved)
+def observations(req: ObservationsIn, db: Session = Depends(get_db), user: User = Depends(get_current_user)):
+    """Browser-computed aggregate camera/voice numbers (never video, frames or landmarks)."""
+    return observation_service.save(db, user, req)
 
 
 @router.post("/answer", response_model=AnswerAck)

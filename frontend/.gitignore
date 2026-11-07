@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# MediaPipe runtime + model, produced by scripts/setup-vision-assets.mjs
+public/vision/

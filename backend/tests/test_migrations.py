@@ -12,7 +12,7 @@ from app.database.session import Base
 from tests.test_dataset_validation import good
 
 
-HEAD = "0003"  # latest Alembic revision
+HEAD = "0004"  # latest Alembic revision
 
 
 @pytest.fixture()

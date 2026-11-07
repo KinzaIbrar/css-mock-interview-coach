@@ -3,6 +3,7 @@ from datetime import datetime
 from pydantic import BaseModel, Field, field_validator
 
 from app.core.constants import INTERVIEW_DIFFICULTIES, INTERVIEW_MODES, SAMPLE_DATA_NOTICE, SUBJECTS
+from app.schemas.agents import AgentStep
 from app.schemas.question import QuestionPublic
 
 
@@ -13,6 +14,8 @@ class StartInterviewRequest(BaseModel):
     duration_minutes: int = Field(default=30, ge=5, le=120)
     mode: str = "mock"
     topic: str | None = Field(default=None, max_length=128)  # optional: restrict to one topic
+    # Conversational opening: greeting + "Tell me about yourself" before question 1 (off by default = legacy flow)
+    with_introduction: bool = False
 
     @field_validator("subject")
     @classmethod
@@ -51,8 +54,15 @@ class InterviewOut(BaseModel):
     overall_score: float | None
 
 
+class IntroductionPrompt(BaseModel):
+    greeting: str
+    question: str
+
+
 class StartInterviewResponse(BaseModel):
     interview: InterviewOut
+    introduction_required: bool = False
+    introduction_prompt: IntroductionPrompt | None = None
     question: QuestionPublic
     question_number: int
     total_questions: int
@@ -87,6 +97,7 @@ class AnswerAck(BaseModel):
     # Present when the evaluation did NOT come from Gemini (not configured, or Gemini failed).
     ai_notice: str | None = None
     fallback_reason: str | None = None
+    trace: list[AgentStep] = []  # what each named agent did for this request
 
 
 class FollowUpAck(BaseModel):
@@ -97,6 +108,26 @@ class FollowUpAck(BaseModel):
     is_ai_generated: bool = False
     ai_notice: str | None = None
     fallback_reason: str | None = None
+    trace: list[AgentStep] = []
+
+
+class IntroductionRequest(BaseModel):
+    interview_id: int
+    answer_text: str = Field(min_length=1, max_length=4000)
+    time_taken_seconds: int | None = Field(default=None, ge=0, le=86400)
+
+    @field_validator("answer_text")
+    @classmethod
+    def not_blank(cls, v: str) -> str:
+        if not v.strip():
+            raise ValueError("answer_text must not be blank")
+        return v.strip()
+
+
+class IntroductionAck(BaseModel):
+    interview_id: int
+    introduction_saved: bool = True
+    trace: list[AgentStep] = []
 
 
 class InterviewRef(BaseModel):
@@ -111,6 +142,15 @@ class NextResponse(BaseModel):
     question: QuestionPublic | None
 
 
+class ConversationTurn(BaseModel):
+    """One line of the interview dialogue. Follow-ups carry the number of the MAIN question they belong to."""
+
+    role: str  # interviewer | candidate
+    kind: str  # greeting | introduction_question | introduction | question | answer | follow_up | follow_up_answer
+    text: str
+    question_number: int | None = None
+
+
 class InterviewDetail(BaseModel):
     interview: InterviewOut
     current_question: QuestionPublic | None
@@ -119,3 +159,7 @@ class InterviewDetail(BaseModel):
     answered_indexes: list[int]
     report_available: bool  # evaluation/feedback is only exposed via the report, after completion
     pending_follow_up: str | None = None  # a follow-up question awaiting the candidate's reply
+    introduction_pending: bool = False  # the greeting + "Tell me about yourself" has not been answered yet
+    introduction_prompt: IntroductionPrompt | None = None
+    conversation: list[ConversationTurn] = []  # full dialogue so far (resume without losing state)
+    main_questions_answered: int = 0  # follow-ups are NOT counted

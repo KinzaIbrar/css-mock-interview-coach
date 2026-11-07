@@ -109,7 +109,8 @@ def test_complete_workflow_with_gemini_and_a_follow_up(env, monkeypatch):
     assert rep["evaluation_source"] == "gemini" and rep["is_ai_generated"] and rep["feedback_source"] == "gemini"
     assert rep["evaluation_model"] == "fake-model-1" and "fake-model-1" in rep["notice"]
     assert rep["questions"][0]["follow_up_question"] and rep["questions"][0]["follow_up_answer"] == "Article 2A."
-    assert rep["overall_score"] == pytest.approx((90.0 + 80.0) / 2, abs=0.1)  # re-evaluated Q1 (9) + Q2 (8)
+    assert rep["overall_score"] == pytest.approx((80.0 + 80.0) / 2, abs=0.1)  # Q1 main (8) + Q2 (8); the follow-up (9) is separate
+    assert rep["questions"][0]["follow_up_evaluation"]["overall"] == 90.0 and rep["follow_up_average"] == 90.0
     assert rep["summary"] and rep["improvements"] and set(rep["criteria_scores"]) == {
         "relevance", "subject_knowledge", "accuracy", "reasoning", "structure", "clarity"}
 

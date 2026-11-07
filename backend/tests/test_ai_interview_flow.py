@@ -120,12 +120,13 @@ def test_follow_up_is_asked_answered_and_persisted(client, user_a, ai, db_sessio
     assert client.get(f"{POST}/{iid}", headers=user_a).json()["pending_follow_up"] is None
     assert nxt(client, user_a, iid).status_code == 200
 
-    # the evaluation was redone on the whole exchange and replaced (one row per answer)
+    # the follow-up reply is evaluated SEPARATELY; the main answer's evaluation is not re-scored
     p = ai.eval_calls[1]["prompt"]
     assert "Can you name the article" in p and "Article 2A." in p and "FOLLOW-UPS ALLOWED NOW: no" in p
     with db_session() as db:
-        assert db.query(Evaluation).count() == 1 and db.query(Evaluation).one().overall == 90.0
+        assert db.query(Evaluation).count() == 1 and db.query(Evaluation).one().overall == 50.0
         row = db.query(FollowUp).one()
+        assert row.overall == 90.0 and row.source == "gemini" and row.is_ai_generated
         assert row.question_text.startswith("Can you name") and row.answer_text == "Article 2A."
 
 
@@ -335,13 +336,14 @@ def test_everything_is_saved_in_the_database(client, user_a, ai, db_session):
         assert iv.status == "completed" and iv.completed_at is not None
         answers = db.query(Answer).filter_by(interview_id=iid).order_by(Answer.order_index).all()
         assert [a.answer_text for a in answers] == ["first answer text", "second answer text"]
-        assert [a.evaluation.overall for a in answers] == [60.0, 70.0]  # the 6/10 re-evaluation replaced the 8/10
-        assert iv.overall_score == 65.0 == rep["overall_score"]
+        assert [a.evaluation.overall for a in answers] == [80.0, 70.0]  # the follow-up reply (6/10) did not replace the 8/10
+        assert answers[0].follow_up.overall == 60.0
+        assert iv.overall_score == 75.0 == rep["overall_score"]
         fb = db.query(Feedback).filter_by(interview_id=iid).one()
         assert fb.source == "gemini" and fb.is_ai_generated and fb.model == "fake-model-1"
         assert fb.summary == rep["summary"] and len(fb.model_answers) == 2
         prog = db.query(Progress).filter_by(user_id=iv.user_id).one()
-        assert prog.sessions_count == 1 and prog.last_score == 65.0
+        assert prog.sessions_count == 1 and prog.last_score == 75.0
 
 
 def test_report_is_stable_and_complete_is_idempotent_without_new_ai_calls(client, user_a, ai):

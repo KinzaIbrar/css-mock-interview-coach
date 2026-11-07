@@ -2,12 +2,14 @@ from fastapi import HTTPException, status
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
+from app.agents import coaching_agent
 from app.agents.progress_agent import ProgressAgent
 from app.core.constants import AI_EVAL_NOTICE, CRITERIA, DEV_EVAL_NOTICE, MIXED_EVAL_NOTICE
 from app.models.interview import Interview
 from app.models.question import Question
 from app.models.user import User
-from app.schemas.report import QuestionResult, ReportOut
+from app.schemas.report import FollowUpEvaluation, QuestionResult, ReportOut
+from app.services import observation_service
 from app.services.common import get_owned_interview, interview_out
 
 TIPS = {
@@ -29,6 +31,22 @@ def _dedupe(items: list[str], cap: int) -> list[str]:
             seen.add(item)
             out.append(item)
     return out[:cap]
+
+
+def _follow_up_evaluation(fu) -> FollowUpEvaluation | None:
+    if fu is None or fu.overall is None or not fu.evaluation:
+        return None
+    ev = fu.evaluation
+    return FollowUpEvaluation(
+        overall=fu.overall,
+        scores=dict(ev.get("scores", {})),
+        strengths=list(ev.get("strengths", [])),
+        weaknesses=list(ev.get("weaknesses", [])),
+        missing_info=list(ev.get("missing_info", [])),
+        source=fu.source or "dev_heuristic",
+        is_ai_generated=bool(fu.is_ai_generated),
+        model=fu.model,
+    )
 
 
 def question_results(db: Session, interview: Interview) -> list[QuestionResult]:
@@ -59,6 +77,7 @@ def question_results(db: Session, interview: Interview) -> list[QuestionResult]:
                 is_ai_generated=bool(ev.is_ai_generated) if ev else False,
                 follow_up_question=fu.question_text if fu else None,
                 follow_up_answer=fu.answer_text if fu else None,
+                follow_up_evaluation=_follow_up_evaluation(fu),
             )
         )
     return results
@@ -127,6 +146,7 @@ def build_report(db: Session, interview: Interview) -> ReportOut:
         next_practice.append(f"Take another {interview.subject} interview to keep building consistency.")
 
     source, all_ai, _ = _source_summary(results)
+    fus = [r for r in results if r.follow_up_evaluation]
     models = sorted({a.evaluation.model for a in interview.answers if a.evaluation and a.evaluation.model})
     model = models[0] if models else None
     if source == "gemini":
@@ -154,6 +174,10 @@ def build_report(db: Session, interview: Interview) -> ReportOut:
         feedback_source=fb.source,
         feedback_is_ai_generated=bool(fb.is_ai_generated),
         progress_note=ProgressAgent(db).insight(interview),
+        introduction=interview.introduction,
+        follow_up_average=(round(sum(r.follow_up_evaluation.overall for r in fus) / len(fus), 1) if fus else None),
+        coaching=coaching_agent.build(db, results, interview.subject),
+        observations=observation_service.build_report(interview.observations),
     )
 
 

@@ -27,6 +27,9 @@ No local models, no CUDA, no Docker, no large embedding models. ChromaDB/MediaPi
 ## Architecture
 FastAPI routes → services → SQLAlchemy models. Five agents in `backend/app/agents/` (Question, Conductor, Evaluation, Feedback, Progress) share one LangGraph `InterviewState` (`agents/graph.py`), run per step: answer → evaluate → [follow-up decision] → save; completion → score → feedback → finalise → progress; then the report is built. Gemini sits behind the `LLMProvider` protocol (`agents/gemini_provider.py`: timeout, limited retries on 5xx/429/timeouts, cooldown). **AI results are never fabricated**: if Gemini is unconfigured/failing/invalid, fall back to the labelled dev heuristic (`dev_heuristic` / `dev_rules`, `is_ai_generated=false`). Follow-ups: max 1 per question, 3 per interview, never chained. Never hold a DB write transaction across an LLM call (read -> call Gemini -> write once; SQLite has one writer). SQLite foreign keys are enforced (`enable_sqlite_foreign_keys`). Tests must never call the real API (`tests/conftest.py` forces fallback; use `tests/fakes.py`). See `docs/ai-agents.md`.
 
+## Frontend
+TypeScript + Tailwind v4 tokens in `src/index.css`; API layer in `src/api/` (types mirror backend schemas; AI calls use `AI_TIMEOUT_MS` and are never auto-retried; after any 409/timeout/network error re-read `GET /interviews/{id}` before resending). Every AI/fallback source must be labelled in the UI; scores are shown only in the report. See `docs/frontend-implementation.md`.
+
 ## Commands (Windows)
 - Backend: `cd backend; .venv\Scripts\python -m uvicorn app.main:app --reload --port 8000` (docs at /docs)
 - Backend tests: `cd backend; .venv\Scripts\python -m pytest`
@@ -36,3 +39,6 @@ FastAPI routes → services → SQLAlchemy models. Five agents in `backend/app/a
 - Frontend: `cd frontend; npm run dev` (port 5173, proxies /api → 8000)
 - Frontend tests/build: `npm test`, `npm run build`
 - Notes: TypeScript 7 is used (no `baseUrl`; use `paths` with `./`).
+
+## Multi-agent conversation (see `docs/multi-agent-interview.md`)
+Four UI agents map onto the existing five (Interviewer = question+conductor+`interviewer_agent`, Evaluator, Coaching = `coaching_agent`+feedback+progress, Orchestration = LangGraph). Follow-up replies are evaluated separately and never replace the main evaluation. Camera/CV runs only in the browser (MediaPipe, assets in git-ignored `frontend/public/vision/`); only bounded aggregates reach `POST /interviews/observations`; no emotion/confidence claims and no combined non-verbal score. Avatar mouth motion is approximate, not lip-sync.

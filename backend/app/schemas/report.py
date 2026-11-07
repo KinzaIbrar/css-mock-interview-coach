@@ -2,6 +2,20 @@ from pydantic import BaseModel
 
 from app.core.constants import DEV_EVAL_NOTICE, SAMPLE_DATA_NOTICE
 from app.schemas.interview import InterviewOut
+from app.schemas.observations import NonVerbalReport
+
+
+class FollowUpEvaluation(BaseModel):
+    """The follow-up reply, evaluated SEPARATELY from the main answer (it never changes the main score)."""
+
+    overall: float
+    scores: dict[str, float]
+    strengths: list[str]
+    weaknesses: list[str]
+    missing_info: list[str]
+    source: str  # gemini | dev_heuristic
+    is_ai_generated: bool
+    model: str | None = None
 
 
 class QuestionResult(BaseModel):
@@ -23,6 +37,37 @@ class QuestionResult(BaseModel):
     is_ai_generated: bool = False
     follow_up_question: str | None = None
     follow_up_answer: str | None = None
+    follow_up_evaluation: FollowUpEvaluation | None = None
+
+
+class WeakTopic(BaseModel):
+    topic: str
+    score: float
+    reason: str
+
+
+class RecurringMistake(BaseModel):
+    pattern: str
+    count: int
+
+
+class PracticeQuestion(BaseModel):
+    question_id: int
+    question: str
+    topic: str
+    difficulty: str
+
+
+class Coaching(BaseModel):
+    """Coaching Agent output. Built by rules from the saved evaluations and the question bank (NOT by an LLM);
+    the AI-written summary and improvements, when available, are in ReportOut.summary / improvements."""
+
+    weak_topics: list[WeakTopic]
+    misunderstood_concepts: list[str]
+    recurring_mistakes: list[RecurringMistake]
+    recommended_practice: list[PracticeQuestion]
+    source: str = "rule_based"
+    is_ai_generated: bool = False
 
 
 class ReportOut(BaseModel):
@@ -47,3 +92,7 @@ class ReportOut(BaseModel):
     feedback_source: str = "dev_rules"  # "gemini" | "dev_rules"
     feedback_is_ai_generated: bool = False
     progress_note: str | None = None  # produced by the rule-based Progress agent (not AI)
+    introduction: str | None = None  # the candidate's introduction (context only; not scored)
+    follow_up_average: float | None = None  # mean of follow-up evaluations; reported separately, never blended
+    coaching: Coaching | None = None
+    observations: NonVerbalReport | None = None  # separate from the verbal score; None when nothing was recorded

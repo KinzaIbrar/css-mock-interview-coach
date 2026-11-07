@@ -189,7 +189,7 @@ def test_a_crash_after_evaluation_rolls_back_the_whole_answer(fclient, file_db, 
 
 
 # ---- 3. a failed follow-up re-evaluation must not destroy a good AI evaluation -----------------
-def test_failed_re_evaluation_keeps_the_original_ai_evaluation(fclient, file_db, monkeypatch):
+def test_failed_follow_up_evaluation_never_touches_the_main_ai_evaluation(fclient, file_db, monkeypatch):
     h = user(fclient)
     iid = start(fclient, h)
     provider = FakeProvider([eval_output(9, follow_up="Why?"), LLMTransientError("x", "timeout")])
@@ -198,12 +198,13 @@ def test_failed_re_evaluation_keeps_the_original_ai_evaluation(fclient, file_db,
     r = fclient.post(f"{POST}/follow-up", json={"interview_id": iid, "answer_text": "because"}, headers=h)
     assert r.status_code == 200
     body = r.json()
-    assert body["evaluation_source"] == "gemini" and body["is_ai_generated"] is True  # what is STORED
-    assert body["fallback_reason"] == "timeout" and "kept" in body["ai_notice"]
+    assert body["evaluation_source"] == "dev_heuristic" and body["is_ai_generated"] is False  # the REPLY's own label
+    assert body["fallback_reason"] == "timeout" and body["ai_notice"]
     with file_db() as db:
         ev = db.query(Evaluation).one()
         assert ev.source == "gemini" and ev.is_ai_generated and ev.overall == 90.0 and ev.model == "fake-model-1"
-        assert db.query(FollowUp).one().answer_text == "because"  # the reply itself is still saved
+        fu = db.query(FollowUp).one()
+        assert fu.answer_text == "because" and fu.source == "dev_heuristic" and not fu.is_ai_generated
 
 
 # ---- 4. concurrent / repeated completion ----------------------------------------------------------

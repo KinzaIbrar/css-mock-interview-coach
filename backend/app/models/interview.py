@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from sqlalchemy import JSON, DateTime, Float, ForeignKey, Integer, String
+from sqlalchemy import JSON, Boolean, DateTime, Float, ForeignKey, Integer, String, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.database.session import Base
@@ -23,6 +23,10 @@ class Interview(Base, TimestampMixin):
     started_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
     completed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
     overall_score: Mapped[float | None] = mapped_column(Float, nullable=True)  # 0-100
+    # Migration 0004: conversational opening and aggregate-only non-verbal observations (never raw video)
+    intro_required: Mapped[bool] = mapped_column(Boolean, default=False, server_default="0")
+    introduction: Mapped[str | None] = mapped_column(Text, nullable=True)
+    observations: Mapped[dict | None] = mapped_column(JSON, nullable=True)
 
     user = relationship("User", back_populates="interviews")
     answers = relationship(

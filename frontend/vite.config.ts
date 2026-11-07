@@ -5,7 +5,7 @@ import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  resolve: { alias: { '@': path.resolve(__dirname, 'src') } },
+  resolve: { alias: { '@': path.resolve(import.meta.dirname, 'src') } },
   server: {
     port: 5173,
     proxy: { '/api': 'http://localhost:8000' },

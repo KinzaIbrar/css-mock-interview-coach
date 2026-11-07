@@ -4,6 +4,8 @@ An interview is request/response, so the workflow runs as two short graphs, one 
 as the durable memory between requests:
 
   answer step:     START -> evaluate -> [follow_up_decision] -> save_evaluation -> END
+                   (a follow-up REPLY is evaluated on its own and stored on the follow-up row; the main
+                   answer's evaluation is never re-scored or replaced)
   completion step: START -> score -> feedback -> finalise -> progress -> END
 
 Question retrieval (Question agent) happens when the interview starts, and the candidate's answers arrive
@@ -46,15 +48,16 @@ class InterviewState(TypedDict, total=False):
     interview_status: str
     final_feedback: str
     # step inputs / outputs
-    answer_id: int  # existing Answer (follow-up re-evaluation); absent for a brand-new answer
+    answer_id: int  # existing Answer (follow-up reply); absent for a brand-new answer
+    introduction: str  # the candidate's introduction (context for the evaluator only; never scored)
+    asked_texts: list[str]  # main question + earlier follow-ups: a new follow-up must not repeat them
     new_answer: dict  # {"question_id", "order_index", "time_taken_seconds"} -> the Answer is created at save time
     follow_up_reply: dict  # {"text", "time_taken_seconds"} -> stored at save time
     answer_text: str
-    follow_up_qa: list[str] | None  # [question, reply] when re-evaluating after a follow-up
+    follow_up_qa: list[str] | None  # [question, reply] when evaluating a follow-up reply
     follow_up_allowed: bool
     outcome: Any  # EvaluationOutcome
     follow_up_question: str
-    kept_original_evaluation: bool  # a failed re-evaluation did not replace an existing AI evaluation
     overall_score: float
     feedback: Any  # FeedbackOutcome
 
@@ -74,6 +77,8 @@ def evaluate_node(state: InterviewState, config: RunnableConfig) -> dict:
         follow_up=qa,
         context=ConductorAgent.context(state.get("previous_questions", [])),
         follow_up_allowed=state.get("follow_up_allowed", False),
+        introduction=state.get("introduction"),
+        reply_only=qa is not None,
     )
     return {"outcome": outcome}
 
@@ -86,7 +91,9 @@ def route_after_evaluation(state: InterviewState) -> str:
 
 
 def follow_up_decision_node(state: InterviewState) -> dict:
-    text = ConductorAgent().accept_follow_up(state["outcome"], state.get("follow_up_allowed", False))
+    text = ConductorAgent().accept_follow_up(
+        state["outcome"], state.get("follow_up_allowed", False), state.get("asked_texts", [])
+    )
     return {"follow_up_question": text}
 
 
@@ -112,26 +119,33 @@ def save_evaluation_node(state: InterviewState, config: RunnableConfig) -> dict:
         db.flush()  # may raise IntegrityError if a concurrent request answered first (handled by the service)
     else:
         answer = db.get(Answer, state["answer_id"])
-    if state.get("follow_up_reply") and answer.follow_up is not None:
-        answer.follow_up.answer_text = state["follow_up_reply"]["text"]
-        answer.follow_up.time_taken_seconds = state["follow_up_reply"].get("time_taken_seconds")
-
-    kept = False
-    existing = answer.evaluation
-    if existing is not None and existing.is_ai_generated and not outcome.is_ai_generated:
-        kept = True  # never replace a real AI evaluation with the heuristic fallback
-    elif existing is None:
-        db.add(Evaluation(answer_id=answer.id, **outcome.columns()))
+    reply = state.get("follow_up_reply")
+    if reply and answer.follow_up is not None:
+        # The reply is evaluated separately: the main answer's evaluation stays exactly as it was.
+        fu = answer.follow_up
+        fu.answer_text = reply["text"]
+        fu.time_taken_seconds = reply.get("time_taken_seconds")
+        fu.overall = outcome.overall
+        fu.evaluation = {
+            "scores": outcome.scores,
+            "strengths": outcome.strengths,
+            "weaknesses": outcome.weaknesses,
+            "missing_info": outcome.missing_info,
+        }
+        fu.source = outcome.source
+        fu.is_ai_generated = outcome.is_ai_generated
+        fu.model = outcome.model
+        follow_up = ""
     else:
-        for key, value in outcome.columns().items():
-            setattr(existing, key, value)
-    follow_up = "" if kept else (state.get("follow_up_question") or "")
-    if follow_up and answer.follow_up is None:
-        db.add(FollowUp(answer_id=answer.id, question_text=follow_up))
+        if answer.evaluation is None:
+            db.add(Evaluation(answer_id=answer.id, **outcome.columns()))
+        follow_up = state.get("follow_up_question") or ""
+        if follow_up and answer.follow_up is None:
+            db.add(FollowUp(answer_id=answer.id, question_text=follow_up))
     db.commit()
     results = list(state.get("evaluation_results", []))
     results.append({"topic": state["current_question"]["topic"], "overall": outcome.overall, "source": outcome.source})
-    return {"evaluation_results": results, "follow_up_question": follow_up, "kept_original_evaluation": kept}
+    return {"evaluation_results": results, "follow_up_question": follow_up}
 
 
 def _build_answer_graph():

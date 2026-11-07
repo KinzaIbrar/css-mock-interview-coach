@@ -24,7 +24,7 @@ All paths are prefixed with `/api`. Request and response bodies are JSON.
 ## Health
 | Method | Path | Auth | Description |
 |---|---|---|---|
-| GET | `/health` | no | `{status, environment, ai_mode}`; `ai_mode` states whether a Gemini key is configured. |
+| GET | `/health` | no | `{status, environment, ai_mode, ai_availability}`; `ai_mode` states whether a Gemini key is configured. `ai_availability` is `{available, reason, retry_after_seconds}` (or `null` without a key): whether Gemini can be used right now; `reason` is `quota_exhausted`, `rate_limited` or `cooldown` while paused. Makes no call to Google. |
 
 ## Authentication
 | Method | Path | Success | Errors |
@@ -54,7 +54,7 @@ Flow: `start` → (`answer` → [`follow-up`] → `next`) × N → `complete` �
 | Method | Path | Body | Notes |
 |---|---|---|---|
 | POST | `/interviews/start` | `{subject, difficulty="mixed", num_questions=5 (1-20), duration_minutes=30 (5-120), mode="mock", topic?}` | 201. Picks distinct questions, avoiding those from the user's last 5 interviews where possible and spreading topics; `mixed` covers all levels and runs easy to hard; optional `topic` restricts to one topic. Returns `{interview, question, question_number, total_questions, notice}`. 400 if the bank has fewer matching questions than requested (message names the subject/topic and how many exist). The question never includes the reference answer. |
-| POST | `/interviews/answer` | `{interview_id, answer_text (1-8000 chars), time_taken_seconds?}` | Saves the answer and its evaluation. Returns only an acknowledgement `{answered_index, answered_count, has_next, evaluation_saved, evaluation_source (gemini\|dev_heuristic), is_ai_generated, follow_up_question?, ai_notice?, fallback_reason?}`; **scores and feedback are not revealed during the interview**. `follow_up_question` is set when the panel wants a clarification (at most one per question, at most 3 per interview, only from Gemini); `ai_notice` / `fallback_reason` (e.g. `not_configured`, `timeout`, `http_503`, `invalid_output`, `cooldown`) explain a non-AI evaluation. A Gemini outage does not block the interview. May take up to ~1 minute while Gemini is retried. 409 if the current question is already answered or the interview is completed. |
+| POST | `/interviews/answer` | `{interview_id, answer_text (1-8000 chars), time_taken_seconds?}` | Saves the answer and its evaluation. Returns only an acknowledgement `{answered_index, answered_count, has_next, evaluation_saved, evaluation_source (gemini\|dev_heuristic), is_ai_generated, follow_up_question?, ai_notice?, fallback_reason?}`; **scores and feedback are not revealed during the interview**. `follow_up_question` is set when the panel wants a clarification (at most one per question, at most 3 per interview, only from Gemini); `ai_notice` / `fallback_reason` (e.g. `not_configured`, `quota_exhausted`, `rate_limited`, `timeout`, `http_503`, `invalid_output`, `cooldown`) explain a non-AI evaluation. A Gemini outage does not block the interview. May take up to ~1 minute while Gemini is retried. 409 if the current question is already answered or the interview is completed. |
 | POST | `/interviews/follow-up` | `{interview_id, answer_text, time_taken_seconds?}` | Reply to the pending follow-up. The question is re-evaluated as a whole (answer + follow-up reply) and its evaluation replaced. Returns `{answered_index, has_next, evaluation_source, is_ai_generated, ai_notice?, fallback_reason?}` and never asks a further follow-up. If Gemini cannot re-evaluate, the reply is still saved and the existing AI evaluation is **kept** (`evaluation_source` stays `gemini`; `ai_notice` explains). 409 if there is no pending follow-up, it was already answered, or the interview is completed. |
 | POST | `/interviews/next` | `{interview_id}` | Advances to the next question: `{finished, question_number, total_questions, question}`. `finished: true` with `question: null` after the last one. 409 if the current question is unanswered, or a follow-up question is still waiting for a reply. |
 | POST | `/interviews/complete` | `{interview_id}` | Computes the overall score, stores feedback, updates progress, and returns the full report. Idempotent (returns the same report if already completed). 409 if nothing has been answered. |
@@ -86,3 +86,13 @@ curl -X POST localhost:8000/api/auth/register -H "Content-Type: application/json
 curl -X POST localhost:8000/api/interviews/start -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
   -d '{"subject":"English","difficulty":"mixed","num_questions":2,"duration_minutes":20}'
 ```
+
+
+## Multi-agent additions
+* `POST /api/interviews/start` accepts `with_introduction` (default `false`); the response adds `introduction_required` and `introduction_prompt`.
+* `POST /api/interviews/introduction` `{interview_id, answer_text}` - answer "Tell me about yourself" (context only, not scored). 409 if repeated, not required, or interview completed. `/answer` returns 409 until it is answered.
+* `POST /api/interviews/observations` `{interview_id, camera?, voice?}` - bounded **aggregate** numbers only; unknown fields (frames, landmarks) are rejected with 422; owner-only; 409 once completed.
+* `GET /api/agents` - the four agents and whether the Gemini-backed ones are available right now (no call to Google).
+* `AnswerAck` / `FollowUpAck` / `IntroductionAck` carry `trace: [{agent, status, detail, source}]`.
+* `GET /api/interviews/{id}` adds `introduction_pending`, `introduction_prompt`, `conversation[]`, `main_questions_answered`.
+* `ReportOut` adds `introduction`, `follow_up_average`, `coaching`, `observations`; each `QuestionResult` adds `follow_up_evaluation`. Follow-up scores never change `overall_score`.

@@ -32,3 +32,15 @@ class LLMInvalidOutput(LLMError):
     """The model answered, but not with valid JSON in the requested shape."""
 
     code = "invalid_output"
+
+
+class LLMQuotaExceeded(LLMError):
+    """The API key's quota is used up (e.g. the free tier's daily request limit). Retrying cannot help until it resets."""
+
+    code = "quota_exhausted"
+
+
+class LLMRateLimited(LLMError):
+    """Too many requests per minute. Retrying helps only after the delay the provider asked for."""
+
+    code = "rate_limited"

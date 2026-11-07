@@ -2,6 +2,8 @@
 
 Derived from the running backend's OpenAPI contract (`/openapi.json`) and the code - nothing here is invented. Base URL: `/api` (Vite proxies `/api` to `localhost:8000`). Swagger: `http://localhost:8000/docs`.
 
+> Implemented in `frontend/` - see `docs/frontend-implementation.md` for how each item below was built and tested.
+
 ## 0. Global rules
 - **Auth header:** `Authorization: Bearer <access_token>` on everything except `POST /auth/register`, `POST /auth/login`, `GET /health`.
 - **Error shapes:** HTTP errors are `{"detail": "<message>"}`; validation errors (422) are `{"detail": [{"loc": [...], "msg": "...", "type": "..."}]}`; unexpected failures are `500 {"detail": "Internal server error"}`.
@@ -56,7 +58,7 @@ Show a visible "Evaluating your answer..." state for `answer` and `follow-up` an
 ## 5. AI / fallback labelling (must be shown, never hidden)
 | Where | Field | Rule |
 |---|---|---|
-| Answer / follow-up ack | `ai_notice` (non-null) | Show it as a visible banner/toast: the answer was **not** AI-evaluated. `fallback_reason` is a machine code (`not_configured`, `timeout`, `http_503`, `http_401`, `invalid_output`, `cooldown`, `unexpected_error`, ...); do not show it as the main message. |
+| Answer / follow-up ack | `ai_notice` (non-null) | Show it as a visible banner/toast: the answer was **not** AI-evaluated. `fallback_reason` is a machine code (`not_configured`, `quota_exhausted`, `rate_limited`, `timeout`, `http_503`, `http_401`, `invalid_output`, `cooldown`, `unexpected_error`, ...); do not show it as the main message. |
 | Follow-up ack | `ai_notice` mentioning the "original AI evaluation was kept" | Show it; the reply was saved but not re-evaluated. |
 | Report | `evaluation_source` | `gemini` -> badge "AI evaluation" + `evaluation_model`; `mixed` -> warning "partly AI"; `dev_heuristic` -> badge "Development evaluation (not AI)". Always render `notice`. |
 | Report per question | `questions[].evaluation_source` / `is_ai_generated` | Per-question badge (important for `mixed`). `skipped` questions have none. |
@@ -91,3 +93,7 @@ These are **not** blockers for the core interview journey, but the matching UI c
 4. **No server-side enforcement of `duration_minutes` / `mode`.**
 5. **No refresh/logout endpoints** (see section 1).
 6. **CORS** allows only `http://localhost:5173` by default (`CORS_ORIGINS`).
+
+## 10. Added after the start-error audit
+- **Setup form:** for topic + a specific difficulty the metadata has no count, so the form calls `GET /questions?subject&topic&difficulty&limit=1` and uses `total` (same filters as `POST /interviews/start`) to validate before submitting. A refused request (400) is shown next to the Start button, scrolled into view and focused.
+- **`GET /health` -> `ai_availability`:** use it for the "Gemini configured / quota used up / rate-limited" indicator; refresh it after any answer that returned an `ai_notice`.

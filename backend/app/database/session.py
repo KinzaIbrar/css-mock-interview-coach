@@ -17,7 +17,11 @@ def enable_sqlite_foreign_keys(engine: Engine) -> None:
 
 
 connect_args = {"check_same_thread": False} if settings.database_url.startswith("sqlite") else {}
-engine = create_engine(settings.database_url, connect_args=connect_args)
+_pool_args = {} if settings.database_url.startswith("sqlite") else {
+    # Hosted Postgres (e.g. Supabase): small pool, drop dead connections after idle/sleep.
+    "pool_pre_ping": True, "pool_size": 3, "max_overflow": 2, "pool_recycle": 300,
+}
+engine = create_engine(settings.database_url, connect_args=connect_args, **_pool_args)
 enable_sqlite_foreign_keys(engine)
 SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
 

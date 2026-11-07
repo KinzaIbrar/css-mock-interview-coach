@@ -25,5 +25,6 @@ def get_provider() -> LLMProvider | None:
             retry_delay_seconds=settings.gemini_retry_delay_seconds,
             budget_seconds=settings.gemini_budget_seconds,
             cooldown_seconds=settings.gemini_cooldown_seconds,
+            quota_cooldown_cap_seconds=settings.gemini_quota_cooldown_cap_seconds,
         )
     return _provider
