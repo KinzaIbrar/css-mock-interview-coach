@@ -10,16 +10,16 @@ import InterviewResults from './InterviewResults'
 vi.mock('@/api/content')
 const m = vi.mocked(content)
 
-const scores = { relevance: 8, subject_knowledge: 7, accuracy: 6, reasoning: 5, structure: 4, clarity: 9 }
+const scores = { constitutional_understanding: 8, analytical_depth: 7, subject_expertise: 6, policy_awareness: 5 }
 const answered = (over: Partial<QuestionResult> = {}): QuestionResult => ({
   order_index: 0, question_id: 1, question: 'Explain the Objectives Resolution.', topic: 'Constitutional History', difficulty: 'medium',
-  skipped: false, answer_text: 'It was passed in 1949.', scores, overall: 65, strengths: ['Gives the date'], weaknesses: ['Thin detail'],
+  skipped: false, answer_text: 'It was passed in 1949.', scores, overall: 6.5, strengths: ['Gives the date'], weaknesses: ['Thin detail'],
   missing_info: ['Article 2A'], model_answer: 'Passed by the first Constituent Assembly.', evaluation_source: 'gemini', is_ai_generated: true,
   follow_up_question: null, follow_up_answer: null, follow_up_evaluation: null, ...over,
 })
 const report = (over: Partial<Report> = {}): Report => ({
-  interview: interviewOut({ status: 'completed', completed_at: '2026-11-07T10:00:00', overall_score: 65 }),
-  overall_score: 65, criteria_scores: scores, strengths: ['Gives the date'], weaknesses: ['Thin detail'], missing_info: ['Article 2A'],
+  interview: interviewOut({ status: 'completed', completed_at: '2026-11-07T10:00:00', overall_score: 6.5 }),
+  overall_score: 6.5, criteria_scores: scores, strengths: ['Gives the date'], weaknesses: ['Thin detail'], missing_info: ['Article 2A'],
   summary: 'You covered the basics well.', improvements: ['Add an example to every answer'], revision_topics: ['Constitutional History'],
   next_practice: ['Revisit Constitutional History questions in English.'], questions: [answered()],
   evaluation_source: 'gemini', is_ai_generated: true, evaluation_model: 'gemini-3.8-flash',
@@ -32,12 +32,12 @@ const open = () => renderApp(<InterviewResults />, { route: '/interviews/1/resul
 beforeEach(() => vi.resetAllMocks())
 
 describe('InterviewResults', () => {
-  it('shows the score, six criteria, feedback and sections from real report data', async () => {
+  it('shows the score, four dimensions, feedback and sections from real report data', async () => {
     m.getReport.mockResolvedValue(report())
     open()
     expect(await screen.findByRole('heading', { name: 'English' })).toBeInTheDocument()
-    expect(screen.getByRole('img', { name: /overall score 65\.0 out of 100/i })).toBeInTheDocument()
-    for (const label of ['Relevance', 'Subject knowledge', 'Accuracy', 'Reasoning', 'Structure', 'Clarity']) {
+    expect(screen.getByRole('img', { name: /overall score 6\.5 out of 10/i })).toBeInTheDocument()
+    for (const label of ['Constitutional Understanding', 'Analytical Depth', 'Subject Expertise', 'Policy Awareness']) {
       expect(screen.getByRole('progressbar', { name: new RegExp(`^${label}: `) })).toBeInTheDocument()
     }
     expect(screen.getByText('You covered the basics well.')).toBeInTheDocument()

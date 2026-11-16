@@ -12,7 +12,7 @@ from sqlalchemy.orm import Session
 from app.models.question import Question
 from app.schemas.report import Coaching, PracticeQuestion, QuestionResult, RecurringMistake, WeakTopic
 
-WEAK_BELOW = 60.0
+WEAK_BELOW = 6.0
 MAX_ITEMS = 5
 
 
@@ -25,7 +25,7 @@ def build(db: Session, results: list[QuestionResult], subject: str) -> Coaching:
     for r in weak:
         if r.topic not in seen:
             seen.add(r.topic)
-            weak_topics.append(WeakTopic(topic=r.topic, score=r.overall, reason="Scored below 60/100 on this topic."))
+            weak_topics.append(WeakTopic(topic=r.topic, score=r.overall, reason="Scored below 6/10 on this topic."))
     for r in skipped:
         if r.topic not in seen:
             seen.add(r.topic)

@@ -25,12 +25,19 @@ const LABEL: Record<AvatarState, string> = {
 /** Simple 2D stand-in used when WebGL is missing or the 3D scene fails. Same states, no pretending. */
 function FlatAvatar({ state }: { state: AvatarState }) {
   return (
-    <div className="grid h-full w-full place-items-center bg-primary-soft" data-testid="avatar-fallback">
-      <span className={`grid size-24 place-items-center rounded-full bg-primary text-white ${state === 'speaking' ? 'animate-pulse' : ''}`}>
+    <div className="grid h-full w-full place-items-center" data-testid="avatar-fallback">
+      <span className={`grid size-24 place-items-center rounded-full bg-accent text-accent-ink ${state === 'speaking' ? 'animate-pulse' : ''}`}>
         <UserRound className="size-12" aria-hidden />
       </span>
     </div>
   )
+}
+
+const DOT_TONE: Record<AvatarState, string> = {
+  idle: 'bg-white/40',
+  waiting: 'bg-warning',
+  listening: 'bg-success',
+  speaking: 'bg-accent',
 }
 
 class SceneBoundary extends Component<{ fallback: ReactNode; children: ReactNode }, { failed: boolean }> {
@@ -57,14 +64,15 @@ export function InterviewerAvatar({ state, caption, speechSupported, speaking, o
   const webgl = useMemo(() => webglAvailable(), [])
   const flat = <FlatAvatar state={state} />
   return (
-    <section aria-label="Interviewer" className="overflow-hidden rounded-xl border border-line bg-surface">
-      <div className="relative aspect-[4/3] w-full bg-gradient-to-b from-primary-soft to-surface">
+    <section aria-label="Interviewer" className="overflow-hidden rounded-card border border-line bg-surface">
+      <div className="relative aspect-[4/3] w-full bg-gradient-to-br from-primary via-primary to-primary-hover">
         {webgl ? (
           <SceneBoundary fallback={flat}>
             <Suspense fallback={flat}><AvatarScene state={state} /></Suspense>
           </SceneBoundary>
         ) : flat}
-        <span className="absolute left-2 top-2 rounded-full bg-surface/90 px-2.5 py-0.5 text-xs font-medium text-ink shadow-sm" role="status">
+        <span className="absolute left-2 top-2 inline-flex items-center gap-1.5 rounded-full bg-black/35 px-2.5 py-1 text-xs font-medium text-white backdrop-blur-sm" role="status">
+          <span className={`size-2 rounded-full ${DOT_TONE[state]} ${state !== 'idle' ? 'animate-pulse-soft' : ''}`} aria-hidden />
           Interviewer · {LABEL[state]}
         </span>
       </div>

@@ -12,7 +12,7 @@ from app.database.session import Base
 from tests.test_dataset_validation import good
 
 
-HEAD = "0004"  # latest Alembic revision
+HEAD = "0005"  # latest Alembic revision
 
 
 @pytest.fixture()
@@ -172,3 +172,82 @@ def test_0003_downgrade_removes_phase4_schema_and_upgrade_restores_it(url):
     assert version(url) == "0002"
     run_migrations(url)
     assert "model" in columns(url, "evaluations") and version(url) == HEAD
+
+
+# ---- migration 0005 (6 criteria -> 4 CSS-specific dimensions) -----------------------------------
+def test_0005_adds_the_four_dimensions_and_drops_the_old_six(url):
+    run_migrations(url)
+    cols = columns(url, "evaluations")
+    assert {"constitutional_understanding", "analytical_depth", "subject_expertise", "policy_awareness"} <= cols
+    assert "legacy_scores" in cols
+    assert not ({"relevance", "subject_knowledge", "accuracy", "reasoning", "structure", "clarity"} & cols)
+    assert version(url) == HEAD
+
+
+def test_0005_archives_old_scores_and_never_fabricates_new_dimension_values(url):
+    """A row evaluated under the old 6-criteria rubric (head 0004) keeps its overall score and has its
+    old per-criterion scores archived, but gets NULL - not an invented number - for the new dimensions."""
+    command.upgrade(_config(url), "0004")
+    ts = "'2024-01-01','2024-01-01'"
+    engine = create_engine(url)
+    with engine.begin() as c:
+        c.execute(text(f"insert into users (id,email,full_name,hashed_password,is_active,preferences,created_at,updated_at) values (1,'u@x.com','U','h',1,'{{}}',{ts})"))
+        c.execute(text(f"insert into questions (id,source_id,subject,topic,difficulty,text,reference_answer,keywords,is_sample,created_at,updated_at,evaluation_criteria,tags,explanation) values (1,'old-001','English','G','easy','Q?','A','[]',1,{ts},'[]','[]','')"))
+        c.execute(text(f"insert into interviews (id,user_id,subject,difficulty,num_questions,duration_minutes,mode,status,current_index,question_ids,started_at,overall_score,created_at,updated_at) values (1,1,'English','easy',1,10,'mock','completed',0,'[1]','2024-01-01',6.5,{ts})"))
+        c.execute(text(f"insert into answers (id,interview_id,question_id,order_index,answer_text,created_at,updated_at) values (1,1,1,0,'my answer',{ts})"))
+        c.execute(text(
+            "insert into evaluations (answer_id,relevance,subject_knowledge,accuracy,reasoning,structure,clarity,"
+            f"overall,strengths,weaknesses,missing_info,source,is_ai_generated,model,created_at,updated_at) "
+            f"values (1,7,6,5,8,9,4,6.5,'[]','[]','[]','gemini',1,'gemini-test',{ts})"
+        ))
+    engine.dispose()
+
+    run_migrations(url)
+
+    engine = create_engine(url)
+    with engine.connect() as c:
+        row = c.execute(text(
+            "select overall, source, is_ai_generated, model, legacy_scores, "
+            "constitutional_understanding, analytical_depth, subject_expertise, policy_awareness "
+            "from evaluations"
+        )).one()
+    engine.dispose()
+    # overall/source/is_ai_generated/model (not touched by 0005) are preserved exactly.
+    assert (row.overall, row.source, row.is_ai_generated, row.model) == (6.5, "gemini", 1, "gemini-test")
+    # the old scores are archived, not discarded.
+    assert json.loads(row.legacy_scores) == {
+        "relevance": 7, "subject_knowledge": 6, "accuracy": 5, "reasoning": 8, "structure": 9, "clarity": 4,
+    }
+    # the new dimensions are NULL (not scored under this rubric) - never a fabricated number.
+    assert (row.constitutional_understanding, row.analytical_depth, row.subject_expertise, row.policy_awareness) == (
+        None, None, None, None,
+    )
+    assert version(url) == HEAD
+
+
+def test_0005_downgrade_restores_old_columns_from_the_archive(url):
+    command.upgrade(_config(url), "0004")  # old-rubric row at the pre-0005 schema
+    ts = "'2024-01-01','2024-01-01'"
+    engine = create_engine(url)
+    with engine.begin() as c:
+        c.execute(text(f"insert into users (id,email,full_name,hashed_password,is_active,preferences,created_at,updated_at) values (1,'u@x.com','U','h',1,'{{}}',{ts})"))
+        c.execute(text(f"insert into questions (id,source_id,subject,topic,difficulty,text,reference_answer,keywords,is_sample,created_at,updated_at,evaluation_criteria,tags,explanation) values (1,'old-001','English','G','easy','Q?','A','[]',1,{ts},'[]','[]','')"))
+        c.execute(text(f"insert into interviews (id,user_id,subject,difficulty,num_questions,duration_minutes,mode,status,current_index,question_ids,started_at,overall_score,created_at,updated_at) values (1,1,'English','easy',1,10,'mock','completed',0,'[1]','2024-01-01',6.5,{ts})"))
+        c.execute(text(f"insert into answers (id,interview_id,question_id,order_index,answer_text,created_at,updated_at) values (1,1,1,0,'my answer',{ts})"))
+        c.execute(text(
+            "insert into evaluations (answer_id,relevance,subject_knowledge,accuracy,reasoning,structure,clarity,"
+            f"overall,strengths,weaknesses,missing_info,source,is_ai_generated,model,created_at,updated_at) "
+            f"values (1,7,6,5,8,9,4,6.5,'[]','[]','[]','gemini',1,'gemini-test',{ts})"
+        ))
+    engine.dispose()
+    command.upgrade(_config(url), "0005")  # archives the row, nulls the new dimensions
+
+    command.downgrade(_config(url), "0004")
+    engine = create_engine(url)
+    with engine.connect() as c:
+        row = c.execute(text("select relevance, subject_knowledge, accuracy, reasoning, structure, clarity from evaluations")).one()
+    engine.dispose()
+    assert tuple(row) == (7, 6, 5, 8, 9, 4)  # restored from legacy_scores, not reset to 0
+
+    run_migrations(url)  # and upgrading again works
+    assert version(url) == HEAD

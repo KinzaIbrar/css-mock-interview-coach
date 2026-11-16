@@ -21,13 +21,13 @@ def build_prompt(*, subject: str, overall_score: float, results: list[dict]) -> 
         weak = "; ".join(r["weaknesses"][:3]) or "none noted"
         missing = "; ".join(r["missing_info"][:3]) or "none noted"
         blocks.append(
-            f"Q{r['n']} [{r['topic']}] score {r['overall']}/100\n"
+            f"Q{r['n']} [{r['topic']}] score {r['overall']}/10\n"
             f"Question: {r['question']}\n"
             f"<candidate_answer>\n{sanitize_user_text(r['answer'], 700)}\n</candidate_answer>\n"
             f"Weaknesses noted: {weak}\nMissing points: {missing}"
         )
     topics = sorted({r["topic"] for r in results})
     return (
-        f"SUBJECT: {subject}\nOVERALL SCORE: {overall_score}/100\n"
+        f"SUBJECT: {subject}\nOVERALL SCORE: {overall_score}/10\n"
         f"TOPICS (use only these for revision_topics): {', '.join(topics)}\n\n" + "\n\n".join(blocks)
     )

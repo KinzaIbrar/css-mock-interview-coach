@@ -291,7 +291,7 @@ describe('report extras', () => {
     render(
       <CoachingCard
         coaching={{
-          weak_topics: [{ topic: 'Grammar', score: 40, reason: 'Scored below 60/100 on this topic.' }], misunderstood_concepts: ['Tenses'],
+          weak_topics: [{ topic: 'Grammar', score: 4, reason: 'Scored below 6/10 on this topic.' }], misunderstood_concepts: ['Tenses'],
           recurring_mistakes: [{ pattern: 'thin detail', count: 2 }],
           recommended_practice: [{ question_id: 5, question: 'Define a noun.', topic: 'Grammar', difficulty: 'easy' }], source: 'rule_based', is_ai_generated: false,
         }}
@@ -302,21 +302,21 @@ describe('report extras', () => {
     expect(screen.getByText('thin detail')).toBeInTheDocument()
   })
   it('renders the follow-up score on the results page separately from the overall score', async () => {
-    const scores = { relevance: 8, subject_knowledge: 7, accuracy: 6, reasoning: 5, structure: 4, clarity: 9 }
+    const scores = { constitutional_understanding: 8, analytical_depth: 7, subject_expertise: 6, policy_awareness: 5 }
     const report = {
-      interview: interviewOut({ status: 'completed', completed_at: '2026-11-07T10:00:00', overall_score: 65 }), overall_score: 65, criteria_scores: scores,
+      interview: interviewOut({ status: 'completed', completed_at: '2026-11-07T10:00:00', overall_score: 6.5 }), overall_score: 6.5, criteria_scores: scores,
       strengths: [], weaknesses: [], missing_info: [], summary: 's', improvements: [], revision_topics: [], next_practice: [],
       questions: [{
-        order_index: 0, question_id: 1, question: 'Q?', topic: 'T', difficulty: 'easy', skipped: false, answer_text: 'A', scores, overall: 65,
+        order_index: 0, question_id: 1, question: 'Q?', topic: 'T', difficulty: 'easy', skipped: false, answer_text: 'A', scores, overall: 6.5,
         strengths: [], weaknesses: [], missing_info: [], model_answer: 'M', evaluation_source: 'gemini', is_ai_generated: true,
-        follow_up_question: 'Why?', follow_up_answer: 'Because', follow_up_evaluation: { overall: 42, scores, strengths: [], weaknesses: ['Vague.'], missing_info: [], source: 'gemini', is_ai_generated: true, model: 'm' },
+        follow_up_question: 'Why?', follow_up_answer: 'Because', follow_up_evaluation: { overall: 4.2, scores, strengths: [], weaknesses: ['Vague.'], missing_info: [], source: 'gemini', is_ai_generated: true, model: 'm' },
       }],
       evaluation_source: 'gemini', is_ai_generated: true, evaluation_model: 'm', notice: 'n', reference_notice: 'r', feedback_source: 'gemini',
-      feedback_is_ai_generated: true, progress_note: null, introduction: 'Hi', follow_up_average: 42, coaching: null, observations: nv,
+      feedback_is_ai_generated: true, progress_note: null, introduction: 'Hi', follow_up_average: 4.2, coaching: null, observations: nv,
     } as Report
     c.getReport.mockResolvedValue(report)
     renderApp(<InterviewResults />, { route: '/interviews/1/results', path: '/interviews/:id/results' })
-    expect(await screen.findByTestId('follow-up-average')).toHaveTextContent('42/100')
+    expect(await screen.findByTestId('follow-up-average')).toHaveTextContent('4.2/10')
     expect(screen.getByTestId('follow-up-average')).toHaveTextContent(/not part of the overall score/i)
     expect(screen.getByText('Non-verbal observations')).toBeInTheDocument()
   })

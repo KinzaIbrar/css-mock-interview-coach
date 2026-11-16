@@ -18,7 +18,7 @@ export function InterviewTimer({ startedAt, durationMinutes }: { startedAt: stri
     <span
       className={cn(
         'inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-sm font-medium tabular',
-        over ? 'border-danger/30 bg-danger-soft text-danger' : low ? 'border-warning-line bg-warning-soft text-warning' : 'border-line bg-surface text-ink-2',
+        over ? 'border-danger/30 bg-danger-soft text-danger' : low ? 'border-warning-line bg-warning-soft text-warning' : 'border-primary/15 bg-primary-soft text-primary-ink',
       )}
       role="timer"
       aria-label={over ? 'Time is up' : `${formatCountdown(remaining)} remaining`}

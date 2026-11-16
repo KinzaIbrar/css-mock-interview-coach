@@ -1,11 +1,12 @@
 import { lazy, Suspense } from 'react'
-import { Navigate, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import { AppShell } from '@/components/layout/AppShell'
 import { FocusLayout } from '@/components/layout/FocusLayout'
 import { PageLoader } from '@/components/ui/Feedback'
 import { ProtectedRoute, PublicOnlyRoute } from '@/routes/guards'
 
 // Route-level code splitting keeps the first load small (the charting library only loads with the dashboard/results).
+const Landing = lazy(() => import('@/pages/Landing'))
 const Login = lazy(() => import('@/pages/Login'))
 const Register = lazy(() => import('@/pages/Register'))
 const Dashboard = lazy(() => import('@/pages/Dashboard'))
@@ -41,7 +42,8 @@ export default function App() {
           </Route>
         </Route>
 
-        <Route path="/" element={<Navigate to="/dashboard" replace />} />
+        {/* Public landing page: renders for everyone, with CTAs that adapt to auth state inside the page itself. */}
+        <Route path="/" element={<Landing />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>

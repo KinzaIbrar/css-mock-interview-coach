@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
-import { ArrowRight, CheckCircle2, Flag, MessageCircleQuestion } from 'lucide-react'
+import { ArrowRight, CheckCircle2, Flag, HelpCircle, MessageCircleQuestion, Sparkles } from 'lucide-react'
 import { toApiError, type ApiError } from '@/api/client'
 import {
   completeInterview, getInterview, listAgents, nextQuestion, saveObservations, submitAnswer, submitFollowUp, submitIntroduction,
@@ -419,9 +419,12 @@ export default function InterviewRoom() {
           </div>
         </div>
 
-        <Card>
+        <Card className="border-l-4 border-l-accent">
           <CardBody className="space-y-3">
-            <p className="text-xs font-semibold uppercase tracking-wide text-primary">{inIntro ? 'Introduction' : 'Interview question'}</p>
+            <p className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-primary">
+              {inIntro ? <Sparkles className="size-3.5" aria-hidden /> : <HelpCircle className="size-3.5" aria-hidden />}
+              {inIntro ? 'Introduction' : 'Interview question'}
+            </p>
             {inIntro && introPrompt ? (
               <>
                 <p className="text-sm text-muted" data-testid="intro-greeting">{introPrompt.greeting}</p>

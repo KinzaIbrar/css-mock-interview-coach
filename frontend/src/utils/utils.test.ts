@@ -18,11 +18,12 @@ describe('format', () => {
     expect(formatScore(null)).toBe('—')
     expect(formatScore(72.46, 1)).toBe('72.5')
   })
-  it('bands scores with a text label', () => {
-    expect(scoreBand(90).label).toBe('Strong')
-    expect(scoreBand(65).label).toBe('Good')
-    expect(scoreBand(45).label).toBe('Developing')
-    expect(scoreBand(10).label).toBe('Needs work')
+  it('bands scores (0-10) with a text label', () => {
+    expect(scoreBand(9.2).label).toBe('Excellent')
+    expect(scoreBand(8).label).toBe('Very Good')
+    expect(scoreBand(6.5).label).toBe('Good')
+    expect(scoreBand(4.5).label).toBe('Needs Improvement')
+    expect(scoreBand(1).label).toBe('Weak')
   })
 })
 

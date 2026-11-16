@@ -6,12 +6,10 @@ from pydantic import BaseModel
 
 
 class EvaluationLLMOutput(BaseModel):
-    relevance: float
-    subject_knowledge: float
-    accuracy: float
-    reasoning: float
-    structure: float
-    clarity: float
+    constitutional_understanding: float
+    analytical_depth: float
+    subject_expertise: float
+    policy_awareness: float
     strengths: list[str]
     weaknesses: list[str]
     missing_info: list[str]

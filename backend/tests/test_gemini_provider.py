@@ -32,7 +32,7 @@ def call(provider):
 def test_success_returns_validated_schema_and_uses_configured_model():
     provider, client, _ = make([ok_response(score=7)])
     out = call(provider)
-    assert isinstance(out, EvaluationLLMOutput) and out.accuracy == 7
+    assert isinstance(out, EvaluationLLMOutput) and out.subject_expertise == 7
     sent = client.calls[0]
     assert sent["model"] == "gemini-test" and sent["contents"] == "hello"
     assert sent["config"].system_instruction == "sys"
@@ -43,7 +43,7 @@ def test_success_returns_validated_schema_and_uses_configured_model():
 def test_markdown_fenced_json_is_accepted():
     fenced = "```json\n" + eval_output().model_dump_json() + "\n```"
     provider, _, _ = make([FakeResponse(fenced)])
-    assert call(provider).relevance == 8
+    assert call(provider).constitutional_understanding == 8
 
 
 def test_response_schema_is_accepted_by_the_real_sdk_types():
@@ -56,7 +56,7 @@ def test_response_schema_is_accepted_by_the_real_sdk_types():
 # ---- retries ------------------------------------------------------------------------------------
 def test_transient_504_is_retried_then_succeeds():
     provider, client, clock = make([FakeApiError(504), ok_response()])
-    assert call(provider).relevance == 8
+    assert call(provider).constitutional_understanding == 8
     assert len(client.calls) == 2 and clock.sleeps == [2]
 
 
@@ -134,14 +134,14 @@ def test_cooldown_after_exhausted_retries_fails_fast_then_recovers():
         call(provider)
     assert len(client.calls) == used and exc.value.code == "cooldown"  # no request was sent
     clock.now += 31
-    assert call(provider).relevance == 8  # works again after the cooldown
+    assert call(provider).constitutional_understanding == 8  # works again after the cooldown
 
 
 def test_non_transient_errors_do_not_trigger_cooldown():
     provider, client, _ = make([FakeApiError(401), ok_response()])
     with pytest.raises(LLMRequestError):
         call(provider)
-    assert call(provider).relevance == 8
+    assert call(provider).constitutional_understanding == 8
 
 
 # ---- invalid output -----------------------------------------------------------------------------

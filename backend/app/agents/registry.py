@@ -25,7 +25,7 @@ def list_agents() -> list[AgentInfo]:
     return [
         info("interviewer", "Interviewer Agent", "Greets you, asks the introduction and main questions, and decides when a follow-up is allowed.", False,
              ["interviewer_agent", "question_agent", "conductor_agent"]),
-        info("evaluator", "Evaluator Agent", "Scores every answer, and every follow-up reply separately, on six criteria.", True, ["evaluation_agent"]),
+        info("evaluator", "Evaluator Agent", "Scores every answer, and every follow-up reply separately, on four CSS-specific dimensions.", True, ["evaluation_agent"]),
         info("coaching", "Coaching Agent", "Finds weak topics and recurring mistakes and recommends practice questions.", True,
              ["coaching_agent", "feedback_agent", "progress_agent"]),
         info("orchestration", "Orchestration Agent", "Runs the LangGraph workflow that connects the agents and keeps state between steps.", False,

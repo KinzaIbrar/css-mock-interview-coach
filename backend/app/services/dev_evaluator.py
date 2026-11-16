@@ -49,15 +49,18 @@ def evaluate(question: Question, answer_text: str) -> dict:
     connectors = sum(lower.count(c) for c in CONNECTORS)
     avg_sentence_len = n / max(1, len(sentences))
 
+    # Map old heuristic scores to 4 CSS-specific dimensions
+    # constitutional_understanding: based on keyword coverage and relevance
+    # analytical_depth: based on reasoning connectors and argument structure
+    # subject_expertise: based on keyword coverage and answer depth
+    # policy_awareness: based on mention of recent/current context (heuristic)
     scores = {
-        "relevance": _clamp(coverage * 12 + (1 if n >= 20 else 0)),
-        "subject_knowledge": _clamp(coverage * 10 * (0.5 + 0.5 * length_factor)),
-        "accuracy": _clamp(coverage * 10),  # keyword presence only; correctness is not verified
-        "reasoning": _clamp(1 + connectors * 2 + coverage * 3),
-        "structure": _clamp(min(len(sentences), 6) * 1.2 + (2 if "\n" in text else 0)),
-        "clarity": _clamp((8 if 8 <= avg_sentence_len <= 28 else 5) * (0.4 + 0.6 * length_factor)),
+        "constitutional_understanding": _clamp(coverage * 12 + (1 if n >= 20 else 0)),
+        "analytical_depth": _clamp(1 + connectors * 2 + coverage * 3),
+        "subject_expertise": _clamp(coverage * 10 * (0.5 + 0.5 * length_factor)),
+        "policy_awareness": _clamp(5 + (2 if any(word in lower for word in ["currently", "recently", "2024", "2023", "2022", "recent"]) else 0)),
     }
-    overall = round(sum(scores.values()) / len(scores) * 10, 1)
+    overall = round(sum(scores.values()) / len(scores), 1)
 
     strengths, weaknesses = [], []
     if keywords and coverage >= 0.6:

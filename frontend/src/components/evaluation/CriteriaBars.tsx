@@ -2,7 +2,7 @@ import { CRITERIA } from '@/api/types'
 import { ProgressBar } from '@/components/ui/Badge'
 import { CRITERIA_LABELS } from '@/utils/format'
 
-/** The six evaluation criteria (each scored 0-10 by the backend). */
+/** The 4 CSS-specific evaluation dimensions (each scored 0-10 by the backend). */
 export function CriteriaBars({ scores }: { scores: Record<string, number> }) {
   return (
     <ul className="space-y-4">

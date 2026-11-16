@@ -98,7 +98,7 @@ def test_cooldown_follows_googles_delay_but_is_capped_then_recovers():
     with pytest.raises(LLMQuotaExceeded):
         call(p)
     clock.now += 2  # past the 900 s cap: probe again (a 429 costs nothing, and the quota may have been raised)
-    assert call(p).relevance == 8
+    assert call(p).constitutional_understanding == 8
     assert len(client.calls) == 2
 
 
@@ -107,7 +107,7 @@ def test_short_daily_delay_is_not_stretched_to_the_cap():
     with pytest.raises(LLMQuotaExceeded):
         call(p)
     clock.now += 46
-    assert call(p).relevance == 8
+    assert call(p).constitutional_understanding == 8
 
 
 def test_status_reports_availability_for_the_health_endpoint():
@@ -124,7 +124,7 @@ def test_status_reports_availability_for_the_health_endpoint():
 # ---- per-minute rate limit: wait as long as Google says, only if it fits -----------------------------------------------
 def test_per_minute_limit_waits_the_delay_google_asked_for_not_a_blind_2_seconds():
     p, client, clock = make([RateLimitError(quota_details(quota_id=PER_MINUTE, retry_delay="7s")), ok()])
-    assert call(p).relevance == 8
+    assert call(p).constitutional_understanding == 8
     assert clock.sleeps == [7.0] and len(client.calls) == 2
 
 
@@ -155,7 +155,7 @@ def test_per_minute_cooldown_uses_googles_delay():
     with pytest.raises(LLMRateLimited):
         call(p)
     clock.now += 2
-    assert call(p).relevance == 8
+    assert call(p).constitutional_understanding == 8
 
 
 def test_server_errors_keep_the_generic_cooldown_and_do_not_claim_a_new_timeout():

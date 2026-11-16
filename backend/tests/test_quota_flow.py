@@ -82,7 +82,7 @@ def test_quota_running_out_part_way_gives_a_mixed_report_and_keeps_the_good_eval
     assert rep["feedback_source"] == "dev_rules"
     with db_session() as db:
         first = db.query(Answer).filter_by(interview_id=iid, order_index=0).one().evaluation
-        assert first.source == "gemini" and first.is_ai_generated and first.overall == 90.0  # the 429 did not touch it
+        assert first.source == "gemini" and first.is_ai_generated and first.overall == 9.0  # the 429 did not touch it
         assert db.query(Evaluation).count() == 2
         assert db.query(Feedback).one().source == "dev_rules"
 
@@ -99,7 +99,7 @@ def test_a_429_on_the_follow_up_reply_never_touches_the_original_ai_evaluation(c
     assert body["fallback_reason"] == "quota_exhausted" and "quota" in body["ai_notice"]
     with db_session() as db:
         ev = db.query(Evaluation).one()
-        assert ev.source == "gemini" and ev.overall == 90.0 and ev.is_ai_generated
+        assert ev.source == "gemini" and ev.overall == 9.0 and ev.is_ai_generated
         fu = db.query(FollowUp).one()
         assert fu.answer_text == "Article 2A." and fu.source == "dev_heuristic"  # reply saved + honestly labelled
 

@@ -23,10 +23,10 @@ function AiStatus() {
   if (!status) return null
   return (
     <p
-      className={cn('rounded-control px-3 py-2 text-xs leading-snug text-white/80', status.degraded ? 'border border-amber-300/40 bg-amber-300/10' : 'bg-white/5')}
+      className={cn('rounded-control px-3 py-2.5 text-xs leading-snug', status.degraded ? 'border border-warning-line bg-warning-soft text-warning' : 'bg-surface-2 text-ink-2')}
       data-testid="ai-status"
     >
-      <span className="font-semibold text-white">{status.headline}</span>
+      <span className="font-semibold text-ink">{status.headline}</span>
       <br />
       {status.detail}
     </p>
@@ -45,7 +45,7 @@ export function AppShell() {
   }, [open])
 
   return (
-    <div className="min-h-screen lg:grid lg:grid-cols-[256px_1fr]">
+    <div className="min-h-screen bg-canvas lg:flex lg:gap-3 lg:p-3">
       <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-50 focus:rounded-control focus:bg-surface focus:px-3 focus:py-2 focus:shadow-raised">
         Skip to main content
       </a>
@@ -56,13 +56,14 @@ export function AppShell() {
         id="sidebar"
         aria-label="Primary"
         className={cn(
-          'fixed inset-y-0 left-0 z-40 flex w-64 flex-col bg-navy px-3 py-4 text-white transition-transform duration-200 lg:sticky lg:top-0 lg:h-screen lg:translate-x-0',
+          'fixed inset-y-0 left-0 z-40 flex w-64 flex-col bg-surface px-3 py-4 shadow-card transition-transform duration-200',
+          'lg:sticky lg:top-3 lg:h-[calc(100vh-1.5rem)] lg:w-64 lg:shrink-0 lg:translate-x-0 lg:rounded-card',
           open ? 'translate-x-0' : '-translate-x-full',
         )}
       >
         <div className="flex items-center justify-between px-2 pb-5">
-          <Logo inverted />
-          <button className="rounded-control p-1.5 text-white/80 hover:bg-white/10 lg:hidden" onClick={() => setOpen(false)} aria-label="Close menu">
+          <Logo />
+          <button className="rounded-control p-1.5 text-muted hover:bg-surface-2 hover:text-ink lg:hidden" onClick={() => setOpen(false)} aria-label="Close menu">
             <X className="size-5" aria-hidden />
           </button>
         </div>
@@ -76,8 +77,8 @@ export function AppShell() {
               onClick={() => setOpen(false)}
               className={({ isActive }) =>
                 cn(
-                  'flex items-center gap-3 rounded-control px-3 py-2.5 text-sm font-medium transition-colors',
-                  isActive ? 'bg-white text-ink' : 'text-white/80 hover:bg-white/10 hover:text-white',
+                  'flex items-center gap-3 rounded-full px-3.5 py-2.5 text-sm font-medium transition-colors',
+                  isActive ? 'bg-accent font-semibold text-accent-ink' : 'text-ink-2 hover:bg-surface-2 hover:text-ink',
                 )
               }
             >
@@ -87,24 +88,24 @@ export function AppShell() {
           ))}
         </nav>
 
-        <div className="space-y-3 border-t border-white/10 pt-4">
+        <div className="space-y-3 border-t border-line pt-4">
           <AiStatus />
-          <div className="flex items-center gap-3 px-1">
-            <span className="grid size-9 shrink-0 place-items-center rounded-full bg-white/15 text-sm font-semibold" aria-hidden>
+          <div className="flex items-center gap-3 rounded-control px-1 py-1">
+            <span className="grid size-9 shrink-0 place-items-center rounded-full bg-primary-soft text-sm font-semibold text-primary-ink" aria-hidden>
               {(user?.full_name ?? '?').slice(0, 1).toUpperCase()}
             </span>
             <div className="min-w-0 flex-1">
-              <p className="truncate text-sm font-medium">{user?.full_name}</p>
-              <p className="truncate text-xs text-white/65">{user?.email}</p>
+              <p className="truncate text-sm font-medium text-ink">{user?.full_name}</p>
+              <p className="truncate text-xs text-muted">{user?.email}</p>
             </div>
-            <button onClick={signOut} className="rounded-control p-2 text-white/80 hover:bg-white/10 hover:text-white" aria-label="Sign out" title="Sign out">
+            <button onClick={signOut} className="rounded-control p-2 text-muted hover:bg-surface-2 hover:text-ink" aria-label="Sign out" title="Sign out">
               <LogOut className="size-[18px]" aria-hidden />
             </button>
           </div>
         </div>
       </aside>
 
-      <div className="min-w-0">
+      <div className="min-w-0 flex-1">
         <header className="sticky top-0 z-20 flex items-center gap-3 border-b border-line bg-surface/95 px-4 py-3 backdrop-blur lg:hidden">
           <button
             className="rounded-control p-2 text-ink hover:bg-surface-2"

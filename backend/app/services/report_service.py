@@ -13,15 +13,13 @@ from app.services import observation_service
 from app.services.common import get_owned_interview, interview_out
 
 TIPS = {
-    "relevance": "Address the question directly in your first sentence before adding detail.",
-    "subject_knowledge": "Revise core facts and terminology for this subject; name key concepts, dates and provisions.",
-    "accuracy": "Check facts against standard textbooks or primary documents; include precise names and dates.",
-    "reasoning": "Explain causes and consequences using linking words (because, therefore, however).",
-    "structure": "Use an introduction, body and conclusion, and separate points into short paragraphs.",
-    "clarity": "Prefer shorter sentences (roughly 10-25 words) and define the terms you use.",
+    "constitutional_understanding": "Study constitutional provisions, legal frameworks, and policy structures; cite them accurately in your answers.",
+    "analytical_depth": "Develop your arguments with supporting evidence; explain causes, consequences, and connections between points.",
+    "subject_expertise": "Build depth in core facts, terminology, and conceptual knowledge; name key concepts, dates, and precedents.",
+    "policy_awareness": "Stay informed on current affairs, government policies, and legislative developments; connect them to your answers.",
 }
 
-WEAK_Q_THRESHOLD = 50.0
+WEAK_Q_THRESHOLD = 5.0
 
 
 def _dedupe(items: list[str], cap: int) -> list[str]:
@@ -31,6 +29,15 @@ def _dedupe(items: list[str], cap: int) -> list[str]:
             seen.add(item)
             out.append(item)
     return out[:cap]
+
+
+def _scores(ev) -> dict[str, float] | None:
+    """Per-dimension scores, or None for a legacy evaluation scored before migration 0005
+    (it has `legacy_scores` under the old 6-criteria rubric instead) - never fabricate a value
+    for a dimension the row was not actually evaluated against."""
+    if ev is None or any(getattr(ev, c) is None for c in CRITERIA):
+        return None
+    return {c: getattr(ev, c) for c in CRITERIA}
 
 
 def _follow_up_evaluation(fu) -> FollowUpEvaluation | None:
@@ -67,7 +74,7 @@ def question_results(db: Session, interview: Interview) -> list[QuestionResult]:
                 difficulty=q.difficulty,
                 skipped=a is None,
                 answer_text=a.answer_text if a else None,
-                scores={c: getattr(ev, c) for c in CRITERIA} if ev else None,
+                scores=_scores(ev),
                 overall=ev.overall if ev else None,
                 strengths=list(ev.strengths) if ev else [],
                 weaknesses=list(ev.weaknesses) if ev else ["Question was skipped."],
@@ -104,7 +111,8 @@ def dev_feedback_fields(results: list[QuestionResult], subject: str, overall_sco
     """Rule-based feedback (NOT AI): the labelled fallback for the Feedback agent."""
     total = len(results)
     answered = [r for r in results if not r.skipped]
-    criteria_avg = {c: (sum(r.scores[c] for r in answered) / total if total else 0.0) for c in CRITERIA}
+    scored = [r for r in answered if r.scores is not None]  # excludes legacy (pre-migration 0005) evaluations
+    criteria_avg = {c: (sum(r.scores[c] for r in scored) / total if total and scored else 0.0) for c in CRITERIA}
     weakest = sorted(CRITERIA, key=lambda c: criteria_avg[c])[:2]
     improvements = [TIPS[c] for c in weakest]
     if len(answered) < total:
@@ -114,7 +122,7 @@ def dev_feedback_fields(results: list[QuestionResult], subject: str, overall_sco
     )
     summary = (
         f"You answered {len(answered)} of {total} questions in {subject} "
-        f"with an overall score of {overall_score}/100. "
+        f"with an overall score of {overall_score}/10. "
         "This feedback was produced by simple rules in development mode, not by an AI model."
     )
     return {"summary": summary, "improvements": improvements, "revision_topics": revision}
@@ -135,12 +143,15 @@ def build_report(db: Session, interview: Interview) -> ReportOut:
     results = question_results(db, interview)
     total = len(results)
     answered = [r for r in results if not r.skipped]
+    # Legacy evaluations (pre-migration 0005, scored under the old 6-criteria rubric) have no
+    # per-dimension scores (r.scores is None) and are excluded here rather than treated as 0.
+    scored = [r for r in answered if r.scores is not None]
     criteria_scores = {
-        c: round(sum(r.scores[c] for r in answered) / total, 1) if total else 0.0 for c in CRITERIA
+        c: round(sum(r.scores[c] for r in scored) / total, 1) if total and scored else 0.0 for c in CRITERIA
     }
     fb = interview.feedback
     next_practice = [f"Revisit {t} questions in {interview.subject}." for t in fb.revision_topics[:3]]
-    if (interview.overall_score or 0) >= 70 and interview.difficulty != "hard":
+    if (interview.overall_score or 0) >= 7 and interview.difficulty != "hard":
         next_practice.append("Your score is solid; try the next difficulty level.")
     if not next_practice:
         next_practice.append(f"Take another {interview.subject} interview to keep building consistency.")

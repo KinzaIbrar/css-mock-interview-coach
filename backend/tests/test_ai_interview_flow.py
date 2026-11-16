@@ -57,7 +57,7 @@ def test_full_ai_interview_produces_a_labelled_ai_report(client, user_a, ai):
     assert rep["evaluation_source"] == "gemini" and rep["is_ai_generated"] is True
     assert rep["evaluation_model"] == "fake-model-1" and "fake-model-1" in rep["notice"]
     assert "mistakes" in rep["notice"]
-    assert rep["overall_score"] == 80.0  # six scores of 8 -> 80, computed by us
+    assert rep["overall_score"] == 8.0  # four scores of 8 -> 8.0, computed by us
     assert rep["feedback_source"] == "gemini" and rep["feedback_is_ai_generated"] is True
     assert rep["summary"].startswith("You gave solid answers")
     assert all(q["evaluation_source"] == "gemini" and q["is_ai_generated"] for q in rep["questions"])
@@ -71,13 +71,13 @@ def test_answer_ack_reveals_no_scores_or_feedback(client, user_a, ai):
 
 
 def test_scores_come_from_the_model_per_criterion(client, user_a, ai, db_session):
-    ai.script = [eval_output(relevance=10, subject_knowledge=6, accuracy=4, reasoning=2, structure=8, clarity=10)]
+    ai.script = [eval_output(constitutional_understanding=10, analytical_depth=6, subject_expertise=4, policy_awareness=2)]
     iid = start(client, user_a, n=1)["interview"]["id"]
     answer(client, user_a, iid)
     with db_session() as db:
         ev = db.query(Evaluation).one()
-        assert (ev.relevance, ev.subject_knowledge, ev.accuracy, ev.reasoning, ev.structure, ev.clarity) == (10, 6, 4, 2, 8, 10)
-        assert ev.overall == 66.7 and ev.source == "gemini" and ev.is_ai_generated and ev.model == "fake-model-1"
+        assert (ev.constitutional_understanding, ev.analytical_depth, ev.subject_expertise, ev.policy_awareness) == (10, 6, 4, 2)
+        assert ev.overall == 5.5 and ev.source == "gemini" and ev.is_ai_generated and ev.model == "fake-model-1"
         assert ev.strengths == ["Covers the main idea clearly"] and ev.missing_info == ["A specific date"]
 
 
@@ -88,8 +88,8 @@ def test_conversation_context_is_carried_across_questions(client, user_a, ai):
         nxt(client, user_a, iid)
     first, second, third = (c["prompt"] for c in ai.eval_calls)
     assert "EARLIER IN THIS INTERVIEW" not in first
-    assert "EARLIER IN THIS INTERVIEW" in second and "80.0/100" in second
-    assert third.count("/100") >= 2  # both earlier questions are in the context
+    assert "EARLIER IN THIS INTERVIEW" in second and "8.0/10" in second
+    assert third.count("/10") >= 2  # both earlier questions are in the context
 
 
 def test_prompts_never_leak_between_users_or_include_credentials(client, user_a, ai, monkeypatch):
@@ -124,9 +124,9 @@ def test_follow_up_is_asked_answered_and_persisted(client, user_a, ai, db_sessio
     p = ai.eval_calls[1]["prompt"]
     assert "Can you name the article" in p and "Article 2A." in p and "FOLLOW-UPS ALLOWED NOW: no" in p
     with db_session() as db:
-        assert db.query(Evaluation).count() == 1 and db.query(Evaluation).one().overall == 50.0
+        assert db.query(Evaluation).count() == 1 and db.query(Evaluation).one().overall == 5.0
         row = db.query(FollowUp).one()
-        assert row.overall == 90.0 and row.source == "gemini" and row.is_ai_generated
+        assert row.overall == 9.0 and row.source == "gemini" and row.is_ai_generated
         assert row.question_text.startswith("Can you name") and row.answer_text == "Article 2A."
 
 
@@ -336,14 +336,14 @@ def test_everything_is_saved_in_the_database(client, user_a, ai, db_session):
         assert iv.status == "completed" and iv.completed_at is not None
         answers = db.query(Answer).filter_by(interview_id=iid).order_by(Answer.order_index).all()
         assert [a.answer_text for a in answers] == ["first answer text", "second answer text"]
-        assert [a.evaluation.overall for a in answers] == [80.0, 70.0]  # the follow-up reply (6/10) did not replace the 8/10
-        assert answers[0].follow_up.overall == 60.0
-        assert iv.overall_score == 75.0 == rep["overall_score"]
+        assert [a.evaluation.overall for a in answers] == [8.0, 7.0]  # the follow-up reply (6/10) did not replace the 8/10
+        assert answers[0].follow_up.overall == 6.0
+        assert iv.overall_score == 7.5 == rep["overall_score"]
         fb = db.query(Feedback).filter_by(interview_id=iid).one()
         assert fb.source == "gemini" and fb.is_ai_generated and fb.model == "fake-model-1"
         assert fb.summary == rep["summary"] and len(fb.model_answers) == 2
         prog = db.query(Progress).filter_by(user_id=iv.user_id).one()
-        assert prog.sessions_count == 1 and prog.last_score == 75.0
+        assert prog.sessions_count == 1 and prog.last_score == 7.5
 
 
 def test_report_is_stable_and_complete_is_idempotent_without_new_ai_calls(client, user_a, ai):
@@ -359,9 +359,9 @@ def test_dashboard_and_progress_use_ai_scores(client, user_a, ai):
     ai.default_score = 9.0
     run_interview(client, user_a, n=2)
     d = client.get("/api/dashboard", headers=user_a).json()
-    assert d["total_interviews"] == 1 and d["average_score"] == 90.0 and d["best_score"] == 90.0
+    assert d["total_interviews"] == 1 and d["average_score"] == 9.0 and d["best_score"] == 9.0
     p = client.get("/api/progress", headers=user_a).json()
-    assert p["subjects"][0]["avg_score"] == 90.0
+    assert p["subjects"][0]["avg_score"] == 9.0
 
 
 def test_progress_note_compares_with_the_previous_session(client, user_a, ai):
@@ -370,7 +370,7 @@ def test_progress_note_compares_with_the_previous_session(client, user_a, ai):
     ai.default_score = 8.0
     _, _, resp = run_interview(client, user_a, n=1)
     note = resp.json()["progress_note"]
-    assert "up 30.0 points" in note and "not by AI" not in note  # plain rule-based comparison
+    assert "up 3.0 points" in note and "not by AI" not in note  # plain rule-based comparison
 
 
 def test_ai_results_are_isolated_between_users(client, user_a, user_b, ai):

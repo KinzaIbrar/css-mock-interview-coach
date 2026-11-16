@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useForm, useWatch } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -62,10 +62,13 @@ export default function InterviewSetup() {
   const queryClient = useQueryClient()
   const meta = useQuery({ queryKey: ['question-meta'], queryFn: getQuestionMeta, staleTime: 5 * 60_000 })
   const [serverError, setServerError] = useState<string | null>(null)
+  // A Dashboard "Quick start" chip may link here with ?subject=... preselected; an unknown value
+  // simply leaves the dropdown on its default "Select a subject..." option (no change to the API).
+  const [searchParams] = useSearchParams()
 
   const { register, handleSubmit, control, setValue, setError, formState: { errors } } = useForm<Values>({
     resolver: zodResolver(setupSchema),
-    defaultValues: { subject: '', topic: '', difficulty: 'mixed', num_questions: 5, duration_minutes: 30, mode: 'mock' },
+    defaultValues: { subject: searchParams.get('subject') ?? '', topic: '', difficulty: 'mixed', num_questions: 5, duration_minutes: 30, mode: 'mock' },
   })
   const [subjectName, topic, difficulty, mode, numQuestions] = useWatch({ control, name: ['subject', 'topic', 'difficulty', 'mode', 'num_questions'] })
 
@@ -126,7 +129,7 @@ export default function InterviewSetup() {
   return (
     <div className="mx-auto max-w-3xl space-y-6">
       <div>
-        <h1 className="text-[1.75rem] font-semibold">New interview</h1>
+        <h1 className="text-[2rem] font-bold tracking-tight">New interview</h1>
         <p className="mt-1 text-sm text-muted">Choose what you want to practise. You will be asked one question at a time.</p>
       </div>
 

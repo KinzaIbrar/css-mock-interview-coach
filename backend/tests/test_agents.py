@@ -33,12 +33,12 @@ ANSWER = "The Objectives Resolution of 1949 declared the sovereignty of Allah an
 
 # ---- Evaluation agent ---------------------------------------------------------------------------
 def test_ai_evaluation_is_validated_and_overall_is_computed_locally(question, provider):
-    provider.script = [eval_output(relevance=9, subject_knowledge=8, accuracy=7, reasoning=6, structure=5, clarity=4)]
+    provider.script = [eval_output(constitutional_understanding=9, analytical_depth=8, subject_expertise=7, policy_awareness=6)]
     out = EvaluationAgent().evaluate(question, ANSWER)
     assert out.source == "gemini" and out.is_ai_generated and out.model == "fake-model-1"
     assert out.fallback_reason is None
-    assert out.scores == {"relevance": 9, "subject_knowledge": 8, "accuracy": 7, "reasoning": 6, "structure": 5, "clarity": 4}
-    assert out.overall == 65.0  # mean(9,8,7,6,5,4) * 10, computed here - the model cannot set it
+    assert out.scores == {"constitutional_understanding": 9, "analytical_depth": 8, "subject_expertise": 7, "policy_awareness": 6}
+    assert out.overall == 7.5  # mean(9,8,7,6) computed here - the model cannot set it
     cols = out.columns()
     assert cols["source"] == "gemini" and cols["is_ai_generated"] is True and cols["model"] == "fake-model-1"
     assert set(CRITERIA) <= set(cols)
@@ -53,7 +53,7 @@ def test_lists_are_cleaned_and_capped(question, provider):
 
 @pytest.mark.parametrize("bad", [10.5, -0.1, 11, 100])
 def test_out_of_range_scores_are_rejected_not_clamped(question, provider, bad):
-    provider.script = [eval_output(accuracy=bad)]
+    provider.script = [eval_output(subject_expertise=bad)]
     out = EvaluationAgent().evaluate(question, ANSWER)
     assert out.source == "dev_heuristic" and out.is_ai_generated is False and out.model is None
     assert out.fallback_reason == "invalid_score"
@@ -88,7 +88,7 @@ def test_ai_scores_differ_from_heuristic_and_are_not_fabricated_on_failure(quest
     ai = EvaluationAgent().evaluate(question, ANSWER)
     provider.script = [LLMTransientError("x")]
     fallback = EvaluationAgent().evaluate(question, ANSWER)
-    assert ai.overall == 90.0 and fallback.overall != 90.0 and not fallback.is_ai_generated
+    assert ai.overall == 9.0 and fallback.overall != 9.0 and not fallback.is_ai_generated
 
 
 def test_prompt_is_grounded_in_the_question_and_reference_material(question, provider):
@@ -120,7 +120,7 @@ def test_follow_up_exchange_and_context_are_included(question, provider):
     )
     p = provider.eval_calls[0]["prompt"]
     assert "FOLLOW-UP ASKED BY THE PANEL: What is Article 2A?" in p
-    assert "<candidate_follow_up_answer>" in p and "Freedom Movement: 72.0/100" in p
+    assert "<candidate_follow_up_answer>" in p and "Freedom Movement: 72.0/10" in p
     assert "FOLLOW-UPS ALLOWED NOW: no" in p
 
 
@@ -132,6 +132,52 @@ def test_follow_up_allowed_flag_is_sent(question, provider):
 def test_follow_up_question_is_passed_through(question, provider):
     provider.script = [eval_output(follow_up="  Why did the Assembly adopt it?  ")]
     assert EvaluationAgent().evaluate(question, ANSWER, follow_up_allowed=True).follow_up_question == "Why did the Assembly adopt it?"
+
+
+# ---- Realistic CSS viva answers: both evaluation workflows score the 4 dimensions independently -----
+CSS_STRONG_ANSWER = (
+    "The Objectives Resolution was moved by Prime Minister Liaquat Ali Khan and adopted by the first Constituent "
+    "Assembly on 12 March 1949. It declared that sovereignty over the entire universe belongs to Allah Almighty "
+    "and that the authority He has delegated to the State of Pakistan is a sacred trust to be exercised through "
+    "its people within the limits prescribed by Him. Because the state could only exercise delegated, not "
+    "absolute, sovereignty, the Resolution bound later constitution-making to Islamic principles while still "
+    "promising democracy, freedom, equality, tolerance and social justice as enunciated by Islam, and it "
+    "guaranteed fundamental rights, the independence of the judiciary and adequate provision for minorities to "
+    "freely profess their religion. Constitutionally, it set the ideological direction for the 1956, 1962 and "
+    "1973 Constitutions; it was placed as a preamble in each, and under General Zia-ul-Haq it was inserted as a "
+    "substantive, enforceable part of the Constitution through Article 2A in 1985, which continues to shape "
+    "judicial review of legislation for repugnance to Islamic injunctions today."
+)
+
+
+def test_production_workflow_scores_the_four_dimensions_independently(question, provider):
+    """The real (here: faked) LLM provider can score each CSS dimension differently; nothing forces them equal."""
+    provider.script = [eval_output(
+        constitutional_understanding=9, analytical_depth=7, subject_expertise=8, policy_awareness=5,
+        strengths=["Correctly cites Article 2A and the 1985 insertion"],
+        weaknesses=["Could discuss the Objectives Resolution's reception in East Pakistan"],
+        missing_info=[],
+    )]
+    out = EvaluationAgent().evaluate(question, CSS_STRONG_ANSWER)
+    assert out.source == "gemini" and out.is_ai_generated
+    assert out.scores == {
+        "constitutional_understanding": 9, "analytical_depth": 7, "subject_expertise": 8, "policy_awareness": 5,
+    }
+    assert len(set(out.scores.values())) > 1  # independently scored, not collapsed to one number
+    assert out.overall == 7.2  # mean(9,7,8,5) = 7.25, rounded to 1 decimal
+
+
+def test_dev_fallback_workflow_scores_the_four_dimensions_for_a_realistic_answer(question):
+    """Without a configured provider, the dev heuristic still returns all 4 dimensions (never fabricated
+    as identical placeholders) and is clearly labelled as NOT an AI evaluation."""
+    from app.services.dev_evaluator import evaluate
+
+    result = evaluate(question, CSS_STRONG_ANSWER)
+    assert set(CRITERIA) <= set(result)
+    assert all(0 <= result[c] <= 10 for c in CRITERIA)
+    assert result["source"] == "dev_heuristic" and result["is_ai_generated"] is False
+    # a long, keyword-rich answer should score meaningfully above a near-empty one
+    assert result["overall"] > evaluate(question, "I don't know.")["overall"]
 
 
 # ---- Conductor agent ----------------------------------------------------------------------------
@@ -176,7 +222,7 @@ def test_ai_feedback_success(provider):
     assert out.source == "gemini" and out.is_ai_generated and out.model == "fake-model-1"
     assert out.summary.startswith("You gave solid answers") and len(out.improvements) == 2
     p = provider.feedback_calls[0]["prompt"]
-    assert "OVERALL SCORE: 20.0/100" in p and "SKIPPED" in p and "Constitutional History" in p
+    assert "OVERALL SCORE: 20.0/10" in p and "SKIPPED" in p and "Constitutional History" in p
 
 
 def test_revision_topics_are_restricted_to_topics_actually_asked(provider):
@@ -237,19 +283,19 @@ def test_progress_agent_compares_with_the_previous_session(db_session):
         user = User(email="p@x.com", full_name="P", hashed_password="x", preferences={})
         db.add(user)
         db.flush()
-        first = _interview(db, user.id, 40.0)
+        first = _interview(db, user.id, 4.0)
         agent = ProgressAgent(db)
         assert agent.insight(first) is None  # nothing to compare with
-        second = _interview(db, user.id, 55.5)
+        second = _interview(db, user.id, 5.5)
         second.completed_at = first.completed_at + timedelta(minutes=5)
-        assert "up 15.5 points" in agent.insight(second) and "(40.0 to 55.5)" in agent.insight(second)
-        third = _interview(db, user.id, 30.0)
+        assert "up 1.5 points" in agent.insight(second) and "(4.0 to 5.5)" in agent.insight(second)
+        third = _interview(db, user.id, 3.0)
         third.completed_at = second.completed_at + timedelta(minutes=5)
-        assert "down 25.5 points" in agent.insight(third)
-        fourth = _interview(db, user.id, 30.4)
+        assert "down 2.5 points" in agent.insight(third)
+        fourth = _interview(db, user.id, 3.04)
         fourth.completed_at = third.completed_at + timedelta(minutes=5)
         assert "about the same" in agent.insight(fourth)
-        other = _interview(db, user.id, 90.0, subject="Islamic Studies")
+        other = _interview(db, user.id, 9.0, subject="Islamic Studies")
         other.completed_at = fourth.completed_at + timedelta(minutes=5)
         assert agent.insight(other) is None  # different subject
 
@@ -261,7 +307,7 @@ def test_progress_agent_record_updates_aggregate(db_session):
         user = User(email="q@x.com", full_name="Q", hashed_password="x", preferences={})
         db.add(user)
         db.flush()
-        ProgressAgent(db).record(_interview(db, user.id, 60.0))
+        ProgressAgent(db).record(_interview(db, user.id, 6.0))
         db.commit()
         row = db.query(Progress).filter_by(user_id=user.id).one()
-        assert row.sessions_count == 1 and row.avg_score == 60.0
+        assert row.sessions_count == 1 and row.avg_score == 6.0

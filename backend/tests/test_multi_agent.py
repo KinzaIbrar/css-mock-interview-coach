@@ -122,8 +122,8 @@ def test_follow_up_reply_is_evaluated_separately_in_the_report(client, user_a, a
     assert "Evaluate ONLY the candidate's reply" in ai.eval_calls[1]["prompt"]
     rep = client.post(f"{POST}/complete", json={"interview_id": iid}, headers=user_a).json()
     q = rep["questions"][0]
-    assert q["overall"] == 80.0 and q["follow_up_evaluation"]["overall"] == 40.0
-    assert rep["overall_score"] == 80.0 and rep["follow_up_average"] == 40.0
+    assert q["overall"] == 8.0 and q["follow_up_evaluation"]["overall"] == 4.0
+    assert rep["overall_score"] == 8.0 and rep["follow_up_average"] == 4.0
     assert rep["introduction"].startswith("I studied")
 
 

@@ -202,7 +202,7 @@ def test_failed_follow_up_evaluation_never_touches_the_main_ai_evaluation(fclien
     assert body["fallback_reason"] == "timeout" and body["ai_notice"]
     with file_db() as db:
         ev = db.query(Evaluation).one()
-        assert ev.source == "gemini" and ev.is_ai_generated and ev.overall == 90.0 and ev.model == "fake-model-1"
+        assert ev.source == "gemini" and ev.is_ai_generated and ev.overall == 9.0 and ev.model == "fake-model-1"
         fu = db.query(FollowUp).one()
         assert fu.answer_text == "because" and fu.source == "dev_heuristic" and not fu.is_ai_generated
 

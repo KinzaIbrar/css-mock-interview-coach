@@ -1,12 +1,30 @@
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
-from app.core.constants import SUBJECTS
+from app.core.constants import CRITERIA, SUBJECTS
+from app.models.answer import Answer
+from app.models.evaluation import Evaluation
 from app.models.interview import Interview
 from app.models.user import User
 from app.schemas.dashboard import DashboardOut, Recommendation
 from app.services import progress_service
 from app.services.common import interview_out
+
+
+def _dimension_performance(db: Session, user: User) -> dict[str, float]:
+    """Average of each of the 4 CSS dimensions across the user's scored, completed-interview
+    answers. `AVG()` ignores NULLs, so legacy (pre-migration-0005) evaluations - which have no
+    per-dimension score - are naturally excluded rather than averaged in as fabricated zeros.
+    Empty dict (not zeros) when nothing has been scored under the new rubric yet."""
+    row = db.execute(
+        select(*(func.avg(getattr(Evaluation, c)) for c in CRITERIA))
+        .join(Answer, Answer.id == Evaluation.answer_id)
+        .join(Interview, Interview.id == Answer.interview_id)
+        .where(Interview.user_id == user.id, Interview.status == "completed")
+    ).one()
+    if row[0] is None:
+        return {}
+    return {c: round(v, 1) for c, v in zip(CRITERIA, row)}
 
 
 def _recommendations(subjects, trend, in_progress: int) -> list[Recommendation]:
@@ -22,16 +40,16 @@ def _recommendations(subjects, trend, in_progress: int) -> list[Recommendation]:
         )
         return recs
     weakest = min(subjects, key=lambda s: s.avg_score)
-    if weakest.avg_score < 70:
+    if weakest.avg_score < 7:
         recs.append(
             Recommendation(
                 title=f"Strengthen {weakest.subject}",
-                detail=f"Your average in {weakest.subject} is {weakest.avg_score:.0f}/100. "
+                detail=f"Your average in {weakest.subject} is {weakest.avg_score:.1f}/10. "
                 "Review the reference answers in the Question Bank, then retry.",
                 subject=weakest.subject,
             )
         )
-    if len(trend) >= 2 and trend[-1].score < trend[-2].score - 5:
+    if len(trend) >= 2 and trend[-1].score < trend[-2].score - 0.5:
         recs.append(
             Recommendation(
                 title="Review your latest report",
@@ -70,4 +88,5 @@ def get_dashboard(db: Session, user: User) -> DashboardOut:
         subject_performance=subjects,
         recent_interviews=[interview_out(i) for i in recent],
         recommendations=_recommendations(subjects, trend, in_progress),
+        dimension_performance=_dimension_performance(db, user),
     )

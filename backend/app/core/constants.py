@@ -12,7 +12,7 @@ QUESTION_DIFFICULTIES = ["easy", "medium", "hard"]
 INTERVIEW_DIFFICULTIES = QUESTION_DIFFICULTIES + ["mixed"]
 INTERVIEW_MODES = ["mock", "practice"]
 
-CRITERIA = ["relevance", "subject_knowledge", "accuracy", "reasoning", "structure", "clarity"]
+CRITERIA = ["constitutional_understanding", "analytical_depth", "subject_expertise", "policy_awareness"]
 
 DEV_EVAL_NOTICE = (
     "DEVELOPMENT MODE: this evaluation is produced by a simple keyword/length heuristic, "

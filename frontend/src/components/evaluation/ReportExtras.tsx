@@ -8,7 +8,7 @@ export function CoachingCard({ coaching }: { coaching: Coaching }) {
   const empty =
     !coaching.weak_topics.length && !coaching.misunderstood_concepts.length && !coaching.recurring_mistakes.length && !coaching.recommended_practice.length
   return (
-    <Card>
+    <Card className="transition-shadow hover:shadow-raised">
       <CardHeader
         as="h2"
         title={<span className="flex items-center gap-2"><GraduationCap className="size-5 text-primary" aria-hidden />Coaching plan</span>}
@@ -22,7 +22,7 @@ export function CoachingCard({ coaching }: { coaching: Coaching }) {
             <h3 className="text-sm font-semibold">Weak topics</h3>
             <ul className="mt-1.5 space-y-1 text-sm">
               {coaching.weak_topics.map((t) => (
-                <li key={t.topic}><span className="font-medium">{t.topic}</span> <span className="text-muted">— {Math.round(t.score)}/100. {t.reason}</span></li>
+                <li key={t.topic}><span className="font-medium">{t.topic}</span> <span className="text-muted">— {t.score.toFixed(1)}/10. {t.reason}</span></li>
               ))}
             </ul>
           </div>
@@ -60,7 +60,7 @@ export function CoachingCard({ coaching }: { coaching: Coaching }) {
 /** Observable behaviours only. Separate from the verbal score; never combined into one number. */
 export function NonVerbalCard({ report }: { report: NonVerbalReport }) {
   return (
-    <Card>
+    <Card className="transition-shadow hover:shadow-raised">
       <CardHeader
         as="h2"
         title={<span className="flex items-center gap-2"><ScanEye className="size-5 text-primary" aria-hidden />Non-verbal observations</span>}

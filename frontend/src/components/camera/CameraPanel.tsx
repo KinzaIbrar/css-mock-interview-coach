@@ -12,13 +12,13 @@ export function CameraPanel({ camera, videoRef }: Props) {
   const { status, tracking, message } = camera
   const on = status === 'on'
   return (
-    <section aria-label="Camera (optional)" className="rounded-xl border border-line bg-surface p-3">
+    <section aria-label="Camera (optional)" className="rounded-card border border-line bg-surface p-3.5">
       <div className="mb-2 flex items-center justify-between gap-2">
-        <h2 className="text-sm font-semibold text-ink">Camera <span className="font-normal text-muted">(optional)</span></h2>
-        {on && <span className="inline-flex items-center gap-1.5 text-xs font-medium text-danger" role="status"><span className="size-2 rounded-full bg-danger" />Camera on</span>}
+        <h2 className="flex items-center gap-1.5 text-sm font-semibold text-ink"><Camera className="size-4 text-primary" aria-hidden />Camera <span className="font-normal text-muted">(optional)</span></h2>
+        {on && <span className="inline-flex items-center gap-1.5 text-xs font-medium text-danger" role="status"><span className="size-2 animate-pulse-soft rounded-full bg-danger" />Camera on</span>}
       </div>
 
-      <div className={on ? 'overflow-hidden rounded-lg bg-black' : 'hidden'}>
+      <div className={on ? 'overflow-hidden rounded-control bg-black' : 'hidden'}>
         <video ref={videoRef} muted playsInline className="aspect-[4/3] w-full -scale-x-100 object-cover" aria-label="Your camera preview" />
       </div>
 

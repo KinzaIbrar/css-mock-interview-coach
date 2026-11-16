@@ -22,7 +22,7 @@ class Interview(Base, TimestampMixin):
     question_ids: Mapped[list] = mapped_column(JSON, default=list)
     started_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
     completed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
-    overall_score: Mapped[float | None] = mapped_column(Float, nullable=True)  # 0-100
+    overall_score: Mapped[float | None] = mapped_column(Float, nullable=True)  # 0-10
     # Migration 0004: conversational opening and aggregate-only non-verbal observations (never raw video)
     intro_required: Mapped[bool] = mapped_column(Boolean, default=False, server_default="0")
     introduction: Mapped[str | None] = mapped_column(Text, nullable=True)

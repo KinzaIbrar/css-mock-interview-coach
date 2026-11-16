@@ -7,7 +7,7 @@ from app.agents.schemas import EvaluationLLMOutput, FeedbackLLMOutput
 
 def eval_output(score: float = 8.0, follow_up: str = "", **overrides) -> EvaluationLLMOutput:
     data = dict(
-        relevance=score, subject_knowledge=score, accuracy=score, reasoning=score, structure=score, clarity=score,
+        constitutional_understanding=score, analytical_depth=score, subject_expertise=score, policy_awareness=score,
         strengths=["Covers the main idea clearly"], weaknesses=["Could add a concrete example"],
         missing_info=["A specific date"], follow_up_question=follow_up,
     )

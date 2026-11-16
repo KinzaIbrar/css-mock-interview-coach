@@ -8,7 +8,8 @@ export type InterviewStatus = 'in_progress' | 'completed'
 export type EvaluationSource = 'gemini' | 'dev_heuristic' | 'mixed'
 export type FeedbackSource = 'gemini' | 'dev_rules'
 
-export const CRITERIA = ['relevance', 'subject_knowledge', 'accuracy', 'reasoning', 'structure', 'clarity'] as const
+/** The 4 CSS-specific evaluation dimensions (each scored 0-10 by the backend). */
+export const CRITERIA = ['constitutional_understanding', 'analytical_depth', 'subject_expertise', 'policy_awareness'] as const
 export type Criterion = (typeof CRITERIA)[number]
 
 export interface User {
@@ -225,4 +226,7 @@ export interface Dashboard {
   recommendations_source: string
   is_ai_generated: boolean
   notice: string
+  /** Average of each of the 4 CSS dimensions (0-10) across completed, scored interviews.
+   *  {} when nothing has been scored under the new rubric yet - never fabricated zeros. */
+  dimension_performance: Record<string, number>
 }

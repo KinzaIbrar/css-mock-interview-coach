@@ -1,8 +1,9 @@
 """Answer Evaluation Agent.
 
-Uses the LLM to score an answer on the six criteria. If no provider is configured, or the call fails or
-returns invalid output, it falls back to the clearly labelled development heuristic - it never invents an
-AI result. `overall` is always computed here from the six validated scores, not taken from the model.
+Uses the LLM to score an answer on the four CSS-specific dimensions. If no provider is configured, or the
+call fails or returns invalid output, it falls back to the clearly labelled development heuristic - it
+never invents an AI result. `overall` is always computed here from the four validated scores, not taken
+from the model.
 """
 
 import logging
@@ -62,7 +63,7 @@ def _from_llm(out: EvaluationLLMOutput, model: str) -> EvaluationOutcome:
     scores = {c: round(float(v), 1) for c, v in scores.items()}
     return EvaluationOutcome(
         scores=scores,
-        overall=round(sum(scores.values()) / len(scores) * 10, 1),
+        overall=round(sum(scores.values()) / len(scores), 1),
         strengths=_clean_list(out.strengths),
         weaknesses=_clean_list(out.weaknesses),
         missing_info=_clean_list(out.missing_info),

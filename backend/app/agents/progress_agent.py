@@ -40,8 +40,8 @@ class ProgressAgent:
         if previous is None or previous.overall_score is None or interview.overall_score is None:
             return None
         delta = round(interview.overall_score - previous.overall_score, 1)
-        if abs(delta) < 1:
-            return f"Your score is about the same as your previous {interview.subject} session ({previous.overall_score}/100)."
+        if abs(delta) < 0.1:
+            return f"Your score is about the same as your previous {interview.subject} session ({previous.overall_score}/10)."
         direction = "up" if delta > 0 else "down"
         return (
             f"Your {interview.subject} score is {direction} {abs(delta)} points from your previous session "

@@ -10,6 +10,17 @@ def test_new_user_dashboard_is_empty_not_fabricated(client, user_a):
     assert d["score_trend"] == [] and d["subject_performance"] == [] and d["recent_interviews"] == []
     assert d["recommendations"][0]["title"].startswith("Start your first")
     assert d["is_ai_generated"] is False
+    assert d["dimension_performance"] == {}  # nothing scored yet - no fabricated zeros
+
+
+def test_dashboard_dimension_performance_averages_the_four_dimensions(client, user_a):
+    from app.core.constants import CRITERIA
+
+    run_full_interview(client, user_a, subject="Pakistan Affairs", n=2)
+    d = client.get("/api/dashboard", headers=user_a).json()
+    dims = d["dimension_performance"]
+    assert set(dims) == set(CRITERIA)
+    assert all(0 <= v <= 10 for v in dims.values())
 
 
 def test_dashboard_stats_come_from_saved_interviews(client, user_a):

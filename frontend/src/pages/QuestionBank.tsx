@@ -71,7 +71,7 @@ export default function QuestionBank() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-[1.75rem] font-semibold">Question bank</h1>
+        <h1 className="text-[2rem] font-bold tracking-tight">Question bank</h1>
         <p className="mt-1 text-sm text-muted">Browse the practice questions with reference answers. Search results are ranked by relevance.</p>
       </div>
       <Alert tone="info" live="off" title="Sample, unverified study aids">

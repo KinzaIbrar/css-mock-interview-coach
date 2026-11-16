@@ -7,7 +7,7 @@ def test_report_after_completion(client, user_a):
     assert r.status_code == 200
     rep = r.json()
     assert set(rep["criteria_scores"]) == {
-        "relevance", "subject_knowledge", "accuracy", "reasoning", "structure", "clarity"
+        "constitutional_understanding", "analytical_depth", "subject_expertise", "policy_awareness"
     }
     assert len(rep["questions"]) == 3
     assert rep["summary"] and rep["improvements"]
@@ -53,4 +53,4 @@ def test_perfect_keyword_answer_is_not_penalised_for_missing_info(client, user_a
 
         ev = evaluate(q, text)
     assert ev["missing_info"] == []
-    assert ev["overall"] > 50
+    assert ev["overall"] > 5

@@ -45,7 +45,7 @@ def main() -> int:
         t = time.time()
         ev = EvaluationAgent().evaluate(q, ANSWER, follow_up_allowed=True)
         label = "Gemini" if ev.is_ai_generated else f"FALLBACK ({ev.fallback_reason})"
-        print(f"[evaluation] {label} in {time.time() - t:.1f}s | overall {ev.overall}/100 | scores {ev.scores}")
+        print(f"[evaluation] {label} in {time.time() - t:.1f}s | overall {ev.overall}/10 | scores {ev.scores}")
         if ev.is_ai_generated:
             print("  strengths:", ev.strengths[:2], "| weaknesses:", ev.weaknesses[:2])
             print("  follow-up:", repr(ev.follow_up_question))
