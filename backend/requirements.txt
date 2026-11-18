@@ -13,3 +13,6 @@ httpx
 alembic
 google-genai>=3.0,<4
 langgraph>=1.0,<2
+# RAG evidence retrieval (feature-flagged off by default -- see RAG_EVIDENCE_ENABLED). CPU-only, no CUDA.
+faiss-cpu==1.16.0
+sentence-transformers==6.3.0

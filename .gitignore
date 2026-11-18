@@ -7,10 +7,18 @@
 
 # Python
 .venv/
+.venv-rag/
 venv/
 __pycache__/
 *.pyc
 .pytest_cache/
+
+# Local RAG notebook execution output (research/colab/ -- generated, not source)
+research/colab/output/
+research/colab/output_*/
+*.faiss
+!backend/tests/fixtures/**/*.faiss
+.ipynb_checkpoints/
 
 # Node
 node_modules/

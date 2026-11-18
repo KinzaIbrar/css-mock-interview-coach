@@ -1,0 +1,278 @@
+[
+  {
+    "scenario_id": "t12-pa-001",
+    "question_text": "What was the Lahore Resolution of 1940 and why is it significant?",
+    "task15_top5": [
+      {
+        "rank": 1,
+        "score": 0.5905982255935669,
+        "chunk_id": "4e9049f2ff891a65",
+        "source_title": "The Lahore Declaration (1999)",
+        "page_number": 1,
+        "content_excerpt": "The Lahore Declaration The following is the text of the Lahore Declaration signed by the Prime Minister, Mr. A. B. Vajpayee, and the Pakistan Prime Minister, Mr. Nawaz Sharif, in Lahore on Sunday: The"
+      },
+      {
+        "rank": 2,
+        "score": 0.5586626529693604,
+        "chunk_id": "46132f78dedeab03",
+        "source_title": "Constitution of the Islamic Republic of Pakistan, 1973 (as modified up to 31 May 2018)",
+        "page_number": 194,
+        "content_excerpt": "CONSTITUTION OF PAKISTAN 183 3. The Muslim Family Laws Ordinance, 1961 (VIII of 1961). 4. The Security of Pakistan (Amendment) Ordinance, 1961 (XIV of 1961). 5. The Associated Press of Pakistan (Takin"
+      },
+      {
+        "rank": 3,
+        "score": 0.5384503602981567,
+        "chunk_id": "a740603a78bfb6c4",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "page_number": 16,
+        "content_excerpt": "XXVI. Economic Conditions of Pakistan, the Most Recent Economic Survey, the Previous and Current Budgets, and the Problems and Performance of Major Sectors of Economy. XXVII. The Recent Constitutional"
+      },
+      {
+        "rank": 4,
+        "score": 0.5339922904968262,
+        "chunk_id": "84fd563381d056d5",
+        "source_title": "Constitution of the Islamic Republic of Pakistan, 1973 (as modified up to 31 May 2018)",
+        "page_number": 191,
+        "content_excerpt": "CONSTITUTION OF PAKISTAN 180 2. The Land Reforms (Amendment) Act, 1975 (XXXIX of 1975). 1[3. The Flour Milling Control and Development Act, 1976 (LVII of 1976). 4. The Rice Milling Control and Develop"
+      },
+      {
+        "rank": 5,
+        "score": 0.5321218371391296,
+        "chunk_id": "00c6766007617448",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "page_number": 134,
+        "content_excerpt": "S. No. Title Author 22. 21st Century Political Science: A Reference Handbook John T.Ishiyama, Marijke Breuning, 23. Political Thought from Plato to Present Judd Herman, 24. The Political System of Pak"
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-pa-002",
+    "question_text": "Describe the main features of the Objectives Resolution of 1949 and its role in Pakistan's constitutional development.",
+    "task15_top5": [
+      {
+        "rank": 1,
+        "score": 0.693014919757843,
+        "chunk_id": "9c0d2054aa6b1cd9",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "page_number": 63,
+        "content_excerpt": "PAPER: CONSTITUTIONAL LAW (100 MARKS) I. Definition and Scope of Constitutional Law, Basic Constitutional Concepts (Constitutional Conventions, Rule of Law, Due Process), Constitutional Structures (Pa"
+      },
+      {
+        "rank": 2,
+        "score": 0.6621874570846558,
+        "chunk_id": "dbe9d47b17592ec1",
+        "source_title": "Constitution of the Islamic Republic of Pakistan, 1973 (as modified up to 31 May 2018)",
+        "page_number": 13,
+        "content_excerpt": "CONSTITUTION OF PAKISTAN 2 Wherein the integrity of the territories of the Federation, its independence and all its rights, including its sovereign rights on land, sea and air, shall be safeguarded; S"
+      },
+      {
+        "rank": 3,
+        "score": 0.6588647365570068,
+        "chunk_id": "b456fccd2b59cc68",
+        "source_title": "Constitution of the Islamic Republic of Pakistan, 1973 (as modified up to 31 May 2018)",
+        "page_number": 188,
+        "content_excerpt": "CONSTITUTION OF PAKISTAN 177 1[ANNEX (Article 2A) The Objectives Resolution (In the name of Allah, the most beneficent, the most merciful.) Whereas sovereignty over the entire universe belongs to Alla"
+      },
+      {
+        "rank": 4,
+        "score": 0.6586636900901794,
+        "chunk_id": "a9ed93aafaeebd22",
+        "source_title": "Constitution of the Islamic Republic of Pakistan, 1973 (as modified up to 31 May 2018)",
+        "page_number": 1,
+        "content_excerpt": "THE CONSTITUTION OF THE ISLAMIC REPUBLIC OF PAKISTAN [As modified upto the 31st May, 2018] NATIONAL ASSEMBLY OF PAKISTAN"
+      },
+      {
+        "rank": 5,
+        "score": 0.6546486616134644,
+        "chunk_id": "cb8e19e1a0b70a9c",
+        "source_title": "Constitution (18th Amendment) Act 2010 and Devolution (Pakistan Institute for Parliamentary Services)",
+        "page_number": 197,
+        "content_excerpt": "182 Constitution or any other law for the time being in force, the General Elections 2008, to the National Assembly and the Provincial Assemblies held on the eighteenth day of February, two thousand a"
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-is-003",
+    "question_text": "Discuss the concept of Ijtihad and its relevance in addressing contemporary challenges.",
+    "task15_top5": [
+      {
+        "rank": 1,
+        "score": 0.47968944907188416,
+        "chunk_id": "39f57b0c69d105eb",
+        "source_title": "Paigham-e-Pakistan (2018)",
+        "page_number": 32,
+        "content_excerpt": "Paigham-e-Pakistan 22 modern nation. This concept has also been explained by Allama Muhammad Iqbal in the shape of “reconstruction of religious thought.” Immediately after the creation of Pakistan, Qu"
+      },
+      {
+        "rank": 2,
+        "score": 0.4521651268005371,
+        "chunk_id": "b46379a8149c0b93",
+        "source_title": "Paigham-e-Pakistan (2018)",
+        "page_number": 88,
+        "content_excerpt": "Paigham-e-Pakistan 78 21. Prof. Dr. Ahmed Yousif A. Al-Draiweesh, President, International Islamic University, Islamabad 22. Prof. Dr. Muhammad Zia-ul-Haq, Director General, Islamic Research Institute"
+      },
+      {
+        "rank": 3,
+        "score": 0.4208882451057434,
+        "chunk_id": "05ab6b91b038816a",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "page_number": 22,
+        "content_excerpt": "23. Studies in Muslim Political Thoughts and Administration Sherwani, H.K.S. 24. Reconstruction of Religious Thoughts in Islam Allama Iqbal 25. Islamic Political System in the Modern age: Theory and P"
+      },
+      {
+        "rank": 4,
+        "score": 0.41071122884750366,
+        "chunk_id": "11b4b916122d7621",
+        "source_title": "Paigham-e-Pakistan (2018)",
+        "page_number": 7,
+        "content_excerpt": "Paigham-e-Pakistan VII Message of His Excellency Mamnoon Hussain President of the Islamic Republic of Pakistan In dynamic societies intellectuals, religious scholars and the academia work in unison li"
+      },
+      {
+        "rank": 5,
+        "score": 0.4091249406337738,
+        "chunk_id": "26818db7fc069d83",
+        "source_title": "Paigham-e-Pakistan (2018)",
+        "page_number": 93,
+        "content_excerpt": "Hadeeth Pakistan, Lahore 41. Shibzada Mehmood Ahmed Qadri, Dar ul Uloom Ghousia Rizwia Saeedia, Hyderabad 14. Allama Arif Hussain Wahidi, Markazi Rahnuma Tehrek-e-Islami Pakistan, Attock 42. Mufti She"
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-is-016",
+    "question_text": "Evaluate the concept of jihad in Islam and distinguish it from terrorism.",
+    "task15_top5": [
+      {
+        "rank": 1,
+        "score": 0.5693179368972778,
+        "chunk_id": "33049061116d936f",
+        "source_title": "Paigham-e-Pakistan (2018)",
+        "page_number": 72,
+        "content_excerpt": "Paigham-e-Pakistan 62 their human shortcomings while they believe in Oneness of God (tawhid) and the Prophethood of Muhammad (risalat). These groups are called Kharijites. And now the scholars of Hara"
+      },
+      {
+        "rank": 2,
+        "score": 0.5656627416610718,
+        "chunk_id": "c9dd597fb342880c",
+        "source_title": "Paigham-e-Pakistan (2018)",
+        "page_number": 70,
+        "content_excerpt": "Paigham-e-Pakistan 60 themselves within the limits of Shari‘ah, to fight against these rebels but is obligatory under Qur’anic injunctions. In this regard, it is also obligatory on all Muslims to supp"
+      },
+      {
+        "rank": 3,
+        "score": 0.5649014711380005,
+        "chunk_id": "a1e61f77cb6e78f6",
+        "source_title": "Paigham-e-Pakistan (2018)",
+        "page_number": 41,
+        "content_excerpt": "Paigham-e-Pakistan 31 ﴿̼ اﻟﺘﮩﻠﮑﺔ وﻻ ﺗﻠﻘﻮا ΋ﻳﺪﻳﮑﻢ اَُُِْْْْْ ǲََََُُِِِْﹴ واﺣﺴﻨﻮاََُِْْﹱ ان اﰍ ɭﺐǳَُِ ǲِ ˠاﻟﻤﺤﺴﻨَُِِْْْ ﴾ )ا䇫ہ :٥٩١( And make not your own hands contribute to (your) destruction; but do"
+      },
+      {
+        "rank": 4,
+        "score": 0.5638092756271362,
+        "chunk_id": "0878dfbdea53f74e",
+        "source_title": "Paigham-e-Pakistan (2018)",
+        "page_number": 44,
+        "content_excerpt": "Paigham-e-Pakistan 34 receiving Clear Signs: For them is a dreadful penalty. (Qur’an 3:105) 3.4 Misinterpretation of Jihad Terrorists do not differentiate between Jihad and traditional wars. The conce"
+      },
+      {
+        "rank": 5,
+        "score": 0.5442911386489868,
+        "chunk_id": "c89727cc686da896",
+        "source_title": "Paigham-e-Pakistan (2018)",
+        "page_number": 77,
+        "content_excerpt": "Paigham-e-Pakistan 67 forbidden “HARAM”, in the light of Qur’an and Sunnah. In our opinion, those who are conducting, inciting, facilitating, financing and promoting such heinous acts are rebels and t"
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-ps-custom-001",
+    "question_text": "Explain the theory of separation of powers in classical political thought, referencing Montesquieu.",
+    "task15_top5": [
+      {
+        "rank": 1,
+        "score": 0.3728409707546234,
+        "chunk_id": "5a422d457f11ec8e",
+        "source_title": "Constitution (18th Amendment) Act 2010 and Devolution (Pakistan Institute for Parliamentary Services)",
+        "page_number": 181,
+        "content_excerpt": "166 a Proclamation is issued under this Article, the Proclamation shall continue in force for a period of three months but, if a general election to the Assembly is not held before the expiration of t"
+      },
+      {
+        "rank": 2,
+        "score": 0.37104931473731995,
+        "chunk_id": "2a6579e7001c030a",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "page_number": 131,
+        "content_excerpt": "PAPER: POLITICAL SCIENCE (200 MARKS) PAPER I- (Marks - 100) Part-A (50 Marks) I. Western Political Thought: Plato, Aristotle, Machiavelli, Montesquieu, Hobbes, Locke, Rousseau, Kant, Mill, Bentham, He"
+      },
+      {
+        "rank": 3,
+        "score": 0.36533111333847046,
+        "chunk_id": "465d2cde03bfc8f3",
+        "source_title": "Constitution (18th Amendment) Act 2010 and Devolution (Pakistan Institute for Parliamentary Services)",
+        "page_number": 177,
+        "content_excerpt": "162 provisions of the Constitution relating to High Courts. (3) The power of 2[Majlis-e-Shoora (Parliament)] to make laws for a Province with respect to any matter shall include power to make laws con"
+      },
+      {
+        "rank": 4,
+        "score": 0.36337223649024963,
+        "chunk_id": "176985565197e17d",
+        "source_title": "Sovereignty -- Stanford Encyclopedia of Philosophy",
+        "page_number": null,
+        "content_excerpt": "be bound by natural law, canon law, Gospel precepts, or any of the norms or authorities that obligated members of Christendom. Rather, he would have to be prepared “not to be good,” and to be ready to"
+      },
+      {
+        "rank": 5,
+        "score": 0.3626050651073456,
+        "chunk_id": "6b038877f8dc132d",
+        "source_title": "Sovereignty -- Stanford Encyclopedia of Philosophy",
+        "page_number": null,
+        "content_excerpt": "time when France was sundered by civil war between Calvinist Huguenots and the Catholic monarchy. He viewed the problem of order as central and did not think that it could be solved through outdated m"
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-ps-custom-002",
+    "question_text": "Discuss the main theories of state sovereignty.",
+    "task15_top5": [
+      {
+        "rank": 1,
+        "score": 0.5959446430206299,
+        "chunk_id": "8df4fc5ed9743def",
+        "source_title": "Sovereignty -- Stanford Encyclopedia of Philosophy",
+        "page_number": null,
+        "content_excerpt": "may in fact encompass several of these identities, as national self-determination and irredentist movements make evident. It is rather by simple virtue of their location within geographic borders that"
+      },
+      {
+        "rank": 2,
+        "score": 0.5694505572319031,
+        "chunk_id": "91c19ffb60e48b29",
+        "source_title": "Sovereignty -- Stanford Encyclopedia of Philosophy",
+        "page_number": null,
+        "content_excerpt": "concept. First, a holder of sovereignty possesses authority. That is to say, the person or entity does not merely wield coercive power, defined as A’s ability to cause B to do what he would otherwise "
+      },
+      {
+        "rank": 3,
+        "score": 0.5438746213912964,
+        "chunk_id": "4ff8590ec9f3d166",
+        "source_title": "Sovereignty -- Stanford Encyclopedia of Philosophy",
+        "page_number": null,
+        "content_excerpt": "as absolute, extending to all matters within the territory, unconditionally. It is possible for an authority to be sovereign over some matters within a territory, but not all. Today, many European Uni"
+      },
+      {
+        "rank": 4,
+        "score": 0.48361730575561523,
+        "chunk_id": "cba8575797d2739f",
+        "source_title": "Sovereignty -- Stanford Encyclopedia of Philosophy",
+        "page_number": null,
+        "content_excerpt": "that makes claims on lower authorities. An assemblage of states, both internally and externally sovereign, makes up an international system, where sovereign entities ally, trade, make war, and make pe"
+      },
+      {
+        "rank": 5,
+        "score": 0.4714242219924927,
+        "chunk_id": "5908dd58e8d33dc5",
+        "source_title": "Sovereignty -- Stanford Encyclopedia of Philosophy",
+        "page_number": null,
+        "content_excerpt": "allowed German princes to enforce their own faith within their territory. But Augsburg was unstable. Manifold contests over the settlement’s provisions resulted in constant wars, culminating finally i"
+      }
+    ]
+  }
+]

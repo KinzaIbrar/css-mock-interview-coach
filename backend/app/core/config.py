@@ -35,6 +35,19 @@ class Settings(BaseSettings):
     questions_path: Path = ROOT_DIR / "data" / "questions"
     retrieval_backend: str = "keyword"  # only 'keyword' exists today; a vector backend can be added later
 
+    # RAG supplementary evidence for answer evaluation (internal only; never exposed via the API).
+    # Disabled by default -- when False, FAISS/PyTorch/the embedding model are never imported or loaded.
+    rag_evidence_enabled: bool = False
+    rag_index_path: Path = ROOT_DIR / "research" / "colab" / "output_promoted_baseline" / "InterviewIQ_Dataset" / "08_Embeddings"
+    rag_top_k: int = 5
+
+    @field_validator("rag_top_k")
+    @classmethod
+    def _positive_top_k(cls, v: int) -> int:
+        if v < 1:
+            raise ValueError("rag_top_k must be at least 1")
+        return v
+
     @field_validator("database_url")
     @classmethod
     def _normalise_database_url(cls, v: str) -> str:

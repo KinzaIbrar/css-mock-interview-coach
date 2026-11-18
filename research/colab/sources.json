@@ -1,0 +1,305 @@
+{
+  "_meta": {
+    "purpose": "Catalog of sources checked live (HTTP status + extracted content sampled) for the CSS (Central Superior Services Examination, Pakistan) knowledge base notebook. CSS here always means the FPSC civil-service exam, never Cascading Style Sheets.",
+    "checked_on": "2026-11-17, follow-up additions and SSL/classification fixes verified 2026-11-18",
+    "method": "Verified with direct HTTP requests (curl) and, for PDFs/pages, by actually extracting text (PyMuPDF / trafilatura) and inspecting it -- not from search-result snippets alone. URLs that returned 404 when checked directly were dropped even if a search engine or a third-party site referenced them.",
+    "note": "FPSC's site (fpsc.gov.pk) is a client-rendered app whose document filenames/paths change every exam cycle. Treat every fpsc.gov.pk URL below as valid as of the date above; re-verify before relying on it later."
+  },
+  "pdf_sources": [
+    {
+      "subject": "All compulsory and ~42 optional subjects (see subjects_detected)",
+      "topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+      "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; dated \"Updated on: 7th July, 2015\" for CE-2016 and onwards)",
+      "url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+      "source_type": "official_document",
+      "description": "158-page official FPSC document: the exam scheme (1200 total marks, 600 compulsory + 600 optional across 7 groups), the full optional-subject group list, and a detailed topic-by-topic syllabus for every compulsory subject (English Essay, English Precis & Composition, General Science & Ability, Current Affairs, Pakistan Affairs, Islamic Studies/Comparative Study of Major Religions) and dozens of optional subjects.",
+      "publication_date": "2015-07-07 (for CE-2016 and onwards)",
+      "reliability": "official (FPSC) -- but accessed via an Internet Archive Wayback Machine snapshot (captured 2024-11-04), NOT a currently live fpsc.gov.pk URL. The original fpsc.gov.pk path (/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf) 404s as of 2026-11-17 -- the site has since migrated to a different URL structure and the live site's Syllabuses section only serves unrelated general-recruitment PDFs for CS-2027 (verified; see excluded_or_failed). Third-party CSS-prep sites report the compulsory structure/marks are unchanged through the 2026/2027 cycles, but this was NOT independently confirmed against a live FPSC source this session -- verify currency before treating any specific topic or mark as still authoritative for CE-2027.",
+      "subtopics": ["exam scheme and marks distribution", "optional subject groups", "per-subject detailed syllabus"],
+      "verified": {
+        "http_status": 200,
+        "content_type": "application/pdf",
+        "total_pages": 158,
+        "subjects_detected_by_heading_scan": ["Accountancy & Auditing", "Agriculture & Forestry", "Anthropology", "Applied Mathematics", "Arabic", "Balochi", "Botany", "British History", "Business Administration", "Chemistry", "Comparative Study Of Major Religions", "Computer Science", "Constitutional Law", "Criminology", "Current Affairs", "Economics", "English (Precis & Composition)", "English Essay", "English Literature", "Environmental Science", "European History", "Gender Studies", "General Science & Ability", "Geography", "Geology", "Governance & Public Policies", "History Of Pakistan & India", "History Of Usa", "International Law", "International Relations", "Islamic History & Culture", "Islamic Studies", "Journalism & Mass Communication", "Law", "Mercantile Law", "Muslim Law & Jurisprudence", "Pakistan Affairs", "Pashto", "Persian", "Philosophy", "Physics", "Political Science", "Psychology", "Public Administration", "Punjabi", "Pure Mathematics", "Sindhi", "Sociology", "Statistics", "Town Planning & Urban Management", "Urdu Literature", "Zoology"],
+        "subjects_not_auto_detected": [],
+        "note": "FIXED in a follow-up session: the original heading-detection regex required every word of the subject name to start with a letter, which silently broke on names containing '&' or a parenthetical as their own word (e.g. 'ENGLISH (PRECIS & COMPOSITION)', 'GENERAL SCIENCE & ABILITY') -- those pages matched nothing and inherited the previous heading. The regex now captures everything between 'PAPER:' and the first '(<N> MARKS)' non-greedily across lines; re-verified locally to detect all 52 subjects listed in the document's own index (a couple fire twice across a multi-page intro, which is harmless -- same label both times)."
+      }
+    },
+    {
+      "subject": "General Knowledge",
+      "topic": "CSS Exam Rules (Written, Medical, Psychological Assessment, Viva Voce)",
+      "source_title": "CSS Competitive Examination Rules, 2019 (FPSC)",
+      "url": "http://web.archive.org/web/20251116081212/https://www.fpsc.gov.pk/assets/media/2024-08-23-11-18-12-Final_Approved_Rules_CE-2019_and_onwards.pdf",
+      "source_type": "official_document",
+      "description": "22-page official FPSC rules document governing CE-2019 onwards: written exam structure/passing marks, medical examination, psychological assessment, and viva voce (300 marks, minimum 100 to pass; interview assesses 'suitability' through questions on matters of general interest). Directly closes the 'CSS viva voce' coverage gap the retrieval-proxy check first flagged.",
+      "publication_date": null,
+      "reliability": "official (FPSC) -- accessed via Wayback Machine snapshot (2025-11-16); the live fpsc.gov.pk path 404s as of this session.",
+      "subtopics": ["written exam passing marks", "medical examination", "psychological assessment", "viva voce marks and purpose", "merit tie-breaking"],
+      "verified": { "http_status": 200, "content_type": "application/pdf", "total_pages": 22 }
+    },
+    {
+      "subject": "General Knowledge",
+      "topic": "CSS Viva Voce and Psychological Assessment Instructions",
+      "source_title": "Instructions to the Candidates for Psychological Assessment & Viva Voce, CSS CE-2025 (FPSC)",
+      "url": "http://web.archive.org/web/20251216062719/https://www.fpsc.gov.pk/assets/media/2025-10-16-06-52-10-1.-Instructions-to-the-Candidates-for-Psychological-Assessment-%26-Viva-Voce.pdf",
+      "source_type": "official_document",
+      "description": "2-page official FPSC instructions letter for CE-2025 candidates: psychological assessment logistics, required documents, and admission conditions for the viva voce that follows.",
+      "publication_date": null,
+      "reliability": "official (FPSC) -- accessed via Wayback Machine snapshot (2025-12-16); the live fpsc.gov.pk path 404s as of this session.",
+      "subtopics": ["psychological assessment logistics", "required documents", "admission conditions"],
+      "verified": { "http_status": 200, "content_type": "application/pdf", "total_pages": 2 }
+    },
+    {
+      "subject": "International Relations",
+      "topic": "Pakistan and UN Peacekeeping",
+      "source_title": "Pakistan's statement to the UN Special Committee on Peacekeeping Operations",
+      "url": "https://peacekeeping.un.org/sites/default/files/pakistan.pdf",
+      "source_type": "official_document",
+      "description": "2-page official statement delivered by Pakistan's delegation, hosted on peacekeeping.un.org. It's a diplomatic statement, not a neutral country-profile factsheet -- label it as such, not as 'the UN's summary of Pakistan'.",
+      "publication_date": null,
+      "reliability": "official (hosted by UN Peacekeeping; content is Pakistan's own statement, so treat claims in it as Pakistan's position, not independently verified UN fact)",
+      "subtopics": ["troop contribution", "peacekeeping capability pledges"],
+      "verified": { "http_status": 200, "content_type": "application/pdf", "total_pages": 2 }
+    },
+    {
+      "subject": "Governance and Constitutional Studies",
+      "topic": "18th Constitutional Amendment and Devolution",
+      "source_title": "Constitution (18th Amendment) Act 2010 and Devolution (Pakistan Institute for Parliamentary Services)",
+      "url": "https://www.pips.gov.pk/wp-content/uploads/2020/09/Constitution_18th_amendment_Act2010and_Devolution.pdf",
+      "source_type": "official_document",
+      "description": "226-page compilation (212 pages with extractable text) from PIPS, a statutory research body of the Parliament of Pakistan: full article-by-article constitutional text reflecting the 18th Amendment plus devolution/provincial-autonomy commentary. Directly closes the '18th Amendment' coverage gap the retrieval-proxy check first flagged -- confirmed the actual phrase '18th Constitutional Amendment: A Milestone in Pakistan's Parliamentary Development' appears in the extracted text.",
+      "publication_date": null,
+      "reliability": "official (Pakistan Institute for Parliamentary Services -- a Parliament of Pakistan statutory body, not FPSC/na.gov.pk, but still a primary government source)",
+      "subtopics": ["provincial autonomy", "concurrent list abolition", "federal-provincial relations", "parliamentary implications"],
+      "verified": { "http_status": 200, "content_type": "application/pdf", "total_pages": 226, "pages_with_extractable_text": 212, "total_extracted_chars": 258284 }
+    },
+    {
+      "subject": "General Knowledge",
+      "topic": "CSS Exam Structure and Eligibility",
+      "source_title": "CSS Competitive Examination (CE-2027) Public Notice",
+      "url": "https://www.fpsc.gov.pk/uploads/content/1794127244067_CSS_2027_Advertisement.pdf",
+      "source_type": "official_document",
+      "description": "FPSC's public notice calling for CE-2027 written-exam applications; states the exam is governed by the CSS CE Rules, 2019, and gives application deadlines.",
+      "publication_date": "2026-11-08",
+      "reliability": "official (FPSC)",
+      "subtopics": ["application deadlines", "governing rules", "exam cycle"],
+      "verified": { "http_status": 200, "content_type": "application/pdf", "extractable_text_chars_page1": 3088 },
+      "download_note": "Previously failed under plain `requests` (SSL certificate-chain error); fixed with `truststore.inject_into_ssl()` -- see the Constitution entry above for the full diagnosis. Verification stays fully enabled."
+    },
+    {
+      "subject": "General Knowledge",
+      "topic": "CSS Screening Test (MPT)",
+      "source_title": "MCQs Based Preliminary Test (MPT), CSS CE-2027 Public Notice",
+      "url": "https://www.fpsc.gov.pk/uploads/content/1785753970885_MPT_CE-2027.pdf",
+      "source_type": "official_document",
+      "description": "FPSC's public notice for the mandatory MCQ preliminary screening test that precedes the CSS written exam.",
+      "publication_date": "2026-08-02",
+      "reliability": "official (FPSC)",
+      "subtopics": ["MPT eligibility", "application window", "screening test"],
+      "verified": { "http_status": 200, "content_type": "application/pdf", "extractable_text_chars_page1": 3088 },
+      "download_note": "Previously failed under plain `requests` (SSL certificate-chain error); fixed with `truststore.inject_into_ssl()`. Verification stays fully enabled."
+    },
+    {
+      "subject": "Governance and Constitutional Studies",
+      "topic": "Constitutional Framework",
+      "source_title": "Constitution of the Islamic Republic of Pakistan, 1973 (as modified up to 31 May 2018)",
+      "url": "https://na.gov.pk/uploads/documents/63e602ca09b5d_461.pdf",
+      "source_type": "official_document",
+      "description": "Full constitutional text hosted by the National Assembly of Pakistan, including amendments up to the date given in its preface. Covers fundamental rights, federal structure, the judiciary, FPSC's constitutional basis (Art. 242), and the amendments through the 18th.",
+      "publication_date": "2018-05-31",
+      "reliability": "official (National Assembly of Pakistan)",
+      "subtopics": ["fundamental rights", "federation", "judiciary", "18th amendment", "FPSC (Art. 242)"],
+      "verified": { "http_status": 200, "content_type": "application/pdf", "total_pages": 225, "total_chunks_when_run": 312 },
+      "download_note": "This URL previously failed under plain Python `requests` with an SSL certificate-chain error (server omits its intermediate cert). Fixed by adding `truststore.inject_into_ssl()` before downloading (see notebook section 4) -- confirmed working, verification stays fully enabled, `verify=False` was never used."
+    },
+    {
+      "subject": "Current Affairs",
+      "topic": "Economy",
+      "source_title": "Pakistan Economic Survey 2025-26 - Overview of the Economy",
+      "url": "https://finance.gov.pk/survey/chapter_26/Overview%20of%20the%20economy_26.pdf",
+      "source_type": "official_document",
+      "description": "Ministry of Finance's official annual survey chapter summarizing GDP growth, inflation, fiscal position and external account for FY2025-26.",
+      "publication_date": "2026-06-11",
+      "reliability": "official (Ministry of Finance)",
+      "subtopics": ["GDP growth", "inflation", "fiscal deficit", "reserves"],
+      "verified": { "http_status": 200, "content_type": "application/pdf", "size_bytes": 544458 }
+    },
+    {
+      "subject": "Current Affairs",
+      "topic": "Environment and Climate",
+      "source_title": "Pakistan Economic Survey 2025-26 - Chapter 17: Climate Change",
+      "url": "https://finance.gov.pk/survey/chapter_26/17_Climate_Change.pdf",
+      "source_type": "official_document",
+      "description": "Official chapter on Pakistan's climate vulnerability, adaptation policy and related national initiatives.",
+      "publication_date": "2026-06-11",
+      "reliability": "official (Ministry of Finance)",
+      "subtopics": ["climate vulnerability", "adaptation", "national climate policy"],
+      "verified": { "http_status": 200, "content_type": "application/pdf", "size_bytes": 1352429 }
+    },
+    {
+      "subject": "International Relations",
+      "topic": "Trade and External Sector",
+      "source_title": "Pakistan Economic Survey 2025-26 - Chapter 8: Trade and Payments",
+      "url": "https://finance.gov.pk/survey/chapter_26/8_Trade%20and%20Payments.pdf",
+      "source_type": "official_document",
+      "description": "Official chapter covering Pakistan's trade balance, major trading partners, and balance-of-payments position.",
+      "publication_date": "2026-06-11",
+      "reliability": "official (Ministry of Finance)",
+      "subtopics": ["trade balance", "balance of payments", "major trading partners"],
+      "verified": { "http_status": 200, "content_type": "application/pdf", "size_bytes": 1601146 }
+    }
+  ],
+  "web_sources": [
+    {
+      "subject": "International Relations",
+      "topic": "Pakistan's Foreign Policy Principles",
+      "source_title": "Foreign Policy - Ministry of Foreign Affairs, Government of Pakistan",
+      "url": "https://mofa.gov.pk/foreign-policy",
+      "source_type": "official_document",
+      "description": "MOFA's own statement of Pakistan's foreign-policy objectives and guiding principles, citing Article 40 of the Constitution and Jinnah's 1948 foreign-policy address.",
+      "publication_date": null,
+      "reliability": "official (Ministry of Foreign Affairs)",
+      "subtopics": ["foreign policy principles", "Article 40", "non-interference"],
+      "verified": { "http_status": 200, "trafilatura_extracted_chars": 2657 }
+    },
+    {
+      "subject": "International Relations",
+      "topic": "United Nations Charter (Full Text)",
+      "source_title": "United Nations Charter (full text)",
+      "url": "https://www.un.org/en/about-us/un-charter/full-text",
+      "source_type": "official_document",
+      "description": "The UN's own hosted full text of the Charter -- preamble plus the numbered articles. Added specifically to close the 'role of the UN' coverage gap the retrieval-proxy check first flagged; re-checked afterwards and the Charter preamble now surfaces directly for that question.",
+      "publication_date": null,
+      "reliability": "official (United Nations)",
+      "subtopics": ["UN purposes and principles", "Security Council", "General Assembly", "international law"],
+      "verified": { "http_status": 200, "trafilatura_extracted_chars": 57606 }
+    },
+    {
+      "subject": "International Relations",
+      "topic": "United Nations Principal Organs",
+      "source_title": "UN Structure",
+      "url": "https://www.un.org/en/node/44718",
+      "source_type": "official_document",
+      "description": "Official UN page naming its six principal organs (General Assembly, Security Council, ECOSOC, Trusteeship Council [inactive], ICJ, Secretariat).",
+      "publication_date": null,
+      "reliability": "official (United Nations)",
+      "subtopics": ["Security Council", "General Assembly", "ECOSOC", "ICJ", "Secretariat"],
+      "verified": { "http_status": 200, "trafilatura_extracted_chars": 2492 }
+    },
+    {
+      "subject": "International Relations",
+      "topic": "Pakistan and UN Peacekeeping",
+      "source_title": "Pakistani peacekeepers continue to exemplify country's steadfast commitment to world peace",
+      "url": "https://mofa.gov.pk/press-releases/pakistani-peacekeepers-continue-to-exemplify-countrys-steadfast-commitment-to-world-peace",
+      "source_type": "official_document",
+      "description": "MOFA press release marking the International Day of UN Peacekeepers, covering Pakistan's troop-contribution history. A press release, not a neutral history -- treat framing/claims accordingly.",
+      "publication_date": null,
+      "reliability": "official (Ministry of Foreign Affairs)",
+      "subtopics": ["peacekeeping history", "troop contribution"],
+      "verified": { "http_status": 200, "trafilatura_extracted_chars": 2532 }
+    }
+  ],
+  "youtube_sources": [
+    {
+      "subject": "General Knowledge",
+      "topic": "CSS Viva Voce / Interview Preparation",
+      "video_id": "CS47XiOlxT4",
+      "title": "Fizzah Mansur (FSP) 44th Position in CSS-2024 | Mock Interview by CSPs Academy Islamabad",
+      "channel": "Civil Services Preparatory School—CSPs (@CSPsacademy)",
+      "source_type": "youtube_transcript",
+      "description": "Mock interview with a CSS-2024 successful candidate, conducted by a CSS preparation academy.",
+      "reliability": "third-party coaching academy (not an official FPSC interview recording; useful for interview style/format, not for claiming official panel questions)",
+      "verified": { "oembed_ok": true, "transcript_available": true, "transcript_chars": 23224 }
+    },
+    {
+      "subject": "General Knowledge",
+      "topic": "CSS Viva Voce / Interview Preparation",
+      "video_id": "SQszUBeWmRo",
+      "title": "Hamza Munir (PAS) 24th Position in CSS-2025 | Mock Interview by CSPs Academy Islamabad",
+      "channel": "Civil Services Preparatory School—CSPs (@CSPsacademy)",
+      "source_type": "youtube_transcript",
+      "description": "Mock interview with a CSS-2025 successful candidate, conducted by a CSS preparation academy.",
+      "reliability": "third-party coaching academy",
+      "verified": { "oembed_ok": true, "transcript_available": true, "transcript_chars": 20019 }
+    },
+    {
+      "subject": "General Knowledge",
+      "topic": "CSS Viva Voce / Interview Preparation",
+      "video_id": "-Jy6W5kXSS0",
+      "title": "Mahnoor Mirwani (PAS) 10th Position in CSS-2025 | Mock Interview by CSPs Academy Islamabad",
+      "channel": "Civil Services Preparatory School—CSPs (@CSPsacademy)",
+      "source_type": "youtube_transcript",
+      "description": "Mock interview with a CSS-2025 successful candidate, conducted by a CSS preparation academy.",
+      "reliability": "third-party coaching academy",
+      "verified": { "oembed_ok": true, "transcript_available": true, "transcript_chars": 13590 }
+    }
+  ],
+  "portal_references_not_auto_scraped": [
+    {
+      "title": "FPSC (Federal Public Service Commission)",
+      "url": "https://www.fpsc.gov.pk/",
+      "reason": "Client-rendered (Next.js) app; a plain HTTP fetch returns only navigation shell, no extractable article text. Browse manually for CSS syllabus/past-papers links each cycle; URLs under /Syllabuses and /Jobs rotate."
+    },
+    {
+      "title": "National Assembly of Pakistan",
+      "url": "https://na.gov.pk/",
+      "reason": "Portal/navigation page; use for locating specific Acts/documents rather than direct chunking."
+    },
+    {
+      "title": "Senate of Pakistan",
+      "url": "https://senate.gov.pk/",
+      "reason": "Portal/navigation page."
+    },
+    {
+      "title": "Pakistan Bureau of Statistics",
+      "url": "https://www.pbs.gov.pk/",
+      "reason": "Mostly tables/navigation; checked extraction returned only ~7.6k chars of menu text, no article prose."
+    },
+    {
+      "title": "State Bank of Pakistan",
+      "url": "https://www.sbp.org.pk/",
+      "reason": "SPA-style site; the specific Annual Report landing page we tried extracted mixed/incorrect section text via trafilatura. Download specific report PDFs by hand instead of scraping the HTML."
+    },
+    {
+      "title": "World Trade Organization - Pakistan member info",
+      "url": "https://www.wto.org/english/thewto_e/countries_e/pakistan_e.htm",
+      "reason": "Mostly tables/links (tariff schedules, notifications); not article prose."
+    },
+    {
+      "title": "World Bank - Pakistan country page",
+      "url": "https://www.worldbank.org/en/country/pakistan",
+      "reason": "Confirmed reachable (HTTP 200) but not extraction-tested; likely portal-style, verify before scraping."
+    },
+    {
+      "title": "United Nations",
+      "url": "https://www.un.org/en/",
+      "reason": "General portal; for CSS prep use specific UN document pages (e.g. UN Charter text), not the homepage."
+    },
+    {
+      "title": "International Monetary Fund",
+      "url": "https://www.imf.org/",
+      "reason": "Blocked automated requests with HTTP 403 on every path tried (homepage and country page). Access manually in a browser; do not rely on scripted fetches."
+    }
+  ],
+  "excluded_or_failed": [
+    {
+      "url": "https://www.fpsc.gov.pk/uploads/syllabus/1767073666057_MPT-Syllabus.pdf",
+      "reason": "Downloads fine (HTTP 200) but is a scanned image PDF with zero extractable text via PyMuPDF; would need OCR (out of scope -- no local OCR models per project hardware rules)."
+    },
+    {
+      "url": "https://www.fpsc.gov.pk/uploads/content/1794289891203_Annexure-A-CE-2027.pdf (and Annexures B-E)",
+      "reason": "Real, official, CSS CE-2027-specific documents, but each is a one-page blank certificate/form template (quota and domicile certificates). Confirmed genuine but too low in substantive content to be worth chunking into the knowledge base."
+    },
+    {
+      "url": "https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+      "reason": "404 when fetched directly, despite being referenced by a third-party CSS-prep site. FPSC's old '/assets/media/' paths appear to have been retired; do not reuse without re-verifying."
+    },
+    {
+      "url": "https://www.fpsc.gov.pk/assets/media/2024-09-04-02-35-39-FPSC-Ordinance-1977.pdf",
+      "reason": "404 when fetched directly (same stale-path issue)."
+    },
+    {
+      "note": "UPDATE (follow-up session): the detailed subject-by-subject syllabus was NOT found at any live fpsc.gov.pk URL (the site's current Syllabuses section only serves unrelated general-recruitment PDFs regardless of query), but an Internet Archive Wayback Machine snapshot of FPSC's own 2015-dated document was found and verified -- see pdf_sources[0] above. It is official content but an archived, not live, copy, and its currency for CE-2027 specifically has not been independently confirmed. A human should still check fpsc.gov.pk -> CSS -> Syllabuses by hand each cycle in case FPSC republishes an updated version at a new live URL."
+    }
+  ]
+}

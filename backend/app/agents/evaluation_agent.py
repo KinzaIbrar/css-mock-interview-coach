@@ -15,6 +15,7 @@ from app.agents.schemas import EvaluationLLMOutput
 from app.core.constants import CRITERIA
 from app.models.question import Question
 from app.prompts import evaluation as prompt
+from app.rag.vector import evidence as rag_evidence
 from app.services import dev_evaluator
 
 logger = logging.getLogger("app.agents")
@@ -35,6 +36,9 @@ class EvaluationOutcome:
     model: str | None
     fallback_reason: str | None = None
     extra: dict = field(default_factory=dict)
+    # Internal only (see app.rag.vector.evidence.EvidenceItem) -- never persisted, never serialized into
+    # an API response. [] whenever RAG is disabled, unavailable, or found nothing for this question.
+    citations: list = field(default_factory=list)
 
     def columns(self) -> dict:
         """Column values for the Evaluation row."""
@@ -55,7 +59,7 @@ def _clean_list(items: list[str]) -> list[str]:
     return out[:MAX_ITEMS]
 
 
-def _from_llm(out: EvaluationLLMOutput, model: str) -> EvaluationOutcome:
+def _from_llm(out: EvaluationLLMOutput, model: str, citations: list) -> EvaluationOutcome:
     scores = {c: getattr(out, c) for c in CRITERIA}
     for name, value in scores.items():
         if not 0 <= value <= 10:
@@ -71,6 +75,7 @@ def _from_llm(out: EvaluationLLMOutput, model: str) -> EvaluationOutcome:
         source="gemini",
         is_ai_generated=True,
         model=model,
+        citations=citations,
     )
 
 
@@ -95,6 +100,9 @@ class EvaluationAgent:
         if provider is None:
             return self._fallback(question, combined, "not_configured")
         try:
+            # Evidence lookup is feature-flagged and self-contained: when RAG_EVIDENCE_ENABLED is False
+            # (the default) this returns [] immediately without loading FAISS/the embedding model.
+            citations = rag_evidence.get_evidence(question.text)
             out = provider.generate_json(
                 system=prompt.SYSTEM,
                 prompt=prompt.build_prompt(
@@ -111,10 +119,11 @@ class EvaluationAgent:
                     follow_up_allowed=follow_up_allowed,
                     introduction=introduction,
                     reply_only=reply_only,
+                    evidence_block=rag_evidence.format_for_prompt(citations),
                 ),
                 schema=EvaluationLLMOutput,
             )
-            return _from_llm(out, provider.model)
+            return _from_llm(out, provider.model, citations)
         except LLMError as exc:
             logger.warning("Evaluation fell back to dev heuristic: %s", exc.code)
             return self._fallback(question, combined, exc.code)

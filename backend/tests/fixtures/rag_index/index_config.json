@@ -1,0 +1,10 @@
+{
+  "model_name": "fixture-fake-model",
+  "embedding_dim": 8,
+  "index_type": "faiss.IndexFlatIP",
+  "normalize_embeddings": true,
+  "embed_batch_size": 32,
+  "chunk_count": 5,
+  "chunk_id_set_fingerprint": "fixturefingerprint",
+  "built_at_utc": "2026-01-01T00:00:00+00:00"
+}

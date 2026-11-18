@@ -1,5 +1,51 @@
 # Project Status
 
+## RAG knowledge-base research arc (Tasks 11-14, latest, 2026-11-18) — research only, not production
+
+Separate from the application work below: a multi-task research effort investigating an optional,
+feature-flagged (`RAG_EVIDENCE_ENABLED`, default **False**) vector-evidence layer for answer evaluation.
+**Nothing here is active in production** — the running app's question-selection retriever remains the
+existing keyword-based `KeywordRetriever` (`backend/app/rag/retriever.py`), unrelated to this work.
+
+- **Task 11** (implemented, merged): `backend/app/rag/vector/` package (FAISS `IndexFlatIP` over
+  `all-MiniLM-L6-v2` embeddings), wired as an optional `<retrieved_background>` section in the
+  evaluation prompt, internal-only citations, 40 new tests (454 total at the time).
+- **Task 12** (evaluation): built a 32-scenario real evaluation dataset
+  (`research/evaluation/task12/`); found only 34% of scenarios had directly relevant top-3 evidence
+  against the approved 972-chunk baseline; the live Gemini A/B quality comparison was blocked by a real
+  external API outage (honestly reported, not faked); surfaced a `<retrieved_background>` tag-injection
+  gap in the candidate-answer sanitizer.
+- **Task 13** (security hardening, merged): fixed the sanitizer gap in
+  `backend/app/prompts/common.py`'s `sanitize_user_text` — now normalizes Unicode bracket look-alikes
+  and escapes any literal `<`/`>` remaining, closing the whole tag-impersonation class, not just the one
+  found tag name. 57 new adversarial tests; **511/511 passing**. `research/evaluation/task13/`.
+- **Task 14** (coverage research, **CONDITIONAL PASS**): diagnosed the Task 12 coverage gaps by real
+  root cause (13 genuinely missing, 5 unfixable-by-sourcing chunk-structure failures, 5 too-broad, 9
+  already good); researched and verified 7 real new sources; built a **separate** 1,187-chunk
+  experimental index (`research/colab/output_task14_coverage/`, approved 972-chunk baseline untouched)
+  and ran the identical 32-scenario comparison: 5 genuine improvements, 2 genuine regressions
+  (Objectives Resolution, Montesquieu/separation-of-powers), 1 new misleading-evidence risk (a
+  "Lahore Declaration 1999" vs. "Lahore Resolution 1940" false match), 2 verified sources that never
+  surfaced for their own target question. Full detail and exact numbers: `research/evaluation/task14/`.
+- **Task 15** (targeted retrieval-quality fixes, complete): fixed both Task 14 regressions by precise,
+  empirically-validated per-chunk exclusion (not a crude page-range heuristic, which was tried first and
+  proven insufficient by direct measurement) — `Paigham-e-Pakistan` trimmed from 167 to 163 chunks (4
+  regression-causing pages removed), `Sovereignty` trimmed from 26 to 12. Both genuine wins from each
+  source remain verified-preserved. New candidate index: `research/colab/output_task15_coverage/`
+  (1,169 chunks), 9/9 automated targeted checks passing
+  (`research/colab/task15_regression_tests.py`). The Lahore Declaration/Resolution false-match was
+  investigated and found to have **no clean retrieval-side fix** within bounds (its score overlaps with
+  genuine wins' scores; no universal similarity floor separates them) — documented as a disclosed,
+  unresolved risk, not forced. The 5 structural chunking/retrieval failures were diagnosed with rigor
+  (3 of them confirmed, by literal `chunk_id` match, to share one over-dense syllabus chunk) with a
+  remediation design proposed for a future task, since fixing them requires re-chunking the approved
+  baseline. Full detail: `research/evaluation/task15/`.
+- **Next**: a future task could (a) attempt the re-chunking remediation for the 5 structural failures in
+  a separate experimental index, (b) make one more targeted attempt at a real Lahore-Resolution-1940
+  source, or (c) run a live-Gemini A/B quality comparison using the Task 15 candidate index (blocked
+  only by Gemini's real-world availability, last seen outaged in Task 12). RAG stays disabled by default
+  throughout; no production integration has occurred or is planned without explicit sign-off.
+
 ## Full end-to-end QA audit (latest, 2026-11-17)
 **Scope:** fresh full test-suite run, live browser walkthrough of every page against the real backend, a security/IDOR pass, and a mobile-responsive check. Not a redesign; no UI or architecture changes were made because no genuine defect was found.
 

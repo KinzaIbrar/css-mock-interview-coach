@@ -1,0 +1,1346 @@
+[
+  {
+    "scenario_id": "t12-pa-001",
+    "question_id": "pa-001",
+    "subject": "Pakistan Affairs",
+    "question_text": "What was the Lahore Resolution of 1940 and why is it significant?",
+    "expected_rag_relevance": "weak",
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "46132f78dedeab03",
+        "score": 0.559,
+        "evidence_subject": "Governance and Constitutional Studies",
+        "evidence_topic": "Constitutional Framework",
+        "source_title": "Constitution of the Islamic Republic of Pakistan, 1973 (as modified up to 31 May 2018)",
+        "source_url": "https://na.gov.pk/uploads/documents/63e602ca09b5d_461.pdf",
+        "page_number": 194,
+        "excerpt": "CONSTITUTION OF PAKISTAN 183 3. The Muslim Family Laws Ordinance, 1961 (VIII of 1961). 4. The Security of Pakistan (Amendment) Ordinance, 1961 (XIV of 1961). 5. The Associated Press of Pakistan (Taking Over) Ordinance, 1"
+      },
+      {
+        "rank": 2,
+        "chunk_id": "a740603a78bfb6c4",
+        "score": 0.538,
+        "evidence_subject": "Pakistan Affairs",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 16,
+        "excerpt": "XXVI. Economic Conditions of Pakistan, the Most Recent Economic Survey, the Previous and Current Budgets, and the Problems and Performance of Major Sectors of Economy. XXVII. The Recent Constitutional and Legal Debates, "
+      },
+      {
+        "rank": 3,
+        "chunk_id": "84fd563381d056d5",
+        "score": 0.534,
+        "evidence_subject": "Governance and Constitutional Studies",
+        "evidence_topic": "Constitutional Framework",
+        "source_title": "Constitution of the Islamic Republic of Pakistan, 1973 (as modified up to 31 May 2018)",
+        "source_url": "https://na.gov.pk/uploads/documents/63e602ca09b5d_461.pdf",
+        "page_number": 191,
+        "excerpt": "CONSTITUTION OF PAKISTAN 180 2. The Land Reforms (Amendment) Act, 1975 (XXXIX of 1975). 1[3. The Flour Milling Control and Development Act, 1976 (LVII of 1976). 4. The Rice Milling Control and Development Act, 1976 (LVII"
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-pa-002",
+    "question_id": "pa-002",
+    "subject": "Pakistan Affairs",
+    "question_text": "Describe the main features of the Objectives Resolution of 1949 and its role in Pakistan's constitutional development.",
+    "expected_rag_relevance": "strong",
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "9c0d2054aa6b1cd9",
+        "score": 0.693,
+        "evidence_subject": "Constitutional Law",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 63,
+        "excerpt": "PAPER: CONSTITUTIONAL LAW (100 MARKS) I. Definition and Scope of Constitutional Law, Basic Constitutional Concepts (Constitutional Conventions, Rule of Law, Due Process), Constitutional Structures (Parliamentary, Preside"
+      },
+      {
+        "rank": 2,
+        "chunk_id": "dbe9d47b17592ec1",
+        "score": 0.662,
+        "evidence_subject": "Governance and Constitutional Studies",
+        "evidence_topic": "Constitutional Framework",
+        "source_title": "Constitution of the Islamic Republic of Pakistan, 1973 (as modified up to 31 May 2018)",
+        "source_url": "https://na.gov.pk/uploads/documents/63e602ca09b5d_461.pdf",
+        "page_number": 13,
+        "excerpt": "CONSTITUTION OF PAKISTAN 2 Wherein the integrity of the territories of the Federation, its independence and all its rights, including its sovereign rights on land, sea and air, shall be safeguarded; So that the people of"
+      },
+      {
+        "rank": 3,
+        "chunk_id": "b456fccd2b59cc68",
+        "score": 0.659,
+        "evidence_subject": "Governance and Constitutional Studies",
+        "evidence_topic": "Constitutional Framework",
+        "source_title": "Constitution of the Islamic Republic of Pakistan, 1973 (as modified up to 31 May 2018)",
+        "source_url": "https://na.gov.pk/uploads/documents/63e602ca09b5d_461.pdf",
+        "page_number": 188,
+        "excerpt": "CONSTITUTION OF PAKISTAN 177 1[ANNEX (Article 2A) The Objectives Resolution (In the name of Allah, the most beneficent, the most merciful.) Whereas sovereignty over the entire universe belongs to Allah Almighty alone and"
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-pa-003",
+    "question_id": "pa-003",
+    "subject": "Pakistan Affairs",
+    "question_text": "Critically analyse the causes that led to the separation of East Pakistan in 1971.",
+    "expected_rag_relevance": "tangential",
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "a35c2214ef506a02",
+        "score": 0.547,
+        "evidence_subject": "History Of Pakistan & India",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 94,
+        "excerpt": "SUGGESTED READINGS S.No. TITLE AUTHOR 1. POLITICAL PARTIES IN PAKISTAN: 1947-1958 AFZAL, M. RAFIQUE, 1986 2. GOVERNMENT & POLITICS IN PAKISTAN AHMAD, MUSHTAQ, 1970 3. PARTY POLITICS IN PAKISTAN: 1947-58 AZIZ, K.K. 1976 4"
+      },
+      {
+        "rank": 2,
+        "chunk_id": "fe1baf1cad076a81",
+        "score": 0.546,
+        "evidence_subject": "Pakistan Affairs",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 15,
+        "excerpt": "PAPER: PAKISTAN AFFAIRS (100 MARKS) I. Ideology of Pakistan-----definition and elucidation, historical aspects: Muslim rule in the Sub-Continent, its downfall and efforts for Renaissance. Movements for reforms-- Shaikh A"
+      },
+      {
+        "rank": 3,
+        "chunk_id": "a740603a78bfb6c4",
+        "score": 0.541,
+        "evidence_subject": "Pakistan Affairs",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 16,
+        "excerpt": "XXVI. Economic Conditions of Pakistan, the Most Recent Economic Survey, the Previous and Current Budgets, and the Problems and Performance of Major Sectors of Economy. XXVII. The Recent Constitutional and Legal Debates, "
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-pa-010",
+    "question_id": "pa-010",
+    "subject": "Pakistan Affairs",
+    "question_text": "Evaluate the role of the judiciary, including the doctrine of necessity, in Pakistan's political history.",
+    "expected_rag_relevance": "weak",
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "a740603a78bfb6c4",
+        "score": 0.689,
+        "evidence_subject": "Pakistan Affairs",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 16,
+        "excerpt": "XXVI. Economic Conditions of Pakistan, the Most Recent Economic Survey, the Previous and Current Budgets, and the Problems and Performance of Major Sectors of Economy. XXVII. The Recent Constitutional and Legal Debates, "
+      },
+      {
+        "rank": 2,
+        "chunk_id": "00c6766007617448",
+        "score": 0.662,
+        "evidence_subject": "Political Science",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 134,
+        "excerpt": "S. No. Title Author 22. 21st Century Political Science: A Reference Handbook John T.Ishiyama, Marijke Breuning, 23. Political Thought from Plato to Present Judd Herman, 24. The Political System of Pakistan, K.B.Sayeed, 2"
+      },
+      {
+        "rank": 3,
+        "chunk_id": "a35c2214ef506a02",
+        "score": 0.654,
+        "evidence_subject": "History Of Pakistan & India",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 94,
+        "excerpt": "SUGGESTED READINGS S.No. TITLE AUTHOR 1. POLITICAL PARTIES IN PAKISTAN: 1947-1958 AFZAL, M. RAFIQUE, 1986 2. GOVERNMENT & POLITICS IN PAKISTAN AHMAD, MUSHTAQ, 1970 3. PARTY POLITICS IN PAKISTAN: 1947-58 AZIZ, K.K. 1976 4"
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-ca-002",
+    "question_id": "ca-002",
+    "subject": "Current Affairs",
+    "question_text": "Discuss the role of the IMF in Pakistan's economic management and the debates surrounding it.",
+    "expected_rag_relevance": "strong",
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "e0d7131b59fc9ff1",
+        "score": 0.684,
+        "evidence_subject": "General Knowledge",
+        "evidence_topic": "CSS Viva Voce / Interview Preparation",
+        "source_title": "Fizzah Mansur (FSP) 44th Position in CSS-2024 | Mock Interview by CSPs Academy Islamabad",
+        "source_url": "https://www.youtube.com/watch?v=CS47XiOlxT4",
+        "page_number": null,
+        "excerpt": "and Middle East to East Asia. So Pakistan can leverage its strategic position for development as well. Uh so um I think that Pakistan is on its way to uh progress and uh to prosperity. Um if we utilize our potential, if "
+      },
+      {
+        "rank": 2,
+        "chunk_id": "fe1baf1cad076a81",
+        "score": 0.591,
+        "evidence_subject": "Pakistan Affairs",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 15,
+        "excerpt": "PAPER: PAKISTAN AFFAIRS (100 MARKS) I. Ideology of Pakistan-----definition and elucidation, historical aspects: Muslim rule in the Sub-Continent, its downfall and efforts for Renaissance. Movements for reforms-- Shaikh A"
+      },
+      {
+        "rank": 3,
+        "chunk_id": "58cecec0abf2b9f0",
+        "score": 0.588,
+        "evidence_subject": "Economics",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 70,
+        "excerpt": "VIII. Energy Policy of Pakistan IX. Social Sector Development in Pakistan X. Major Issues in Pakistan Economy: Energy crisis, Corruption, Bad governance, External debt accumulation and dependency, Unemployment, Income in"
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-ca-013",
+    "question_id": "ca-013",
+    "subject": "Current Affairs",
+    "question_text": "Assess the Paris Agreement and the idea of climate justice for developing countries.",
+    "expected_rag_relevance": "strong",
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "e74ced57a7e4006e",
+        "score": 0.488,
+        "evidence_subject": "Current Affairs",
+        "evidence_topic": "Environment and Climate",
+        "source_title": "Pakistan Economic Survey 2025-26 - Chapter 17: Climate Change",
+        "source_url": "https://finance.gov.pk/survey/chapter_26/17_Climate_Change.pdf",
+        "page_number": 7,
+        "excerpt": "underscore Pakistan’s commitment to transitioning toward a resilient, low-carbon, and environmentally sustainable development pathway while safeguarding vulnerable communities and ecosystems from the escalating impacts o"
+      },
+      {
+        "rank": 2,
+        "chunk_id": "23a66a74575b8870",
+        "score": 0.487,
+        "evidence_subject": "Current Affairs",
+        "evidence_topic": "Environment and Climate",
+        "source_title": "Pakistan Economic Survey 2025-26 - Chapter 17: Climate Change",
+        "source_url": "https://finance.gov.pk/survey/chapter_26/17_Climate_Change.pdf",
+        "page_number": 23,
+        "excerpt": "for certification.  Regarding monitoring and regulation of vehicular emissions, the BEPA, in collaboration with relevant departments, identified 16 public transport routes in Quetta and conducted targeted inspections of"
+      },
+      {
+        "rank": 3,
+        "chunk_id": "1bf1fb6e96ce9d80",
+        "score": 0.471,
+        "evidence_subject": "Current Affairs",
+        "evidence_topic": "Environment and Climate",
+        "source_title": "Pakistan Economic Survey 2025-26 - Chapter 17: Climate Change",
+        "source_url": "https://finance.gov.pk/survey/chapter_26/17_Climate_Change.pdf",
+        "page_number": 10,
+        "excerpt": "initiative is critical as the SDG 6.1 aims to achieve universal and equitable access to safe and affordable drinking water. By improving institutional systems for consistent, accurate and transparent water quality monito"
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-ca-009",
+    "question_id": "ca-009",
+    "subject": "Current Affairs",
+    "question_text": "What is the circular debt in Pakistan's power sector and how can it be addressed?",
+    "expected_rag_relevance": "tangential",
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "f16111d5d75bf81d",
+        "score": 0.596,
+        "evidence_subject": "Pakistan Affairs",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 17,
+        "excerpt": "17. Powering Pakistan: Meetings Pakistan Energy Needs in 21st Century Robert M. Hathaway and Michael Gugelman 18. Pakistan’s Energy Sector: From Crisis to Crisis-Breaking the Chain Zaid Alahdad"
+      },
+      {
+        "rank": 2,
+        "chunk_id": "eac62566f9770c1e",
+        "score": 0.547,
+        "evidence_subject": "Current Affairs",
+        "evidence_topic": "Economy",
+        "source_title": "Pakistan Economic Survey 2025-26 - Overview of the Economy",
+        "source_url": "https://finance.gov.pk/survey/chapter_26/Overview%20of%20the%20economy_26.pdf",
+        "page_number": 8,
+        "excerpt": "Pakistan Economic Survey 2025-26 viii was financed entirely through domestic borrowing sources. The government also introduced a 15-year zero-coupon PIB, successfully raising Rs 263 billion on a realized value basis. The"
+      },
+      {
+        "rank": 3,
+        "chunk_id": "58cecec0abf2b9f0",
+        "score": 0.547,
+        "evidence_subject": "Economics",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 70,
+        "excerpt": "VIII. Energy Policy of Pakistan IX. Social Sector Development in Pakistan X. Major Issues in Pakistan Economy: Energy crisis, Corruption, Bad governance, External debt accumulation and dependency, Unemployment, Income in"
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-ca-004",
+    "question_id": "ca-004",
+    "subject": "Current Affairs",
+    "question_text": "What is the World Trade Organization (WTO) and why does it matter for developing countries?",
+    "expected_rag_relevance": "weak",
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "b4dd60ab9dc0181e",
+        "score": 0.426,
+        "evidence_subject": "International Relations",
+        "evidence_topic": "Trade and External Sector",
+        "source_title": "Pakistan Economic Survey 2025-26 - Chapter 8: Trade and Payments",
+        "source_url": "https://finance.gov.pk/survey/chapter_26/8_Trade%20and%20Payments.pdf",
+        "page_number": 28,
+        "excerpt": "32.8 31.8 35.7 g. Exports 4.7 4.8 4.2 4.9 4.0 3.6 3.9 4.9 4.8 4.9 5.2 Imports 3.4 4.1 4.8 5.1 4.8 5.5 4.9 5.3 4.3 4.4 3.7 h. Exports 0.3 0.4 0.5 0.4 0.6 0.8 0.9 0.9 1.4 1.4 0.9 Imports 0.1 0.1 0.0 0.0 0.1 0.1 0.1 0.1 0.0"
+      },
+      {
+        "rank": 2,
+        "chunk_id": "43df19f4c8c5d15f",
+        "score": 0.383,
+        "evidence_subject": "Current Affairs",
+        "evidence_topic": "Economy",
+        "source_title": "Pakistan Economic Survey 2025-26 - Overview of the Economy",
+        "source_url": "https://finance.gov.pk/survey/chapter_26/Overview%20of%20the%20economy_26.pdf",
+        "page_number": 1,
+        "excerpt": "Global Economic Review The global economy showed resilience in 2025 despite heightened trade tensions and persistent policy uncertainty. Trade tensions eased somewhat during the year, with the US effective tariff rate es"
+      },
+      {
+        "rank": 3,
+        "chunk_id": "a34d650c9d31b370",
+        "score": 0.382,
+        "evidence_subject": "International Relations",
+        "evidence_topic": "Trade and External Sector",
+        "source_title": "Pakistan Economic Survey 2025-26 - Chapter 8: Trade and Payments",
+        "source_url": "https://finance.gov.pk/survey/chapter_26/8_Trade%20and%20Payments.pdf",
+        "page_number": 16,
+        "excerpt": "Manufacturing and Mining Sector, which has been approved by the Executive Committee of the National Export Development Board (NEDB) and will be presented to the NEDB.  Agro Export Enhancement Roadmap has been approved i"
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-gc-001",
+    "question_id": "gc-001",
+    "subject": "Governance and Constitutional Studies",
+    "question_text": "What is the separation of powers and how is it reflected in Pakistan's Constitution?",
+    "expected_rag_relevance": "weak",
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "3d1ef65a25887412",
+        "score": 0.67,
+        "evidence_subject": "Governance and Constitutional Studies",
+        "evidence_topic": "Constitutional Framework",
+        "source_title": "Constitution of the Islamic Republic of Pakistan, 1973 (as modified up to 31 May 2018)",
+        "source_url": "https://na.gov.pk/uploads/documents/63e602ca09b5d_461.pdf",
+        "page_number": 12,
+        "excerpt": "CONSTITUTION OF PAKISTAN 1 (In the name of Allah, the most Beneficent, the most Merciful.) THE CONSTITUTION OF THE ISLAMIC REPUBLIC OF PAKISTAN [12TH APRIL, 1973] Preamble Whereas sovereignty over the entire Universe bel"
+      },
+      {
+        "rank": 2,
+        "chunk_id": "9c0d2054aa6b1cd9",
+        "score": 0.669,
+        "evidence_subject": "Constitutional Law",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 63,
+        "excerpt": "PAPER: CONSTITUTIONAL LAW (100 MARKS) I. Definition and Scope of Constitutional Law, Basic Constitutional Concepts (Constitutional Conventions, Rule of Law, Due Process), Constitutional Structures (Parliamentary, Preside"
+      },
+      {
+        "rank": 3,
+        "chunk_id": "b456fccd2b59cc68",
+        "score": 0.656,
+        "evidence_subject": "Governance and Constitutional Studies",
+        "evidence_topic": "Constitutional Framework",
+        "source_title": "Constitution of the Islamic Republic of Pakistan, 1973 (as modified up to 31 May 2018)",
+        "source_url": "https://na.gov.pk/uploads/documents/63e602ca09b5d_461.pdf",
+        "page_number": 188,
+        "excerpt": "CONSTITUTION OF PAKISTAN 177 1[ANNEX (Article 2A) The Objectives Resolution (In the name of Allah, the most beneficent, the most merciful.) Whereas sovereignty over the entire universe belongs to Allah Almighty alone and"
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-gc-002",
+    "question_id": "gc-002",
+    "subject": "Governance and Constitutional Studies",
+    "question_text": "Describe the main features of the Eighteenth Amendment to the Constitution of Pakistan.",
+    "expected_rag_relevance": "strong",
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "ee84a23a3681ca69",
+        "score": 0.826,
+        "evidence_subject": "Governance and Constitutional Studies",
+        "evidence_topic": "18th Constitutional Amendment and Devolution",
+        "source_title": "Constitution (18th Amendment) Act 2010 and Devolution (Pakistan Institute for Parliamentary Services)",
+        "source_url": "https://www.pips.gov.pk/wp-content/uploads/2020/09/Constitution_18th_amendment_Act2010and_Devolution.pdf",
+        "page_number": 7,
+        "excerpt": "th 18 Constitutional Amendment: A MILESTONE IN PAKISTAN'S PARLIAMENTARY DEVELOPMENT Honourable Dr Fehmida Mirza, former Speaker, National Assembly of Pakistan Courtesy: CPA Journal - The Parliamentarian Foreword Acknowle"
+      },
+      {
+        "rank": 2,
+        "chunk_id": "63d4eb22fc18bb2c",
+        "score": 0.758,
+        "evidence_subject": "Governance and Constitutional Studies",
+        "evidence_topic": "18th Constitutional Amendment and Devolution",
+        "source_title": "Constitution (18th Amendment) Act 2010 and Devolution (Pakistan Institute for Parliamentary Services)",
+        "source_url": "https://www.pips.gov.pk/wp-content/uploads/2020/09/Constitution_18th_amendment_Act2010and_Devolution.pdf",
+        "page_number": 80,
+        "excerpt": "65 THE CONSTITUTION EIGHTEENTH AMENDMENT ACT, 2010 – A COMPARATIVE MATRIX PART I - INTRODUCTORY Amendment No Title/ Article No. of the Constitution Article of the Constitution/ Status Before the Constitution 18th Amendme"
+      },
+      {
+        "rank": 3,
+        "chunk_id": "32946f02ca27585d",
+        "score": 0.702,
+        "evidence_subject": "Governance and Constitutional Studies",
+        "evidence_topic": "Constitutional Framework",
+        "source_title": "Constitution of the Islamic Republic of Pakistan, 1973 (as modified up to 31 May 2018)",
+        "source_url": "https://na.gov.pk/uploads/documents/63e602ca09b5d_461.pdf",
+        "page_number": 179,
+        "excerpt": "CONSTITUTION OF PAKISTAN 168 other legal instruments having the force of law) in force in Pakistan or any part thereof, or having extra-territorial operation, immediately before the commencement of the Constitution (Eigh"
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-gc-004",
+    "question_id": "gc-004",
+    "subject": "Governance and Constitutional Studies",
+    "question_text": "What are Fundamental Rights under the 1973 Constitution? Name and explain at least five.",
+    "expected_rag_relevance": "strong",
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "d6f4d94113cb8e43",
+        "score": 0.509,
+        "evidence_subject": "Governance and Constitutional Studies",
+        "evidence_topic": "18th Constitutional Amendment and Devolution",
+        "source_title": "Constitution (18th Amendment) Act 2010 and Devolution (Pakistan Institute for Parliamentary Services)",
+        "source_url": "https://www.pips.gov.pk/wp-content/uploads/2020/09/Constitution_18th_amendment_Act2010and_Devolution.pdf",
+        "page_number": 79,
+        "excerpt": "th Constitution 18 Amendment Act 2010 and Devolution 64"
+      },
+      {
+        "rank": 2,
+        "chunk_id": "2d9a1ca3d1b412a1",
+        "score": 0.507,
+        "evidence_subject": "Governance and Constitutional Studies",
+        "evidence_topic": "18th Constitutional Amendment and Devolution",
+        "source_title": "Constitution (18th Amendment) Act 2010 and Devolution (Pakistan Institute for Parliamentary Services)",
+        "source_url": "https://www.pips.gov.pk/wp-content/uploads/2020/09/Constitution_18th_amendment_Act2010and_Devolution.pdf",
+        "page_number": 49,
+        "excerpt": "th Constitution 18 Amendment Act 2010 and Devolution 34"
+      },
+      {
+        "rank": 3,
+        "chunk_id": "5331bac29ed08a1b",
+        "score": 0.504,
+        "evidence_subject": "Governance and Constitutional Studies",
+        "evidence_topic": "18th Constitutional Amendment and Devolution",
+        "source_title": "Constitution (18th Amendment) Act 2010 and Devolution (Pakistan Institute for Parliamentary Services)",
+        "source_url": "https://www.pips.gov.pk/wp-content/uploads/2020/09/Constitution_18th_amendment_Act2010and_Devolution.pdf",
+        "page_number": 74,
+        "excerpt": "th Constitution 18 Amendment Act 2010 and Devolution 59"
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-gc-013",
+    "question_id": "gc-013",
+    "subject": "Governance and Constitutional Studies",
+    "question_text": "Evaluate the accountability institutions in Pakistan such as the National Accountability Bureau, the Auditor-General and the Ombudsman.",
+    "expected_rag_relevance": "tangential",
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "6d47d689087483a0",
+        "score": 0.635,
+        "evidence_subject": "Governance & Public Policies",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 90,
+        "excerpt": "V. Accountability:  General Introduction to Accountability and its concepts(Standards, Symbolism, regional and country-wide comparisons, a Review of Contemporary Studies)  Types of Accountability- Political Accountabil"
+      },
+      {
+        "rank": 2,
+        "chunk_id": "d213b253b698284c",
+        "score": 0.627,
+        "evidence_subject": "Governance and Constitutional Studies",
+        "evidence_topic": "Constitutional Framework",
+        "source_title": "Constitution of the Islamic Republic of Pakistan, 1973 (as modified up to 31 May 2018)",
+        "source_url": "https://na.gov.pk/uploads/documents/63e602ca09b5d_461.pdf",
+        "page_number": 102,
+        "excerpt": "CONSTITUTION OF PAKISTAN 91 vacant or the Auditor-General is absent or is unable to perform the functions of his office due to any cause, 1[the President may appoint the most senior officer in the Office of the Auditor-G"
+      },
+      {
+        "rank": 3,
+        "chunk_id": "a514b84cb6e23bbf",
+        "score": 0.584,
+        "evidence_subject": "Governance & Public Policies",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 89,
+        "excerpt": "PAPER: GOVERNANCE & PUBLIC POLICIES (100 MARKS) I. Basic Concepts of Governance:  Origin of the term Governance  Definition of Governance  Definition of Good Governance  Characteristics of Good Governance: Participat"
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-ir-001",
+    "question_id": "ir-001",
+    "subject": "International Relations",
+    "question_text": "What is the role of the United Nations Security Council?",
+    "expected_rag_relevance": "strong",
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "8a3f5512370c0c52",
+        "score": 0.717,
+        "evidence_subject": "International Relations",
+        "evidence_topic": "United Nations Charter (Full Text)",
+        "source_title": "United Nations Charter (full text) | United Nations",
+        "source_url": "https://www.un.org/en/about-us/un-charter/full-text",
+        "page_number": null,
+        "excerpt": "be eligible for immediate re-election. - Each member of the Security Council shall have one representative. FUNCTIONS AND POWERS Article 24 - In order to ensure prompt and effective action by the United Nations, its Memb"
+      },
+      {
+        "rank": 2,
+        "chunk_id": "fa03dab4f8a5fa73",
+        "score": 0.709,
+        "evidence_subject": "International Relations",
+        "evidence_topic": "United Nations Charter (Full Text)",
+        "source_title": "United Nations Charter (full text) | United Nations",
+        "source_url": "https://www.un.org/en/about-us/un-charter/full-text",
+        "page_number": null,
+        "excerpt": "of nine members including the concurring votes of the permanent members; provided that, in decisions under Chapter VI, and under paragraph 3 of Article 52, a party to a dispute shall abstain from voting. PROCEDURE Articl"
+      },
+      {
+        "rank": 3,
+        "chunk_id": "e0f3135dda071366",
+        "score": 0.686,
+        "evidence_subject": "International Relations",
+        "evidence_topic": "United Nations Charter (Full Text)",
+        "source_title": "United Nations Charter (full text) | United Nations",
+        "source_url": "https://www.un.org/en/about-us/un-charter/full-text",
+        "page_number": null,
+        "excerpt": "of forces placed at its disposal, the regulation of armaments, and possible disarmament. - The Military Staff Committee shall consist of the Chiefs of Staff of the permanent members of the Security Council or their repre"
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-ir-002",
+    "question_id": "ir-002",
+    "subject": "International Relations",
+    "question_text": "Explain the theory of realism in international relations.",
+    "expected_rag_relevance": "weak",
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "f489324521621b93",
+        "score": 0.492,
+        "evidence_subject": "International Relations",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 99,
+        "excerpt": "PAPER: INTERNATIONAL RELATIONS (200 MARKS) Paper—1 (Marks-100) I. Introduction  The Definition and Scope of International Relations.  The Nation-State System  Evolution of International Society II. Theories and Approa"
+      },
+      {
+        "rank": 2,
+        "chunk_id": "8fa2c5d68c19fd8d",
+        "score": 0.439,
+        "evidence_subject": "International Relations",
+        "evidence_topic": "Pakistan's Foreign Policy Principles",
+        "source_title": "Foreign Policy",
+        "source_url": "https://mofa.gov.pk/foreign-policy",
+        "page_number": null,
+        "excerpt": "advantages offered by the process of globalization as also to face the challenges of the 21st century. Our foreign policy is also geared to project the image of the country as a dynamic and moderate society. The foreign "
+      },
+      {
+        "rank": 3,
+        "chunk_id": "6d6f582ababbcab4",
+        "score": 0.418,
+        "evidence_subject": "International Law",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 97,
+        "excerpt": "PAPER: INTERNATIONAL LAW (100 MARKS) I. Nature, Origin and Basis of International Law.  The Emergence of International Law, Early European Authors, The Nation-State System, The Enforcement of International Law, The Effe"
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-ir-016",
+    "question_id": "ir-016",
+    "subject": "International Relations",
+    "question_text": "Discuss the Kashmir dispute in the context of international law and bilateral agreements between India and Pakistan.",
+    "expected_rag_relevance": "tangential",
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "a740603a78bfb6c4",
+        "score": 0.56,
+        "evidence_subject": "Pakistan Affairs",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 16,
+        "excerpt": "XXVI. Economic Conditions of Pakistan, the Most Recent Economic Survey, the Previous and Current Budgets, and the Problems and Performance of Major Sectors of Economy. XXVII. The Recent Constitutional and Legal Debates, "
+      },
+      {
+        "rank": 2,
+        "chunk_id": "a0a306be6dd4e7c3",
+        "score": 0.538,
+        "evidence_subject": "General Knowledge",
+        "evidence_topic": "CSS Viva Voce / Interview Preparation",
+        "source_title": "Hamza Munir (PAS) 24th Position in CSS-2025 | Mock Interview by CSPs Academy Islamabad",
+        "source_url": "https://www.youtube.com/watch?v=SQszUBeWmRo",
+        "page_number": null,
+        "excerpt": "well regarding terrorism. That India claims that Pakistan is a sponsoring sponsoring country of terrorism, which is not the case. Rather, Pakistan is a victim of terrorism. So, we are basically also working on it. So, I "
+      },
+      {
+        "rank": 3,
+        "chunk_id": "8fa2c5d68c19fd8d",
+        "score": 0.524,
+        "evidence_subject": "International Relations",
+        "evidence_topic": "Pakistan's Foreign Policy Principles",
+        "source_title": "Foreign Policy",
+        "source_url": "https://mofa.gov.pk/foreign-policy",
+        "page_number": null,
+        "excerpt": "advantages offered by the process of globalization as also to face the challenges of the 21st century. Our foreign policy is also geared to project the image of the country as a dynamic and moderate society. The foreign "
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-ir-005",
+    "question_id": "ir-005",
+    "subject": "International Relations",
+    "question_text": "What are the main sources of international law?",
+    "expected_rag_relevance": "strong",
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "6d6f582ababbcab4",
+        "score": 0.653,
+        "evidence_subject": "International Law",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 97,
+        "excerpt": "PAPER: INTERNATIONAL LAW (100 MARKS) I. Nature, Origin and Basis of International Law.  The Emergence of International Law, Early European Authors, The Nation-State System, The Enforcement of International Law, The Effe"
+      },
+      {
+        "rank": 2,
+        "chunk_id": "be4061b972ba4dfd",
+        "score": 0.527,
+        "evidence_subject": "International Law",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 98,
+        "excerpt": "SUGGESTED READINGS S.No. Title Author 1. International Law Malcolm N. Shaw 2. Principles of Public International Law Lan Brownlie 3. International Law Dr. S.K. Kapoor 4. Introduction to International Law J.G. Starke, QC "
+      },
+      {
+        "rank": 3,
+        "chunk_id": "9875dc84351444e4",
+        "score": 0.423,
+        "evidence_subject": "International Relations",
+        "evidence_topic": "United Nations Charter (Full Text)",
+        "source_title": "United Nations Charter (full text) | United Nations",
+        "source_url": "https://www.un.org/en/about-us/un-charter/full-text",
+        "page_number": null,
+        "excerpt": "against abuses; - to develop self-government, to take due account of the political aspirations of the peoples, and to assist them in the progressive development of their free political institutions, according to the part"
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-en-002",
+    "question_id": "en-002",
+    "subject": "English",
+    "question_text": "Explain the essential qualities of a good precis.",
+    "expected_rag_relevance": "weak",
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "413d9eb4e6ff92a5",
+        "score": 0.387,
+        "evidence_subject": "General Knowledge",
+        "evidence_topic": "CSS Exam Rules (Written, Medical, Psychological Assessment, Viva Voce)",
+        "source_title": "CSS Competitive Examination Rules, 2019 (FPSC; archived copy -- live fpsc.gov.pk URL 404s)",
+        "source_url": "http://web.archive.org/web/20251116081212/https://www.fpsc.gov.pk/assets/media/2024-08-23-11-18-12-Final_Approved_Rules_CE-2019_and_onwards.pdf",
+        "page_number": 9,
+        "excerpt": "academic and extramural and he shall be asked questions on matters of general interest. The object of the interview is to assess his suitability for the services for which he is entered and in framing their assessment th"
+      },
+      {
+        "rank": 2,
+        "chunk_id": "b44360d15bd9840d",
+        "score": 0.351,
+        "evidence_subject": "English (Precis & Composition)",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 8,
+        "excerpt": "PAPER: ENGLISH (PRECIS & COMPOSITION) (100 MARKS) The examination in this subject will be based upon a paper carrying 100 marks to Test the candidate’s abilities to handle Precis Writing, Reading Comprehension, Sentence "
+      },
+      {
+        "rank": 3,
+        "chunk_id": "02f52c771288ce1f",
+        "score": 0.333,
+        "evidence_subject": "Governance and Constitutional Studies",
+        "evidence_topic": "Constitutional Framework",
+        "source_title": "Constitution of the Islamic Republic of Pakistan, 1973 (as modified up to 31 May 2018)",
+        "source_url": "https://na.gov.pk/uploads/documents/63e602ca09b5d_461.pdf",
+        "page_number": 15,
+        "excerpt": "CONSTITUTION OF PAKISTAN 4 3. Elimination of exploitation 3. The State shall ensure the elimination of all forms of exploitation and the gradual fulfillment of the fundamental principle, from each according to his abilit"
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-en-012",
+    "question_id": "en-012",
+    "subject": "English",
+    "question_text": "Explain denotation and connotation and why they matter in persuasive writing.",
+    "expected_rag_relevance": "absent",
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "f6c899d4f963abc9",
+        "score": 0.429,
+        "evidence_subject": "English Essay",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 7,
+        "excerpt": "PAPER: ENGLISH ESSAY (100 MARKS) Candidates will be required to write one or more Essay in English. A wide choice of topics will be given. Candidates are expected to reflect comprehensive and research based knowledge on "
+      },
+      {
+        "rank": 2,
+        "chunk_id": "b44360d15bd9840d",
+        "score": 0.344,
+        "evidence_subject": "English (Precis & Composition)",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 8,
+        "excerpt": "PAPER: ENGLISH (PRECIS & COMPOSITION) (100 MARKS) The examination in this subject will be based upon a paper carrying 100 marks to Test the candidate’s abilities to handle Precis Writing, Reading Comprehension, Sentence "
+      },
+      {
+        "rank": 3,
+        "chunk_id": "d18bc2b18f8c3c31",
+        "score": 0.33,
+        "evidence_subject": "General Knowledge",
+        "evidence_topic": "CSS Exam Rules (Written, Medical, Psychological Assessment, Viva Voce)",
+        "source_title": "CSS Competitive Examination Rules, 2019 (FPSC; archived copy -- live fpsc.gov.pk URL 404s)",
+        "source_url": "http://web.archive.org/web/20251116081212/https://www.fpsc.gov.pk/assets/media/2024-08-23-11-18-12-Final_Approved_Rules_CE-2019_and_onwards.pdf",
+        "page_number": 15,
+        "excerpt": "Essay 100 (2) English (Precis and Composition) 100 (3) General Knowledge:- (a) Paper-I General Science and Ability 100 (General Science: (MCQs = 20 marks, subjective = 40 marks) Ability: subjective = 40 marks) (b) Paper-"
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-en-008",
+    "question_id": "en-008",
+    "subject": "English",
+    "question_text": "What are the elements of an effective paragraph?",
+    "expected_rag_relevance": "absent",
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "b44360d15bd9840d",
+        "score": 0.457,
+        "evidence_subject": "English (Precis & Composition)",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 8,
+        "excerpt": "PAPER: ENGLISH (PRECIS & COMPOSITION) (100 MARKS) The examination in this subject will be based upon a paper carrying 100 marks to Test the candidate’s abilities to handle Precis Writing, Reading Comprehension, Sentence "
+      },
+      {
+        "rank": 2,
+        "chunk_id": "f6c899d4f963abc9",
+        "score": 0.434,
+        "evidence_subject": "English Essay",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 7,
+        "excerpt": "PAPER: ENGLISH ESSAY (100 MARKS) Candidates will be required to write one or more Essay in English. A wide choice of topics will be given. Candidates are expected to reflect comprehensive and research based knowledge on "
+      },
+      {
+        "rank": 3,
+        "chunk_id": "00d25d409c4cd818",
+        "score": 0.395,
+        "evidence_subject": "English (Precis & Composition)",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 9,
+        "excerpt": "VII. Translation (10 marks) Ten short Urdu sentences involving structural composition, significant terms and figurative/idiomatic expressions shall be given, to be accurately translated into English. SUGGESTED READINGS S"
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-en-014",
+    "question_id": "en-014",
+    "subject": "English",
+    "question_text": "Explain ethos, pathos and logos and how they are used in argument.",
+    "expected_rag_relevance": "absent",
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "fed4d591f49eb866",
+        "score": 0.3,
+        "evidence_subject": "Philosophy",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 128,
+        "excerpt": "PAPER: PHILOSOPHY (100 MARKS) I. Introduction: Definition, Nature and Scope of Philosophy II. Philosophical Methods: Socratic Method (Socrates); Inductive Method (Bacon, Mill); Deductive Method (Aristotle, Descartes); Di"
+      },
+      {
+        "rank": 2,
+        "chunk_id": "90f52bcb8bc2eff8",
+        "score": 0.263,
+        "evidence_subject": "International Relations",
+        "evidence_topic": "United Nations Charter (Full Text)",
+        "source_title": "United Nations Charter (full text) | United Nations",
+        "source_url": "https://www.un.org/en/about-us/un-charter/full-text",
+        "page_number": null,
+        "excerpt": "of the peace, and to bring about by peaceful means, and in conformity with the principles of justice and international law, adjustment or settlement of international disputes or situations which might lead to a breach of"
+      },
+      {
+        "rank": 3,
+        "chunk_id": "da33b0884c76700a",
+        "score": 0.262,
+        "evidence_subject": "International Relations",
+        "evidence_topic": "United Nations Charter (Full Text)",
+        "source_title": "United Nations Charter (full text) | United Nations",
+        "source_url": "https://www.un.org/en/about-us/un-charter/full-text",
+        "page_number": null,
+        "excerpt": "Preamble WE THE PEOPLES OF THE UNITED NATIONS DETERMINED to save succeeding generations from the scourge of war, which twice in our lifetime has brought untold sorrow to mankind, and to reaffirm faith in fundamental huma"
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-gk-006",
+    "question_id": "gk-006",
+    "subject": "General Knowledge",
+    "question_text": "What is the United Nations and what are its principal organs?",
+    "expected_rag_relevance": "strong",
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "49cfc727b42fbc84",
+        "score": 0.669,
+        "evidence_subject": "International Relations",
+        "evidence_topic": "United Nations Charter (Full Text)",
+        "source_title": "United Nations Charter (full text) | United Nations",
+        "source_url": "https://www.un.org/en/about-us/un-charter/full-text",
+        "page_number": null,
+        "excerpt": "upon the recommendation of the Security Council. The exercise of these rights and privileges may be restored by the Security Council. Article 6 A Member of the United Nations which has persistently violated the Principle"
+      },
+      {
+        "rank": 2,
+        "chunk_id": "ad0e5115bacb7f89",
+        "score": 0.668,
+        "evidence_subject": "International Relations",
+        "evidence_topic": "United Nations Principal Organs",
+        "source_title": "UN Structure | United Nations",
+        "source_url": "https://www.un.org/en/node/44718",
+        "page_number": null,
+        "excerpt": "UN Structure UN Structure The UN Charter establishes the UN’s six principal organs: the General Assembly (GA), the Security Council (SC), the Economic and Social Council (ECOSOC), the Trusteeship Council, the Internation"
+      },
+      {
+        "rank": 3,
+        "chunk_id": "890b007b9565e430",
+        "score": 0.598,
+        "evidence_subject": "International Relations",
+        "evidence_topic": "United Nations Principal Organs",
+        "source_title": "UN Structure | United Nations",
+        "source_url": "https://www.un.org/en/node/44718",
+        "page_number": null,
+        "excerpt": "were taken to prepare the Territories for self-government or independence. Read more about the Trusteechip Council here: www.un.org/en/sections/about-un/trusteeship-council/ International Court of Justice (ICJ) The Inter"
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-gk-013",
+    "question_id": "gk-013",
+    "subject": "General Knowledge",
+    "question_text": "Discuss the causes and consequences of the 2008 global financial crisis.",
+    "expected_rag_relevance": "weak",
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "43df19f4c8c5d15f",
+        "score": 0.487,
+        "evidence_subject": "Current Affairs",
+        "evidence_topic": "Economy",
+        "source_title": "Pakistan Economic Survey 2025-26 - Overview of the Economy",
+        "source_url": "https://finance.gov.pk/survey/chapter_26/Overview%20of%20the%20economy_26.pdf",
+        "page_number": 1,
+        "excerpt": "Global Economic Review The global economy showed resilience in 2025 despite heightened trade tensions and persistent policy uncertainty. Trade tensions eased somewhat during the year, with the US effective tariff rate es"
+      },
+      {
+        "rank": 2,
+        "chunk_id": "ac386b27769ef73f",
+        "score": 0.408,
+        "evidence_subject": "Current Affairs",
+        "evidence_topic": "Environment and Climate",
+        "source_title": "Pakistan Economic Survey 2025-26 - Chapter 17: Climate Change",
+        "source_url": "https://finance.gov.pk/survey/chapter_26/17_Climate_Change.pdf",
+        "page_number": 2,
+        "excerpt": "and increasingly frequent extremes of both wet and dry conditions. Climate change is further transforming rare and recurring hazards into a ‘new normal’ of persistent risks, as highlighted in the Climate Risk Index (CRI)"
+      },
+      {
+        "rank": 3,
+        "chunk_id": "3f8ccb96b8cf680e",
+        "score": 0.396,
+        "evidence_subject": "Current Affairs",
+        "evidence_topic": "Economy",
+        "source_title": "Pakistan Economic Survey 2025-26 - Overview of the Economy",
+        "source_url": "https://finance.gov.pk/survey/chapter_26/Overview%20of%20the%20economy_26.pdf",
+        "page_number": 1,
+        "excerpt": "the Euro Area was estimated at 1.4 percent in 2025 and projected at 1.1 percent in 2026 due to continued weakness in manufacturing activity and pressures arising from euro appreciation. Growth in emerging market and deve"
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-gk-003",
+    "question_id": "gk-003",
+    "subject": "General Knowledge",
+    "question_text": "Explain the water scarcity challenge in Pakistan and the debate over dams and water management.",
+    "expected_rag_relevance": "tangential",
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "51c9801d7b264ed2",
+        "score": 0.56,
+        "evidence_subject": "Current Affairs",
+        "evidence_topic": "Environment and Climate",
+        "source_title": "Pakistan Economic Survey 2025-26 - Chapter 17: Climate Change",
+        "source_url": "https://finance.gov.pk/survey/chapter_26/17_Climate_Change.pdf",
+        "page_number": 8,
+        "excerpt": "embankments and critical flood infrastructure, completion of small dams, restoration of urban drainage systems, enforcement of floodplain zoning regulations, and integration of real-time telemetry with forecasting system"
+      },
+      {
+        "rank": 2,
+        "chunk_id": "d8b85985e4ae031c",
+        "score": 0.553,
+        "evidence_subject": "Current Affairs",
+        "evidence_topic": "Economy",
+        "source_title": "Pakistan Economic Survey 2025-26 - Overview of the Economy",
+        "source_url": "https://finance.gov.pk/survey/chapter_26/Overview%20of%20the%20economy_26.pdf",
+        "page_number": 15,
+        "excerpt": "Overview of the Economy xv intensifying compound heatwaves, droughts and extreme precipitation events. Climate change is further transforming rare and recurring hazards into a new normal of persistent risks, while the hu"
+      },
+      {
+        "rank": 3,
+        "chunk_id": "3976b48c52a0f9c8",
+        "score": 0.543,
+        "evidence_subject": "Current Affairs",
+        "evidence_topic": "Environment and Climate",
+        "source_title": "Pakistan Economic Survey 2025-26 - Chapter 17: Climate Change",
+        "source_url": "https://finance.gov.pk/survey/chapter_26/17_Climate_Change.pdf",
+        "page_number": 15,
+        "excerpt": "Pakistan Economic Survey 2025-26 308 Box-II: IMF’s RSF Progress Update The key “Completed Reforms” under the programme include:  Introduction of a supplementary carbon levy on petroleum products through the FY 2026 Fina"
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-gk-010",
+    "question_id": "gk-010",
+    "subject": "General Knowledge",
+    "question_text": "Differentiate between the IMF and the World Bank.",
+    "expected_rag_relevance": "strong",
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "9b32f6f8308a284b",
+        "score": 0.567,
+        "evidence_subject": "Current Affairs",
+        "evidence_topic": "Economy",
+        "source_title": "Pakistan Economic Survey 2025-26 - Overview of the Economy",
+        "source_url": "https://finance.gov.pk/survey/chapter_26/Overview%20of%20the%20economy_26.pdf",
+        "page_number": 8,
+        "excerpt": "gradual shift toward more predictable debt servicing obligations.  External budgetary disbursements were recorded at US $ 6.1 billion, including US $ 2.7 billion from multilateral sources, US $ 1.1 billion from bilatera"
+      },
+      {
+        "rank": 2,
+        "chunk_id": "8fc75828bb0a9066",
+        "score": 0.49,
+        "evidence_subject": "International Relations",
+        "evidence_topic": "Trade and External Sector",
+        "source_title": "Pakistan Economic Survey 2025-26 - Chapter 8: Trade and Payments",
+        "source_url": "https://finance.gov.pk/survey/chapter_26/8_Trade%20and%20Payments.pdf",
+        "page_number": 15,
+        "excerpt": "March 2026, slightly appreciating by 0.2 percent compared to March 2025. The successful completion of the second review under the IMF Extended Fund Facility (EFF) and first review under the Resilience and Sustainability "
+      },
+      {
+        "rank": 3,
+        "chunk_id": "dd6656d51e05a787",
+        "score": 0.47,
+        "evidence_subject": "Current Affairs",
+        "evidence_topic": "Economy",
+        "source_title": "Pakistan Economic Survey 2025-26 - Overview of the Economy",
+        "source_url": "https://finance.gov.pk/survey/chapter_26/Overview%20of%20the%20economy_26.pdf",
+        "page_number": 7,
+        "excerpt": "largely due to higher official disbursements. Foreign exchange reserves rose to US $ 21.8 billion by end-March 2026 (US $ 16.4 billion with SBP and US $ 5.4 billion with commercial banks), which also contributed to the e"
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-is-002",
+    "question_id": "is-002",
+    "subject": "Islamic Studies",
+    "question_text": "Explain the sources of Islamic law (Shariah).",
+    "expected_rag_relevance": "strong",
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "40c8993cf7840299",
+        "score": 0.587,
+        "evidence_subject": "Muslim Law & Jurisprudence",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 117,
+        "excerpt": "SUGGESTED READINGS S.No. Title Author 1. An Introduction to the Study of Islamic Law Dr. Hussain Hamid Hassan 2. Principles of Islamic Jurisprudence Mohammad Hashim Kamali 3. Theories of Islamic Law Prof. Imran Ahsan Nya"
+      },
+      {
+        "rank": 2,
+        "chunk_id": "ebf3526a81fd4750",
+        "score": 0.583,
+        "evidence_subject": "Islamic Studies",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 19,
+        "excerpt": "PAPER: ISLAMIC STUDIES (100 MARKS)"
+      },
+      {
+        "rank": 3,
+        "chunk_id": "f91b09ba3da434bd",
+        "score": 0.581,
+        "evidence_subject": "Muslim Law & Jurisprudence",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 116,
+        "excerpt": "PAPER: MUSLIM LAW & JURISPRUDENCE (100 MARKS) I. The Sources of Islamic Law  The Quran  The Sunnah  Ijma  Qiyas  Ijtehad II. Principles of Islamic Jurisprudence III. Islamic Criminal Law  Hadd  Taz’ir  Qisas and "
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-is-003",
+    "question_id": "is-003",
+    "subject": "Islamic Studies",
+    "question_text": "Discuss the concept of Ijtihad and its relevance in addressing contemporary challenges.",
+    "expected_rag_relevance": "strong",
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "05ab6b91b038816a",
+        "score": 0.421,
+        "evidence_subject": "Islamic Studies",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 22,
+        "excerpt": "23. Studies in Muslim Political Thoughts and Administration Sherwani, H.K.S. 24. Reconstruction of Religious Thoughts in Islam Allama Iqbal 25. Islamic Political System in the Modern age: Theory and Practice Manzooruddin"
+      },
+      {
+        "rank": 2,
+        "chunk_id": "bd66c6ebca549f02",
+        "score": 0.409,
+        "evidence_subject": "Islamic Studies",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 21,
+        "excerpt": "REQUIRED READINGS Sr. No. Title Author 1. Introduction to Islam Dr. Hamidullah 2. Islam: its meaning and Message Khurshid Ahmad 3. Islam: The Misunderstood Religion Muhammad Qutub 4. Islam at the Cross-roads Muhammad Asa"
+      },
+      {
+        "rank": 3,
+        "chunk_id": "ebf3526a81fd4750",
+        "score": 0.408,
+        "evidence_subject": "Islamic Studies",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 19,
+        "excerpt": "PAPER: ISLAMIC STUDIES (100 MARKS)"
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-is-008",
+    "question_id": "is-008",
+    "subject": "Islamic Studies",
+    "question_text": "Discuss the Farewell Sermon of the Prophet (peace be upon him) and its message on human rights.",
+    "expected_rag_relevance": "weak",
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "90f52bcb8bc2eff8",
+        "score": 0.47,
+        "evidence_subject": "International Relations",
+        "evidence_topic": "United Nations Charter (Full Text)",
+        "source_title": "United Nations Charter (full text) | United Nations",
+        "source_url": "https://www.un.org/en/about-us/un-charter/full-text",
+        "page_number": null,
+        "excerpt": "of the peace, and to bring about by peaceful means, and in conformity with the principles of justice and international law, adjustment or settlement of international disputes or situations which might lead to a breach of"
+      },
+      {
+        "rank": 2,
+        "chunk_id": "da33b0884c76700a",
+        "score": 0.423,
+        "evidence_subject": "International Relations",
+        "evidence_topic": "United Nations Charter (Full Text)",
+        "source_title": "United Nations Charter (full text) | United Nations",
+        "source_url": "https://www.un.org/en/about-us/un-charter/full-text",
+        "page_number": null,
+        "excerpt": "Preamble WE THE PEOPLES OF THE UNITED NATIONS DETERMINED to save succeeding generations from the scourge of war, which twice in our lifetime has brought untold sorrow to mankind, and to reaffirm faith in fundamental huma"
+      },
+      {
+        "rank": 3,
+        "chunk_id": "b170c852b3415788",
+        "score": 0.419,
+        "evidence_subject": "Islamic Studies",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 18,
+        "excerpt": "PAPER: ISLAMIC STUDIES (100 MARKS) I. Introduction to Islam.  Concept of Islam.  Importance of Din in Human Life.  Difference between Din and Religion.  Distinctive Aspects of Islam.  Islamic Beliefs & its Impact on"
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-is-016",
+    "question_id": "is-016",
+    "subject": "Islamic Studies",
+    "question_text": "Evaluate the concept of jihad in Islam and distinguish it from terrorism.",
+    "expected_rag_relevance": "tangential",
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "a438f2fde8bacc75",
+        "score": 0.542,
+        "evidence_subject": "Islamic History & Culture",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 105,
+        "excerpt": "SUGGESTED READINGS S.No. Titles Author 1. Discovering Islam—Making Sense of Muslim History and Society Ahmad, Akbar 2. Islam: Ideology and Leading Issues Ali, Anwar. 3. The Spirit of Islam Ali, S. Ameer 4. Aspects of Isl"
+      },
+      {
+        "rank": 2,
+        "chunk_id": "b170c852b3415788",
+        "score": 0.499,
+        "evidence_subject": "Islamic Studies",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 18,
+        "excerpt": "PAPER: ISLAMIC STUDIES (100 MARKS) I. Introduction to Islam.  Concept of Islam.  Importance of Din in Human Life.  Difference between Din and Religion.  Distinctive Aspects of Islam.  Islamic Beliefs & its Impact on"
+      },
+      {
+        "rank": 3,
+        "chunk_id": "bd66c6ebca549f02",
+        "score": 0.485,
+        "evidence_subject": "Islamic Studies",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 21,
+        "excerpt": "REQUIRED READINGS Sr. No. Title Author 1. Introduction to Islam Dr. Hamidullah 2. Islam: its meaning and Message Khurshid Ahmad 3. Islam: The Misunderstood Religion Muhammad Qutub 4. Islam at the Cross-roads Muhammad Asa"
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-ps-custom-001",
+    "question_id": "ps-custom-001",
+    "subject": "Political Science",
+    "question_text": "Explain the theory of separation of powers in classical political thought, referencing Montesquieu.",
+    "expected_rag_relevance": "absent",
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "5a422d457f11ec8e",
+        "score": 0.373,
+        "evidence_subject": "Governance and Constitutional Studies",
+        "evidence_topic": "18th Constitutional Amendment and Devolution",
+        "source_title": "Constitution (18th Amendment) Act 2010 and Devolution (Pakistan Institute for Parliamentary Services)",
+        "source_url": "https://www.pips.gov.pk/wp-content/uploads/2020/09/Constitution_18th_amendment_Act2010and_Devolution.pdf",
+        "page_number": 181,
+        "excerpt": "166 a Proclamation is issued under this Article, the Proclamation shall continue in force for a period of three months but, if a general election to the Assembly is not held before the expiration of that period, it shall"
+      },
+      {
+        "rank": 2,
+        "chunk_id": "2a6579e7001c030a",
+        "score": 0.371,
+        "evidence_subject": "Political Science",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 131,
+        "excerpt": "PAPER: POLITICAL SCIENCE (200 MARKS) PAPER I- (Marks - 100) Part-A (50 Marks) I. Western Political Thought: Plato, Aristotle, Machiavelli, Montesquieu, Hobbes, Locke, Rousseau, Kant, Mill, Bentham, Hegel, Marx, Lenin, Ma"
+      },
+      {
+        "rank": 3,
+        "chunk_id": "465d2cde03bfc8f3",
+        "score": 0.365,
+        "evidence_subject": "Governance and Constitutional Studies",
+        "evidence_topic": "18th Constitutional Amendment and Devolution",
+        "source_title": "Constitution (18th Amendment) Act 2010 and Devolution (Pakistan Institute for Parliamentary Services)",
+        "source_url": "https://www.pips.gov.pk/wp-content/uploads/2020/09/Constitution_18th_amendment_Act2010and_Devolution.pdf",
+        "page_number": 177,
+        "excerpt": "162 provisions of the Constitution relating to High Courts. (3) The power of 2[Majlis-e-Shoora (Parliament)] to make laws for a Province with respect to any matter shall include power to make laws conferring powers and i"
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-ps-custom-002",
+    "question_id": "ps-custom-002",
+    "subject": "Political Science",
+    "question_text": "Discuss the main theories of state sovereignty.",
+    "expected_rag_relevance": "weak",
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "9875dc84351444e4",
+        "score": 0.449,
+        "evidence_subject": "International Relations",
+        "evidence_topic": "United Nations Charter (Full Text)",
+        "source_title": "United Nations Charter (full text) | United Nations",
+        "source_url": "https://www.un.org/en/about-us/un-charter/full-text",
+        "page_number": null,
+        "excerpt": "against abuses; - to develop self-government, to take due account of the political aspirations of the peoples, and to assist them in the progressive development of their free political institutions, according to the part"
+      },
+      {
+        "rank": 2,
+        "chunk_id": "3218506d0fe8c99f",
+        "score": 0.446,
+        "evidence_subject": "Governance and Constitutional Studies",
+        "evidence_topic": "Constitutional Framework",
+        "source_title": "Constitution of the Islamic Republic of Pakistan, 1973 (as modified up to 31 May 2018)",
+        "source_url": "https://na.gov.pk/uploads/documents/63e602ca09b5d_461.pdf",
+        "page_number": 86,
+        "excerpt": "CONSTITUTION OF PAKISTAN 75 PART V Relations Between Federation and Provinces CHAPTER 1. – DISTRIBUTION OF LEGISLATIVE POWERS 141. Extent of Federal and Provincial laws 141. Subject to the Constitution, 1[Majlis-e-Shoora"
+      },
+      {
+        "rank": 3,
+        "chunk_id": "e44c8e3f387e43b7",
+        "score": 0.443,
+        "evidence_subject": "General Knowledge",
+        "evidence_topic": "CSS Viva Voce / Interview Preparation",
+        "source_title": "Fizzah Mansur (FSP) 44th Position in CSS-2024 | Mock Interview by CSPs Academy Islamabad",
+        "source_url": "https://www.youtube.com/watch?v=CS47XiOlxT4",
+        "page_number": null,
+        "excerpt": "is very inspirational for you? >> Uh sir he uh his concept that um uh unchecked power can can lead to desperatism. uh I think that is uh very uh accurate in today's world as well. So I think that we can implement that co"
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-gsa-custom-001",
+    "question_id": "gsa-custom-001",
+    "subject": "General Science and Ability",
+    "question_text": "Explain the basic structure of the solar system and the Earth's place in it.",
+    "expected_rag_relevance": "weak",
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "f8bcb29498da8655",
+        "score": 0.365,
+        "evidence_subject": "General Science & Ability",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 10,
+        "excerpt": "PAPER: GENERAL SCIENCE & ABILITY (100 MARKS) Part-I (General Science) 60 Marks I. Physical Sciences  Constituents and Structure:-Universe, Galaxy, Light Year, Solar System, Sun, Earth, Astronomical System of Units.  Pr"
+      },
+      {
+        "rank": 2,
+        "chunk_id": "827049d0f2ac4406",
+        "score": 0.311,
+        "evidence_subject": "Geography",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 82,
+        "excerpt": "PAPER: GEOGRAPHY (100 MARKS) Part –I (Marks 50) Physical Geography I. Factors controlling landform development; endogenic and exogenic forces; origin and evolution of the earth’s crust; physical conditions of the earth’s"
+      },
+      {
+        "rank": 3,
+        "chunk_id": "8eb0e0afcce06a26",
+        "score": 0.245,
+        "evidence_subject": "Geology",
+        "evidence_topic": "Official CSS Syllabus (Scheme, Marks and Subject Topics)",
+        "source_title": "Revised Syllabi for CSS Competitive Examination (FPSC; archived 2024-11-04; dated for CE-2016 onwards)",
+        "source_url": "http://web.archive.org/web/20241104213215/https://www.fpsc.gov.pk/assets/media/2024-10-22-01-45-26-Syllabus_for_CE-2016_and_onwards.pdf",
+        "page_number": 85,
+        "excerpt": "PAPER: GEOLOGY (100 MARKS) Part- I (50-marks) I. Introduction to Physical Geology Introduction and scope of geology, its importance and relationship with other sciences; Earth as a member of the solar system: its origin,"
+      }
+    ]
+  },
+  {
+    "scenario_id": "t12-gsa-custom-002",
+    "question_id": "gsa-custom-002",
+    "subject": "General Science and Ability",
+    "question_text": "What is the greenhouse effect and how does it contribute to climate change?",
+    "expected_rag_relevance": "moderate",
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "eb482b5cda1bf2a1",
+        "score": 0.505,
+        "evidence_subject": "Current Affairs",
+        "evidence_topic": "Environment and Climate",
+        "source_title": "Pakistan Economic Survey 2025-26 - Chapter 17: Climate Change",
+        "source_url": "https://finance.gov.pk/survey/chapter_26/17_Climate_Change.pdf",
+        "page_number": 2,
+        "excerpt": "295 Climate change has become a defining global challenge, with far-reaching implications for human well-being, economic stability and sustainable development. Widespread and rapid changes have already been experienced i"
+      },
+      {
+        "rank": 2,
+        "chunk_id": "53646302c2c217d5",
+        "score": 0.472,
+        "evidence_subject": "Current Affairs",
+        "evidence_topic": "Environment and Climate",
+        "source_title": "Pakistan Economic Survey 2025-26 - Chapter 17: Climate Change",
+        "source_url": "https://finance.gov.pk/survey/chapter_26/17_Climate_Change.pdf",
+        "page_number": 4,
+        "excerpt": "Climate Change 297 17.2 Global Climate & Air Quality Snapshot and Pakistan’s 2025 Profile The following presents a snapshot of key climate indicators in 2025 against their typical range of variability under a business-as"
+      },
+      {
+        "rank": 3,
+        "chunk_id": "32d1507f37e68db6",
+        "score": 0.462,
+        "evidence_subject": "Current Affairs",
+        "evidence_topic": "Economy",
+        "source_title": "Pakistan Economic Survey 2025-26 - Overview of the Economy",
+        "source_url": "https://finance.gov.pk/survey/chapter_26/Overview%20of%20the%20economy_26.pdf",
+        "page_number": 14,
+        "excerpt": "welfare grants, pensions, livelihood support, community infrastructure, and financial inclusion. Microfinance services also supported low-income households through credit, savings, and insurance. Climate Change: Climate "
+      }
+    ]
+  }
+]

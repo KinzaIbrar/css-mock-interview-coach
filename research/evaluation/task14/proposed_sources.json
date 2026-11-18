@@ -1,0 +1,144 @@
+{
+  "_meta": {
+    "purpose": "Candidate additional sources to close specific CSS (Central Superior Services Examination, Pakistan/FPSC) knowledge-base coverage gaps identified from Task 12's real, human-judged retrieval results against the approved 972-chunk baseline. CSS here always means the FPSC civil-service exam, never Cascading Style Sheets. This catalog is separate from, and does not modify, research/colab/sources.json (the 18 sources already in the approved baseline).",
+    "checked_on": "2026-11-18",
+    "method": "Every URL was fetched directly (curl) and, for PDFs/HTML, text was actually extracted (PyMuPDF / trafilatura, same tools the existing notebook pipeline uses) and inspected -- not accepted from a search-result snippet alone. A candidate that returned a non-200 status, a client-rendered shell with no extractable text, or content that did not actually match the claimed topic (checked by reading the extracted text) was moved to excluded_or_failed rather than included.",
+    "scope_note": "This round targeted 10 specific priority gaps plus 3 secondary gaps identified from Task 12's retrieval_relevance.csv and evaluation_dataset.jsonl (see research/evaluation/task14/source_coverage_matrix.csv for the full gap-by-gap accounting). It is not a general source-expansion effort."
+  },
+  "pdf_sources": [
+    {
+      "source_title": "Paigham-e-Pakistan (2018)",
+      "publisher_or_institution": "Islamic Research Institute, International Islamic University, Islamabad (IIUI); Islamic Republic of Pakistan",
+      "url": "https://gcwus.edu.pk/wp-content/uploads/Paigham-e-Pakistan.pdf",
+      "source_type": "official_document",
+      "subject": "Islamic Studies",
+      "topics": ["jihad vs. terrorism", "unanimous fatwa against terrorism", "extremism", "national anti-terrorism narrative"],
+      "publication_date": "2018-01-16",
+      "primary_or_secondary": "primary",
+      "why_it_improves_the_corpus": "Directly named in Task 12's own reference answer for is-016 (jihad vs. terrorism) as the authoritative national document, and the corpus currently has zero content on this topic beyond a bare syllabus heading. This is the real 121-page English document itself: title page (ISBN 978-969-408-364-3, Islamic Research Institute Press 2018), the Istifta (request for fatwa), the Unanimous Fatwa text and its key points, and the list of ~1,800 signatory ulama/muftis from madaris nationwide -- confirmed by reading the actual extracted text at pages 1, 30, 60 and 90 (not inferred from the title alone).",
+      "duplicates_existing_source": false,
+      "currency_note": "current -- a 2018 national consensus document still treated as the authoritative reference on this topic; not superseded.",
+      "verified": {
+        "http_status": 200,
+        "content_type": "application/pdf",
+        "total_pages": 121,
+        "extractable_text_chars_sampled": 3108,
+        "note": "Hosted as a mirror by Government College Women University, Sialkot (gcwus.edu.pk), not IIUI's own site directly, but content matches IIUI's documented authorship (title page states Islamic Research Institute, IIUI, 2018, ISBN present) and no official IIUI URL for this specific PDF was found this session -- flag this hosting detail for a human to double-check against IIUI's own site if one becomes available."
+      }
+    },
+    {
+      "source_title": "Tashkent Declaration (1966) -- UN Treaty Series No. 8166",
+      "publisher_or_institution": "United Nations Treaty Series (official registration; original signatories India and Pakistan)",
+      "url": "https://treaties.un.org/doc/Publication/UNTS/Volume%20560/volume-560-I-8166-English.pdf",
+      "source_type": "official_document",
+      "subject": "International Relations",
+      "topics": ["Kashmir dispute", "bilateral agreements", "India-Pakistan relations"],
+      "publication_date": "1966-01-10",
+      "primary_or_secondary": "primary",
+      "why_it_improves_the_corpus": "Task 12's ir-016 scenario (Kashmir dispute, bilateral agreements) found no dedicated source in the corpus for Tashkent/Simla/Lahore. This is the full official English text (4 pages) as registered by India with the UN on 22 March 1966 -- confirmed by reading the extracted text, which opens 'No. 8166 INDIA and PAKISTAN Tashkent Declaration. Signed at Tashkent, on 10 January 1966... Registered by India on 22 March 1966.'",
+      "duplicates_existing_source": false,
+      "currency_note": "historical primary text -- a fixed 1966 diplomatic document, not something that goes stale; relevant as history/background, not current policy.",
+      "verified": { "http_status": 200, "content_type": "application/pdf", "total_pages": 4, "extractable_text_chars": 5037 }
+    },
+    {
+      "source_title": "The Lahore Declaration (1999)",
+      "publisher_or_institution": "PA-X Peace Agreements Database, University of Edinburgh (hosting the text as originally sourced from India's Ministry of External Affairs / reported by Dawn, 22 Feb 1999)",
+      "url": "https://pax.peaceagreements.org/media/documents/ag577_56a8f33b402c5.pdf",
+      "source_type": "institutional_publication",
+      "subject": "International Relations",
+      "topics": ["Kashmir dispute", "bilateral agreements", "India-Pakistan relations", "confidence-building measures"],
+      "publication_date": "1999-02-21",
+      "primary_or_secondary": "primary (text of a primary diplomatic document, hosted by a reputable academic peace-agreements database rather than a government site directly)",
+      "why_it_improves_the_corpus": "Closes the same ir-016 Kashmir/bilateral-agreements gap as the Tashkent Declaration above. Confirmed by reading the extracted text (2 pages, 2,928 characters): 'The following is the text of the Lahore Declaration signed by the Prime Minister, Mr. A. B. Vajpayee, and the Pakistan Prime Minister, Mr. Nawaz Sharif, in Lahore on Sunday...'",
+      "duplicates_existing_source": false,
+      "currency_note": "historical primary text -- fixed 1999 document; background/history, not current policy.",
+      "verified": { "http_status": 200, "content_type": "application/pdf", "total_pages": 2, "extractable_text_chars": 2928 }
+    }
+  ],
+  "web_sources": [
+    {
+      "source_title": "Sovereignty",
+      "publisher_or_institution": "Stanford Encyclopedia of Philosophy (Stanford University)",
+      "url": "https://plato.stanford.edu/entries/sovereignty/",
+      "source_type": "academic_reference",
+      "subject": "Political Science",
+      "topics": ["theories of sovereignty", "Bodin", "Hobbes", "Austin", "pluralist critiques of sovereignty"],
+      "publication_date": null,
+      "primary_or_secondary": "secondary (peer-reviewed academic encyclopedia; the only acceptable kind of secondary source here per the task's own quality bar, since no government body publishes a primer on classical political theory)",
+      "why_it_improves_the_corpus": "Task 12's ps-custom-002 scenario (theories of state sovereignty: Bodin, Hobbes, Austin, pluralism) found the corpus's only content a dense, undifferentiated Political Science syllabus list with no actual explanation. This entry is the standard academic reference for exactly this topic, confirmed by fetching the live page directly (not a cached/archived version).",
+      "duplicates_existing_source": false,
+      "currency_note": "background/reference material -- classical political theory does not go stale; the entry itself is maintained and periodically revised by Stanford, current as fetched 2026-11-18.",
+      "verified": { "http_status": 200, "content_type": "text/html", "trafilatura_extracted_chars": 47627, "note": "Independently re-verified directly (not relying on the earlier cached-version check): live fetch, 65,459 raw bytes, 47,627 chars of real prose extracted, opening 'Sovereignty, though its meanings have varied across history, also has a core meaning, supreme authority within a territory...' -- confirmed on-topic and substantial." }
+    },
+    {
+      "source_title": "Understanding the WTO",
+      "publisher_or_institution": "World Trade Organization",
+      "url": "https://www.wto.org/english/thewto_e/whatis_e/tif_e/tif_e.htm",
+      "source_type": "official_document",
+      "subject": "Current Affairs",
+      "topics": ["WTO purpose and functions", "GATT succession", "dispute settlement", "trade negotiations"],
+      "publication_date": null,
+      "primary_or_secondary": "primary (the WTO's own official explainer, not a third-party summary)",
+      "why_it_improves_the_corpus": "Task 12's ca-004 scenario (what is the WTO) found no dedicated WTO source; the existing, already-rejected wto.org Pakistan-member page was 'mostly tables/links, not article prose' (see research/colab/sources.json's portal_references_not_auto_scraped). This is a *different* WTO page -- the organization's own general explainer -- confirmed to extract real prose: 'The first step is to talk. Essentially, the WTO is a place where member governments go, to try to sort out the trade problems they face with each other. At its heart are the WTO agreements...'",
+      "duplicates_existing_source": false,
+      "currency_note": "current -- the WTO maintains this page as a living explainer; not a dated/archived snapshot.",
+      "verified": { "http_status": 200, "content_type": "text/html", "trafilatura_extracted_chars": 3138 }
+    },
+    {
+      "source_title": "Indus River System Authority (IRSA) -- official detail page",
+      "publisher_or_institution": "Ministry of Water Resources, Government of Pakistan",
+      "url": "https://mowr.gov.pk/Detail/NzZkZThlNWItYjczOC00NWY5LTk0ODYtZjJhMjBiYjc3YmZk",
+      "source_type": "official_document",
+      "subject": "Current Affairs",
+      "topics": ["water resources", "Indus water-sharing", "IRSA", "Water Apportionment Accord 1991"],
+      "publication_date": null,
+      "primary_or_secondary": "primary",
+      "why_it_improves_the_corpus": "Task 12's gk-003 scenario (water scarcity, dams, Kalabagh/Diamer-Bhasha) found only tangential Economic Survey content, no dedicated water-authority source. This page gives real, on-point substantive text -- confirmed by extraction: 'Water Apportionment Accord (WAA) was signed amongst the Provinces on 16.03.1991... Under Clause 13 of the WAA'91, the need to establish an Indus River System Authority was recognized...'",
+      "duplicates_existing_source": false,
+      "currency_note": "current (describes a still-operative 1991 accord and its implementing body), but flagged as THIN -- see verified note. Does not itself cover Kalabagh/Diamer-Bhasha dam-specific debate; it only covers IRSA's founding mandate.",
+      "verified": { "http_status": 200, "content_type": "text/html", "trafilatura_extracted_chars": 833, "note": "Genuine substantive content, not navigation, but short -- consistent with the existing catalog's own documented experience that Pakistani government sites often yield thin extractable prose (e.g. the already-rejected pbs.gov.pk and sbp.org.pk entries). Worth including as real, on-point, if modest, evidence; not a replacement for a fuller dam-policy-specific document, which was not found this session."
+      }
+    },
+    {
+      "source_title": "Sahih Muslim 1218 -- The Prophet's Hajj (Jabir's narration, including the Farewell Sermon elements)",
+      "publisher_or_institution": "sunnah.com (a widely-used, scholarly-curated digital hadith reference; the underlying text is the classical collection Sahih Muslim, Book 15 on Hajj)",
+      "url": "https://sunnah.com/muslim:1218",
+      "source_type": "primary_historical_text",
+      "subject": "Islamic Studies",
+      "topics": ["Seerah", "Farewell Sermon", "Farewell Hajj", "human rights in Islam"],
+      "publication_date": null,
+      "primary_or_secondary": "primary (classical hadith text; sunnah.com is a reference portal for primary sources, not a commentary/blog)",
+      "why_it_improves_the_corpus": "Task 12's is-008 scenario (Farewell Sermon) found no dedicated Seerah content at all beyond a bare syllabus heading. This is Jabir's long, detailed narration of the Prophet's (peace be upon him) Farewell Hajj from Sahih Muslim, which includes the setting (Arafat, the tenth year), confirmed by direct fetch and extraction (21,921 characters of real narrative text, not navigation).",
+      "duplicates_existing_source": false,
+      "currency_note": "primary historical/religious text -- does not go stale.",
+      "verified": { "http_status": 200, "content_type": "text/html", "trafilatura_extracted_chars": 21921 }
+    }
+  ],
+  "excluded_or_failed": [
+    {
+      "gap": "Pakistan Movement / Lahore Resolution 1940 narrative history",
+      "candidates_tried": ["allamaiqbal.com Pakistan Resolution page", "various Wikipedia-derived encyclopedia mirrors"],
+      "reason": "No official Government-of-Pakistan or National-Assembly narrative-history source was found. The allamaiqbal.com URL surfaced by search returned HTTP 404 on direct fetch. Remaining candidates are all Wikipedia or Wikipedia-mirror sites (cavac.at, wikiwand, llmpedia, simple.wikipedia, scribd uploads) -- none meets the 'named primary institution' bar this catalog requires for a narrative-history claim. NOT INCLUDED."
+    },
+    {
+      "gap": "1971 East Pakistan separation -- Hamoodur Rahman Commission Report",
+      "candidates_tried": ["bhutto.org/?p=15363", "sanipanhwar.com PDF mirrors", "Scribd uploads"],
+      "reason": "The report itself remains officially classified/contested per every source found (secondary accounts agree on this). bhutto.org returned HTTP 200 but is a client-rendered React SPA with zero extractable text server-side (confirmed: raw fetch returns only a JS bootstrap shell, 727 bytes). sanipanhwar.com PDF guesses returned HTTP 404. Scribd uploads are unverifiable user content, not an institutional source. NOT INCLUDED."
+    },
+    {
+      "gap": "Doctrine of necessity case law (Dosso, Asma Jilani, Nusrat Bhutto, Zafar Ali Shah)",
+      "candidates_tried": ["sanipanhwar.com PDF guesses", "pakistanconstitutionlaw.com (not found in search results at all)", "Scribd uploads", "bhutto.org mirror"],
+      "reason": "No official Supreme Court of Pakistan or PLD (Pakistan Law Digest) full-text judgment was found accessible without a paywall or login. The one sanipanhwar.com PDF URL tried returned HTTP 404. Remaining candidates are unverified Scribd user uploads. NOT INCLUDED -- a human with access to PLD or a law-library database should source this directly rather than via an unverified web mirror."
+    },
+    {
+      "gap": "Simla Agreement (1972) primary text",
+      "candidates_tried": ["peacemaker.un.org official PDF"],
+      "reason": "The UN Peacemaker-hosted PDF (the same hosting pattern already used successfully for the existing catalog's UN peacekeeping statement) returned HTTP 403 (blocked) on direct fetch. No alternative officially-hosted copy (UN Treaty Series, India's MEA site directly) was confirmed reachable this session. Partially mitigated: the Tashkent Declaration and Lahore Declaration above cover the same underlying Kashmir/bilateral-agreements gap (ir-016) with two of the three named documents; Simla specifically remains unsourced. NOT INCLUDED."
+    },
+    {
+      "gap": "2008 global financial crisis (World Bank or IMF retrospective)",
+      "candidates_tried": ["documents1.worldbank.org PDF (Report No. 80488-PK)"],
+      "reason": "This PDF returned HTTP 200 and is a genuine, extractable 199-page World Bank document -- but reading the actual extracted text showed it is a Pakistan-specific Project Appraisal Document for an unrelated development-finance credit, not a 2008-financial-crisis retrospective. The search snippet's framing was misleading; the content does not match the claimed topic, so it was rejected rather than included on title alone. imf.org remains blocked (HTTP 403, consistent with the existing catalog's own finding) and no other verified retrospective explainer was found. NOT INCLUDED."
+    }
+  ]
+}
