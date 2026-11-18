@@ -1,0 +1,55 @@
+{
+  "total": 112,
+  "missing_fields": [],
+  "short_fields": [],
+  "exact_duplicates": [],
+  "near_duplicates": [],
+  "by_subject": {
+    "Current Affairs": 16,
+    "English": 16,
+    "General Knowledge": 16,
+    "Governance and Constitutional Studies": 16,
+    "International Relations": 16,
+    "Islamic Studies": 16,
+    "Pakistan Affairs": 16
+  },
+  "by_difficulty": {
+    "easy": 35,
+    "medium": 44,
+    "hard": 33
+  },
+  "split_counts": {
+    "train": 84,
+    "val": 14,
+    "test": 14
+  },
+  "split_by_subject": {
+    "train": {
+      "Current Affairs": 12,
+      "English": 12,
+      "General Knowledge": 12,
+      "Governance and Constitutional Studies": 12,
+      "International Relations": 12,
+      "Islamic Studies": 12,
+      "Pakistan Affairs": 12
+    },
+    "val": {
+      "Current Affairs": 2,
+      "English": 2,
+      "General Knowledge": 2,
+      "Governance and Constitutional Studies": 2,
+      "International Relations": 2,
+      "Islamic Studies": 2,
+      "Pakistan Affairs": 2
+    },
+    "test": {
+      "Current Affairs": 2,
+      "English": 2,
+      "General Knowledge": 2,
+      "Governance and Constitutional Studies": 2,
+      "International Relations": 2,
+      "Islamic Studies": 2,
+      "Pakistan Affairs": 2
+    }
+  }
+}

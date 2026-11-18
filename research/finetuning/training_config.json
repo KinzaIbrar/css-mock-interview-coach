@@ -1,0 +1,34 @@
+{
+  "_meta": {
+    "purpose": "A DESIGNED, NOT EXECUTED, supervised fine-tuning job spec for the question-generation task, grounded in Google's current official Vertex AI documentation (verified via web search this session, not assumed). No tuning job has been created; no cost has been incurred.",
+    "verified_against": [
+      "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini-use-supervised-tuning",
+      "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/tuning"
+    ],
+    "checked_on": "2026-11-18"
+  },
+  "task": "question_generation",
+  "approach": "supervised_fine_tuning",
+  "platform": "Vertex AI (NOT the plain Gemini/AI-Studio API this project currently uses -- see feasibility_and_integration.md)",
+  "base_model": "unconfirmed for this project's exact configured model string (\"gemini-3.8-flash\"); Vertex AI's current supervised-tuning-supported family at time of writing includes Gemini 3.5 Flash / 3.1 Flash-Lite / 2.5 Flash / 2.5 Flash-Lite -- the exact supported list must be re-checked against Vertex AI's live model registry before any real job is submitted, since it changes over time and this project's model string was not found in the documentation snippets retrieved this session",
+  "dataset": {
+    "format": "JSONL, one example per line: {systemInstruction, input, output}",
+    "train_file": "research/finetuning/train.jsonl",
+    "validation_file": "research/finetuning/val.jsonl",
+    "held_out_test_file": "research/finetuning/test.jsonl (never used for training or validation selection)",
+    "train_example_count": 84,
+    "validation_example_count": 14,
+    "google_recommended_minimum": "100-500 examples for best results -- this dataset (84 train) is below that threshold, a real limitation, not corrected by padding with synthetic data"
+  },
+  "hyperparameters": {
+    "epochs": "not set -- Vertex AI auto-selects based on dataset size by default; Google's own guidance for a dataset this size/task type suggests starting in the 2-4 range and watching for overfitting given the small dataset",
+    "learning_rate_multiplier": "not set -- Google recommends leaving this at the default (effectively 1x the recommended rate) rather than guessing a value without real validation-loss feedback",
+    "adapter_size": "not specified -- would require checking the specific base model's supported adapter sizes in Vertex AI's live console/API at the time of a real run"
+  },
+  "evaluation_plan_if_run": {
+    "automatic": "exact-match / schema-validity rate of the tuned model's QuestionDraft output against the held-out test.jsonl's 14 examples (does the output parse as valid QuestionDraft JSON, does it pass the same duplicate/near-duplicate check as prepare_dataset.py applies to the training data)",
+    "qualitative": "human review of whether generated questions/expected_answers for test.jsonl's topics are factually sound and appropriately scoped, same standard already applied by generate_questions.py's own draft-review workflow (data/questions/_drafts/, human-approved before publishing)"
+  },
+  "estimated_cost": "not determined -- Vertex AI tuning cost depends on base model size, training time, example count and epoch count; Google's own pricing calculator is the authoritative source and was not run (would require a real, authorized GCP billing account) -- see feasibility_and_integration.md",
+  "status": "DESIGNED ONLY. No tuning job was created. No GCP project, Vertex AI access, or billing was configured or used this session."
+}

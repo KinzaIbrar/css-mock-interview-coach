@@ -20,6 +20,9 @@ class Settings(BaseSettings):
     # Optional regex for extra allowed origins (e.g. Vercel preview deployments: https://css-coach-.*\.vercel\.app)
     cors_origin_regex: str = ""
     gemini_api_key: str = ""
+    # Additional keys for fallback when one key hits a quota/rate limit or outage (see GeminiProviderPool).
+    # Comma-separated; merged with gemini_api_key via gemini_api_key_list (order preserved, deduped).
+    gemini_api_keys: str = ""
     gemini_model: str = "gemini-3.8-flash"
     # Gemini call policy: per-attempt timeout, limited retries on transient errors, overall time budget,
     # and a short cooldown after retries are exhausted so an outage does not stall every request.
@@ -66,8 +69,27 @@ class Settings(BaseSettings):
         return [o.strip() for o in self.cors_origins.split(",") if o.strip()]
 
     @property
+    def gemini_api_key_list(self) -> list[str]:
+        """Merged, order-preserved, deduplicated keys from GEMINI_API_KEY + GEMINI_API_KEYS.
+
+        Never logged; the plain .env values are the only place these are read from."""
+        raw = [self.gemini_api_key] + self.gemini_api_keys.split(",")
+        seen: set[str] = set()
+        keys: list[str] = []
+        for k in raw:
+            k = k.strip()
+            if k and k not in seen:
+                seen.add(k)
+                keys.append(k)
+        return keys
+
+    @property
     def ai_configured(self) -> bool:
-        return bool(self.gemini_api_key)
+        return bool(self.gemini_api_key_list)
+
+    @property
+    def ai_key_count(self) -> int:
+        return len(self.gemini_api_key_list)
 
 
 def check_production_database(s: "Settings") -> None:

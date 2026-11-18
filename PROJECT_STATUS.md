@@ -1,5 +1,60 @@
 # Project Status
 
+## Task 18 — Fine-tuning feasibility audit and dataset preparation (latest, 2026-11-18)
+
+Research only; no backend/RAG/FAISS/UI changes, nothing committed/pushed, no paid cloud resources used.
+
+- **Feasibility finding (verified, not assumed)**: the plain Gemini API — what this project's
+  `GEMINI_API_KEY`/`GEMINI_API_KEYS` actually authenticate against (Task 17) — does **not currently
+  support fine-tuning at all** (Google deprecated it for 1.5 Flash in May 2025 with no replacement yet).
+  Real Gemini fine-tuning exists only via Vertex AI, a separate billed Google Cloud platform requiring a
+  project + billing + a different auth/client mode, none of which is configured here. Confirms the
+  task's own warning that an API key alone never provides tuning access.
+- **Dataset audit**: the 112-question bank (`data/questions/*.json`) is genuinely clean (0 missing
+  fields, 0 exact/near duplicates) and was reformatted into a fine-tuning-ready 84/14/14 train/val/test
+  split matching `generate_questions.py`'s own real production prompt contract exactly. A second
+  candidate dataset (real Gemini-scored answer-evaluation examples) was checked and found **not to
+  exist**: `backend/app.db` has only 2 evaluation rows, both `dev_heuristic`, zero real AI-scored
+  examples anywhere in the project.
+- **No tuning job was run** (correctly — no Vertex AI access/authorization/billing exists). A concrete
+  training config was designed and verified against current official Vertex AI documentation, ready for
+  if/when real access is authorized.
+- **Integration is already compatible by design** with Task 17's `GeminiProviderPool` — a future tuned
+  model would need only a new `model` identifier plus one small, additive Vertex-AI client-construction
+  branch in `GeminiProvider`, no rewrite, no change to RAG/scoring/frontend.
+- Full detail: `research/finetuning/`.
+
+## Task 17 — Gemini multi-API-key provider integration (latest, 2026-11-18)
+
+Adds automatic fallback across multiple Gemini API keys when one hits a daily quota, a per-minute rate
+limit, a rejected/bad key, or a transient outage — purely additive, no architecture rewrite.
+
+- **Config** (`backend/app/core/config.py`): new `GEMINI_API_KEYS` (comma-separated), merged with the
+  existing `GEMINI_API_KEY` via `settings.gemini_api_key_list` (order-preserved, whitespace-trimmed,
+  deduplicated). `ai_configured`/new `ai_key_count` reflect the merged list. Fully backward compatible —
+  a single `GEMINI_API_KEY` with no `GEMINI_API_KEYS` behaves exactly as before.
+- **`GeminiProviderPool`** (`backend/app/agents/gemini_provider.py`): implements the same `LLMProvider`
+  protocol as `GeminiProvider`, wrapping one `GeminiProvider` instance per configured key. Reuses 100%
+  of each `GeminiProvider`'s existing timeout/retry/429-classification/cooldown logic (no duplication).
+  On any fallthrough error (quota exhausted, rate limited, transient failure, cooldown, rejected key) it
+  tries the next key; iteration is bounded by the key count (no infinite loop). `LLMInvalidOutput` (the
+  provider responded, just with bad content) is never retried across keys — masking it would hide a real
+  prompt/schema problem. When every key fails, the most informative error is surfaced (a rejected key >
+  quota/rate-limit > generic transient/cooldown). `.status()` reports available if any key is usable
+  right now; `/api/health` and `GET /api/agents` need no changes since they only read the dict shape.
+- **`runtime.get_provider()`**: the one construction point, unchanged in signature. Zero keys → `None`
+  (dev fallback, unchanged); one key → a plain `GeminiProvider` (byte-identical behavior to before this
+  task); two or more → `GeminiProviderPool`. Cached and rebuilt only when the key list or model changes.
+- **Zero changes** to any agent, route, the frontend, RAG, the FAISS baseline, question bank, prompts, or
+  scoring logic — every consumer only ever touches the provider through the `LLMProvider` protocol.
+- **Tests**: 26 new (`backend/tests/test_gemini_provider_pool.py`) covering config parsing/dedup/order,
+  pool fallback for every error type, all-exhausted + error-priority, runtime construction (0/1/N keys,
+  caching, rebuild-on-change), health/status shape, and secret redaction. Full suite: **537/537 passing**
+  (511 baseline + 26 new). No real Gemini quota consumed by any test (mocked providers throughout).
+- **Docs**: `.env.example` documents `GEMINI_API_KEYS` and the fallback order; no `docs/ai-agents.md`
+  exists in this repo yet, so none was created (out of this task's minimal scope).
+- Not yet committed/pushed (by design — this task stops before that step).
+
 ## RAG knowledge-base research arc (Tasks 11-14, latest, 2026-11-18) — research only, not production
 
 Separate from the application work below: a multi-task research effort investigating an optional,

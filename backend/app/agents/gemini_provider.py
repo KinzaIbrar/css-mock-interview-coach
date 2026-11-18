@@ -237,3 +237,81 @@ class GeminiProvider:
             return schema.model_validate_json(_FENCE.sub("", text))
         except ValidationError:
             raise LLMInvalidOutput("Gemini output did not match the required JSON structure") from None
+
+
+# Errors that mean "this key/provider can't help right now" -- worth trying the next one for.
+# LLMInvalidOutput is deliberately excluded: the provider DID respond, just with bad content, which
+# another key using the same model is no more likely to fix; masking it by cycling keys would hide a
+# real prompt/schema problem instead of surfacing it.
+_FALLTHROUGH_ERRORS = (LLMUnavailable, LLMTransientError, LLMRequestError, LLMQuotaExceeded, LLMRateLimited)
+# Higher = more actionable/specific when deciding which error to surface if every provider fails.
+_ERROR_PRIORITY = {
+    LLMRequestError: 3,  # a real, permanent problem (bad/revoked key) -- worth knowing about specifically
+    LLMQuotaExceeded: 2,
+    LLMRateLimited: 2,
+    LLMTransientError: 1,
+    LLMUnavailable: 0,
+}
+
+
+class GeminiProviderPool:
+    """Wraps multiple `GeminiProvider` instances (one per configured API key) behind the same
+    `LLMProvider` protocol. Tries each in order; on any fallthrough error (quota, rate limit, transient
+    failure, cooldown, or a rejected key) moves to the next, without duplicating any of
+    `GeminiProvider`'s own timeout/retry/quota-classification/cooldown logic -- that all still runs
+    per-key, unchanged. Iteration is bounded by the number of configured providers (no infinite loop).
+
+    With exactly one provider this behaves identically to using that `GeminiProvider` directly.
+    """
+
+    name = "gemini"
+
+    def __init__(self, providers: list[GeminiProvider]):
+        if not providers:
+            raise ValueError("GeminiProviderPool requires at least one provider")
+        self._providers = providers
+        self._model = providers[0].model
+        self._last_success_index: int | None = None
+
+    @property
+    def model(self) -> str:
+        """The model of whichever provider last actually responded (all keys normally share one model)."""
+        return self._model
+
+    @property
+    def last_success_index(self) -> int | None:
+        """Index (0-based) of the provider that answered the most recent successful call, for logging/tests."""
+        return self._last_success_index
+
+    def generate_json(self, *, system: str, prompt: str, schema: type[T]) -> T:
+        last_exc: LLMError | None = None
+        for i, provider in enumerate(self._providers):
+            try:
+                result = provider.generate_json(system=system, prompt=prompt, schema=schema)
+            except _FALLTHROUGH_ERRORS as exc:
+                logger.info(
+                    "Gemini provider %d/%d unavailable (%s); trying next", i + 1, len(self._providers), exc.code
+                )
+                if last_exc is None or _ERROR_PRIORITY.get(type(exc), 0) >= _ERROR_PRIORITY.get(type(last_exc), 0):
+                    last_exc = exc
+                continue
+            self._last_success_index = i
+            self._model = provider.model
+            return result
+        logger.warning("All %d Gemini provider(s) unavailable; raising %s", len(self._providers), type(last_exc).__name__)
+        raise last_exc
+
+    def status(self) -> dict:
+        """Available if ANY provider is usable right now. Never calls Google; same safe shape as
+        `GeminiProvider.status()` plus a provider count (not a credential, safe to expose)."""
+        statuses = [p.status() for p in self._providers]
+        up = [st for st in statuses if st["available"]]
+        if up:
+            return {"available": True, "reason": None, "retry_after_seconds": None, "provider_count": len(self._providers)}
+        soonest = min(statuses, key=lambda st: st.get("retry_after_seconds") or 0)
+        return {
+            "available": False,
+            "reason": soonest["reason"],
+            "retry_after_seconds": soonest["retry_after_seconds"],
+            "provider_count": len(self._providers),
+        }
